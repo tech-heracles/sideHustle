@@ -63,7 +63,6 @@ namespace DbCore.DbInventari
                    this.Add(new clsArtikulliPerberesTemplateTrupi(rreshti));
                }
 
-           //    //throw;
            return true;
        }
        #endregion

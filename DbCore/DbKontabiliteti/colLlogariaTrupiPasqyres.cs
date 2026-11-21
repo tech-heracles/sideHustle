@@ -62,7 +62,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsLlogariaTrupiPasqyres(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

@@ -5,14 +5,6 @@
 <script src="js/MenuInfo1.ascx-IMB.2.1.js?versioni22" type="text/javascript"></script>
 <table width="100%" style="background-color: #F3F3F3">
     <tr>
-        <%--        <td>
-            <dx:ASPxImage ID="ASPxImage1" runat="server" ImageUrl="~/images/new/about.png" ClientIDMode="Static">
-            </dx:ASPxImage>
-         
-        </td>--%>
-        <%--<dx:ASPxLabel ID="mesazhPage" runat="server" Text="" ClientInstanceName="mesazhPage"
-                Font-Size="Medium" ClientIDMode="Static" Wrap="False">
-            </dx:ASPxLabel> --%>
         <td id="mesazhi" style="width: auto;">
             <dx:ASPxComboBox ID="mesazhList" ClientEnabled="true" ShowImageInEditBox="true"
                 DropDownButton-Visible="false" DropDownButton-Image-UrlHottracked="~/images/new/about.png"
@@ -66,8 +58,3 @@
         </td>
     </tr>
 </table>
-<%--timer.SetEnabled(false);--%>
-<%--<dx:ASPxTimer ID="timer" runat="server" ClientInstanceName="timer" Interval="10000">
-    <ClientSideEvents Tick="   function (s,e){mesazhPage.SetText(); timer.SetEnabled(false); btnPo.SetVisible(false); btnJo.SetVisible(false);hlClose.SetVisible(false);}"
-        Init="function (s,e){timer.SetEnabled(false);}" />
-</dx:ASPxTimer>--%>

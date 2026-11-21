@@ -307,8 +307,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvKonfigAmbjentesh.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodKonfigAmbjente", gvKonfigAmbjentesh);
-            //    else
-            //else
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -534,7 +532,6 @@ namespace PlatinumWeb
         protected void gvKonfigAmbjentesh_ProcessColumnAutoFilter(object sender, ASPxGridViewAutoFilterEventArgs e)
         {
 
-            //            else
 
             ////    }
             if (e.Column.FieldName == "IdNivel" || e.Column.FieldName == "IdKategori")

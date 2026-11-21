@@ -65,7 +65,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
                 Index = oldColumn.Index,
                 VisibleIndex = oldColumn.VisibleIndex,
                 Width = oldColumn.Width,
-                //AllowTextTruncationInAdaptiveMode = oldColumn.AllowTextTruncationInAdaptiveMode,
                 Visible = oldColumn.Visible,
                 ToolTip = oldColumn.ToolTip
             };

@@ -33,11 +33,6 @@
        
     </asp:ScriptManager>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-    <%--<ClientSideEvents EndCallback="function(s,e){
-          if (window.parent.identikuesPerPopupFormula == 'LupaArtShpejt')
-              window.parent.window.parent.window.parent.SessionTimeout.sendKeepAlive();
-          else
-              window.parent.window.parent.SessionTimeout.sendKeepAlive();}" />--%>        
     </dx:ASPxGlobalEvents>
     <dx:ASPxHiddenField ID="hfState" runat="server">
     </dx:ASPxHiddenField>

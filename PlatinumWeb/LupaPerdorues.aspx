@@ -39,7 +39,6 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.  window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
     <div id='div' style="display: none">
         <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ASPxRoundPanel1" runat="server" ClientInstanceName="panel"

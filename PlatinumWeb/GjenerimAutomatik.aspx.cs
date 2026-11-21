@@ -181,12 +181,8 @@ namespace PlatinumWeb
             dt2.Dispose();
         }
 
-        //private void shtoNivel(string komponente, int idNdermarrje, int idPerdoruesi, ASPxGridView grida)
 
-        //    else
         
-        //private void shtoTransportues(string komponente, int idNdermarrje, ASPxGridView grida)
-        //    else
 
         private void shtoColor()
         {
@@ -198,29 +194,19 @@ namespace PlatinumWeb
             gg.DataItemTemplate = new MyGaugeTemplate();
         }
 
-        //private void shtoModel(string komponente, int idNdermarrje, int idPerdoruesi, int idGjuha, ASPxGridView grida)
 
 
-        //    else
 
 
-        //private void shtoMonedhe(string komponente, int idNdermarrje, int idPerdoruesi, ASPxGridView grida)
 
 
-        //    else
 
 
-        //private void shtoDegeAdm(string komponente, int idNdermarrje, int idPerdoruesi, ASPxGridView grida)
-        //    else
         
-        //private void shtoGrup1(string komponente, int idNdermarrje, int idPerdoruesi, ASPxGridView grida)
-        //    else
 
 
-        //private void shtoPikeShitjeFurnizim(string komponente, int idNdermarrje, ASPxGridView grida)
 
 
-        //    else
 
 
         /// <summary>

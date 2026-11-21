@@ -219,8 +219,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaMagazina.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNjesiAdministrative", gvLupaMagazina);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -263,6 +261,5 @@ namespace PlatinumWeb
             }
         }
 
-        //private void mbushComboBoxFiltra(int idNdermarrje)
     }
 }

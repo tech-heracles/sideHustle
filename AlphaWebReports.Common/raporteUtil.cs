@@ -161,7 +161,6 @@ namespace AlphaWebReports
                     reportDetail1.UpdateDetail(e.Parameter.Split(';')[0]);
                     xrReport = (XtraReport)reportDetail1;
                     break;
-                //case "buxhetimeSipasUrdherPagesave":
                 case "bilanciEnergjitikPermbledhes":
                 case "RapEvidenceBuxheti":
                     if (e.Parameter.Split(';')[1] == "Detail")

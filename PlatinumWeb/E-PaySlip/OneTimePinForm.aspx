@@ -12,11 +12,9 @@
 <head runat="server">
     <title>AVEC Accounting</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <%--    <meta http-equiv="X-UA-Compatible" content="IE=8" >--%>
     <meta name="description" content="Login-i AlphaWeb" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
       <link rel="icon" type="image/png" href="/images/brand/avec-favicon.png"/>
-    <%--  <script src="js/jquery-1.10.2.min.js"></script>        --%>
     <script src="public/modernizr.min.js"></script>
     <script src="public/placeholder.js"></script>
     <link rel="stylesheet" href="~/public/login.css" />
@@ -90,57 +88,37 @@
                                 <table>
                                     <tr>
                                         <td>
-                         <%--                   <dx:ASPxImage ID="OnlineImg" runat="server" CssClass="infoIcon" ImageUrl="~/images/FaqjaPare/Online.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
                                         
                                     <td>
-                                <%--        <dx:ASPxLabel ID="OnlineLbl" runat="server" CssClass="infoLbl" Text="Administrim tërësisht">
-                                        </dx:ASPxLabel>--%>
                                     </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                       <%--     <dx:ASPxImage ID="KostoImg" runat="server" CssClass="infoIcon" ImageUrl="/images/FaqjaPare/Kosto.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
 
                                         <td>
-                                          <%--  <dx:ASPxLabel ID="KostoLbl" runat="server" CssClass="infoLbl" Width="300" Text="Pa kosto instalimi dhe mirëmbajtje">
-                                            </dx:ASPxLabel>--%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                           <%-- <dx:ASPxImage ID="SiguriImg" runat="server" CssClass="infoIcon" ImageUrl="~/images/FaqjaPare/Siguri.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
 
                                         <td>
-                                          <%--  <dx:ASPxLabel ID="SiguriLbl" runat="server" CssClass="infoLbl" Text="Siguria më e lartë e të dhënave">
-                                            </dx:ASPxLabel>--%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                        <%--    <dx:ASPxImage ID="PagesaImg" runat="server" CssClass="infoIcon" ImageUrl="~/images/FaqjaPare/Paguaj.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
 
                                         <td>
-                                       <%--     <dx:ASPxLabel ID="PagesaLbl" runat="server" CssClass="infoLbl" Text="Paguaj sipas përdorimit">
-                                            </dx:ASPxLabel>--%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                     <%--       <dx:ASPxImage ID="NewVersionImg" runat="server" CssClass="infoIcon" ImageUrl="~/images/FaqjaPare/new.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
 
                                         <td>
-                        <%--           <dx:ASPxLabel ID="lblmsg" Visible="false"   runat="server" Cursor="pointer" Text=" ">
-                                            </dx:ASPxLabel>--%>
                                         </td>
                                     </tr>
                                 </table>
@@ -149,15 +127,6 @@
 
                         <section style="margin: auto; display: table;">
                             <section class="loginForm">
-                                <%--           <table  BorderStyle="Solid" BorderWidth="1px"  Font-Size="0.8em"
-                                ForeColor="#333333">
-                                     
-                                     <tr><td>  <dx:ASPxLabel runat="server" ID="lblPin" Text="Pini:"  CssClass="login"></dx:ASPxLabel>
-
-                                         </td>
-                                     
-                                     <td>    
-                           <dx:ASPxTextBox runat="server" ID="txtPin"  CssClass="login"></dx:ASPxTextBox></td></tr></table>--%>
                                 <asp:ScriptManager ID="Scriptmanager1" runat="server"></asp:ScriptManager>
                                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                     <ContentTemplate>
@@ -180,12 +149,6 @@
                                     PasswordRecoveryText="Harruar Fjalekalimin?"
                                     InstructionText="   Nuk eshte aktivizuar" LoginButtonImageUrl="~/images/FaqjaPare/loginbutton.png">
                                     <LayoutTemplate>
-                                        <%--     <div class="input" style="height:auto;max-height:40px;padding-top:0px; top: 0px; left: 0px;">
-                                            <dx:ASPxComboBox ID="cmbServerat" ButtonStyle-HoverStyle-BackColor="#00A74F" IncrementalFilteringMode="Contains" DropDownStyle="DropDownList" ItemStyle-SelectedStyle-BackColor="#00A74F" Border-BorderColor="#999999" Paddings-Padding="0" Width="100%" Height="40px"  Font-Size="16px"  ClientInstanceName="cmbServerat" runat="server">
-                                                <ClientSideEvents Init="cmbServerInit" SelectedIndexChanged="cmbServerSelectedChanged" />     
-                                                <ValidationSettings ValidationGroup="Login1" RequiredField-IsRequired="true" ErrorFrameStyle-Paddings-Padding="0" ErrorDisplayMode="None" SetFocusOnError="false" ErrorTextPosition="Bottom"></ValidationSettings>
-                                            </dx:ASPxComboBox>
-                                        </div>--%>
                                         <div class="input" style="display: none;" >
                                             <dx:ASPxTextBox ID="UserName" Visible="false" ClientInstanceName="txtUserName" Width="100%" Height="40px" Border-BorderColor="#999999" Border-BorderStyle="Solid" Font-Size="16px" runat="server" Paddings-Padding="0">
                                                 <ClientSideEvents Init="txtUsername_Init" />
@@ -227,9 +190,6 @@
                                         </div>
                                
                                         <dx:ASPxHiddenField runat="server" ID="loginHiddenField" ClientInstanceName="loginHiddenField"></dx:ASPxHiddenField>
-                                        <%-- <dx:ASPxLabel runat="server" CssClass="input" ID="lblHyrje" Text="Hyrje në Sistem" Font-Names="Arial" Font-Size="Large"></dx:ASPxLabel>
-
-                                        --%>
                                     </LayoutTemplate>
 
                                     <ValidatorTextStyle Font-Size="Medium" />

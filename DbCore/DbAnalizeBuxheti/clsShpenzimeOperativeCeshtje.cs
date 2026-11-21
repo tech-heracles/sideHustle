@@ -65,7 +65,6 @@ namespace DbCore.DbAnalizeBuxheti
 
             return mesazh;
         }
-        //public static int MerrVlerenDefaultTeKokes(clsDatabaseAnalizeBuxheti dbAB,int idNdermarrje)
         public clsShpenzimeOperativeCeshtje(int kokaID)
         {
            using(clsDatabaseAnalizeBuxheti dbAB=new clsDatabaseAnalizeBuxheti())

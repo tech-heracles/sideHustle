@@ -154,7 +154,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvKategoria.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Id", gvKategoria);
-            //else
             
             var mesazh = filtri.ruaj();
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, IdNdermarrja, "gvKategoria", Convert.ToInt32(cmbKonfigurimi.Value), "LupaKategoriShpenzimi.aspx");

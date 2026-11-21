@@ -229,12 +229,6 @@ nrArtikujve, nrMagazinave, periudhaNga.Date.ToLongDateString(), periudhaDeri.Dat
         }
 
         #region Funksioni i vjeter qe shkruan loget e rivleresimit
-        //private void writeOnLogFile(string stringToWrite) {
-        //        try
-        //                break; // you were successfull so leave the retry loop
-        //                System.Threading.Thread.Sleep(1435); // Wait some time before retry (2 secs)
-        //            else
-        //                // handle unsuccessfull write attempts or just ignore.
         #endregion
 
         #endregion

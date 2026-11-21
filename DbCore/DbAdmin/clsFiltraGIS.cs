@@ -217,7 +217,6 @@ namespace DbCore.DbAdmin
             db.Dispose();
             return ekziston;
         } 
-        //public static bool kaVeprime(int id)
 
         public static string ktheFilterPerDataSet(int id)
         {

@@ -65,7 +65,6 @@ namespace DbCore.DbKontabiliteti
                         Add(new clsTrupiSkemaFleteKontabel(rreshti));
                     }
 
-                //    //throw;
                 return true;
             }
 

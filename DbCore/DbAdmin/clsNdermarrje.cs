@@ -1014,7 +1014,6 @@ namespace DbCore.DbAdmin
                 qytet.IdNdermarja = ndermarrje.IdNdermarrje;
                 int idM;
                 clsMonedha monndernga = new clsMonedha();
-                //bool mbushMon = 
                 monndernga.mbushMonedhen(mon.KodiMonedha, idndermnga, dbAdmin);
                 mesazh = dbAdmin.ruajMonedhe(out idM, mon.KodiMonedha, mon.PershkrimiMonedha, mon.AktivMonedha, mon.IdPerdoruesi, monndernga.IdLlogFitimi, monndernga.IdLlogHumbje, mon.IdNdermarje, 1, mon.IdFormatNrKursi);
                 if (!mesazh.Status)
@@ -1655,7 +1654,6 @@ namespace DbCore.DbAdmin
             DataSet ds = new DataSet("WebInf");
             bool ukrijua = true;
             #region A
-            //dtt = data.ktheDataTable("T_ACRNUMRAAUTOMATIKE","SELECT  * from T_ACRNUMRAAUTOMATIKE where IDNDERMARJE in ("+inidnderm+")");//nuk perdoret me
             ukrijua = krijodt("T_ADRESAKLIENTFURNITOR", "SELECT T_ADRESAKLIENTFURNITOR. * FROM T_ADRESAKLIENTFURNITOR INNER JOIN dbo.T_KLIENTFURNITOR ON  dbo.T_ADRESAKLIENTFURNITOR.IDKLIENTFURNITOR = dbo.T_KLIENTFURNITOR.IDKLIENTFURNITOR WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_AGJENTSHITJE", "SELECT * FROM  T_AGJENTSHITJE WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_AKTIVITETEKOKA", "SELECT * FROM  T_AKTIVITETEKOKA WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);

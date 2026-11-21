@@ -127,8 +127,6 @@ namespace PlatinumWeb
 
         protected void gvKonfigParashikimShpenz_CustomCallback(object sender, DevExpress.Web.ASPxGridViewCustomCallbackEventArgs e)
         {
-            //if (e.Parameters.Contains("3006"))//per te kontrolluar nese eshte callback konfigurimi
-            //    else
         }
 
         protected void gvKonfigParashikimShpenz_BatchUpdate(object sender, DevExpress.Web.Data.ASPxDataBatchUpdateEventArgs e)

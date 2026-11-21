@@ -1200,7 +1200,5 @@
         private DataSource.Ds_ContractChangesTableAdapters.PRC_RAP_CONTRACT_CHANGESTableAdapter pRC_RAP_CONTRACT_CHANGESTableAdapter;
         private DevExpress.XtraReports.Parameters.Parameter gjuha;
         private DevExpress.XtraReports.UI.CalculatedField calculatedField1;
-        //private DataSource.Ds_ContractChanges ds_ContractChanges1;
-        //private DataSource.Ds_ContractChangesTableAdapters.PRC_RAP_CONTRACT_CHANGESTableAdapter pRC_RAP_CONTRACT_CHANGESTableAdapter;
     }
 }

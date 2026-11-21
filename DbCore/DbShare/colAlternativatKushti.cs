@@ -59,7 +59,6 @@ namespace DbCore.DbShare
                     this.Add(new clsAlternativaKushti(rreshti));
                 }
 
-            //    //throw;
             return true;
 
         }

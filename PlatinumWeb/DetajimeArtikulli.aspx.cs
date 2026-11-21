@@ -174,8 +174,6 @@ namespace PlatinumWeb
 
             filtri.FiltraVlera = gvDetajimArtikulli.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDetajimArtikulli", gvDetajimArtikulli);
-            //    else
-            //else
 
 
             int idPerdoruesi = (int)hfState["idPerdoruesi"];

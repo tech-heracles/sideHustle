@@ -268,7 +268,6 @@ namespace PlatinumWeb
                 emri = "";
             ////if (e.NewValues["Personi"] != null)
             ////    personi = e.NewValues["Personi"].ToString();
-            //else
             personi = hfPersoni.Value;
             if (e.NewValues["NrTel"] != null)
                 nrtel = e.NewValues["NrTel"].ToString();

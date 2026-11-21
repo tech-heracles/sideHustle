@@ -33,7 +33,6 @@ namespace PlatinumWeb
             return String.Format("{0},{1}|{2}{3}", subject.Length, detailInfo.Length, subject, detailInfo);
         }
 
-        // ASPxSchedulerStorage Storage { get { return SkedulerAgjenti.Storage; } }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -390,7 +389,6 @@ namespace PlatinumWeb
                     appMappings.Description = "DESCRIPTION";
                     if(storage.Appointments.CustomFieldMappings.Count == 0)
                         storage.Appointments.CustomFieldMappings.Add(new ASPxAppointmentCustomFieldMapping("TeKlienti", "TEKLIENTI"));
-                    //appMappings.Location = "LOCATION";  gisjana
                     appMappings.AllDay = "ALLDAY";
                     appMappings.Label = "LABEL";
                     appMappings.Status = "STATUS";

@@ -439,7 +439,6 @@ namespace DbCore.DbRegjistrim
         {
             colPikaShitjeFurnizimi data = new colPikaShitjeFurnizimi();
             data.mbushGjithePikeShitjeFurnizimi(this.IdNdermarje);
-            //return data.merrGjitheNjesiAdministrative(this.idNdermarrje); //i kalohet idNdermarje
             return data;
         }
 

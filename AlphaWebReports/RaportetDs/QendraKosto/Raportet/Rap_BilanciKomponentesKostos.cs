@@ -65,7 +65,6 @@ namespace AlphaWebReports.RaportetDs.QendraKosto.Raportet
         private void xrLabel29_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
 
-            //        else
         }
 
        
@@ -81,7 +80,6 @@ namespace AlphaWebReports.RaportetDs.QendraKosto.Raportet
         {
             //    //if (monedha != "E ndryshme")
 
-            //    else
 
 
             //// xrLabel30.Text = (shumaVleraMonllog).ToString();
@@ -107,17 +105,14 @@ namespace AlphaWebReports.RaportetDs.QendraKosto.Raportet
 
         private void xrLabel1_SummaryRowChanged(object sender, EventArgs e)
         {
-            //else
         }
 
         private void xrLabel2_SummaryRowChanged(object sender, EventArgs e)
         {
-            //else
         }
 
         private void xrLabel3_SummaryRowChanged(object sender, EventArgs e)
         {
-            //else
         }
 
         private void ReportFooter_AfterPrint(object sender, EventArgs e)

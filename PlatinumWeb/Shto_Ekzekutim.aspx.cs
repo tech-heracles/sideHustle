@@ -503,8 +503,6 @@ namespace PlatinumWeb
                 GridaKokaId = koka.IdGridaKoka, FiltraVlera = grid_faturat.FilterExpression, IdPerdoruesi = idPerdoruesi,
                 IdNdermarje = idNdermarrje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDokumenti", grid_faturat);
-            //    else
-            //else
 
             DbCore.clsMesazh mesazh = GridUtil.ruajFiltra(idNdermarrje, idPerdoruesi, idGjuha, "grid_faturat", komponente, cmbFiltra.Text, grid_faturat.FilterExpression, grid_faturat, "IdDokumenti", int.Parse(cmbKonfigurimi.Value.ToString()), out idfiltri);
 

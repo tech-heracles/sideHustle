@@ -57,7 +57,6 @@ namespace DbCore.DbArkaBanka
         public colVeprimBankaTrupi oColTrupi;
         private clsKokaFleteKontabel oKkokaFleteKontabel;
 
-        //private clsKokaFleteKontabel oKokaFleteKontabelVDK;//flete kontabel me diferencat nga kursi
         private colDokumentLidhesKoka oDokumentLidhes;
 
         private colGjendjeKlientFurnitor oGjendjeKF;

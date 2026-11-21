@@ -495,7 +495,6 @@ namespace PlatinumWeb
             }
         }
 
-        //public void mbushDokTePeriudhes(object sender, ASPxRadioButton e)
 
         public void merrSipasPeriudhes(string arr)
         {
@@ -740,8 +739,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaDok.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDokumenti", gvLupaDok);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);

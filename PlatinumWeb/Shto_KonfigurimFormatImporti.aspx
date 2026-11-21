@@ -51,7 +51,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
              </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ try{ window.parent.SessionTimeout.sendKeepAlive(); } catch(e){}}" />--%>
             </dx:ASPxGlobalEvents>
             <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true"
                 ViewStateMode="Enabled">
@@ -184,12 +183,9 @@
                                         </tbody>
                                     </table>
                                     <div id="dvFillim" class="atributeDiveFshehur">
-                                        <%--<div id="dvkonfigurimi_Label">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbKonfigurimi" ID="konfigurimi_Label"
                                             runat="server" Text="Lloji:" ClientInstanceName="konfigurimi_Label">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvcmbKonfigurimi">--%>
                                         <dx:ASPxComboBox ID="cmbKonfigurimi" runat="server" ClientInstanceName="cmbKonfigurimi"
                                             ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                             <ClientSideEvents SelectedIndexChanged="function(s,e){ndryshoKonfigurimin()}" />
@@ -208,7 +204,6 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
                                         <div id="dvlblKonfigurimi">
                                             <table>
                                                 <tr>
@@ -220,12 +215,9 @@
                                                 </tr>
                                             </table>
                                         </div>
-                                        <%--<div id="dvlblKategoria">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbKategoria" ID="lblKategoria"
                                             runat="server" Text="Kategoria" ClientInstanceName="lblKategoria">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvcmbKategoria">--%>
                                         <asp:UpdatePanel ID="cmbKategoria_UpdatePanel3ET" runat='server' >
                                             <Triggers>
                                                 <asp:AsyncPostBackTrigger ControlID="cmbKategoria" />
@@ -253,13 +245,9 @@
                                                 </dx:ASPxComboBox>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblKodi">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server"
                                             Text="Kodi:" ClientInstanceName="lblKodi">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvtxtKodi">--%>
                                         <dx:ASPxTextBox ID="txtKodi" runat="server" ClientInstanceName="txtKodi" Width="100%">
                                             <ClientSideEvents Init="function(s, e) {  
 	
@@ -274,13 +262,9 @@
                                             <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                             </DisabledStyle>
                                         </dx:ASPxTextBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblShenime">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="txtShenime" ID="lblShenime" runat="server"
                                             Text="Pershkrimi:" ClientInstanceName="lblShenime">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvtxtShenime">--%>
                                         <dx:ASPxMemo ID="txtShenime" runat="server" ClientInstanceName="txtShenime" Width="100%" Rows="3">
                                             <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries1"
                                                 ValidateOnLeave="false">
@@ -292,7 +276,6 @@
                                             <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                             </DisabledStyle>
                                         </dx:ASPxMemo>
-                                        <%--</div>--%>
                                     </div>
                                     <div id="divgride1" style="display: none">
                                         <asp:UpdatePanel ID="pnlbutona" runat='server'>

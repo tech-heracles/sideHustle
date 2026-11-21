@@ -1376,7 +1376,6 @@ namespace DbCore.DbRegjistrim
 
             if (idSt == 1 && meKontabilizim != 0) // idllojdokmag == 2 &&
             {//nese eshte dalje fleta kontabel krijohet ketu pasi vlefta percaktohet sipas cmimit mesatar me progresiv
-             //else
                 clsDatabaseKontabilitet dbkont = new clsDatabaseKontabilitet(dbRegj);
                 DbQendraKosto.colObjektivaKosto objektivat;
                 List<double> vleratobjektiva; List<double> vleratobjektivamonbaze;
@@ -1767,7 +1766,6 @@ namespace DbCore.DbRegjistrim
 
                 if (trup.IdTrupiMagazina == 0)
                     trup.IdTrupiMagazina = int.MaxValue - ocolTrupiMagazina.Count + iii;
-                //else
                 if (!newIdRenditje)
                     trup.IdRenditjes = coltrupivjeterKryesor[iii].IdRenditjes;
 
@@ -2029,7 +2027,6 @@ namespace DbCore.DbRegjistrim
                     }
                 }
 
-                //foreach (DbAsete.clsHistorikAQTSeriale h in colHistorik)//nesnes
                 //    mesazh = dbasete.modifikoHistorikAQTSerial(serialprindi.IdHistorikAktualPaSerial, idPer, historikprindi.IdDok, historikprindi.SasiaProgresive - h.SasiaProgresive, h.CmimiProgresive, h.CmimiProgresive * (historikprindi.SasiaProgresive - h.SasiaProgresive), historikprindi.IdStatusDokumenti);//zbresim sasine e serialit te ri nga prindi
             }
 
@@ -2642,8 +2639,6 @@ namespace DbCore.DbRegjistrim
                 {
                     clsHistorikAQTSeriale historik = new clsHistorikAQTSeriale();
                     historik.merrHistorikAQTSerialSipasID(serial.IdHistorikAktualPaSerial, kokaEkzistuese.idNdermarrje, dbasete);
-                    // clsAQTSeriale serialprind = new clsAQTSeriale();//nesnes
-                    //  mesazh = dbasete.modifikoHistorikAQTSerial(historikprind.IdHistoriku, kokaEkzistuese.idPerdoruesi, historikprind.IdDok, historikprind.SasiaProgresive + historik.SasiaProgresive, historikprind.CmimiProgresive, historikprind.CmimiProgresive * (historikprind.SasiaProgresive + historik.SasiaProgresive), historikprind.IdStatusDokumenti);//shtojme  sasine e serialit te ri nga prindi meqe seriali i ri do fshihet
                     if (idllojdokmag == 2)
                     {
                         mesazh = dbasete.modifikoHistorikAQTSerial(historik.IdHistoriku, kokaEkzistuese.idPerdoruesi, historik.IdDok, historik.SasiaProgresive + s.Sasia, historik.CmimiProgresive, historik.CmimiProgresive * (historik.SasiaProgresive + s.Sasia), historik.IdStatusDokumenti);//shtojme  sasine e serialit te ri nga prindi meqe seriali i ri do fshihet
@@ -2664,7 +2659,6 @@ namespace DbCore.DbRegjistrim
                             return mesazh;
                         }
                     }
-                    //if (idLlojDokumentiMagazine == 2) if (serialemag.Find(x => x.IdAQTSeriali == s.IdAQTSeriali) != null) serialemag.Find(x => x.IdAQTSeriali == s.IdAQTSeriali).IdAQTSeriali = serialprind.IdAQTSerial;//kalohet seriali i prindit//nesnes
                     continue;
                 }
                 if (idLlojDokumentiMagazine == 1)//hyrje
@@ -3833,7 +3827,6 @@ namespace DbCore.DbRegjistrim
                     scope.Complete();
                 }
 
-                //  else
                 return u_fshi;
             }
         }
@@ -3845,14 +3838,7 @@ namespace DbCore.DbRegjistrim
         ///// <param name="vlera"> vlefta me te cilen eshte prekur llogaria</param>
         ///// <param name="oLlogari"> llogaria e trupit</param>
         ///// <returns> kthen nje obj clsTrupiFleteKontabel me nje rresht te trupit te fletes kontabel</returns>
-        //[Obsolete("perdor: public clsTrupiFleteKontabel(int debikredi, double vlera, clsLlogari oLlogari, bool azhornim, int idndermarje, Nullable<Double> kursi, Nullable<Int32> idMonedha)")]
-        //        else
-        //        else
-        //            else
 
-        //        if (debikredi == 1) //rasti kur preket llogaria ne debi
-        //            else
-        //        else if (debikredi == 2) //rasti kur preket llogaria ne kredi
 
         /// <summary>
         /// perdoret per te gjetur totalin e sasise te nje artikulli ne trupin e nje dokumenti magazine per te kontrolluar me pas gjendjen e tij ne krahasim me sasine qe do dale nga magazina
@@ -3884,7 +3870,6 @@ namespace DbCore.DbRegjistrim
                 return db.shtoWTNICTeMagazina(idNdermarrje, idDokumenti, wtnic);
         }
 
-        //public double ktheTotalinArtikullitMeShenje(colTrupiMagazina trupi, int idArtikulli, int idMagazina)
 
         public double ktheTotalinArtikullitDetajim(colTrupiMagazina trupi, int idArtikulli, int iddetajim, int idMagazina)
         {

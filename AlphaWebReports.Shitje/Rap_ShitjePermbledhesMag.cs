@@ -78,12 +78,10 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
             }
 
-            // cnt++;
         }
 
         private void xrLabel36_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
         }
 
         private void xrLabel16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -111,7 +109,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void xrLabel38_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
         }
 
         private void xrLabel40_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -120,7 +117,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void xrLabel37_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         { 
-        //    else
         }
 
         private void xrLabel13_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -137,7 +133,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void xrLabel39_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
         }
 
         private void xrLabel2_AfterPrint(object sender, EventArgs e)

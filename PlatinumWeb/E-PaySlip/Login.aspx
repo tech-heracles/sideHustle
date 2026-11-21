@@ -468,57 +468,37 @@
                                 <table>
                                     <tr>
                                         <td>
-                         <%--                   <dx:ASPxImage ID="OnlineImg" runat="server" CssClass="infoIcon" ImageUrl="~/images/FaqjaPare/Online.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
                                         
                                     <td>
-                                <%--        <dx:ASPxLabel ID="OnlineLbl" runat="server" CssClass="infoLbl" Text="Administrim tërësisht">
-                                        </dx:ASPxLabel>--%>
                                     </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                       <%--     <dx:ASPxImage ID="KostoImg" runat="server" CssClass="infoIcon" ImageUrl="/images/FaqjaPare/Kosto.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
 
                                         <td>
-                                          <%--  <dx:ASPxLabel ID="KostoLbl" runat="server" CssClass="infoLbl" Width="300" Text="Pa kosto instalimi dhe mirëmbajtje">
-                                            </dx:ASPxLabel>--%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                           <%-- <dx:ASPxImage ID="SiguriImg" runat="server" CssClass="infoIcon" ImageUrl="~/images/FaqjaPare/Siguri.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
 
                                         <td>
-                                          <%--  <dx:ASPxLabel ID="SiguriLbl" runat="server" CssClass="infoLbl" Text="Siguria më e lartë e të dhënave">
-                                            </dx:ASPxLabel>--%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                        <%--    <dx:ASPxImage ID="PagesaImg" runat="server" CssClass="infoIcon" ImageUrl="~/images/FaqjaPare/Paguaj.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
 
                                         <td>
-                                       <%--     <dx:ASPxLabel ID="PagesaLbl" runat="server" CssClass="infoLbl" Text="Paguaj sipas përdorimit">
-                                            </dx:ASPxLabel>--%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                     <%--       <dx:ASPxImage ID="NewVersionImg" runat="server" CssClass="infoIcon" ImageUrl="~/images/FaqjaPare/new.png">
-                                            </dx:ASPxImage>--%>
                                         </td>
 
                                         <td>
-                                       <%--     <dx:ASPxHyperLink runat="server" ID="HelpLink" Font-Underline="false" ForeColor="#00a74f" CssClass="infoLbl" Text="Të rejat e versionit 4.7" Target="_blank">
-                                            </dx:ASPxHyperLink>--%>
                                         </td>
                                     </tr>
                                 </table>
@@ -578,9 +558,6 @@
                                             </dx:ASPxLabel>
                                         </div>
                                         <dx:ASPxHiddenField runat="server" ID="loginHiddenField" ClientInstanceName="loginHiddenField"></dx:ASPxHiddenField>                                  
-                                    <%-- <dx:ASPxLabel runat="server" CssClass="input" ID="lblHyrje" Text="Hyrje në Sistem" Font-Names="Arial" Font-Size="Large"></dx:ASPxLabel>
-
-                                    --%>
                                 </LayoutTemplate>
                                 
                                 <ValidatorTextStyle Font-Size="Medium" />
@@ -614,10 +591,6 @@
                             </dx:ASPxLabel>
                         </article>
                         <section>
-                        <%--    <dx:ASPxLabel ID="ASPxLabel11" CssClass="vizitori" runat="server"
-                                Text="Vizitorët mund të logohen me përdorues: vizitor dhe fjalëkalim: vizitor"
-                                Width="100%" Height="20" Style="margin-bottom: 0">
-                            </dx:ASPxLabel>--%>
                         </section>
                     </section>
                 </footer>

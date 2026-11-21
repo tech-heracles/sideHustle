@@ -37,7 +37,6 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
          </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true"
             ViewStateMode="Enabled">
@@ -215,11 +214,8 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<div id="dvlblKodi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="kodiTextBox" ID="lblKodi" runat="server" Text="Kodi:" ClientInstanceName="lblKodi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvkodi_TextBox">--%>
                                 <dx:ASPxTextBox ID="kodiTextBox" runat="server" ClientInstanceName="kodiTextBox"
                                     Width="100%">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -230,12 +226,8 @@
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblEmri">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="emriTextBox" ID="lblEmri" runat="server" Text="Emri:" ClientInstanceName="lblEmri">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvemri_TextBox">--%>
                                 <dx:ASPxTextBox ID="emriTextBox" runat="server" ClientInstanceName="emriTextBox"
                                     Width="100%">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true">
@@ -245,74 +237,49 @@
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblMbiemri">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="mbiemriTextBox" ID="lblMbiemri" runat="server" Text="Mbiemri:" ClientInstanceName="lblMbiemri">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvmbiemri_TextBox">--%>
                                 <dx:ASPxTextBox ID="mbiemriTextBox" runat="server" ClientInstanceName="mbiemriTextBox"
                                     Width="100%">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true">
                                         <ErrorFrameStyle ImageSpacing="4px">
                                             <ErrorTextPaddings PaddingLeft="4px" />
                                         </ErrorFrameStyle>
-                                        <%--    <RequiredField IsRequired="false" ErrorText="Jepni mbiemrin" />--%>
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
 
-                                <%--<div id="dvlblTelefoni">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="telTextBox" ID="lblTelefoni" runat="server" Text="Telefon:" ClientInstanceName="lblTelefoni">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtel_TextBox">--%>
                                 <dx:ASPxTextBox ID="telTextBox" runat="server" ClientInstanceName="telTextBox"
                                     Width="100%">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true">
                                         <ErrorFrameStyle ImageSpacing="4px">
                                             <ErrorTextPaddings PaddingLeft="4px" />
                                         </ErrorFrameStyle>
-                                        <%--  <RegularExpression ValidationExpression="[0-9]*" ErrorText="Lejohen vetem numra!" />--%>
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblFax">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="faxTextBox" ID="lblFax" runat="server" Text="Fax:" ClientInstanceName="lblFax">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvfax_TextBox">--%>
                                 <dx:ASPxTextBox ID="faxTextBox" runat="server" ClientInstanceName="faxTextBox"
                                     Width="100%">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true">
                                         <ErrorFrameStyle ImageSpacing="4px">
                                             <ErrorTextPaddings PaddingLeft="4px" />
                                         </ErrorFrameStyle>
-                                        <%--    <RegularExpression ValidationExpression="[0-9]*" ErrorText="Lejohen vetem numra!" />--%>
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblEmail">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="emailTextBox" ID="lblEmail" runat="server" Text="E-mail:" ClientInstanceName="lblEmail">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvemail_TextBox">--%>
                                 <dx:ASPxTextBox ID="emailTextBox" runat="server" ClientInstanceName="emailTextBox"
                                     Width="100%">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true">
                                         <ErrorFrameStyle ImageSpacing="4px">
                                             <ErrorTextPaddings PaddingLeft="4px" />
                                         </ErrorFrameStyle>
-                                        <%--<RegularExpression ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-                                                    ErrorText="Format i gabuar e-mail!" />--%>
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblPerqindje">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="perqindjeASPxTextBox" ID="lblPerqindje" runat="server" Text="Perqindje:" ClientInstanceName="lblPerqindje">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvperqindje_ASPxTextBox">--%>
                                 <dx:ASPxTextBox ID="perqindjeASPxTextBox" runat="server" ClientInstanceName="perqindjeASPxTextBox" Width="100%">
                                     <ValidationSettings Display="Dynamic" CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true">
                                         <ErrorFrameStyle ImageSpacing="4px">
@@ -320,12 +287,8 @@
                                         </ErrorFrameStyle>
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblQyteti">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="qytetiASPxComboBox" ID="lblQyteti" runat="server" Text="Qyteti:" ClientInstanceName="lblQyteti">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvqyteti_ASPxComboBox">--%>
                                 <dx:ASPxComboBox ID="qytetiASPxComboBox" runat="server" Width="100%" ClientInstanceName="qytetiASPxComboBox"
                                     ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top">
                                     <DropDownButton>
@@ -339,12 +302,8 @@
                                         </ErrorFrameStyle>
                                     </ValidationSettings>
                                 </dx:ASPxComboBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblLlogari">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtLlogari" ID="lblLlogari" runat="server" Text="Llogari:" ClientInstanceName="lblLlogari">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtLlogari">--%>
                                 <dx:ASPxComboBox ID="txtLlogari" 
                                     ClientInstanceName="txtLlogari" 
                                     Width="100%" 
@@ -373,13 +332,9 @@
 	                                                                   nrLlogariChange();
                                                                    }" />
                                 </dx:ASPxComboBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblAutorizimi"> --%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbAutorizimi" ID="lblAutorizimi"
                                     runat="server" Text="Nivel Autorizimi:" ClientInstanceName="lblAutorizimi">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%--<div id="dvcmbAutorizimi"> --%>
                                 <div>
                                         <select id="cmbAutorizimi">
                                         </select>
@@ -389,8 +344,6 @@
                                    <dx:ASPxLabel Wrap="False" AssociatedControlID="lblPerdoruesi" ID="lblPerdoruesi"
                                     runat="server" Text="Perdoruesi:" ClientInstanceName="lblPerdoruesi">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%--<div id="dvcmbAutorizimi"> --%>
                                 <dx:ASPxComboBox ID="btnPerdoruesi" runat="server" ClientInstanceName="btnPerdoruesi" 
                                     SettingsLoadingPanel-ImagePosition="Top" ShowShadow="False" Width="100%">
                                     <ClientSideEvents ButtonClick="function(s, e) {	Perdorues_Click();}" />
@@ -410,8 +363,6 @@
                                  <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbDrejtori" ID="lblDrejtori"
                                     runat="server"  ClientInstanceName="lblDrejtori">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%--<div id="dvcmbAutorizimi"> --%>
                                 <dx:ASPxComboBox ID="cmbDrejtori" runat="server" ClientInstanceName="cmbDrejtori" 
                                     SettingsLoadingPanel-ImagePosition="Top" ShowShadow="False" Width="100%" >
                                     <ClientSideEvents ButtonClick="Drejtori_Click" />
@@ -448,8 +399,6 @@
                     <asp:HiddenField ID="hfLupaAutorizimi" runat="server" />
                     <asp:HiddenField ID="hfLidhur" runat="server" />
                     <asp:HiddenField ID="hfTeDrejtaKonfGride" runat="server" />
-                    <%--<dx:ASPxLabel ID="pergjigja" runat="server" Text="">
-                </dx:ASPxLabel>--%>
                 </ContentTemplate>
             </asp:UpdatePanel>
             <dx:ASPxHiddenField ID="hfTeDrejta" runat="server" ClientInstanceName="hfTeDrejta">
@@ -493,19 +442,6 @@
                     </dx:ASPxPopupControl >
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <%--<asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
-            <ContentTemplate>
-                <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupUniversal" runat="server" AllowDragging="True" ClientInstanceName="popupUniversal"
-                    CloseAction="CloseButton" EnableAnimation="False" EnableViewState="False" HeaderText="Zgjidh llogarine "
-                    Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter">
-                    <ContentCollection>
-                        <dx:PopupControlContentControl ID="PopupControlContentControl1" runat="server">
-                            <iframe id="Container" name="ContainerLlogari" frameborder="0" runat="server"></iframe>
-                        </dx:PopupControlContentControl>
-                    </ContentCollection>
-                </dx:ASPxPopupControl >
-            </ContentTemplate>
-        </asp:UpdatePanel>--%>
         </div>
     </form>
 </body>

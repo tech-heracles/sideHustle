@@ -66,7 +66,6 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
             fieldData.Caption = "data";
 
             XRPivotGridField fieldAmortizimi = new XRPivotGridField("amortizimi", PivotArea.DataArea);
-            //else
             fieldAmortizimi.FieldName = "amortizimi";
             fieldAmortizimi.Caption = "Amortizimi shtese";
             fieldAmortizimi.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;

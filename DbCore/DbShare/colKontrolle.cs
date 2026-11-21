@@ -139,7 +139,6 @@ namespace DbCore.DbShare
                 {
                     this.Add(new clsKontroll(rreshti));
                 }
-            //    //throw;
             return true;
         }
 

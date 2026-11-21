@@ -126,7 +126,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsTrupiNdryshimCmimSasi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

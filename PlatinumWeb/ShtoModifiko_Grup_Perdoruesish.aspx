@@ -52,7 +52,6 @@
         </asp:ScriptManager>
         <div id="backDiv1" runat="server">
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <asp:UpdatePanel ID="pnlMenu" runat="server">
             <ContentTemplate>

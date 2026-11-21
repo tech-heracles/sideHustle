@@ -48,7 +48,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server">
                </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ try{ window.parent.SessionTimeout.sendKeepAlive(); } catch(e){  }}" />--%>
             </dx:ASPxGlobalEvents>
             <table width="100%">
                 <tr>
@@ -214,8 +213,6 @@
                     <asp:HiddenField ID="hfNjesia" runat="server" />
                     <asp:HiddenField ID="hfSasia" runat="server" />
                     <asp:HiddenField ID="hfCmimi" runat="server" />
-                    <%-- <asp:HiddenField ID="hfMonedha" runat="server" />
-        <asp:HiddenField ID="hfKursi" runat="server" /> --%>
                     <asp:HiddenField ID="hfVlMb" runat="server" />
                     <asp:HiddenField ID="hfTransport" runat="server" />
                     <asp:HiddenField ID="hfSiguracion" runat="server" />

@@ -122,7 +122,6 @@ namespace PlatinumWeb
         ///// </summary>
         ///// <param name="sender"></param>
         ///// <param name="e"></param>
-        //    else
 
         ///// <summary>
         ///// ruan filtrin 
@@ -130,8 +129,6 @@ namespace PlatinumWeb
         ///// <param name="sender"></param>
         ///// <param name="e"></param>
 
-        //            else
-        //        else
 
         ///// <summary>
         ///// validon nese ekziston filtri
@@ -139,10 +136,8 @@ namespace PlatinumWeb
         ///// <param name="source"></param>
         ///// <param name="args"></param>
         //    //using (DbCore.DbAdmin.clsDatabaseAdmin dbAdmin = new DbCore.DbAdmin.clsDatabaseAdmin())
-        //    //{
         //    //    if (dbAdmin.ekzistonFilter(Kodi_ASPxTextBox.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)))
         //    //    else
-        //    //}
         protected void gvLupaKonfig_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
@@ -201,8 +196,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaKonfig.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvLupaKonfig);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -245,6 +238,5 @@ namespace PlatinumWeb
             }
         }
 
-        //private void mbushComboBoxFiltra(int idNdermarrje)
     }
 }

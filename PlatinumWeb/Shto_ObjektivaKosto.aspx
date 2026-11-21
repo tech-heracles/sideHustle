@@ -28,12 +28,6 @@
      <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <%--    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myButtonClickLupa-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myMesazh-IMB.2.1.js?versioni22" type="text/javascript"></script>
-     
-    <script src="js/aspx.js/Shto_Aktivitete.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/Shto_ObjektivaKosto.aspx-IMB.3.1.js&v76"
         type="text/javascript"></script>
 </head>
@@ -42,7 +36,6 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server">
         </dx:ASPxHiddenField>
@@ -244,12 +237,9 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<div id="dvlblKodi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server"
                                     Text="Kodi:" ClientInstanceName="lblKodi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtKodi">--%>
                                 <dx:ASPxTextBox ID="txtKodi" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKodi">
                                     <ValidationSettings CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true"
                                         Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
@@ -262,15 +252,9 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblEmertimi">--%>
-                                <%--</div>--%>
-                                <%--<div id="dvlblPershkrimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtPershkrimi" ID="lblPershkrimi"
                                     runat="server" Text="Pershkrimi:" ClientInstanceName="lblPershkrimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtPershkrimi">--%>
                                 <dx:ASPxMemo ID="txtPershkrimi" runat="server" ClientInstanceName="txtPershkrimi"
                                     Rows="3" Width="100%">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
@@ -285,8 +269,6 @@
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cbAktiv" ID="lblAktiv" runat="server"
                                     Text="Aktiv:" ClientInstanceName="lblAktiv">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcbAktiv">--%>
                                 <dx:ASPxCheckBox ID="cbAktiv" runat="server" ClientInstanceName="cbAktiv" Width="100%">
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
@@ -297,13 +279,9 @@
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
                                 </dx:ASPxCheckBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblDtRegjistrimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="dteNga" ID="lblNga"
                                     runat="server" Text="Kohezgjatje Nga:" ClientInstanceName="lblNga">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvdteDtRegjistrimi">--%>
                                 <dx:ASPxDateEdit ID="dteNga" runat="server" ClientInstanceName="dteNga"
                                     ShowShadow="False" Width="100%">
                                     <DropDownButton>
@@ -327,8 +305,6 @@
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="dteNe" ID="lblNe"
                                     runat="server" Text="Ne:" ClientInstanceName="lblNe">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvdteDtRegjistrimi">--%>
                                 <dx:ASPxDateEdit ID="dteNe" runat="server" ClientInstanceName="dteNe"
                                     ShowShadow="False" Width="100%">
                                     <DropDownButton>

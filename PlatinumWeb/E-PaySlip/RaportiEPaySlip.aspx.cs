@@ -221,7 +221,6 @@ namespace PlatinumWeb.E_PaySlip
                                 return;
                             case "ChangeZoom":
                             case "SaveToDisk100":
-                                //case "SaveToDiskPerTatime": 
                                 report = GetReport(guidString);
                                 if (report != null)
                                 {
@@ -1108,7 +1107,6 @@ namespace PlatinumWeb.E_PaySlip
                 ((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval5")).Text = "120";
                 ((ASPxTextBox)navBarFiltrat.Groups[1].FindControl("txtInterval6")).Text = "150";
             }
-            //else
 
             //Per raportin e marzhit te shitjes dhe grafikut te marzhit te shitjes vendosim
             //vlerat default te filtrit klasa e artikullit : != sherbim dhe != pastokueshem
@@ -1451,23 +1449,10 @@ namespace PlatinumWeb.E_PaySlip
             hfTopAvanc.Value = serializusi.Serialize(grupKontrolliAvancuarTop.ToArray());
             #region komentuar
 
-            //            string[] kontrollEmrit1 ={"radDtRegj","txtNgaRegj","txtDeriRegj","lblDtRegj","lblngaRegj","lblDeriRegj", "txtPershk2","cmbVeprimPershk2","cmbLidhesaPershk","txtPershk1","cmbVeprimPershk1","txtRef2","cmbVeprimRef2","cmbLidhesaRef","txtRef1",
-            //                                        "cmbVeprimRef1","txtNrDok2","cmbVeprimDok2","cmbLidhesaDok","txtNrDok1","cmbVeprimDok1","txtBtnNrLlog2","cmbVeprim2","cmbLidhesa",
-            //                                        "txtBtnNrLlog1","cmbVeprim1","cmbGjendjaLlog","txtBtnLlogKoresp", "cmbMonedha","txtBtnLlojDok","cmbFormati", "cmbTipi" ,"cmbNengrupi","cmbGrupi",
-            //                                        "lblTipi","lblTipiPershk","lblFormali","lblLlogKoresp","lblLlogKorespPershk","lblGjendjaLlog","lblGrupiPershk","lblNengrupi","lblNengrupiPershk",
-            //                                        "lblNrDok","lblReferenca","lblPershkrimi","lblLlojDok","lblLlojDokumenti","lblMonedha","lblMonedhaPershk","lblGrupi","lblNrLlog","btnPastro","btnApliko",
-            //                                        "lblKlientFurnitori","cmbVeprimiKF1","btneKodKF","cmbLidhesaKF","cmbVeprimiKF2","btneKodKF2","lblDtMaturimi","dteDtMaturimi","lblMonedheKF","cbMonedheKF",
-            //                                     "lblIntervalet","txtInterval1","txtInterval2","txtInterval3","txtInterval4","txtInterval5","txtInterval6","lblNiveli","cmbNiveli","lblNiveliPershk",
-            //                                     "lblmagazina","txtBtnMagazina","lblkartela","txtBtnKartela","lblperdoruesi","txtBtnPerdoruesi"};
-
-            //            string[] kontrollefill ={"lblDtRegj","lblNrLlog","lblNrDok","lblReferenca","lblPershkrimi","lblKlientFurnitori","lblLlojDok","lblmagazina","lblkartela","lblperdoruesi",
-            //"lblMonedha","lblGrupi","lblNengrupi","lblTipi","lblNiveli","lblDtMaturimi","lblMonedheKF","lblIntervalet","lblFormali",
-            //"lblLlogKoresp","lblGjendjaLlog"};
 
 
-            //                        else
 
-            //                                topfill++;
+
             #endregion
         }
 
@@ -1998,8 +1983,6 @@ namespace PlatinumWeb.E_PaySlip
                                         case "cmbStatusHR":
                                             vlera = combo.Value.ToString();
                                             return vlera;
-                                        //case "cmbProdhuar":
-                                        //case "cmbFaturuar":
                                         case "cmbEmertimLlog":
                                             vlera = combo.Value.ToString();
                                             return vlera;
@@ -2036,8 +2019,6 @@ namespace PlatinumWeb.E_PaySlip
                                         case "cmbViti":
                                             vlera = combo.Text;
                                             return vlera;
-                                        //case "cmbLlojVeprimi1":
-                                        //case "cmbLlojVeprimi2":
                                         default:
                                             vlera = String.Format("{0} = {1}", kolonaFilter, combo.Value);
                                             if (kodKontrolli.Contains("1"))
@@ -3850,7 +3831,6 @@ namespace PlatinumWeb.E_PaySlip
 
                 ReportFunctions.konfigDataSetRaporti(report, spemri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
                 ImbReportToolbar1.konfigFleteRaporti(report, idPerdorues, EmerRealRaporti);
-                //CacheLayer.GlobalCacheManager.MySessionCache["MyReport"] = report; //KEVI 
 
                 DbCore.mySessionObjects.ruajMyReportNeSession(Session, guidString, report);
 
@@ -4027,7 +4007,6 @@ namespace PlatinumWeb.E_PaySlip
             }
             #region komentuar
 
-            //                else
             #endregion
 
             DbCore.clsMesazh mesazhi = oFilterKoka.krijoFilter(kolFilterTrupi);

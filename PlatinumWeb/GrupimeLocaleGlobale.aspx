@@ -37,7 +37,6 @@
            
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -204,29 +203,6 @@
                                         </CustomizationWindowContent>
                                     </Styles>
                                 </dx:ASPxTreeList>
-                                <%--  <dx:ASPxGridView ID="gvGrupime" runat="server" Width="100%" OnAfterPerformCallback="gridat_AfterPerformCallback"
-                                            OnHeaderFilterFillItems="gridat_HeaderFilterFillItems" OnRowUpdating="rowUpdating"
-                                            ClientInstanceName="gvGrupime" OnProcessColumnAutoFilter="gridat_ProcessColumnAutoFilter"
-                                            OnCancelRowEditing="startRowEditing" OnRowInserting="rowInserting" OnRowValidating="rowValidating"
-                                            OnInitNewRow="initNewRow" OnCustomCallback="gridat_CustomCallback" OnCustomJSProperties="gridat_CustomJSProperties">
-                                            <ClientSideEvents EndCallback="function(s, e) { EndCallbackGrida(s, e); }" RowDblClick="function(s, e) {
-                                        RowDblClickGrida1(s,e);}
-                                        "
-                                                BeginCallback="function(s, e) {
-                                        BeginCallback(s,e);
-                                      }" />
-                                            <Styles>
-                                                <Header ImageSpacing="5px" SortingImageSpacing="5px">
-                                                </Header>
-                                            </Styles>
-                                            <SettingsPager PageSize="15">
-                                            </SettingsPager>
-                                            <SettingsEditing Mode="EditFormAndDisplayRow" />
-                                            <StylesEditors>
-                                                <ProgressBar Height="25px">
-                                                </ProgressBar>
-                                            </StylesEditors>
-                                        </dx:ASPxGridView>--%>
                             </dxw:ContentControl>
                         </ContentCollection>
                     </dxtc:TabPage>
@@ -237,12 +213,9 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<div id="dvlblKodi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server"
                                     Text="Kodi:" ClientInstanceName="lblKodi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtKodi">--%>
                                 <dx:ASPxTextBox ID="txtKodi" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKodi">
                                     <ValidationSettings CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true"
                                         Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
@@ -255,13 +228,9 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblEmertimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtEmertimi" ID="lblEmertimi" runat="server"
                                     Text="Emertimi:" ClientInstanceName="lblEmertimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtEmertimi">--%>
                                 <dx:ASPxMemo ID="txtEmertimi" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtEmertimi"
                                     Rows="3">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -274,25 +243,17 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxMemo>
-                                <%--</div>--%>
 
-                                <%--<div id="dvlblAktiv">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cbAktiv" ID="lblAktiv" runat="server"
                                     Text="Aktiv:" ClientInstanceName="lblAktiv">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcbAktiv">--%>
                                 <dx:ASPxCheckBox ID="cbAktiv" runat="server" ClientInstanceName="cbAktiv" Width="100%">
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxCheckBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblLlog">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbPrindi" ID="lblPrindi" runat="server"
                                     Text="Prindi:" ClientInstanceName="lblPrindi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcmbLlog">--%>
                                 <dx:ASPxComboBox ID="cmbPrindi" ClientInstanceName="cmbPrindi" Width="100%" runat="server"
                                     OnItemRequestedByValue="cmbPrindi_ItemRequestedByValue" EnableCallbackMode="True"
                                     IncrementalFilteringDelay="7" SettingsLoadingPanel-ImagePosition="Top" ShowShadow="False">
@@ -312,32 +273,6 @@
                                     </DisabledStyle>
                                     <ClientSideEvents ButtonClick="function(s, e) {Prindi_Click();}" />
                                 </dx:ASPxComboBox>
-                                <%--   <dx:ASPxGridView ID="gvGlobale" runat="server" Width="100%" OnAfterPerformCallback="gridat_AfterPerformCallback"
-                                            OnHeaderFilterFillItems="gridat_HeaderFilterFillItems" OnRowUpdating="rowUpdating"
-                                            ClientInstanceName="gvGlobale" OnProcessColumnAutoFilter="gridat_ProcessColumnAutoFilter"
-                                            OnCancelRowEditing="startRowEditing" OnRowInserting="rowInserting" OnRowValidating="rowValidating"
-                                            OnInitNewRow="initNewRow" OnCustomCallback="gridat_CustomCallback" OnCustomJSProperties="gridat_CustomJSProperties">
-                                            <ClientSideEvents EndCallback="function(s, e) { enable()
-	                                    if($('#hfRuaj')[0].value=='Modifiko') 
-                                            { btn.DoClick(); }
-                                        else if($('#hfRuaj')[0].value=='Ruaj') 
-                                            { btn.DoClick(); }
-                                       }"
-                                                RowDblClick="function(s, e) { RowDblClickGrida2(s,e);}" BeginCallback="function(s, e) {
-                                        BeginCallback(s,e);
-                                      }" />
-                                            <Styles>
-                                                <Header ImageSpacing="5px" SortingImageSpacing="5px">
-                                                </Header>
-                                            </Styles>
-                                            <SettingsPager PageSize="15">
-                                            </SettingsPager>
-                                            <SettingsEditing Mode="EditFormAndDisplayRow" />
-                                            <StylesEditors>
-                                                <ProgressBar Height="25px">
-                                                </ProgressBar>
-                                            </StylesEditors>
-                                        </dx:ASPxGridView>--%>
                             </dxw:ContentControl>
                         </ContentCollection>
                     </dxtc:TabPage>

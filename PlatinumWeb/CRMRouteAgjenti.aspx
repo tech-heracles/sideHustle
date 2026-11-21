@@ -120,8 +120,6 @@
                                 Text="Agjenti" ClientInstanceName="lblAgjenti" ForeColor="Black">
                             </dx:ASPxLabel>
                         </td>
-                        <%-- </div>
-                                    <div id="dvbtnAgjenti">--%>
                         <td>
                             <dx:ASPxComboBox ID="btnAgjenti" Width="100%" runat="server" ClientInstanceName="btnAgjenti"
                                 ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" OnItemRequestedByValue="btnAgjenti_ItemRequestedByValue" OnItemsRequestedByFilterCondition="btnAgjenti_ItemsRequestedByFilterCondition"> 

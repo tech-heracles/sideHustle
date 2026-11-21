@@ -45,10 +45,7 @@
     <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/menu.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v76"> 
     </script>
     <script src="/signalr/hubs"></script>
-<%--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
 
-<%--    <script src="https://cdn.socket.io/4.1.2/socket.io.js" crossorigin="anonymous"></script>--%>
     <link href="FaqeKryesore.css" rel="stylesheet" />
     <link href="css/avec-shell.css?v=2" rel="stylesheet" />
     <style>
@@ -331,11 +328,6 @@
                                         <span class="avec-brand-product">Accounting</span>
 
                                         <%-- ImageUrl="images/home.png"--%>
-<%--                                        <img src="images/home2.png" />--%>
-                                       <%-- <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" Height="32px"
-                                            NavigateUrl="javascript:splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx?kontrollodefault=true');">
-                                            <ClientSideEvents Click="Click_ASPxHyperLink1" />
-                                        </dx:ASPxHyperLink>--%>
                                     </div>
                                     <div id="faqja" class="faqja" style="padding-left:0px !important">
                                         <dx:ASPxLabel runat="server" ClientInstanceName="lblFaqja" CssClass="style15"
@@ -346,8 +338,6 @@
 
                                     <div id="menu" class="menu">
                                         <dx:ASPxMenu ID="ASPxMenu1" Width="100%" Height="100%" runat="server" EnableClientSideAPI="true" ClientInstanceName="menu">
-                                            <%--                                            <RootItemSubMenuOffset FirstItemX="-1" LastItemX="-1" X="-1" />
-                                            <RootItemSubMenuOffset FirstItemX="-1" LastItemX="-1" X="-1" />--%>
                                             <%-- the top menu is no longer shown: its pages are on the home cards (Default.aspx), only the user menu stays --%>
                                             <ClientSideEvents ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}"
                                                 Init="function(s, e) { var r = s.GetRootItem(); for (var i = 0; i < r.GetItemCount(); i++) { if (r.GetItem(i).name !== 'ikonaImazhPerdorues') r.GetItem(i).SetVisible(false); } }" />
@@ -1238,16 +1228,12 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Mesazhe" Name="mesazhe">
                                                         </dx:MenuItem>
-                                                        <%--                                                        <dx:MenuItem Text="personalizo" Name="settings">
-                                                        </dx:MenuItem>--%>
                                                         <dx:MenuItem Text="Dalje" Name="dalje">
                                                         </dx:MenuItem>
                                                     </Items>
                                                 </dx:MenuItem>
                                            
                                             </Items>
-                                            <%--  <ItemStyle DropDownButtonSpacing="11px" ToolbarDropDownButtonSpacing="8px" ToolbarPopOutImageSpacing="8px" />
-                                            <SubMenuStyle GutterWidth="0px" />--%>
                                         </dx:ASPxMenu>
                                     </div>
 
@@ -1429,8 +1415,6 @@
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Text="Skema me Qendra Kosto" Name="Shto_SkemaQendraKosto.aspx" Visible="false">
                                                         </dxnb:NavBarItem>
-                                                        <%--  <dxnb:NavBarItem Text="Objektiva Kosto" Name="Shto_ObjektivaKosto.aspx" Visible="false">
-                                                                    </dxnb:NavBarItem>--%>
                                                         <dxnb:NavBarItem Text="Regjistrim Qendra Kosto" Name="RegjistrimQendraKosto.aspx"
                                                             Visible="false">
                                                         </dxnb:NavBarItem>
@@ -1457,15 +1441,6 @@
                                                         <dxnb:NavBarItem Text="Regjistrim Amortizimi i ri" Name="Shto_RegjistrimAmortizimi.aspx"
                                                             Visible="false">
                                                         </dxnb:NavBarItem>
-                                                        <%--   <dxnb:NavBarItem Text="Rivleresim amortizimi" Name="RivleresimeAmortizimi.aspx?lloj=rivleresim"
-                                                                        Visible="false">
-                                                                    </dxnb:NavBarItem>
-                                                                    <dxnb:NavBarItem Text="Rivleresim amortizimi i ri" Name="Shto_RivleresimeAmortizimi.aspx?lloj=rivleresim&shtim_modifikim=shtim"
-                                                                        Visible="false">
-                                                                    </dxnb:NavBarItem>
-                                                                    <dxnb:NavBarItem Text="Rillogaritje amortizimi" Name="RillogaritjeAmortizimi.aspx"
-                                                                        Visible="false">
-                                                                    </dxnb:NavBarItem>--%>
                                                     </Items>
                                                 </dxnb:NavBarGroup>
 
@@ -1582,8 +1557,7 @@
                                                     <Items>
 
                                                         <dxnb:NavBarItem Name="ABKonfiguroFusha.aspx" Text="Konfigurimi i zerave per ambjentet e analizes se buxhetit" Visible="false"></dxnb:NavBarItem>
-                                                        <%-- <dxnb:NavBarItem Name="ABParashikimShpenzimeKonfig.aspx" Text="Konfigurimi i parashikimit te shpenzimeve " Visible="false"></dxnb:NavBarItem> 
-                                                                  <dxnb:NavBarItem Name="ABKonfiguroShpenzimeOperative.aspx"  Text="Konfigurimi i shpenzimeve operative" Visible="false" ></dxnb:NavBarItem>--%><%-- perfshire tek ABKonfiguroFusha--%>
+<%-- perfshire tek ABKonfiguroFusha--%>
                                                         <dxnb:NavBarItem Name="ABBuxhetPermbledhes.aspx" Text="Regjistrimi i buxhetit permbledhes" Visible="false"></dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="ABParashikimShpenzPersoneli.aspx" Text="Regjistrimi i parashikimit te shpenzimeve per personelin" Visible="false"></dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="ABParashikimTeArdhura.aspx" Text="Regjistrimi i parashikimit te te ardhurave" Visible="false"></dxnb:NavBarItem>
@@ -1591,8 +1565,6 @@
                                                         <dxnb:NavBarItem Name="ABPBuxheti3Vjecar.aspx" Text="Regjistrimi i projektbuxhetit per tre vite" Visible="false"></dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="ABPlanifikimiIProdukteve.aspx" Text="Regjistrimi i planifikimit te produkteve" Visible="false"></dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="ABShpenzimeOperative.aspx" Text="Regjistrimi i shpenzimeve operative" Visible="false"></dxnb:NavBarItem>
-                                                        <%--<dxnb:NavBarItem Name="ABInventariPerdorues.aspx" Text="Regjistrimi i inventarit sipas perdoruesve" Visible="false"></dxnb:NavBarItem>
-                                                                  <dxnb:NavBarItem Name="ABInventariVite.aspx" Text="Regjistrimi i inventarit sipas viteve" Visible="false"></dxnb:NavBarItem> --%>
                                                         <dxnb:NavBarItem Name="ABPasqyraOrganike.aspx" Text="Regjistrimi i pasqyres organike" Visible="false"></dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="ABEvidencaStatistikore.aspx" Text="Regjistrimi i evidences statistikore" Visible="false"></dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="ABPlanifikimRealizim.aspx" Text="Planifikim dhe realizim" Visible="false"></dxnb:NavBarItem>

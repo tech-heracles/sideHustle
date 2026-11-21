@@ -34,7 +34,6 @@
     <script type="text/javascript" src="JsGlobal.js"></script>
     <div>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.  window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ASPxRoundPanel1" runat="server" HeaderText="Zgjidh Llogarine"
             ShowHeader="False">

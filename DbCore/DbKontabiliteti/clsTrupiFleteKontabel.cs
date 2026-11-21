@@ -177,11 +177,6 @@ namespace DbCore.DbKontabiliteti
                         VleftaDebiTrupiFleteKontabel = double.Parse(debi);
                 }
 
-                //        VleftaDebiTrupiFleteKontabel = azhornim && llog.IdMonedha == idmonnderm
-                //            ? double.Parse(debimon)
-                //    else
-                //        VleftaDebiTrupiFleteKontabel = azhornim && llog.IdMonedha == idmonnderm
-                //            ? double.Parse(debimon)
 
                 if (kredi != "null" && kredi != "")
                 {
@@ -193,11 +188,6 @@ namespace DbCore.DbKontabiliteti
                         VleftaKrediTrupiFleteKontabel = double.Parse(kredi);
                 }
 
-                //    VleftaKrediTrupiFleteKontabel = azhornim && llog.IdMonedha == idmonnderm
-                //        ? double.Parse(kredimon)
-                //else
-                //    VleftaKrediTrupiFleteKontabel = azhornim && llog.IdMonedha == idmonnderm
-                //        ? double.Parse(kredimon)
 
                 if (debimon != "null" && debimon != "")
                     if (debimon == "0" && debi != "0")

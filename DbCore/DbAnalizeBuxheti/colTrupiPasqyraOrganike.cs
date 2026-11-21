@@ -19,19 +19,8 @@ namespace DbCore.DbAnalizeBuxheti
 
         //    /*
         //*/
-        //    var sqlRow = new SqlDataRecord(
-        //          new SqlMetaData("IdTrupiDok", SqlDbType.Int, 50),
-        //          new SqlMetaData("IdKokaDok", SqlDbType.Int, 50),
-        //          new SqlMetaData("IdProfesioni", SqlDbType.Int, 50),
-        //          new SqlMetaData("VleraFakt", SqlDbType.Float, 100),
-        //          new SqlMetaData("VleraPlan", SqlDbType.Float, 100),
-        //          new SqlMetaData("IdStatusDok", SqlDbType.Int, 10),
-        //          new SqlMetaData("IdKrijuesi", SqlDbType.Int, 10),
-        //          new SqlMetaData("IdModifikuesi", SqlDbType.Int, 10),
-        //          new SqlMetaData("DtKrijimi", SqlDbType.DateTime, 10),
 
 
-        //        yield return sqlRow;
 
         public void Add(clsTrupiPasqyraOrganike trup)
         {

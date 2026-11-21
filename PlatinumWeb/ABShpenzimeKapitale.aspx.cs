@@ -195,7 +195,6 @@ namespace PlatinumWeb
             e.Handled = true;
         }
 
-        //private void shtoKoloneTotali()
 
 
         protected void gvShpenzimeKapitale_CustomUnboundColumnData(object sender,

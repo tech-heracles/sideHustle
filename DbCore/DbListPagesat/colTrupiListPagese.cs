@@ -186,7 +186,6 @@ namespace DbCore.DbListPagesat
         public Dictionary<int, colKompListPagese> KtheKomponentePerPunonjes(HttpSessionState session)
         {
             var colKomponenteNew = new colKompListPagese(ImbTasks.MerrListAsParallel<int, clsKompListPagese>(16, "MerrKompListPagese", trupatIds));
-            // var colKomponente = new colKompListPagese(trupatIds);//marrim collection me komponente 
             var kompLpIds = colKomponenteNew.Select(x => x.IdKompListPagese).ToList();//marrim gjithe id-te per ti perdorur ne leximin e kompmuaji
 
             //grupojme sipas trupit

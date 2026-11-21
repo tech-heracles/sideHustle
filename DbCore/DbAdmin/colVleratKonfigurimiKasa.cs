@@ -60,7 +60,6 @@ namespace DbCore.DbAdmin
 
                     this.Add(new clsVleraKonfigurimiKasa(rreshti));
                 }
-            //    //throw;
             return true;
         }
         #endregion

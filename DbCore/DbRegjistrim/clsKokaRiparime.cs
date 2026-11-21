@@ -707,7 +707,6 @@ namespace DbCore.DbRegjistrim
             if (koka.pershkrimi != String.Empty) shenime = koka.pershkrimi;
             else
             {
-                //else 
                 shenime = "Nga riparimet";
             }
             clsDatabaseInventari dbinv = new clsDatabaseInventari();

@@ -1121,7 +1121,6 @@ namespace DbCore.DbAdmin
         }
 
         //[Obsolete("Perdor: bool ekzistonPerdoruesMeKeteKod(String perdoruesusername)", true)]
-        //private bool ekzistonPerdoruesMeKeteKod(clsPerdorues perdoruesi)
         //    try
         //        else
 
@@ -1596,11 +1595,8 @@ namespace DbCore.DbAdmin
         /// </summary>
         /// <param name="kodRoli">kodi me te cilin do kerkohet</param>
         /// <returns>kthen id-ne e rolit nese gjendet, perndryshe kthen numer <= 0</returns>
-        //internal int ekzistonRol(String kodRoli, int idlicenca)
 
         //    //if (this.dbManager == null)
-        //    //{
-        //    //}
 
         internal int ekzistonRol(String kodRoli, int idlicenca)
         {
@@ -1812,10 +1808,6 @@ namespace DbCore.DbAdmin
         /// <returns></returns>
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajGrupPerdoruesishTeDrejta(clsGrupiPerdorues grup)", true)]
 
-        //    try
-        //                else
-        //            else
-        //        else
 
         //    finally
 
@@ -1847,11 +1839,8 @@ namespace DbCore.DbAdmin
         //    try
 
 
-        //               else
 
-        //           else
 
-        //       else
 
         //    finally
 
@@ -1877,11 +1866,8 @@ namespace DbCore.DbAdmin
         //    try
         //        //komentoi edi, sepse nuk do lejohet modifikimi i kodi te grupit te perdoruesit
         //        ////if (!ekzistonGrupPerdoruesiMeKeteKod(grupi))
-        //        ////{
 
 
-        //    sqlstr = "delete from  T_DREJTAT" +
-        //                      " where IDPERDORUES =" + idgrupiperdorues +
 
 
         internal clsMesazh fshiGrupPerdoruesish(int idgrupiperdorues)
@@ -2171,7 +2157,6 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: bool modifikoOnlineUser(String S, DateTime outUser)", true)]
-        //public bool modifikoOnlineUser(clsTrackUser objOnlineUser)
         //    try
 
         //    finally
@@ -2189,7 +2174,6 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: bool modifikoOnlineUserAllOffline(DateTime outUser)", true)]
-        //public bool modifikoOnlineUserAllOffline(clsTrackUser objOnlineUser)
         //    try
 
         //    finally
@@ -2366,10 +2350,6 @@ namespace DbCore.DbAdmin
         //    try
 
 
-        //        else
-        //    //finally
-        //    //{
-        //    //}
 
         internal clsMesazh modifikoQytet(int idqyteti, String kodiqyteti, String emriqyteti, int idndermarja, int idperdoruesi, int idstatusdok)
         {
@@ -2446,7 +2426,6 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: void merrQytet(int idqyteti)", true)]
-        //public void merrQytet(clsQyteti qyteti)
         //    try
         //    finally
 
@@ -2823,7 +2802,6 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: bool ekzistonMenyreTransportiMeKeteKod(String kodi, int idnderm)", true)]
-        //private bool ekzistonMenyreTransportiMeKeteKod(clsMenyreTransporti menyre)
         //    try
         //    finally
 
@@ -2986,7 +2964,6 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: bool ekzistonKushtDergimiMeKeteKod(String kodi, int idnderm)", true)]
-        //private bool ekzistonKushtDergimiMeKeteKod(clsKushtDergimi kusht)
         //    try
         //    finally
 
@@ -4010,7 +3987,6 @@ namespace DbCore.DbAdmin
 
         }
 
-        //public int merrNrUserOnlineIP(string ip, int idperdorues)
         //    try
 
 
@@ -4057,7 +4033,6 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: void merrTeDrejteVeprim(int iddrejtaveprim)", true)]
-        //public void merrTeDrejteVeprim(clsTeDrejtaVeprim veprim)
         //    try
         //    finally
 
@@ -4109,7 +4084,6 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(1, "@KODI", kodi, ParameterDirection.Input);
             int nrRreshtash = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KONFIGURIMKASA_ekzistonKonfigurimPerKeteNdermarje"));
             return (nrRreshtash == 0 ? false : true);
-            //else
         }
 
         internal string ktheSkemeBarkodiPershoreje(int idNdermarrja)
@@ -5153,11 +5127,6 @@ namespace DbCore.DbAdmin
         //    try
         //    finally
 
-        //internal string merrKodNdermarrje(int idndermarrjevit)
-        //   
-        //    //{
-        //    //}
-        //    String sqlstr = "select NDERMARJEKODI  from T_NDERMARJE n inner join T_NDERMARJEVITI nv " +
 
 
         /// <summary>
@@ -5310,9 +5279,7 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Nuk perdoret me!", true)]
-        //    //string datefill;
         //    try
-        //        //return datefill;
         //    finally
 
         internal DataTable ktheGjitheNdermarrjeVitet()
@@ -6370,7 +6337,6 @@ namespace DbCore.DbAdmin
 
         }
         //[Obsolete("Perdor: bool ekzistonAgjentShitjeMeKeteKod(string kodi, int idnderm)", true)]
-        //private bool ekzistonAgjentShitjeMeKeteKod(clsAgjentShitje agjent)
         //    try
         //    finally
 
@@ -8091,11 +8057,6 @@ namespace DbCore.DbAdmin
 
         #region  GRUP AUDITIMI
 
-        //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajGrupAuditimiDheTrupin(clsGrupAuditimi gr)", true)]
-        //    try
-        //              else
-        //          else
-        //      else
 
         //    finally
 
@@ -8299,7 +8260,6 @@ namespace DbCore.DbAdmin
         //{//merr nje autorizim koke 
         //    try
         //[Obsolete("Perdor: void merrAutorizimKoka(int idAutorizimKoka)", true)]
-        //public void merrAutorizimKoka(clsAutorizimKoka autorizimKoka)
         //{//merr nje autorizim koke 
         //    try
         //    finally
@@ -8324,10 +8284,6 @@ namespace DbCore.DbAdmin
         //{//transaksioni per te fshire nje autorizim koke dhe trupat
         //    try
 
-        //            else
-        //            else
-        //        else
-        //    finally
 
         internal DataRow merrAutorizim(int id)
         {//kthen nje autorizim koke sipas id
@@ -9220,7 +9176,6 @@ namespace DbCore.DbAdmin
                 return new DbCore.clsMesazh(true);
 
 
-                //else
 
 
             }
@@ -9431,7 +9386,6 @@ namespace DbCore.DbAdmin
         //internal void merrACRNumraAutomatikeVoid(int idLidhjeNrAuto)
         //    try
         //[Obsolete("Perdor: void merrACRNumraAutomatike(int idLidhjeNrAuto)", true)]
-        //public void merrACRNumraAutomatike(clsACRNumraAutomatike ACRNumraAutomatike)
         //    try
         //    finally
 

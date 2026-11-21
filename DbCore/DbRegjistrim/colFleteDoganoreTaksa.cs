@@ -64,7 +64,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsFleteDoganoreTaksa(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

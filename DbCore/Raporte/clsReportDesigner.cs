@@ -25,9 +25,6 @@ namespace DbCore.Raporte
         public clsReportDesigner()
         {
 
-            // rootPath = HttpContext.Current.Server.MapPath(null) + @"\RaportetLayout\";
-            //if (!Directory.Exists(rootPath))
-            //    Directory.CreateDirectory(rootPath);
         }
 
         #endregion Konstruktoret

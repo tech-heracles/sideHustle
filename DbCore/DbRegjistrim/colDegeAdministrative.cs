@@ -125,7 +125,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsDegeAdministrative(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
         private bool mbushDegetAdministrativePerKonfigurim(DataTable dt)
@@ -137,7 +136,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsDegeAdministrative(rreshti,true));
                 }
 
-            //    //throw;
             return true;
         }
         

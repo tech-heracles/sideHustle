@@ -52,7 +52,6 @@ namespace DbCore.DbAdmin
                     Add(new clsAmbjent(rreshti)); 
                 }
 
-            //    //throw;
             return true;
         }
 

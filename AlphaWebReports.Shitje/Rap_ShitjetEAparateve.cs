@@ -57,14 +57,12 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
                     
-            //else
                 
         }
 
         private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
                      
-            //else
                
         }
 

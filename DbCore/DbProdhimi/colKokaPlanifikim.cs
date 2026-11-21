@@ -86,7 +86,6 @@ namespace DbCore.DbProdhimi
                     Add(new clsKokaPlanifikim(rreshti, db));
                 }
 
-            //    //throw;
             return true;
         }
 

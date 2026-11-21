@@ -32,7 +32,6 @@
 <body>
     <form id="form1" runat="server">
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server"  AsyncPostBackTimeout="360000">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
          
     <div>
@@ -159,8 +158,6 @@
                                     </td>
                                 </tr>
                             </table>
-                            <%--  <dx:ASPxLabel ID="pergjigja" runat="server" Text="">
-                    </dx:ASPxLabel>--%>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </dx:PanelContent>

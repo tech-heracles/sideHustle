@@ -34,7 +34,6 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true"
             ViewStateMode="Enabled">
@@ -229,12 +228,9 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<div id="dvlblKodi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="kodi_TextBox" ID="lblKodi" runat="server"
                                     Text="Kodi: " ClientInstanceName="lblKodi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvkodi_TextBox">--%>
                                 <dx:ASPxTextBox ID="kodi_TextBox" runat="server" AutoPostBack="false" Width="100%"
                                     ClientInstanceName="kodi_TextBox">
                                     <ValidationSettings CausesValidation="true" ValidationGroup="entries" Display="Dynamic"
@@ -248,13 +244,9 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblPershkrimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="pershkrimiTextBox" ID="lblPershkrimi"
                                     runat="server" Text="Pershkrimi: " ClientInstanceName="lblPershkrimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvpershkrimiTextBox">--%>
                                 <dx:ASPxMemo ID="pershkrimiTextBox" runat="server" Width="100%" ClientInstanceName="pershkrimiTextBox"
                                     Rows="3">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -267,25 +259,17 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxMemo>
-                                <%--</div>--%>
-                                <%--<div id="dvlblAktive">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="active_CheckBox" ID="lblAktive"
                                     runat="server" Text="Aktive: " ClientInstanceName="lblAktive">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvactive_CheckBox">--%>
                                 <dx:ASPxCheckBox ID="active_CheckBox" runat="server" ClientInstanceName="active_CheckBox"
                                     TextSpacing="2px" Width="100%">
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxCheckBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblllogFitimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="btneLlogFitimi" ID="lblllogFitimi"
                                     runat="server" Text="Llogari Fitim nga Kursi:" ClientInstanceName="lblllogFitimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvbtneLlogFitimi">--%>
                                 <dx:ASPxComboBox ID="btneLlogFitimi" 
                                     runat="server" 
                                     ClientInstanceName="btneLlogFitimi"
@@ -314,13 +298,9 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxComboBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblLlogHumbje">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="btneLlogHumbje" ID="lblLlogHumbje"
                                     runat="server" Text="Llogari Humbje nga Kursi:" ClientInstanceName="lblLlogHumbje">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvbtneLlogHumbje">--%>
                                 <dx:ASPxComboBox ID="btneLlogHumbje" 
                                     runat="server" 
                                     ClientInstanceName="btneLlogHumbje"
@@ -349,8 +329,6 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxComboBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblAutorizimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbAutorizimi" ID="lblAutorizimi"
                                     runat="server" Text="Autorizimi:" ClientInstanceName="lblAutorizimi">
                                 </dx:ASPxLabel>
@@ -363,8 +341,6 @@
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="btneFormatNumri" ID="lblFormatNumri"
                                     runat="server" Text="Formati i numrave te kursit:" ClientInstanceName="lblFormatNumri">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvbtneLlogHumbje">--%>
                                 <dx:ASPxComboBox ID="btneFormatNumri" runat="server" ClientInstanceName="btneFormatNumri"
                                     ShowShadow="False" ValueType="System.String" SettingsLoadingPanel-ImagePosition="Top"
                                     Width="100%">
@@ -394,21 +370,14 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<div id="dvlblMonedha">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="monedha_label" ID="lblMonedha" runat="server"
                                     Text="Monedha:" ClientInstanceName="lblMonedha">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvmonedha_label">--%>
                                 <dx:ASPxLabel ID="monedha_label" runat="server" Text="" ClientInstanceName="monedha_label">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvlblNjesia">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="njesia_TextBox" ID="lblNjesia" runat="server"
                                     Text="Njesia:" ClientInstanceName="lblNjesia">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvnjesia_TextBox">--%>
                                 <dx:ASPxTextBox ID="njesia_TextBox" runat="server" Width="100%" ClientInstanceName="njesia_TextBox"
                                     Text="1">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
@@ -417,7 +386,6 @@
                                         </ErrorFrameStyle>
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
                                 <br />
                                 <dx:ASPxGridView ID="gvKurset" runat="server" ClientInstanceName="gvKurset" Width="80%"
                                     OnHtmlRowCreated="gvKurset_HtmlRowCreated" OnAfterPerformCallback="gvKurset_AfterPerformCallback" OnCustomJSProperties="gvKurset_CustomJSProperties"

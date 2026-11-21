@@ -8,7 +8,6 @@
 <head runat="server">
     <title>AVEC Accounting</title>
     
-<%--    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />--%>
      <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <link href="js/css/le-frog/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"
         runat="server" id="themeJQuery" />
@@ -186,7 +185,6 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true">
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ if (window.parent) window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="ASPxHiddenField1" runat="server"></dx:ASPxHiddenField>
         <div id="div2" style="width: 100%; display: inline-block; position: relative;">

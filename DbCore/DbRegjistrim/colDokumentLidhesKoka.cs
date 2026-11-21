@@ -89,7 +89,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsDokumentLidhesKoka(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

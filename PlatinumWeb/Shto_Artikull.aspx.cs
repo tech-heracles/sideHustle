@@ -418,13 +418,9 @@ namespace PlatinumWeb
         }
 
 
-        //private void shto_Kodifikim(int idNdermarrje)
-        //    else
-
-        //private void shto_Njesi1(int idNdermarrje)
 
 
-        //private void shto_Njesi2(int idNdermarrje)
+
 
 
         /// <summary>
@@ -540,8 +536,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_Artikull.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodArtikulli", ASPxGridView_Artikull);
-            //    else
-            //else
             filtri.IdPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -1668,7 +1662,6 @@ namespace PlatinumWeb
                                 colArt.Add(artVf);
                         }
                         else colArt.Add(artVf);
-                        //i++;
 
                     }
                 return colArt;
@@ -2573,7 +2566,6 @@ namespace PlatinumWeb
                                 colArt.Add(artPerberes);
                         }
                         else colArt.Add(artPerberes);
-                        //i++;
 
                     }
                 }

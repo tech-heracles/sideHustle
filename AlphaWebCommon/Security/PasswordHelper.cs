@@ -68,7 +68,6 @@ namespace DbCore.IMBUtils.Security
             return BarazimKonstant(Pbkdf2Sha256(password, salt, iterime, hash.Length), hash);
         }
 
-        // Rfc2898DeriveBytes ne .NET Framework eshte vetem SHA1 dhe i ngadalte (~0.7s per 100k iterime);
         // PBKDF2 i Windows (CNG) ben te njejten pune ne kod nativ.
         private static byte[] Pbkdf2Sha256(string password, byte[] salt, int iterime, int gjatesia)
         {

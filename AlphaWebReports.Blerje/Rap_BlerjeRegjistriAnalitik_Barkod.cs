@@ -106,22 +106,7 @@ namespace AlphaWebReports.RaportetDs.Blerje
                      System.Reflection.Assembly.Load("App_GlobalResources"));
           
 
-          //  xrLabel17.Text = rm.GetString("RaportRegjistriAnalitikBlerjeveTitulli", ci);//
             FiltratLabel.Text = rm.GetString("FiltratEmertimi", ci);
-           // xrLabel10.Text = rm.GetString("labelDokumentArtikulli", ci);//
-           // xrLabel3.Text = rm.GetString("labelDokumentArtikulli", ci);//
-          //  xrLabel4.Text = rm.GetString("labelRaportiPershkrimi", ci);//
-          //  xrLabel7.Text = rm.GetString("labelNjesia", ci);//
-          //  xrLabel8.Text = rm.GetString("labelSasia", ci);//
-         //   xrLabel13.Text = rm.GetString("labelVlefta", ci);//
-          //  xrLabel9.Text = rm.GetString("labelRaportiPershkrimi", ci);//
-          //  xrLabel14.Text = rm.GetString("labelGjithsej", ci);//
-         //   xrLabel15.Text = rm.GetString("labelZbritjeAnalitike", ci);//
-         //   xrLabel23.Text = rm.GetString("labelVleftapaTVSH", ci);//
-          //  xrLabel19.Text = rm.GetString("labelZbritjaTotale", ci);//
-          //  xrLabel24.Text = rm.GetString("labelVleftameZbritje", ci);//
-           // xrLabel21.Text = rm.GetString("labelMonLlogari", ci);//
-            // xrLabel22.Text = rm.GetString("labelMonBaze", ci);//
             xrLabel44.Text = rm.GetString("labelShumaPaTvsh", ci);
             xrLabel45.Text = rm.GetString("labelTVSH", ci);
             xrLabel46.Text = rm.GetString("labelShumaMeTvsh", ci);

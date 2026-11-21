@@ -43,7 +43,6 @@ namespace PlatinumWeb.Templates
         public MyTitlePanelRegjistrimDokumentash(string emriGrides, Page page, ASPxMenu menuMesazhesh, UpdatePanel pnlMesazhi, ASPxHiddenField hfState, int idkonfigAmbjenti, int idPerdoruesi, int idNdermarrje, int idViti, int idGjuha, string komponente, int idKomponente, string renditjeDefault, ResourceManager rm, CultureInfo cultureInfo, bool meExpandCollapse, GridViewExportedRowType exportType, bool meComboAutomatike) : base(emriGrides, page, menuMesazhesh, pnlMesazhi, hfState, idkonfigAmbjenti, idPerdoruesi, idNdermarrje, idViti, idGjuha, komponente, idKomponente, renditjeDefault, rm, cultureInfo, meExpandCollapse, exportType, meComboAutomatike, false)
         {
             ////nese menyra e filtrimit eshte 0 i ath nuk ka nje konfigurim te percaktuar
-            //else
         }
 
         protected override List<Control> KontrolletEPeriudhes(bool raiseValueChanged = true)

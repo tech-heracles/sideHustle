@@ -228,8 +228,6 @@ namespace DbCore.DbCRM
 
             if (clsKlientAnketa.eshteLidhur(this.IdKokaAnketa) && this.DtFillimi < DateTime.Now)
                 return u_modifikua;
-                //nese anketa eshte e lidhur dhe nese data e fillimit te anketes eshte me e vogel se data e sotme e anketes modifikohet edhe trupi i saj,
-                //ne rast te kundert modifikohen vetem fushat e kokes se anketes
                 u_modifikua = data.fshiTrupAnkete(this.idKokaAnketa);
                 if (!u_modifikua.Status)
                 {

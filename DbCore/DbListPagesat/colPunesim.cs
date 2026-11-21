@@ -140,17 +140,10 @@ namespace DbCore.DbListPagesat
         /// </summary>
         /// <param name="dt"> data table me te dhenat e tipit punesim</param>
         /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
-        //public bool mbushPunesim(DataTable dt)
         //    //try
-        //    //{
 
 
-        //    //}
         //    //catch (Exception)
-        //    //{
-        //    //    return false;
-        //    //    //throw;
-        //    //}
 
         #endregion
         public static colPunesim MerrPunesimTeFunditPerPunonjesit(List<int> punonjesIDs, DateTime data)

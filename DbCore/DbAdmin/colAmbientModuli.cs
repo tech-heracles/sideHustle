@@ -80,7 +80,6 @@ namespace DbCore.DbAdmin
                         Convert.ToString(rreshti["AMBJPERSHKRIMI"]), Convert.ToInt32(rreshti["IDMODULI"]));
                     this.Add(ambienti);
                 }
-            //    //throw;
             return true;
         }
 

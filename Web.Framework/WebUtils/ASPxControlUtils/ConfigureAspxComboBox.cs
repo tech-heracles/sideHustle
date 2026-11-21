@@ -2449,7 +2449,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             kodifikimet.Add(new clsKodifikimArtikulli());
             kodifikimet.merrKodifikimArtikulliSipasLlojit(grupi, idNdermarrje, llojartikulli);
             combo.DataSource = kodifikimet;
-            //combo.DropDownStyle = DropDownStyle.DropDownLis
             combo.TextField = "PershkrimKodifikimi";
             combo.ValueField = "IdKodifikimi";
             combo.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;

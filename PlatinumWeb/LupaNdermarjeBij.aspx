@@ -33,10 +33,6 @@
         </LoadingDivStyle>
     </dx:ASPxLoadingPanel>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){  try { window.parent.window.parent.SessionTimeout.sendKeepAlive(); }
-        catch (err) {
-   
-        }}" />--%>
     </dx:ASPxGlobalEvents>
     <div id='div' style="display: none">
         <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ASPxRoundPanel1" runat="server" ClientInstanceName="panel"

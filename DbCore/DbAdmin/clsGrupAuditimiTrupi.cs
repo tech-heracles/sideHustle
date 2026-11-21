@@ -78,11 +78,8 @@ namespace DbCore.DbAdmin
             set { idKolone = value; }
         }
 
-        //public bool ruaj()
 
-        //public bool modifiko()
 
-        //public bool fshi()
 
         #endregion
 

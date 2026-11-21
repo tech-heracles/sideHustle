@@ -192,11 +192,8 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<div id="dvlblKodi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server" Text="Kodi:" ClientInstanceName="lblKodi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtKodi">--%>
                                 <dx:ASPxTextBox ID="txtKodi" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKodi">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries" SetFocusOnError="true">
                                         <ErrorFrameStyle ImageSpacing="4px">
@@ -208,12 +205,8 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblEmertimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtEmertimi" ID="lblEmertimi" runat="server" Text="Emertimi:" ClientInstanceName="lblEmertimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtEmertimi">--%>
                                 <dx:ASPxMemo ID="txtEmertimi" runat="server" Width="100%" AutoPostBack="false"
                                     ClientInstanceName="txtEmertimi" Rows="3">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries" SetFocusOnError="true">
@@ -225,12 +218,8 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxMemo>
-                                <%--</div>--%>
-                                <%--<div id="dvlblLloji">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbLloji" ID="lblLloji" runat="server" Text="Lloji:" ClientInstanceName="lblLloji">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcmbLloji">--%>
                                 <dx:ASPxComboBox ID="cmbLloji" runat="server" ClientInstanceName="cmbLloji"
                                     ShowShadow="False" ValidationSettings-CausesValidation="True"
                                     ValidationSettings-SetFocusOnError="True" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
@@ -248,12 +237,8 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxComboBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblDtFillimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbDtFillimi" ID="lblDtFillimi" runat="server" Text="Dt. Fillimi Maturimi:" ClientInstanceName="lblDtFillimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcmbDtFillimi">--%>
                                 <dx:ASPxComboBox ID="cmbDtFillimi" runat="server" ClientInstanceName="cmbDtFillimi"
                                     ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                     <DropDownButton>
@@ -270,12 +255,8 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxComboBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblPeriudha">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbPeriudha" ID="lblPeriudha" runat="server" Text="Periudha:" ClientInstanceName="lblPeriudha">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcmbPeriudha">--%>
                                 <dx:ASPxComboBox ID="cmbPeriudha" runat="server" ClientInstanceName="cmbPeriudha"
                                     ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                     <DropDownButton>
@@ -292,12 +273,8 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxComboBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblPercaktimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtPercaktimi" ID="lblPercaktimi" runat="server" Text="Percaktimi:" ClientInstanceName="lblPercaktimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtPercaktimi">--%>
                                 <dx:ASPxTextBox ID="txtPercaktimi" runat="server" Width="100%" AutoPostBack="false"
                                     ClientInstanceName="txtPercaktimi">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true"
@@ -311,7 +288,6 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
                             </dxw:ContentControl>
                         </ContentCollection>
                     </dxtc:TabPage>

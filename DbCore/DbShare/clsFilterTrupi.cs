@@ -67,8 +67,6 @@ namespace DbCore.DbShare
         }
 
         //public String LidhesaLogjike
-        //    get { return lidhesaLogjike; }
-        //    set { lidhesaLogjike = value; }
 
         #endregion
 
@@ -82,7 +80,6 @@ namespace DbCore.DbShare
             return u_ruajt;
         }
 
-        //    //return u_modifikua;
 
         /// <summary>
         /// Fshin filter trupin.

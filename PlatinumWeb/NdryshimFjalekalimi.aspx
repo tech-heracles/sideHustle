@@ -208,7 +208,6 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfPassPerkohshem" runat="server" ClientInstanceName="hfPassPerkohshem">
         </dx:ASPxHiddenField>
@@ -303,8 +302,6 @@
                                             <ErrorFrameStyle ImageSpacing="4px">
                                                 <ErrorTextPaddings PaddingLeft="4px" />
                                             </ErrorFrameStyle>
-                                            <%--  <RegularExpression ErrorText="Password-i duhet te kete te pakten 6 shkronja/shifra"
-                                            ValidationExpression=".......*" />--%>
                                             <RequiredField IsRequired="True" />
                                         </ValidationSettings>
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
@@ -329,8 +326,6 @@
                                             <ErrorFrameStyle ImageSpacing="4px">
                                                 <ErrorTextPaddings PaddingLeft="4px" />
                                             </ErrorFrameStyle>
-                                            <%--<RegularExpression ErrorText="Password-i duhet te kete te pakten 6 shkronja/shifra"
-                                            ValidationExpression=".......*" />--%>
                                             <RequiredField IsRequired="True" />
                                         </ValidationSettings>
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">

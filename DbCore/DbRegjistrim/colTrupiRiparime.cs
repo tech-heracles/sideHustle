@@ -120,7 +120,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsTrupiRiparime(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

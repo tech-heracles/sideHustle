@@ -204,8 +204,6 @@ namespace DbCore.DbRegjistrim
         }
 
         //public string Layout
-        //    get { return layout; }
-        //    set { layout = value; }
         /// <summary>
         /// percakton nese do shfaqet ose je Totali per rreshta
         /// </summary>

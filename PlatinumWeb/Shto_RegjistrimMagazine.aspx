@@ -17,8 +17,6 @@
     <title>AVEC Accounting</title>
     <link href="js/css/le-frog/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"
         runat="server" id="themeJQuery" />
-    <%--     <link href="js/jquery-ui-1.11.1.min.css" media="screen" rel="stylesheet" type="text/css"
-        runat="server" id="Link1" />--%>
     
     <link href="fine-uploader/fine-uploader-new.css" rel="stylesheet"/>
     <link href="js/jqGrid445/plugins/ui.multiselect.css" rel="stylesheet" type="text/css" />
@@ -43,7 +41,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
            </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-<%--                <ClientSideEvents EndCallback="function(s, e) { EndCallbackGlobalEvents(s, e); }" />--%>
             </dx:ASPxGlobalEvents>
             <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true"
                 ViewStateMode="Enabled">
@@ -528,8 +525,6 @@
                                          <dx:ASPxLabel Wrap="False" ID="lblKategoriSeriali" AssociatedControlID="cmbKategoriSeriali" runat="server"
                                         Text="Kategori Seriali" ClientInstanceName="lblKategoriSeriali">
                                     </dx:ASPxLabel>
-                                    <%--  </div>--%>
-                                    <%--    <div id="dvbtnMagazina">--%>
                                     <dx:ASPxComboBox ID="cmbKategoriSeriali" Width="100%" runat="server" ClientInstanceName="cmbKategoriSeriali"
                                         ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top">
                                         <ClientSideEvents ButtonClick="function(s,e){ButtonClickKategoriSeriali();}"  LostFocus="function (s,e){LostFocusSerial();}"/>

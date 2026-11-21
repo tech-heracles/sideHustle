@@ -175,7 +175,6 @@
 <body>
     <form id="form1" runat="server" class="style21">
         
-<%--<div id="wrapper">--%>
 	<div id="header" class="style19" dir="ltr">
 			<h1 class="style1">
                 <span lang="en-us">AVEC Accounting</span></h1>

@@ -637,10 +637,6 @@ namespace PlatinumWeb
             if (e.Item.Name == "PrintPreview")
             {
 
-                //    //if (konf.KodKonfigAmbjente == "FH" || konf.KodKonfigAmbjente == "FD")
-                //    //{
-                //    //}
-                //else
             }
             if (e.Item.Name == "RuajPrint")
             {

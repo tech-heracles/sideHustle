@@ -545,7 +545,6 @@ namespace DbCore.DbRegjistrim
             clsKokaMagazina kokaMagVjeter = new clsKokaMagazina();
             kokaMagVjeter.mbushKokaMagazinaSipasID(idDokMagazineVjeter, dbRegj);
             kokaMagVjeter.mbushTrupMagazine(dbRegj);
-            //koka.IdRenditjes = dbRegj.vendosIdRenditjesSS(koka.IdRenditjes, koka.IdMagazina, koka.DtDok); si ishte
             koka.IdRenditjes = dbRegj.vendosIdRenditjesSS_SipasFH(koka.IdRenditjes, kokaMagVjeter.IdKokaMagazina);
 
             koka.Vlefta = 0;

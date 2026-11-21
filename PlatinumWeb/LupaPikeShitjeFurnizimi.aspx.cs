@@ -162,8 +162,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaPikeShitjeFurnizimi.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdPikeShitjeFurnizimi", gvLupaPikeShitjeFurnizimi);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -206,6 +204,5 @@ namespace PlatinumWeb
             }
         }
 
-        //private void mbushComboBoxFiltra(int idNdermarrje)
     }
 }

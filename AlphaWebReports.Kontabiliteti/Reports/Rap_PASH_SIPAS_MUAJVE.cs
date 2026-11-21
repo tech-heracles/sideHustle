@@ -329,7 +329,6 @@ namespace AlphaWebReports.RaportetDs.Raporte
             //xrLabel84_SummaryGetResult
             e.Result = xrTableCell60.Text;
             e.Handled = true;
-            //  niv++;
         }
 
         /// <summary>

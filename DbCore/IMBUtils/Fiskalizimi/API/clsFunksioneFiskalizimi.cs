@@ -490,10 +490,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
         }
         public static string ktheIICSignature(clsNdermarrje nderm, string txtNumer, string txtTotal1, string cashRegister, string softNum, DateTime dateKrijimi)
         {
-            //DateTimeOffset sourceDate = new DateTimeOffset(dateKrijimi,
-            //             t);
 
-            //DateTimeOffset timezoneIShqiperise = TimeZoneInfo.ConvertTime(sourceDate,
 
             string iicSignatureString = "";
             if (nderm.Pathname.ToString() == "")
@@ -553,15 +550,6 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                     string kodKlienti, string zbritjaPaTvsh, string nenTotali, string nivfKthim, DateTime dtRegjistrimi, string operatoriEmri, bool eshteGrup, string kursi, bool einvoice, string kodBiznesi,
                     string tipiAutongarkes, string kodOperator, bool isShitje, bool isModifikim, bool dogane, string dateMbarimi, string dateFillimi, string dateFature, DateTime dateKrijimiFature, int idNdem, int idPerdoruesi, string viti)
         {
-            //Kodet e artikujve
-            //N = Emri
-            //C = Kodi
-            //U = Kodi i njesise matese
-            //Q = Sasia
-            //UPB = Vlera e njesise pa TVSH
-            //UPA = Vlera e njesise me TVSH
-            //PB = Cmimi para TVSH-se
-            //PA = Cmimi pas TVSH-se
 
             string iicFatureOrigjinale = "";
             string nivfFatureOrigjinale = "";
@@ -1050,10 +1038,7 @@ namespace DbCore.IMBUtils.Fiskalizimi.API
                           TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
 
 
-            //DateTimeOffset sourceDateAktuale = new DateTimeOffset(dateKrijimiFature.ToString("yyyy-MM-ddTHH\\:mm\\:sszzz"),
-            //             tAktuale);
 
-            //DateTimeOffset timezoneIShqiperiseAktuale = TimeZoneInfo.ConvertTime(sourceDateAktuale,
 
             vleraPaTvsh = String.Format("{0:0.00}", Convert.ToDouble(vleraPaTvsh));
             nenTotali2 = Math.Truncate(100 * nenTotali2) / 100;

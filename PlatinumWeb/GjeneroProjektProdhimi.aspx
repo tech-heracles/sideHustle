@@ -37,18 +37,6 @@
     
     <link href="js/jqGrid445/plugins/ui.multiselect.css" rel="stylesheet" type="text/css" />
     <link href="js/jqGrid445/css/ui.jqgrid.css" rel="stylesheet" type="text/css" />
-    <%--<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-<script src="js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
-<script src="js/myMesazh-IMB.2.1.js?versioni22" type="text/javascript"></script>
-<script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-<script src="js/myButtonClickLupa-IMB.2.1.js?versioni22" type="text/javascript"></script>
- 
-<script src="js/myCookies-IMB.2.1.js?versioni22" type="text/javascript"></script>
-<script src="js/Utils-IMB.2.1.js?versioni22" type="text/javascript"></script>
-<script src="js/myJQGrid-IMB.2.1.js?versioni22" type="text/javascript"></script>
-<script src="JsGlobal.js" type="text/javascript"></script>
-<script src="js/json2.js" type="text/javascript"></script>
-<script src="js/aspx.js/GjeneroProjektProdhimi.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/jqGrid445/plugins/ui.multiselect.js;~/js/jqGrid445/grid.locale-en.js;~/js/jqGrid445/jquery.jqGrid.min.js;~/js/jquery.ui.datepicker-sq.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/customCombobox.js;~/js/myJQGrid-IMB.2.1.js;~/JsGlobal.js;~/js/json2.js;~/js/aspx.js/GjeneroProjektProdhimi.aspx-IMB.2.1.js&v76"""
         type="text/javascript"></script>
 </head>
@@ -65,7 +53,6 @@
                
             </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ try{ window.parent.SessionTimeout.sendKeepAlive(); } catch(e){}}" />--%>
             </dx:ASPxGlobalEvents>
             <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true"
                 ViewStateMode="Enabled">
@@ -212,12 +199,9 @@
                                         </tbody>
                                     </table>
                                     <div id="dvFillim" class="atributeDiveFshehur">
-                                        <%--<div id="dvkonfigurimi_Label">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbKonfigurimi" ID="konfigurimi_Label"
                                             runat="server" Text="Lloji:" ClientInstanceName="konfigurimi_Label">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvcmbKonfigurimi">--%>
                                         <dx:ASPxComboBox ID="cmbKonfigurimi" runat="server" ClientInstanceName="cmbKonfigurimi"
                                             ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" Width="100%" AnimationType="None">
                                             <ClientSideEvents SelectedIndexChanged="function(s,e){ndryshoKonfigurimin()}" />
@@ -236,7 +220,6 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
                                         <div id="dvlblKonfigurimi">
                                             <table>
                                                 <tr>
@@ -248,12 +231,9 @@
                                                 </tr>
                                             </table>
                                         </div>
-                                        <%--<div id="dvlblDtNga">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="dteDtNga" ID="lblDtNga" runat="server"
                                             Text="Date nga:" ClientInstanceName="lblDtNga">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvdteDtNga">--%>
                                         <dx:ASPxDateEdit ID="dteDtNga" runat="server" ClientInstanceName="dteDtNga" ShowShadow="False"
                                             Width="100%">
                                             <ClientSideEvents DateChanged="function (s,e){DateChanged(s,e);}" />
@@ -276,13 +256,9 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxDateEdit>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblDtDeri">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="dteDtDeri" ID="lblDtDeri" runat="server"
                                             Text="Date deri:" ClientInstanceName="lblDtDeri">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvdteDtDeri">--%>
                                         <dx:ASPxDateEdit ID="dteDtDeri" runat="server" ClientInstanceName="dteDtDeri" ShowShadow="False"
                                             Width="100%">
                                             <ClientSideEvents DateChanged="function (s,e){DateChanged(s,e);}" />
@@ -305,13 +281,9 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxDateEdit>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblArtikulli">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="btneArtikulli" ID="lblArtikulli"
                                             runat="server" Text="Produkti" ClientInstanceName="lblArtikulli">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvbtneArtikulli">--%>
                                         <dx:ASPxComboBox ID="btneArtikulli" ClientInstanceName="btneArtikulli" runat="server"
                                             EnableCallbackMode="True" ShowShadow="False" OnItemRequestedByValue="btneArtikulli_ItemRequestedByValue"
                                             Style="margin-bottom: 0px" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
@@ -326,18 +298,13 @@
                                                 <ErrorFrameStyle ImageSpacing="4px">
                                                     <ErrorTextPaddings PaddingLeft="4px" />
                                                 </ErrorFrameStyle>
-                                                <%--<RequiredField IsRequired="true" />--%>
                                             </ValidationSettings>
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblGrup">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="btneGrup" ID="lblGrup" runat="server"
                                             Text="Grupi" ClientInstanceName="lblGrup">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvbtneGrup">--%>
                                         <dx:ASPxComboBox ID="btneGrup" ClientInstanceName="btneGrup" runat="server" ShowShadow="False"
                                             Style="margin-bottom: 0px" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                             <ClientSideEvents ButtonClick="function(s,e){ButtonClickGrup();}" />
@@ -351,18 +318,13 @@
                                                 <ErrorFrameStyle ImageSpacing="4px">
                                                     <ErrorTextPaddings PaddingLeft="4px" />
                                                 </ErrorFrameStyle>
-                                                <%--<RequiredField IsRequired="true" />--%>
                                             </ValidationSettings>
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblNenGrup">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="btneNenGrup" ID="lblNenGrup" runat="server"
                                             Text="NenGrupi" ClientInstanceName="lblNenGrup">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvbtneNenGrup">--%>
                                         <dx:ASPxComboBox ID="btneNenGrup" ClientInstanceName="btneNenGrup" runat="server"
                                             Width="100%" ShowShadow="False" Style="margin-bottom: 0px" SettingsLoadingPanel-ImagePosition="Top">
                                             <ClientSideEvents ButtonClick="function(s,e){ButtonClickNenGrup();}" />
@@ -376,18 +338,13 @@
                                                 <ErrorFrameStyle ImageSpacing="4px">
                                                     <ErrorTextPaddings PaddingLeft="4px" />
                                                 </ErrorFrameStyle>
-                                                <%-- <RequiredField IsRequired="true" />--%>
                                             </ValidationSettings>
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblKlienti">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="btneKlienti" ID="lblKlienti" runat="server"
                                             Text="Klienti" ClientInstanceName="lblKlienti">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvbtneKlienti">--%>
                                         <dx:ASPxComboBox ID="btneKlienti" runat="server" ClientInstanceName="btneKlienti"
                                             ShowShadow="False" ValueType="System.Int32" EnableClientSideAPI="True" IncrementalFilteringMode="Contains"
                                             EnableSynchronization="True" EnableCallbackMode="True" ValidationSettings-CausesValidation="true"
@@ -406,18 +363,13 @@
                                                 <ErrorFrameStyle ImageSpacing="4px">
                                                     <ErrorTextPaddings PaddingLeft="4px" />
                                                 </ErrorFrameStyle>
-                                                <%-- <RequiredField IsRequired="true" />--%>
                                             </ValidationSettings>
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblNrUrdherShitje">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="btneNrUrdherShitje" ID="lblNrUrdherShitje"
                                             runat="server" Text="Nr Urdher Shitje" ClientInstanceName="lblNrUrdherShitje">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvbtneNrUrdherShitje">--%>
                                         <dx:ASPxComboBox ID="btneNrUrdherShitje" ClientInstanceName="btneNrUrdherShitje"
                                             Width="100%" runat="server" ShowShadow="False" EnableSynchronization="True" 
                                             EnableCallbackMode="True" DropDownRows="10" CallbackPageSize="10" OnItemRequestedByValue="btneNrUrdherShitje_ItemRequestedByValue"
@@ -435,7 +387,6 @@
                                                 <ErrorFrameStyle ImageSpacing="4px">
                                                     <ErrorTextPaddings PaddingLeft="4px" />
                                                 </ErrorFrameStyle>
-                                                <%--<RequiredField IsRequired="true" />--%>
                                             </ValidationSettings>
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
@@ -444,7 +395,6 @@
                                             AutoPostBack="false" ValidationGroup="entries" Width="100%">
                                             <ClientSideEvents Click="function(s, e) { kerko(); }" />
                                         </dx:ASPxButton>
-                                        <%--</div>--%>
                                     </div>
                                     <br />
                                     <div id="dvbtnKerko" style="display: none">
@@ -494,44 +444,17 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <%--      <div id="divgride1" style="visibility: hidden">
-                                    <dx:ASPxGridView ID="gvGjenerimi" runat="server" ClientInstanceName="gvGjenerimi"
-                                        Width="100%" OnHtmlRowCreated="gvGjenerimi_HtmlRowCreated" OnCustomJSProperties="gvGjenerimi_CustomJSProperties"
-                                        OnCustomCallback="gvGjenerimi_CustomCallback" OnAfterPerformCallback="gvGjenerimi_AfterPerformCallback"
-                                        OnDataBound="gvGjenerimi_DataBound">
-                                        <ClientSideEvents BeginCallback="function (s,e){merrTeDhenatCheck();}" EndCallback="function (s,e){vendosTeDhenaCheck(s,e);}" />
-                                        <Styles>
-                                            <Header ImageSpacing="5px" SortingImageSpacing="5px">
-                                            </Header>
-                                        </Styles>
-                                        <StylesEditors>
-                                            <ProgressBar Height="25px">
-                                            </ProgressBar>
-                                        </StylesEditors>
-                                    </dx:ASPxGridView>
-                                </div>--%>
                                     <br />
                                     <br />
                                     <br />
                                     <table id="tblFund" class="renditKontrolle" align="right">
                                         <tbody>
-                                            <%--<tr>
-                                            <td>
-                                            </td>
-                                            <td>
-                                            </td>
-                                            <td width="55%">
-                                            </td>
-                                        </tr>--%>
                                         </tbody>
                                     </table>
                                     <div id="dvFundi" class="atributeDiveFshehur">
-                                        <%--<div id="dvlblGrup1">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbGrup1" ID="lblGrup1" runat="server"
                                             Text="Grupim 1:" ClientInstanceName="lblGrup1">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvcmbGrup1">--%>
                                         <dx:ASPxComboBox ID="cmbGrup1" runat="server" ClientInstanceName="cmbGrup1" ShowShadow="False"
                                             SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                             <DropDownButton>
@@ -549,13 +472,9 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblGrup2">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbGrup2" ID="lblGrup2" runat="server"
                                             Text="Grupim 2:" ClientInstanceName="lblGrup2">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvcmbGrup2">--%>
                                         <dx:ASPxComboBox ID="cmbGrup2" runat="server" ClientInstanceName="cmbGrup2" ShowShadow="False"
                                             SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                             <DropDownButton>
@@ -573,13 +492,9 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblGrup3">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbGrup3" ID="lblGrup3" runat="server"
                                             Text="Grupim 3:" ClientInstanceName="lblGrup3">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvcmbGrup3">--%>
                                         <dx:ASPxComboBox ID="cmbGrup3" runat="server" ClientInstanceName="cmbGrup3" ShowShadow="False"
                                             SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                             <DropDownButton>
@@ -597,7 +512,6 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
                                     </div>
                                  </asp:Panel>
                             </dx:SplitterContentControl>

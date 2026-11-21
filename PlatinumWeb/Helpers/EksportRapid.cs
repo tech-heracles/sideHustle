@@ -164,8 +164,6 @@ namespace PlatinumWeb
 
 		#region XLSX
 
-		// stilet (si ne skedarin e exporter-it): 1 = i pergjithshem me kufi, 2 = date dd/MM/yyyy,
-		// 3 = numer #,##0.00, 4 = tekst "@" (titujt dhe vlerat tekst)
 		private const string StiliBosh = "1", StiliDate = "2", StiliNumer = "3", StiliTekst = "4";
 
 		private const string NsMain = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";

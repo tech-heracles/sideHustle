@@ -829,7 +829,6 @@
                                                 Border-BorderStyle="None">
                                                 <ClientSideEvents ValueChanged="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDttakimi,txtDeriDttakimi);}"
                                                     Init="function(s,e){Utils.toggleKontrolletPeriudha(s,txtNgaDttakimi,txtDeriDttakimi);}" />
-                                                <%--<ClientSideEvents ValueChanged="function(s,e){ onSelectionChangedTakimi(s);}" />--%>
                                                 <Items>
                                                     <dx:ListEditItem Text="Ditore" Value="Ditore" />
                                                     <dx:ListEditItem Text="Javore" Value="Javore" />
@@ -872,7 +871,6 @@
                                                 AutoPostBack="false" AllowNull="false" DateOnError="Today" EditFormat="Custom"
                                                 EditFormatString="dd/MM/yyyy" Date="2009-04-29" ClientInstanceName="txtDeriDttakimi"
                                                 CssPostfix="Glass" Height="16px">
-                                                <%--<ClientSideEvents DateChanged="function (s,e){deriDtTakimiChanged(s,e);}" />--%>
                                                 <CalendarProperties ShowClearButton="False" ShowTodayButton="False">
                                                     <HeaderStyle Spacing="1px" />
                                                     <FooterStyle Spacing="4px" />
@@ -9703,7 +9701,6 @@
                                                 SelectedIndex="0" HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center"
                                                 ValueType="System.String" ClientInstanceName="cmbVeprimiShenimeShitjeje1" CssPostfix="Glass"
                                                 Height="24px">
-                                                <%-- <ClientSideEvents SelectedIndexChanged="function(s,e){kontrolloPresje(s,e, txtBtnShenime2Shitje);}" />--%>
                                                 <LoadingPanelImage>
                                                 </LoadingPanelImage>
                                                 <Items>
@@ -9714,7 +9711,6 @@
                                                     <dx:ListEditItem Text="fillon me" Value="4" />
                                                     <dx:ListEditItem Text="mbaron me" Value="5" />
                                                     <dx:ListEditItem Text="permban" Value="6" />
-                                                    <%--  <dx:ListEditItem Text="ben pjese ne" Value="7" />--%>
                                                 </Items>
                                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                 <ButtonStyle Width="13px">
@@ -9728,10 +9724,6 @@
                                             </dx:ASPxComboBox>
                                         </td>
                                         <td class="tdStyle6">
-                                            <%--     <dx:ASPxTextBox ID="txtBtnShenime2Shitje1" Width="80%" runat="server" CssPostfix="Glass"
-                                                ClientInstanceName="txtBtnShenime2Shitje1"  Height="23px">
-                                               <%-- <ClientSideEvents GotFocus="function(s,e) {selectBenPjeseNe(s,e, cmbVeprimiShenime2Shitje1);}"
-                                                    KeyDown="function(s,e) {selectBenPjeseNe(s,e, cmbVeprimiShenime2Shitje1);}" />       --%>
 
 
                                             <dx:ASPxTextBox ID="txtBtnShenimeShitjeje1" Width="80%" runat="server"
@@ -9769,11 +9761,6 @@
                                             </dx:ASPxComboBox>
                                         </td>
                                         <td class="tdStyle6">
-                                            <%-- <dx:ASPxComboBox ID="cmbVeprimiShenime2Shitje2" Width="80%" ClientInstanceName="cmbVeprimiShenime2Shitje2"
-                                                runat="server" DropDownRows="8" SelectedIndex="0" HorizontalAlign="Center"
-                                                ItemStyle-HorizontalAlign="Center" CssPostfix="Glass" ValueType="System.String"
-                                                Height="23px" ClientSideEvents-Init="function(s,e){filter2_Init(s,e,cmbLidhesaShenime2Shitje);}" 
-                                                  <%-- SelectedIndexChanged="function(s,e){kontrolloPresje(s,e, txtBtnShenime2Shitje2);}"--%>
                                             <dx:ASPxComboBox ID="cmbVeprimiShenime2Shitje2" Width="80%" runat="server"
                                                 ClientInstanceName="cmbVeprimiShenime2Shitje2" SelectedIndex="0" HorizontalAlign="Center"
                                                 ItemStyle-HorizontalAlign="Center" CssPostfix="Glass" ValueType="System.String"
@@ -9789,7 +9776,6 @@
                                                     <dx:ListEditItem Text="fillon me" Value="4" />
                                                     <dx:ListEditItem Text="mbaron me" Value="5" />
                                                     <dx:ListEditItem Text="permban" Value="6" />
-                                                    <%--   <dx:ListEditItem Text="ben pjese ne" Value="7" />--%>
                                                 </Items>
                                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                 <ButtonStyle Width="13px">
@@ -9803,11 +9789,6 @@
                                             </dx:ASPxComboBox>
                                         </td>
                                         <td class="tdStyle6">
-                                            <%--<dx:ASPxTextBox ID="txtBtnShenime2Shitje2" Width="80%" ClientInstanceName="txtBtnShenime2Shitje2"
-                                                runat="server" CssPostfix="Glass"  Height="16px">
-                                                <ClientSideEvents Init="function(s,e){filter2_Init(s,e,cmbLidhesaShenime2Shitje);}"                                                    
-                                                   <%-- GotFocus="function(s,e) {selectBenPjeseNe(s,e, cmbVeprimiShenime2Shitje2);}" 
-                                                    KeyDown="function(s,e) {selectBenPjeseNe(s,e, cmbVeprimiShenime2Shitje2);}"--%>
                                             <dx:ASPxTextBox ID="txtBtnShenime2Shitje2" Width="80%" runat="server"
                                                 ClientInstanceName="txtBtnShenime2Shitje2" SelectedIndex="0" HorizontalAlign="Center"
                                                 ItemStyle-HorizontalAlign="Center" CssPostfix="Glass" ValueType="System.String"
@@ -13776,11 +13757,6 @@
                                                 ValueType="System.String" Height="23px" ClientInstanceName="cmbStatus">
                                                 <ButtonStyle Width="13px">
                                                 </ButtonStyle>
-                                                <%--                                               <Items>
-                                                    <dx:ListEditItem Text="Te fshira" Value="Te fshira"/>
-                                                    <dx:ListEditItem Text="Jo te fshira" Value="Jo te fshira"/>
-                                                    <dx:ListEditItem Text="Te gjitha" Value="Te gjitha" />
-                                                </Items>--%>
                                                 <ValidationSettings>
                                                     <ErrorImage Height="14px" Width="14px" />
                                                     <ErrorFrameStyle ImageSpacing="4px">
@@ -18929,12 +18905,8 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-<%--        <asp:UpdatePanel ID="UpdatePanelExport" runat="server">
-            <ContentTemplate>--%>
                 <dx:ASPxButton ID="exportButton" ClientInstanceName="exportButton" runat="server" OnClick="exportButton_Click"/>
                 <asp:HiddenField  ID="exportOption" runat="server" />
-<%--            </ContentTemplate>
-        </asp:UpdatePanel>--%>
     </form>
 </body>
 </html>

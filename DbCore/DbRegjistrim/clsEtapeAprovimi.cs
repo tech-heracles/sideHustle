@@ -1015,7 +1015,6 @@ namespace DbCore.DbRegjistrim
 
                     #region menyra si behej me pare percaktimi i gjuhes se emailit (teknikisht nuk ndahej fare, ndaj u komentua)
 
-                    //    else
                     #endregion
                     continue;
                 }

@@ -161,8 +161,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         {
 
 
-            //else
-            //    else
         }
 
         private void GroupHeader7_BeforePrint(object sender, PrintEventArgs e)
@@ -182,33 +180,23 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void lblprindi5_BeforePrint(object sender, PrintEventArgs e)
         {
-            //else
 
-            //    else
         }
 
         private void lblPrindi4_BeforePrint(object sender, PrintEventArgs e)
         {
-            //else
-            //    else
         }
 
         private void lblPrindi3_BeforePrint(object sender, PrintEventArgs e)
         {
-            //else
-            //    else
         }
 
         private void lblPrindi2_BeforePrint(object sender, PrintEventArgs e)
         {
-            //else
-            //    else
         }
 
         private void lblPrindi1_BeforePrint(object sender, PrintEventArgs e)
         {
-            //else
-            //    else
         }
 
         private void xrLabel57_BeforePrint(object sender, PrintEventArgs e)
@@ -421,7 +409,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel59_BeforePrint(object sender, PrintEventArgs e)
         {
-            //ResourceManager rm = new ResourceManager("Resources.Strings",
         }
 
         private void xrLabel6_BeforePrint(object sender, PrintEventArgs e)
@@ -548,12 +535,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel33_AfterPrint(object sender, EventArgs e)
         {
-            // niv++;
         }
 
         private void xrLabel33_BeforePrint_1(object sender, PrintEventArgs e)
         {
-            // niv++;
             if (niv > 0)
                 nivTemp = niv;
         }
@@ -620,7 +605,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel34_AfterPrint(object sender, EventArgs e)
         {
-            //float diferenca=Co
         }
 
         private void ReportFooter_BeforePrint(object sender, PrintEventArgs e)
@@ -652,13 +636,11 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel76_BeforePrint(object sender, PrintEventArgs e)
         {
-            //niv++;
         }
 
 
         private void xrLabel66_BeforePrint(object sender, PrintEventArgs e)
         {
-            //niv++;
         }
 
         private void xrLabel76_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -756,7 +738,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel100_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //else
 
             double shuma = 0;
             for (var i = 0; i < e.CalculatedValues.Count; i++)
@@ -926,7 +907,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel106_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //else
         }
 
 

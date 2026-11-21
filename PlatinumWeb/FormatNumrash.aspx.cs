@@ -168,8 +168,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvFormati.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdFormatKonfig", gvFormati);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
@@ -280,8 +278,6 @@ namespace PlatinumWeb
             #region Kod i vjeter i komentuar
 
 
-            //        else
-            //    else
             #endregion
 
             if (e.Item.Name == "Ruaj")

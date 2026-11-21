@@ -29,14 +29,6 @@
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="Stylesheet" type="text/css" href="Stylesheet1.css" />
-    <%--     
-    <script src="js/Utils-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myButtonClickLupa-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myBuxhet-IMB.2.1.js?versioni22" type="text/javascript"></script>    
-    <script src="js/myFushaShtese-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/aspx.js/Shto_Sigurimet.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myMesazh-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myBuxhet-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/myFushaShtese-IMB.2.1.js;~/js/aspx.js/Shto_Sigurimet.aspx-IMB.2.1.js&v76""
         type="text/javascript"></script>
 </head>
@@ -46,7 +38,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server">
            </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
             </dx:ASPxGlobalEvents>
             <dx:ASPxHiddenField ID="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
             </dx:ASPxHiddenField>
@@ -222,12 +213,9 @@
                                         <tbody>
                                         </tbody>
                                     </table>
-                                    <%--<div id="dvlblKodi">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server"
                                         Text="Kodi:" ClientInstanceName="lblKodi">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtKodi">--%>
                                     <dx:ASPxTextBox ID="txtKodi" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKodi">
                                         <ClientSideEvents TextChanged="function(s, e) {
 }" />
@@ -242,13 +230,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblDateAkt">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="dteDateAkt" ID="lblDateAkt" runat="server"
                                         Text="Date Aktivizimi:" ClientInstanceName="lblDateAkt">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvdteDateAkt" style="visibility: hidden;">--%>
                                     <dx:ASPxDateEdit ID="dteDateAkt" runat="server" ClientInstanceName="dteDateAkt"
                                         ShowShadow="False" Width="100%">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries2">
@@ -269,13 +253,9 @@
                                         <DisabledStyle Font-Bold="False">
                                         </DisabledStyle>
                                     </dx:ASPxDateEdit>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblPagaMin">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtPagaMin" ID="lblPagaMin" runat="server"
                                         Text="Paga Min Shoqerore:" ClientInstanceName="lblPagaMin">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtPagaMin">--%>
                                     <dx:ASPxTextBox ID="txtPagaMin" runat="server" Width="100%" DisplayFormatString="0.00"
                                         ClientInstanceName="txtPagaMin">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -289,13 +269,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblPagaMax">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtPagaMax" ID="lblPagaMax" runat="server"
                                         Text="Paga Max Shoqerore:" ClientInstanceName="lblPagaMax">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtPagaMax">--%>
                                     <dx:ASPxTextBox ID="txtPagaMax" runat="server" Width="100%" AutoPostBack="false"
                                         DisplayFormatString="0.00" ClientInstanceName="txtPagaMax">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -309,13 +285,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblSigShoqPun">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtPagaMinShen" ID="lblPagaMinShen" runat="server"
                                         Text="Paga Min Shendetsore:" ClientInstanceName="lblPagaMinShen">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtPagaMin">--%>
                                     <dx:ASPxTextBox ID="txtPagaMinShen" runat="server" Width="100%" DisplayFormatString="0.00"
                                         ClientInstanceName="txtPagaMinShen">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -329,13 +301,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblPagaMax">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtPagaMaxShen" ID="lblPagaMaxShen" runat="server"
                                         Text="Paga Max Shendetsore:" ClientInstanceName="lblPagaMaxShen">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtPagaMax">--%>
                                     <dx:ASPxTextBox ID="txtPagaMaxShen" runat="server" Width="100%" AutoPostBack="false"
                                         DisplayFormatString="0.00" ClientInstanceName="txtPagaMaxShen">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -352,8 +320,6 @@
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtSigShoqPun" ID="lblSigShoqPun"
                                         runat="server" Text="Sig. Pun. Shoqerore:" ClientInstanceName="lblSigShoqPun">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtSigShoqPun">--%>
                                     <dx:ASPxTextBox ID="txtSigShoqPun" runat="server" ClientInstanceName="txtSigShoqPun"
                                         DisplayFormatString="0.00" Enabled="true" Width="100%">
                                         <ClientSideEvents TextChanged=" function (s,e){llogaritTotal(s, e);}" />
@@ -369,13 +335,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblSigShenPun">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtSigShenPun" ID="lblSigShenPun"
                                         runat="server" Text="Sig. Pun. Shendetsore:" ClientInstanceName="lblSigShenPun">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtSigShenPun">--%>
                                     <dx:ASPxTextBox ID="txtSigShenPun" runat="server" Width="100%" ClientInstanceName="txtSigShenPun"
                                         DisplayFormatString="0.00">
                                         <ClientSideEvents TextChanged=" function (s,e){llogaritTotal(s, e);}" />
@@ -391,13 +353,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblSigShoqNder">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtSigShoqNder" ID="lblSigShoqNder"
                                         runat="server" Text="Sig. Nder. Shoqerore:" ClientInstanceName="lblSigShoqNder">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtSigShoqNder">--%>
                                     <dx:ASPxTextBox ID="txtSigShoqNder" runat="server" ClientInstanceName="txtSigShoqNder"
                                         Enabled="true" Width="100%" DisplayFormatString="0.00">
                                         <ClientSideEvents TextChanged=" function (s,e){llogaritTotal(s, e);}" />
@@ -413,13 +371,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblSigShenNder">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtSigShenNder" ID="lblSigShenNder"
                                         runat="server" Text="Sig. Nder. Shendetsore:" ClientInstanceName="lblSigShenNder">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtSigShenNder">--%>
                                     <dx:ASPxTextBox ID="txtSigShenNder" runat="server" Width="100%" ClientInstanceName="txtSigShenNder"
                                         DisplayFormatString="0.00">
                                         <ClientSideEvents TextChanged=" function (s,e){llogaritTotal(s, e);}" />
@@ -438,8 +392,6 @@
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtSigSupPun" ID="lblSigSupPun"
                                         runat="server" Text="Sig. Suplementare Punonjesi:" ClientInstanceName="lblSigSupPun">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtSigShoqNder">--%>
                                     <dx:ASPxTextBox ID="txtSigSupPun" runat="server" ClientInstanceName="txtSigSupPun"
                                         Enabled="true" Width="100%" DisplayFormatString="0.00">
                                         <ClientSideEvents TextChanged=" function (s,e){}" />
@@ -455,13 +407,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblSigShenNder">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtSigSupNder" ID="lblSigSupNder"
                                         runat="server" Text="Sig. Suplementare Ndermarje:" ClientInstanceName="lblSigSupNder">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtSigShenNder">--%>
                                     <dx:ASPxTextBox ID="txtSigSupNder" runat="server" Width="100%" ClientInstanceName="txtSigSupNder"
                                         DisplayFormatString="0.00">
                                         <ClientSideEvents TextChanged=" function (s,e){}" />
@@ -477,13 +425,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblTotal">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtTotal" ID="lblTotal" runat="server"
                                         ClientInstanceName="lblTotal" Text="Gjithsej:">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtTotal">--%>
                                     <dx:ASPxTextBox ID="txtTotal" runat="server" Width="100%" ClientInstanceName="txtTotal"
                                         DisplayFormatString="0.00">
                                         <ClientSideEvents TextChanged=" function (s,e){llogaritTotal(s, e);}" />
@@ -498,7 +442,6 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
                                 </dxw:ContentControl>
                             </ContentCollection>
                         </dxtc:TabPage>

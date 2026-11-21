@@ -66,7 +66,6 @@ namespace DbCore.IMBUtils.Logging
             }
         }
 
-        // Error/Fatal shkruhen ne log (me pare trupat ishin te komentuar dhe gabimet humbnin pa gjurme);
         // Warn/Info/Trace mbeten te fikura: disa thirren per cdo rresht grideje.
         private static readonly ILogger _logger = LogManager.GetLogger("ImbLogger");
 

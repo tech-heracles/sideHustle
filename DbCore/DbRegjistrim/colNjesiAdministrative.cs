@@ -272,7 +272,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsNjesiAdministrative());
             }
 
-            //    //throw;
             return true;
         }
         private bool mbushNjesiteAdministrative(DataTable dt)
@@ -284,7 +283,6 @@ namespace DbCore.DbRegjistrim
                 Add(new clsNjesiAdministrative(rreshti));
             }
 
-            //    //throw;
             return true;
         }
 

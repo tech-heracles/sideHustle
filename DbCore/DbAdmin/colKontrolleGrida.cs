@@ -48,7 +48,6 @@ namespace DbCore.DbAdmin
                 {
                     this.Add(new clsKontrolleGrida(rreshti));
                 }
-            //    //throw;
             return true;
         }
 

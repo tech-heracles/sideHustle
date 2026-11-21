@@ -54,7 +54,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsInventarizim(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

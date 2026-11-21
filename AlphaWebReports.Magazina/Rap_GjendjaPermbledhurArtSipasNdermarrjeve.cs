@@ -104,7 +104,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
 
             if (GetCurrentColumnValue("KODARTIKULLI") != System.DBNull.Value && GetCurrentColumnValue("KODARTIKULLI") != null)
             {
-                //else
                 string kodArt = GetCurrentColumnValue("KODARTIKULLI").ToString() + GetCurrentColumnValue("eshteArtILidhur");
                 label.Target = "_self"; label.NavigateUrl = "javascript:window.ASPxCallbackPanel1.PerformCallback('" + kodArt + ";Detail;gjendjepermbledhurArtikujshNdermarje')";
                 if (!SkippedDetailBands.ContainsKey(kodArt))

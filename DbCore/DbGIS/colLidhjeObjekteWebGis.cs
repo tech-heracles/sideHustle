@@ -44,7 +44,6 @@ namespace DbCore.DbGIS
                 return true;
             else return false;
         }
-        //public bool merrTeGjitheListeAtributeSipasIdList()
         public static DataTable MerrObjekteSipasBoundBoxit(int idNdermarrje, string boundBox, int idPerdoruesi, int idViti, int gjuha)
         {
 

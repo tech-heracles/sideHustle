@@ -1485,7 +1485,6 @@ namespace PlatinumWeb
                 FiltraVlera = ASPxGridView_KF.FilterExpression
             };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodKlientFurnitor", ASPxGridView_KF);
-            //else
 
             var mesazh = filtri.ruaj();
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, IdNdermarrja, "ASPxGridView_KF", int.Parse(cmbKonfigurimi.Value.ToString()), Komponente);

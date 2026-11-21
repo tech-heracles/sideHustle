@@ -390,7 +390,6 @@ namespace DotSpatial.Topology
             var i = part.StartIndex;
 
             var c = new GeoAPICoordinate(part.Vertices[0], part.Vertices[1]);
-            //if (shape.HasM()) c.M = shape.M[i]
             if (shape.HasZ()) c.Z = shape.Z[i];
             var ret = factory.CreatePoint(c);
             if (copyAttributes)

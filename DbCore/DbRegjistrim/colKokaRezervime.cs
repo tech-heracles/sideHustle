@@ -93,7 +93,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsKokaRezervime(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

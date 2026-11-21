@@ -33,7 +33,6 @@
 <body onload="Init()">
     <form id="form1" runat="server">
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
    
     <div>

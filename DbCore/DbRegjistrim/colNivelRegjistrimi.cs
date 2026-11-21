@@ -345,7 +345,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsNivelRegjistrimi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
         /// <summary>
@@ -363,7 +362,6 @@ namespace DbCore.DbRegjistrim
                     Add(regj);
                 }
 
-            //    //throw;
             return true;
         }
         /// <summary>
@@ -381,7 +379,6 @@ namespace DbCore.DbRegjistrim
                     Add(regj);
                 }
 
-            //    //throw;
             return true;
         }
 

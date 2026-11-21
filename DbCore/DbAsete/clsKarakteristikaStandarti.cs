@@ -585,7 +585,6 @@ namespace DbCore.DbAsete
         ///// <param name="idNdermarrje">(int) Id e ndermarrjes.</param>
         ///// <param name="dbasete">(clsDatabazeAsete) Merr objektin e transaksionit qe te lidhi veprimet me njera tjetren.</param>
         ///// <returns>Kthen objektin clsKarakteristikaStandarti te mbushur.</returns>
-        //public static clsKarakteristikaStandarti merrKonfigurimStandartiNgaIdArtikulli(int idArtikulli, int idStandarti, int idNdermarrje, clsDatabazeAsete dbasete)
 
 
         /// <summary>

@@ -29,22 +29,6 @@
         id="themeJQuery" />
         <link href="js/jqGrid445/plugins/ui.multiselect.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" media="screen" href="js/jqGrid445/css/ui.jqgrid.css" />
-<%--    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
-    <script src="js/myMesazh-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myButtonClickLupa-IMB.2.1.js?versioni22" type="text/javascript"></script>
-     
-    <script src="js/Utils-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myJQGrid-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/json2.js" type="text/javascript"></script>
-    <script src="js/myBuxhet-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myFushaShtese-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script type="text/javascript" src="js/myNrAuto-IMB.2.1.js?versioni22"></script>
-    <script src="js/jqGrid445/grid.locale-en.js" type="text/javascript"></script>
-    <script src="js/jqGrid445/jquery.jqGrid.min.js" type="text/javascript"></script>
-    <script src="js/jsLinq/JSLINQ.js" type="text/javascript"></script>
-    <script src="js/aspx.js/KonfigPASH.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/jqGrid445/plugins/ui.multiselect.js;~/js/jqGrid445/grid.locale-en.js;~/js/jqGrid445/jquery.jqGrid.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/customCombobox.js;~/js/myJQGrid-IMB.2.1.js;~/js/json2.js;~/js/myBuxhet-IMB.2.1.js;~/js/myFushaShtese-IMB.2.1.js;~/js/myNrAuto-IMB.2.1.js;~/js/jsLinq/JSLINQ.js;~/js/aspx.js/KonfigPASH.aspx-IMB.2.1.js&v76"
         type="text/javascript"></script>
 </head>
@@ -54,7 +38,6 @@
       
     </asp:ScriptManager>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>

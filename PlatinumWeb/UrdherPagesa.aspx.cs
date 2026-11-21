@@ -82,7 +82,6 @@ namespace PlatinumWeb
         ///// <summary>
         /////      mbush combon e filtrave
         ///// </summary>
-        //private void mbushComboBoxFiltra()
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -228,8 +227,6 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvUrdherPagesa", komponente, idndermarje, int.Parse(cmbKonfigurimi.Value.ToString()));
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = gvUrdherPagesa.FilterExpression, IdPerdoruesi = idperdoruesi, IdNdermarje = idndermarje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", gvUrdherPagesa);
-            //    else
-            //else
 
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();

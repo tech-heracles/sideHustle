@@ -1159,7 +1159,6 @@ namespace DbCore.DbRegjistrim
         {
             colNjesiAdministrative data = new colNjesiAdministrative();
             data.mbushGjitheNjesiAdministrative(IdNdermarje, IdPerdorues);
-            //return data.merrGjitheNjesiAdministrative(this.idNdermarrje); //i kalohet idNdermarje
             return data;
         }
 

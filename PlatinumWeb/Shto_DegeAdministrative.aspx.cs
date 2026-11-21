@@ -121,7 +121,6 @@ namespace PlatinumWeb
         ///// <summary>
         /////      mbush combon e filtrave
         ///// </summary>
-        //private void mbushComboBoxFiltra()
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -283,8 +282,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvDegeAdministrative.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvDegeAdministrative);
-            //    else
-            //else
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();

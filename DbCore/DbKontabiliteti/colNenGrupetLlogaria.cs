@@ -94,7 +94,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsNenGrupiLlogaria(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

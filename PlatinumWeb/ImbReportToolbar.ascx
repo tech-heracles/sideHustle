@@ -521,11 +521,6 @@
                                 <ClientSideEvents SelectedIndexChanged="function(s,e){CustomToolbarClientControl.ChangeExportMode(s,e);}" />
                             </dx:ASPxComboBox>
                         </td>
-                        <%-- <td style="height: 24px">
-                            <dx:ASPxLabel runat="server" ID="labelZoomFactor" AssociatedControlID="ASPxComboBox_ZoomFactor" EnableViewState="False" Font-Size="Small"
-                                Text="Zoom Factor in %">
-                            </dx:ASPxLabel>
-                        </td>--%>
                         <td style="height: 24px">
                             <dx:ASPxComboBox runat="server" Width="90px" Height="24px" ToolTip="Select zoom factor" EnableViewState="False" ClientVisible="false"
                                 ID="ASPxComboBox_ZoomFactor" SelectedIndex="0" ValueType="System.Int32">
@@ -541,22 +536,12 @@
                                 <ClientSideEvents SelectedIndexChanged="function(s,e){CustomToolbarClientControl.ChangeZoom(s,e);}" Init="function(s,e){CustomToolbarClientControl.InitZoom(s,e);}" />
                             </dx:ASPxComboBox>
                         </td>
-                        <%--<td style="height: 24px">
-                            <dx:ASPxLabel runat="server" ID="labelStili" EnableTheming="true" AssociatedControlID="ASPxComboBox_Style" EnableViewState="False" Font-Size="Small"
-                                Text="Style">
-                            </dx:ASPxLabel>
-                        </td>--%>
                         <td style="height: 24px">
                             <dx:ASPxComboBox runat="server" Height="24px" Width="88px" EnableTheming="true" ToolTip="Select report style" EnableViewState="False"
                                 ID="ASPxComboBox_Style">
                                 <ClientSideEvents SelectedIndexChanged="function(s,e){CustomToolbarClientControl.ChangeStyle(s,e);}" />
                             </dx:ASPxComboBox>
                         </td>
-                        <%--                        <td style="height: 24px">
-                            <dx:ASPxLabel runat="server" ID="labelOrientimi" EnableTheming="true" AssociatedControlID="ASPxComboBox_Orientimi" EnableViewState="False" Font-Size="Small"
-                                Text="Orientation">
-                            </dx:ASPxLabel>
-                        </td>--%>
                         <td style="height: 24px">
                             <dx:ASPxComboBox runat="server" Height="24px" Width="100px" EnableTheming="true" ToolTip="Select report Orientation" EnableViewState="False"
                                 ID="ASPxComboBox_Orientimi">
@@ -771,11 +756,6 @@
                         <ClientSideEvents SelectedIndexChanged="function(s,e){CustomToolbarClientControl.ChangeExportMode(s,e);}" />
                     </dx:ASPxComboBox>
                 </td>
-                <%-- <td style="height: 24px">
-                            <dx:ASPxLabel runat="server" ID="labelZoomFactor_B" AssociatedControlID="ASPxComboBox_ZoomFactor" EnableViewState="False" Font-Size="Small"
-                                Text="Zoom Factor in %">
-                            </dx:ASPxLabel>
-                        </td>--%>
                 <td style="height: 24px">
                     <dx:ASPxComboBox runat="server" Width="90px" Height="24px" ToolTip="Select zoom factor" EnableViewState="False" ClientVisible="false"
                         ID="ASPxComboBox_ZoomFactor_B" SelectedIndex="0" ValueType="System.Int32">
@@ -791,22 +771,12 @@
                         <ClientSideEvents SelectedIndexChanged="function(s,e){CustomToolbarClientControl.ChangeZoom(s,e);}" Init="function(s,e){CustomToolbarClientControl.InitZoom(s,e);}" />
                     </dx:ASPxComboBox>
                 </td>
-                <%--<td style="height: 24px">
-                            <dx:ASPxLabel runat="server" ID="labelStili_B" EnableTheming="true" AssociatedControlID="ASPxComboBox_Style" EnableViewState="False" Font-Size="Small"
-                                Text="Style">
-                            </dx:ASPxLabel>
-                        </td>--%>
                 <td style="height: 24px">
                     <dx:ASPxComboBox runat="server" Height="24px" Width="88px" EnableTheming="true" ToolTip="Select report style" EnableViewState="False"
                         ID="ASPxComboBox_Style_B">
                         <ClientSideEvents SelectedIndexChanged="function(s,e){CustomToolbarClientControl.ChangeStyle(s,e);}" />
                     </dx:ASPxComboBox>
                 </td>
-                <%--                        <td style="height: 24px">
-                            <dx:ASPxLabel runat="server" ID="labelOrientimi_B" EnableTheming="true" AssociatedControlID="ASPxComboBox_Orientimi" EnableViewState="False" Font-Size="Small"
-                                Text="Orientation">
-                            </dx:ASPxLabel>
-                        </td>--%>
                 <td style="height: 24px">
                     <dx:ASPxComboBox runat="server" Height="24px" Width="100px" EnableTheming="true" ToolTip="Select report Orientation" EnableViewState="False"
                         ID="ASPxComboBox_Orientimi_B">

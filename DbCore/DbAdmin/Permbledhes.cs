@@ -18,7 +18,6 @@ namespace DbCore.DbAdmin
         ///// <summary>
         ///// eshte permbledhes ambienti       
         ///// </summary>
-        //Ambienti = 1,
         /// <summary>
         /// eshte permbledhes moduli
         /// </summary>

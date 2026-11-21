@@ -76,7 +76,6 @@ namespace DbCore.DbAdmin
 
                     this.Add(new clsRoli(rreshti));
                 }
-            //    //throw;
             return true;
         }
 

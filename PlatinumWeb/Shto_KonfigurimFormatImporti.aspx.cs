@@ -1504,7 +1504,6 @@ namespace PlatinumWeb
 
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
-                                //case "Gjinia":
 
                         }
                         cmb3.DropDownStyle = DropDownStyle.DropDown;

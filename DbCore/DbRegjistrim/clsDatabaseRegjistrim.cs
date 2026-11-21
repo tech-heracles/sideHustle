@@ -10885,8 +10885,6 @@ OPTION (LOOP JOIN);");
         internal void ktheTaksaSipasKodi(string kodi, int idNderm, IDataBase objekti)
         {
             ImbLogger.LogTraceShitje($"Filloi metoda ktheTaksaSipasKodi nga DB sipas kodi:{kodi} dhe idNderm:{idNderm}");
-            // gjate importit kerkohet per cdo rresht: rezultati ruhet si tabele dhe objekti mbushet prej saj,
-            // njesoj si nga reader-i i databazes
             DataTable taksat = ImportCache.Merr<DataTable>(ImportCache.Taksa, "kodi|" + kodi + "|" + idNderm, () =>
             {
                 dbManager.CreateParameters(2);

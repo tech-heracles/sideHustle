@@ -76,7 +76,6 @@ namespace DbCore.DbListPagesat
         /// <param name="dt">data table me te dhenat e tipit koka list pagesa</param>
         /// <param name="db"> clsDatabazeListPagesa qe perdoret ne rastet e transaksioneve</param>
         /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
-        //private bool mbushKokat(DataTable dt, clsDatabazeListPagesa db)
 
         #endregion
 

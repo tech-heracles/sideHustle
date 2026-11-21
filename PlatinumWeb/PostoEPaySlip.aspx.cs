@@ -107,7 +107,6 @@ namespace PlatinumWeb
         ///// <summary>
         /////      mbush combon e filtrave
         ///// </summary>
-        //private void mbushComboBoxFiltra()
 
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
@@ -327,8 +326,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_Vitet.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiViti", ASPxGridView_Vitet);
-            //    else
-            //else
 
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
@@ -579,7 +576,6 @@ namespace PlatinumWeb
         public void mbushGridePeriudha()
         {
         }
-        //public void mbushComboLloji(ASPxComboBox cmbPeriudhaLloji)
 
         private void konfiguroGridePeriudhash()
         {//konfigurohet grida
@@ -629,27 +625,17 @@ namespace PlatinumWeb
 
             gvPeriudha.AllColumns["EmerPeriudha"].Caption = rm.GetString("columnHeaderEmerPeriudha", ci);
         }
-        //public void ruajVit()
-        //    else
-        //            viti = 
             
 
-        //            else
 
-        //                else
-        //                else //modifikim
-        //            else
 
         //        //else
-        //        //{
-        //        //}
 
         public DbCore.DbAdmin.clsViti krijoVit(int idPerdoruesi)
         {
             int idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
             DbCore.DbShare.clsKonfigurimAmbjenti konfig = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konfig.mbushKonfigAmbjSipasKod(cmbKonfigurimi.Text, idNdermarrje);
-            //viti = new DbCore.DbAdmin.clsViti(txtKodi.Text, dteFillimiViti.Date, dteMbarimiViti.Date, cmbPeriudhaLloji.Value.ToString(), cbPeriudhaHapjes.Checked,
             return viti;
         }
         private void ruajPeriudha()
@@ -828,7 +814,6 @@ namespace PlatinumWeb
         {
           
             string[] argumenta = e.Parameters.Split(',');
-            //else
                 int id = 0;
               
                 int.TryParse(this.ASPxGridView_Vitet.GetRowValues(int.Parse(argumenta[0]), "IdViti").ToString(), out id);
@@ -837,7 +822,6 @@ namespace PlatinumWeb
                 periudhat.merrSipasVitiEpaySlip(id, ci);
                
 
-                //else 
                 if (periudhat[periudhat.Count - 1].EmerPeriudha == DbCore.DbAdmin.clsPeriudhaKontabel.PeriudheMbyllje || periudhat[periudhat.Count - 1].EmerPeriudha == DbCore.DbAdmin.clsPeriudhaKontabel.PeriudheMbyllje)
                 {
                 periudhat.RemoveAt(periudhat.Count - 1);

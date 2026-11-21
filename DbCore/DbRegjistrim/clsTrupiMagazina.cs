@@ -1460,10 +1460,6 @@ namespace DbCore.DbRegjistrim
             }
             double VleftaHyrjePerSS = 0;
             ktheVleftenPerSasineEMbetur(trupat, ref vleftatotale, ref sasidaljembetur, dbRegj, idArt, idmag, ref VleftaHyrjePerSS, gjendje, 0);
-            //    else
-            //        clsTrupiMagazina trupiGjenerues = clsTrupiMagazina.ktheRreshtMagazineGjeneruesFHSS(trupat[0].idTrupiMagazina, dbRegj);//per shperndarjet e shpenzimit
-            //        {//per fhnc
-            //            else
             return vleftatotale / (sas * koefic)+ VleftaHyrjePerSS;
         }
 

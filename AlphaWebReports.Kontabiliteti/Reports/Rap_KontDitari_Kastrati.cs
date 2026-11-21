@@ -76,12 +76,10 @@ namespace AlphaWebReports.RaportetDs
 
         private void xrLabel20_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
         }
 
         private void xrLabel29_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
         }
 
         private void xrLabel5_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

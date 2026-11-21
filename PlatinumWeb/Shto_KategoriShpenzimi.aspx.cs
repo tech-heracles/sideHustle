@@ -266,7 +266,6 @@ namespace PlatinumWeb
                 IdStatusDok = 1
             };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvKategoria);
-            //else
 
 
             var mesazh = filtri.ruaj();

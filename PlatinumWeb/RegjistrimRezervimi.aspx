@@ -43,7 +43,6 @@
         <dx:ASPxHiddenField ID="hfState" runat="server" ClientInstanceName="hfState" ViewStateMode="Enabled">
         </dx:ASPxHiddenField>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive(); }" />--%>
         </dx:ASPxGlobalEvents>
         <div style="width: 100%">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">

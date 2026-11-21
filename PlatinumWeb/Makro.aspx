@@ -21,8 +21,6 @@
 <head id="Head1" runat="server">
     <title>AVEC Accounting</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <%--    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/aspx.js/Makro.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/Makro.aspx-IMB.2.1.js&v76""
         type="text/javascript"></script>
 </head>
@@ -32,7 +30,6 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
        </asp:ScriptManager>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
           <dx:ASPxHiddenField ID="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
             </dx:ASPxHiddenField>

@@ -24,7 +24,6 @@
 <body>
     <form id="form1" runat="server">
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-				<%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
 			</dx:ASPxGlobalEvents>
 			<asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
 				

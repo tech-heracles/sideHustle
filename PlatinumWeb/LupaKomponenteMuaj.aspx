@@ -28,7 +28,6 @@
     <form id="form1" runat="server" style="width: 100%">
         <div>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){window.parent.parent.parent.parent.SessionTimeout;}" />--%>
             </dx:ASPxGlobalEvents>
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
@@ -294,7 +293,6 @@
                                 OnDataBound="gvLupaKomp_DataBound" OnAfterPerformCallback="gvLupaKomp_AfterPerformCallback"
                                 Width="100%" OnAutoFilterCellEditorInitialize="gvLupaKomp_AutoFilterCellEditorInitialize"
                                 OnCustomCallback="gvLupaKomp_CustomCallback">
-                             <%--   <ClientSideEvents RowDblClick="function(s, e) { OnGridSelectionChanged(); }" />--%>
                                 <Styles>
                                     <Header ImageSpacing="5px" SortingImageSpacing="5px">
                                     </Header>
@@ -307,7 +305,6 @@
                             </dx:ASPxGridView>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
-                            <%--</div>--%>
                         </dx:PanelContent>
                     </PanelCollection>
                 </dx:ASPxPanel >

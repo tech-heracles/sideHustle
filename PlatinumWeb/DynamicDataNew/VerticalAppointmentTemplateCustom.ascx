@@ -1,34 +1,3 @@
-<%--
-{************************************************************************************}
-{                                                                                    }
-{   DO NOT MODIFY THIS FILE!                                                         }
-{                                                                                    }
-{   It will be overwritten without prompting when a new version becomes              }
-{   available. All your changes will be lost.                                        }
-{                                                                                    }
-{   This file contains the default template and is required for the appointment      }
-{   rendering. Improper modifications may result in incorrect appearance of the      }
-{   appointment.                                                                     }
-{                                                                                    }
-{   In order to create and use your own custom template, perform the following       }
-{   steps:                                                                           }
-{       1. Save a copy of this file with a different name in another location.       }
-{       2. Add a Register tag in the .aspx page header for each template you use,    }
-{          as follows: <%@ Register Src="PathToTemplateFile" TagName="NameOfTemplate"}
-{          TagPrefix="ShortNameOfTemplate" %>                                        }
-{       3. In the .aspx page find the tags for different scheduler views within      }
-{          the ASPxScheduler control tag. Insert template tags into the tags         }
-{          for the views which should be customized.                                 }
-{          The template tag should satisfy the following pattern:                    }
-{          <Templates>                                                               }
-{              <VerticalAppointmentTemplate>                                         }
-{                  < ShortNameOfTemplate: NameOfTemplate runat="server"/>            }
-{              </VerticalAppointmentTemplate>                                        }
-{          </Templates>                                                              }
-{          where ShortNameOfTemplate, NameOfTemplate are the names of the            }
-{          registered templates, defined in step 2.                                  }
-{************************************************************************************}
---%>
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="VerticalAppointmentTemplateCustom" Codebehind="VerticalAppointmentTemplateCustom.ascx.cs" %>
 <%@ Register Assembly="DevExpress.Web.ASPxScheduler.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxScheduler" TagPrefix="dxwschs" %>
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dxe" %>

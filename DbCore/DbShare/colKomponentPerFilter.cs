@@ -8,8 +8,6 @@ namespace DbCore.DbShare
 {
    public class colKomponentPerFilter : System.Collections.Generic.List<clsKomponentPerFilter>
     {
-        //public new clsKomponentPerFilter this[int index]
-        //    get { return ((clsKomponentPerFilter)base[index]); }
        /// <summary>
        /// 
        /// </summary>

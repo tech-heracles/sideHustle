@@ -300,8 +300,6 @@ namespace DbCore.DbAdmin
         ///// Kthen/Vendos ID-ne e theme default te ketij perdoruesi
         ///// </summary>
         //public int IdTheme
-        //    get { return idTheme; }
-        //    set { idTheme = value; }
 
         /// <summary>
         /// Kthen/Vendos vleren e Id-se se stilit default te raporteve per kete perdorues

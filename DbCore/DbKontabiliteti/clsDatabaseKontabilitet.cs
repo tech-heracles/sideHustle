@@ -1281,7 +1281,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LLOJBUXHETI_sel");
         }
         //[Obsolete("Perdor: DataTable ktheGjitheLlojeBuxhetesh()", true)]
-        //public void merrLlojBuxheti(clsLlojBuxheti llojBuxheti)
         //{// metoda per te marre nje LLOJ BUXHETI NE BAZE TE ID
         //    try
         //        //shtimi i parametrave
@@ -1531,7 +1530,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_BUXHETI_sel");
         }
         //[Obsolete("Perdor: void merrBuxhet(int idlidhese)", true)]
-        //public void merrBuxhet(clsBuxheti buxheti)
         //{// metoda per te marre nje BUXHET NE BAZE TE IDLIDHESE
         //    try
         //        //shtimi i parametrave
@@ -1813,7 +1811,6 @@ namespace DbCore.DbKontabiliteti
 
 
         //[Obsolete("Perdor: void merrKPF(string kodikpf)", true)]
-        //public void merrKPF(clsKPF KPF)
         //{// metoda per te marre nje kpf
         //    try
         //        //shtimi i parametrave
@@ -1830,10 +1827,6 @@ namespace DbCore.DbKontabiliteti
         //{//fshin KPFne dhe buxhetet perkatese
         //    try
 
-        //            else
-        //            else
-        //        else
-        //    finally
 
         ///// <summary>
         /// Ekzekuton nje transaksion per te ruajtur nje objekt clsKPF dhe autorizimet e lidhur me te.
@@ -1842,15 +1835,6 @@ namespace DbCore.DbKontabiliteti
         /// <param name="KPF">Objekt i tipit clsKPF</param>
         /// <returns> Kthen statusin e perfundimit te ekzekutimit te transaksionit (nje objekt clsMesazh qe tregon nese veprimi eshte kryer me sukses apo jo.<seealso cref="DbCore.clsMesazh"/>)</returns>
         /// </summary>
-        //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajKPFAndBuxhete(int idkpf, string kodikpf, int nivelikpf, string emertimikpf, bool inakt, string shenimekpf, int grupikpf, int idnder, int idndervit, " +
-        //    "int idperdoruesi, int idkonfig, int idndermarje)", true)]
-        //{//ruan KPFne dhe buxhetet perkatese
-        //    try
-        //                        else
-        //                else
-        //            else
-        //        else
-        //    finally
 
         /// <summary>
         /// Ekzekuton nje transaksion per te modifikuar nje objekt clsKPF dhe autorizimet e lidhur me te.
@@ -1867,18 +1851,8 @@ namespace DbCore.DbKontabiliteti
         //    try
 
 
-        //            if (colLidhjetAutorizim.Count < colLidhjet.Count)//rasti kur jane shtuar rreshta trupi
 
-        //                        else
-        //                    else
-        //            else//rasti kur jane fshire rreshta
 
-        //                        else
-        //                        count++;
-        //                    else
-        //            else
-        //        else
-        //    finally
 
         /// <summary>
         /// Ekzekuton prc_T_KPF_merrGjitheKPFteSipasGrupit per te marre nje datatable duke filtruar sipas gripitKPF dhe id-se lidhese ndermarrje-vit.
@@ -2009,7 +1983,6 @@ namespace DbCore.DbKontabiliteti
         ///// <param name="idnderm">Id e ndermarrjes</param>
         ///// <returns> Kthen true nese ekziston nje objekt clsKPF qe ploteson kushtin</returns>
         ///////// </summary>
-        //public bool fitimhumbje(int grupi, int idnderm)
         //    try
         //    finally
 
@@ -2571,8 +2544,6 @@ namespace DbCore.DbKontabiliteti
         ///// <param name="idnderm">id e ndermarrjes</param>
         ///// <returns> Kthen statusin e perfundimit te ekzekutimit te SP-se perkatese (true nese veprimi eshte kryer me sukses)</returns>
         ///// </summary>
-        //internal int ruajKoken(out int idskemakontabelkoka, String kodiskemakontabelkoka, String pershkrimiskemakontabelkoka, bool aktivskemakontabelkoka, int idkursiskemakontabelkoka, int nrautoskemakontabelkoka,
-        //    try
 
 
         ////[Obsolete("Perdor: clsMesazh ruajKoken(int idskemakontabelkoka, String kodiskemakontabelkoka, String pershkrimiskemakontabelkoka, bool aktivskemakontabelkoka, int idkursiskemakontabelkoka, int nrautoskemakontabelkoka, " +
@@ -2612,8 +2583,6 @@ namespace DbCore.DbKontabiliteti
         ///// <param name="idllogariskemakontabeltrupi">id e llogarise se trupit te skemes kontabel</param>
         ///// <returns> Kthen statusin e perfundimit te ekzekutimit te SP-se perkatese (true nese veprimi eshte kryer me sukses)</returns>
         ///// </summary>
-        //internal clsMesazh ruajTrupin(out int idskemakontabeltrupi, String debikrediskemakontabeltrupi, int idkoka, int idskemamodel, int idllogariskemakontabeltrupi)
-        //    try
 
         ////[Obsolete("Perdor: ruajTrupin(int idskemakontabeltrupi, String debikrediskemakontabeltrupi, int idkoka, int idskemamodel, int idllogariskemakontabeltrupi)", true)]
         ////public clsMesazh ruajTrupin(clsSkemaKontabelTrupi trupi)
@@ -2840,8 +2809,6 @@ namespace DbCore.DbKontabiliteti
         ///// <param name="idnderm">id e ndermarrjes</param>
         ///// <returns> Kthen statusin e perfundimit te ekzekutimit te SP-se perkatese (true nese veprimi eshte kryer me sukses)</returns>
         ///// </summary>
-        //internal clsMesazh modifikoKoken(int idskemakontabelkoka, String kodiskemakontabelkoka, String pershkrimiskemakontabelkoka, bool aktivskemakontabelkoka, int idkursiskemakontabelkoka, int nrautoskemakontabelkoka,
-        //    try
 
         ////[Obsolete("Perdor: clsMesazh modifikoKoken(int idskemakontabelkoka, String kodiskemakontabelkoka, String pershkrimiskemakontabelkoka, bool aktivskemakontabelkoka, int idkursiskemakontabelkoka, int nrautoskemakontabelkoka, " +
         ////    "int idperdoruesi, int idnderm)", true)]
@@ -3019,15 +2986,8 @@ namespace DbCore.DbKontabiliteti
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajBilanc(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metoda, int idndermarja, int vit, int idndermvit, int idperdoruesi, colTrupPasqyreFinaciare ocoltrupibilancit)", true)]
         //    try
 
-        //                            else
 
-        //                            else
-        //                    else
-        //                else
-        //            else
 
-        //        else
-        //    finally
 
         /// <summary>
         /// ekzekuton prc_T_PASQYRAFINANCIAREKOKA_ins ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -3180,12 +3140,7 @@ namespace DbCore.DbKontabiliteti
         //    try
         //                        else
 
-        //                        else
 
-        //                else
-        //            else
-        //        else
-        //    finally
 
         ///// <summary>
         ///// Ruan nje objekt cash flow sebashku me trupin , llogarite 
@@ -3199,13 +3154,7 @@ namespace DbCore.DbKontabiliteti
         //[Obsolete("Perdor nga klasa perkatese: clsMesazh ruajCashFlow(int idpasqyres, String kodipasqyres, String emertimipasqyres, String tipipasqyres, String metoda, int idndermarja, int vit, int idndermvit, int idperdoruesi, colTrupPasqyreFinaciare oColTrupiCashFlow)", true)]
         //    try
 
-        //                            else
-        //                    else
-        //                else
-        //            else
 
-        //        else
-        //    finally
 
         /// <summary>
         /// kthen datatable pasqyra finaciare sipas tipi dhe ndermarjes
@@ -3366,20 +3315,9 @@ namespace DbCore.DbKontabiliteti
         //    try
 
 
-        //            else
-        //                else
-        //                else
-
-        //                                    else
 
 
-        //                                    else
-        //                            else
-        //                        else
-        //                    else
-        //                else
-        //            else
-        //    finally
+
 
 
         ///// <summary>
@@ -3399,19 +3337,9 @@ namespace DbCore.DbKontabiliteti
         //    try
 
 
-        //            else
-        //            else
-        //            else
 
 
-        //                            else
 
-        //                            else
-        //                    else
-        //                else
-        //            else
-        //        else
-        //    finally
 
 
         ///// <summary>
@@ -3431,17 +3359,9 @@ namespace DbCore.DbKontabiliteti
         //    try
 
 
-        //            else
-        //            else
-
-        //                            else
-        //                    else
 
 
-        //                else
-        //            else
-        //        else
-        //    finally
+
 
 
         ///// <summary>
@@ -3459,12 +3379,6 @@ namespace DbCore.DbKontabiliteti
         //    try
 
 
-        //            else
-        //            else
-        //            else
-        //            else
-        //        else
-        //    finally
 
         #endregion
 
@@ -3574,7 +3488,6 @@ namespace DbCore.DbKontabiliteti
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPKONTABILIZIMI_ktheGrupKontabilizimiSipasId");
         }
         //[Obsolete("Perdor: merrGrupKontabilizimi(int idgrupkontablizimi)", true)]
-        //public void merrGrupKontabilizimi(clsGrupKontabilizimi grupKontabilizimi)
         //{//merr nje grup kontabilizimi
         //    try
         //    finally
@@ -3699,16 +3612,6 @@ namespace DbCore.DbKontabiliteti
         /// </summary>
         #region  KOKA FLETE KONTABEL
 
-        //internal int ruajKokaFleteKontabel(int idkokafletekontabel, string nrdokumentikokafletekontabel, DateTime datedokumentifletekontabel, DateTime dateregjistrimifletekontabel,
-        //    string pershkrimfletekontabel, int idgrupkontabilizimi,
-        //    //int idskemakontabel, 
-        //    int idnderviti, bool kont, double vleftafletekontabel, int idperdoruesi,
-        //{ //metoda per ruajtjen e  koken e fletes kontabel
-        //    return ruajKokaFleteKontabel(idkokafletekontabel,nrdokumentikokafletekontabel,datedokumentifletekontabel,dateregjistrimifletekontabel,pershkrimfletekontabel
-        //        ,idgrupkontabilizimi,
-        //        //idskemakontabel,
-        //        idnderviti,kont,vleftafletekontabel,idperdoruesi,idllojdok,iddoknga,idstatusdok,idkonfigambjente
-        //        ,idkonfiggjenerues,idkategoria,idnivel,idnivelgjenerues,idgjenerues, idPeriudha, idndermarje);   
         /// <summary>
         /// Ekzekuton prc_T_KOKAFLETEKONTABEL_ins per te ruajtur nje objekt clsKokaFleteKontabel ne DB.
         /// <param name="idkokafletekontabel">Id qe gjenerohet automatikisht</param>
@@ -4364,7 +4267,6 @@ namespace DbCore.DbKontabiliteti
 
         }
         //[Obsolete("Perdor: void merrTrupiFleteKontabel(int idtrupifletekontabel)", true)]
-        //public void merrTrupiFleteKontabel(clsTrupiFleteKontabel trupiFleteKontabel)
         //{// metoda per te marre nje  trupi flete kontabel NE BAZE TE ID
         //    try
         //        //shtimi i parametrave

@@ -397,7 +397,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             else e.Result = "";
             e.Handled = true;
 
-            //    else
 
         }
 

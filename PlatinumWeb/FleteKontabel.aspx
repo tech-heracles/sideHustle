@@ -35,12 +35,6 @@
             width: 524px;
         }
     </style>
-    <%--    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/myMesazh-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myButtonClickLupa-IMB.2.1.js?versioni22" type="text/javascript"></script>
-     
-    <script src="js/aspx.js/FleteKontabel.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/aspx.js/FleteKontabel.aspx-IMB.2.1.js&v76""
         type="text/javascript"></script>
 </head>
@@ -58,7 +52,6 @@
            
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" runat="server" ClientInstanceName="hfState" ViewStateMode="Enabled">
         </dx:ASPxHiddenField>

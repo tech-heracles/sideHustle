@@ -350,8 +350,6 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvRegjQK", komponente, idndermarje, int.Parse(cmbKonfigurimi.Value.ToString()));
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = gvRegjQK.FilterExpression, IdPerdoruesi = idperdoruesi, IdNdermarje = idndermarje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivel", gvRegjQK);
-            //    else
-            //else
 
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
@@ -375,21 +373,10 @@ namespace PlatinumWeb
         }
 
 
-        //        nrreshta++;
-        //            case 1:
-        //            case 2:
-        //            case 6:
-
-        //            case 3:
-        //            case 4:
-        //            case 78:
-        //            case 95:
-
-        //            default:
 
 
-        //    else
-        //    else
+
+
 
         /// <summary>
         /// fshin rreshtat e selektuar

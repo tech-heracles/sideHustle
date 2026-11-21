@@ -554,8 +554,6 @@ namespace DbCore.DbAdmin
 
             // Te pakten nje simbol
 
-            //nqs plotesohet nje nga kushtet passwordi eshte i forte.
-            //else
         }
 
         /// <summary>

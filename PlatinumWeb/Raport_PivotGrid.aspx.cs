@@ -146,7 +146,6 @@ namespace PlatinumWeb
             int indeksiFundit = Math.DivRem(ASPxPivotGridRaporti.RowCount, ASPxPivotGridRaporti.OptionsPager.RowsPerPage, out remainder);
             if (remainder > 0)
                 indeksiFundit = indeksiFundit + 1;
-            //else
 
             ASPxPivotGridRaporti.OptionsView.ShowColumnGrandTotals = ColumnGrandTotal.Checked;
             ASPxPivotGridRaporti.OptionsView.ShowColumnTotals = ColumnTotal.Checked;
@@ -300,7 +299,6 @@ namespace PlatinumWeb
                 DataRow[] drs = dt.Select("IdKonfPivotGridaKoka = " + idKonfigPG);
                 if (drs.Length > 0)
                     throw new DbCore.MyException(MessagesResource.Messages["labelRaportMesazhKonfiguimiEkziston"]);
-                //"GABIM: Konfigurimi ekziston ne gride");
                 DataRow newArtDr = DbCore.DbRegjistrim.clsKonfigPivotGridaKoka.ktheKonfigPGSipasID(idKonfigPG);
                 dt.ImportRow(newArtDr);
                 dt.Rows[dt.Rows.Count - 1].ItemArray = newArtDr.ItemArray;
@@ -322,7 +320,6 @@ namespace PlatinumWeb
                 DataRow[] drs = dt.Select("IdKonfPivotGridaKoka = " + idKonfigPG);
                 if (drs.Length > 1)
                     throw new DbCore.MyException(MessagesResource.Messages["labelRaportMesazhGabimiDyKonfigurimeNeGride"]);
-                //"GABIM: Ndodhen 2 konfigurime me te njejten id ne gride");
                 if (drs.Length == 0) return;
                 DataRow dr = drs[0];
                 DataRow newArtDr = DbCore.DbRegjistrim.clsKonfigPivotGridaKoka.ktheKonfigPGSipasID(idKonfigPG);
@@ -413,7 +410,6 @@ namespace PlatinumWeb
         ///// <summary>
         ///// Mbush combon e filtrave te grides ASPxGridView_KonfigPivotGrid
         ///// </summary>
-        //private void mbushComboBoxFiltra()
 
         /// <summary>
         /// Per eksporimin e raporteve te gjeneruara
@@ -449,8 +445,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_KonfigPivotGrid.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", ASPxGridView_KonfigPivotGrid);
-            //    else
-            //else
             filtri.IdPerdoruesi = idPerdorues;
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -672,7 +666,6 @@ namespace PlatinumWeb
             {
                 isValid = false;
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, MessagesResource.Messages["labelRaportMesazhEkzostonKonfRap"], pnlMesazhi);
-                //"Ekziston nje konfigurim raporti me kete kod!Ju lutemi shenoni nje kod tjeter.",
                 return isValid;
             }
             dbRegj.Dispose();
@@ -797,7 +790,6 @@ namespace PlatinumWeb
                 ASPxGridView_KonfigPivotGrid.Settings.ShowFilterRowMenu = true;
                 ASPxGridView_KonfigPivotGrid.Columns.Add(check);
                 ASPxGridView_KonfigPivotGrid.KeyFieldName = "IdKonfPivotGridaKoka";
-                //ASPxGridView_KonfigPivotGrid.SettingsBehavior.AllowSelectByRowClick = true; //obsolete
                 ASPxGridView_KonfigPivotGrid.SettingsBehavior.AllowSelectByRowClick = true;
                 ASPxGridView_KonfigPivotGrid.SettingsBehavior.AllowFocusedRow = true;
                 ASPxGridView_KonfigPivotGrid.Columns["CollapsedStateLayout"].Visible = false;
@@ -1075,7 +1067,6 @@ namespace PlatinumWeb
                 if (fushaKonfig["width"].ToString() != String.Empty)
                     fusha.Width = Convert.ToInt32(fushaKonfig["width"]);
 
-                //else
 
                 ASPxPivotGridRaporti.Fields.Add(fusha);
 
@@ -1084,7 +1075,6 @@ namespace PlatinumWeb
                     percaktoGroupInterval(fusha);
                 }
             }
-            //else
         }
 
         private Tuple<DateTime, DateTime> MerrDateFillimiDheMbarimi()

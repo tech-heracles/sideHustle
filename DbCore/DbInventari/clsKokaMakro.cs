@@ -144,8 +144,6 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne  e ndermarje vitit.
         /// </summary>
         //public int IdNderViti
-        //    get { return idNderViti; }
-        //    set { idNderViti = value; }
         /// <summary>
         /// Kthen/Vendos ID-ne  e ndermarjes.
         /// </summary>
@@ -605,7 +603,6 @@ namespace DbCore.DbInventari
                     pershkrimiKokaMakro = dbDataRowKokaMakro["PERSHKRIMIKOKAMAKRO"].ToString();
 
                     ////DbAdmin.colLidhjetAutorizim lidhje = new DbAdmin.clsDatabaseAdmin().merrLidhjeAutorizimSipasIdLidheseIdLloji(idKokaMakro, DbCore.DbKontabiliteti.clsLlojBuxheti.mbushIDLlojBuxheti("Makro"));
-                    //else
 
                     int.TryParse(dbDataRowKokaMakro["IDPERDORUESI"].ToString(), out idPerdoruesi);
                     int.TryParse(dbDataRowKokaMakro["IDNDERMARJE"].ToString(), out idNdermarje);

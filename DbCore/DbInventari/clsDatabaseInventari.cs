@@ -471,7 +471,6 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: merrFurnitoreArtikulli(int idFurnitoreArtikulli)", true)]
-        //public void merrFurnitoreArtikulli(clsFurnitoreArtikulli furnitoreArtikulli)
         //{// metoda per te marre nje FurnitoreArtikulli NE BAZE TE ID
         //    try
         //        //shtimi i parametrave
@@ -618,7 +617,6 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: merrArtikulliZevendesues(int idArtikulliZevendesues)", true)]
-        //public void merrArtikulliZevendesues(clsArtikullZevendesues artikullZevendesues)
         //{// metoda per te marre nje artikullZevendesues NE BAZE TE ID
         //    try
         //        //shtimi i parametrave
@@ -3369,8 +3367,6 @@ namespace DbCore.DbInventari
         ///// <param name="idndermarje">id e ndermarjes</param>
         ///// <returns> nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo.</returns>
         ///// </summary>        
-        //internal bool ruajNivCmimi(out int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idnderm, int idkonfig, int idstatusdok, bool njesiTeVarura, bool teVaruraNgaMonedha, bool nivelcmimbaze)
-        //{ //metoda per ruajtjen e nivelit te cmimeve
 
         //    try
 
@@ -3538,7 +3534,6 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: bool modifikoNivCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm, int idndermarje)", true)]
-        //public bool modifikoNivCmimi(clsNivelCmimi nivelCmimi)
         //    try
 
         //        //shtimi i parametrave
@@ -3562,27 +3557,19 @@ namespace DbCore.DbInventari
         //    [Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoNivelCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm)", true)]
         //    {//metoda per modifikimin e nivelit te cmimit
 
-        //                        else
-
-        //                else
-
-        //            else
 
 
-        //                    else
+
+
 
 
         //    [Obsolete("Perdor: clsMesazh modifikoNivelCmimi(int idNivelCmimi, string kodNivelCmimi, string pershkrimNivelCmimi, int idPrindi, int llojiNivelCmimi, int idMonedha, int brutoNetoNivelCmimi, int prioritetiNivelCmimi, int idPerdoruesi, int idNderViti, int idnderm)", true)]
         //    {//metoda per modifikimin e nivelit te cmimit
 
-        //                        else
-
-        //                else
-
-        //            else
 
 
-        //                    else
+
+
 
 
         /// <summary>
@@ -4566,7 +4553,6 @@ namespace DbCore.DbInventari
 
 
         //[Obsolete("Perdor: merrNjesiArtikulliPakthyer(int idNjesia)", true)]
-        //public void merrNjesiArtikulli(clsNjesiArtikulli  njesiArtikulli)
         //{// metoda per te marre nje njesi artikulli NE BAZE TE ID
         //    try
         //        //shtimi i parametrave
@@ -5004,7 +4990,6 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: merrKodifikimArtikulli(int idKodifikimi)", true)]
-        //public void merrKodifikimArtikulli(clsKodifikimArtikulli kodifikimArtikulli)
         //{// metoda per te marre nje KodifikimArtikulli NE BAZE TE ID
         //    try
         //        //shtimi i parametrave
@@ -5608,7 +5593,6 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: merrTrupiKategoriZbritje(int idTrupiKategoriZbritje)",true)]
-        //public void merrTrupiKategoriZbritje(clsTrupiKategoriZbritje kategoriZbritje)
         //{// metoda per te marre nje KategoriZbritje NE BAZE TE ID
         //    try
         //        //shtimi i parametrave
@@ -5813,10 +5797,6 @@ namespace DbCore.DbInventari
         //[Obsolete("Perdor: clsMesazh fshiKategoriZbritje(int idKokaKategoriZbritje) ",true)]
         //{//fshin kategorizbritje
 
-        //    try
-        //            else
-        //            else
-        //        else
 
         /// <summary>
         /// kthen objektet koka kategori zbritje sipas idse
@@ -5834,7 +5814,6 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: merrKokaKategoriZbritje(int idKokaKategoriZbritje)",true)]
-        //public void merrKokaKategoriZbritje(clsKokaKategoriZbritje kategorizbritje)
         //{// metoda per te marre nje KokaKategoriZbritje ne baze te id te tij
         //    try
         //        //shtimi i parametrave
@@ -6122,7 +6101,6 @@ namespace DbCore.DbInventari
 
         }
         //[Obsolete("Perdor: bool modifikoNivZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm)", true)]
-        //public bool modifikoNivZbritje(clsNivelZbritje nivelZbritje)
         //    try
 
         //        //shtimi i parametrave
@@ -6145,18 +6123,14 @@ namespace DbCore.DbInventari
 
         //                        //foreach (clsNivelZbritje n in colNivele)
 
-        //                    else
-        //                        //foreach (clsNivelZbritje n in colNivele)
 
         //            else
         //                    //if (colNivele.Count > 0)
         //                    //if (nivelZbritje.PrioritetiNivelZbritje <= colNivele[0].PrioritetiNivelZbritje)
         //                        //foreach (clsNivelZbritje n in colNivele)
 
-        //        else
 
 
-        //                else
 
 
         //[Obsolete("Perdor: clsMesazh modifikoNivelZbritje(int idNivelZbritje, string kodNivelZbritje, string pershkrimNivelZbritje, int idPrindi, int prioritetiNivelZbritje, int idPerdoruesi, int idNderViti, int idnderm)", true)]
@@ -6164,18 +6138,14 @@ namespace DbCore.DbInventari
 
         //                        //foreach (clsNivelZbritje n in colNivele)
 
-        //                    else
-        //                        //foreach (clsNivelZbritje n in colNivele)
 
         //            else
         //                //if (colNivele.Count > 0)
         //                    //if (nivelZbritje.PrioritetiNivelZbritje <= colNivele[0].PrioritetiNivelZbritje)
         //                        //foreach (clsNivelZbritje n in colNivele)
 
-        //        else
 
 
-        //                else
 
 
         /// <summary>
@@ -6481,14 +6451,6 @@ namespace DbCore.DbInventari
         ///<param name="zbritjetAnalitike"> koleksioni me zbritjet e artikujve qe do te ruhen</param>
         /// <returns> nje objekt clsMesazh qe tregon nese ruajtja eshte kryer ne rregull apo jo.</returns>
         /// </summary>
-        //    [Obsolete("Perdor nga klasa perkatese: clsMesazh ruajZbritje(colZbritjetAnalitike  zbritjetAnalitike)", true)]
-        //        try
-        //                        mesazh = ruajZbritjeAnalitike(out idZ, c.IdArtikulli, c.IdNivelZbritje, c.IdNjesia, c.DateFillimi, c.DateMbarimi, c.SasiMin, c.SasiMax,
-        //                    else
-        //                        mesazh = modifikoZbritjeAnalitike(c.IdZbritjeAnalitike, c.IdArtikulli, c.IdNivelZbritje, c.IdNjesia, c.DateFillimi, c.DateMbarimi, c.SasiMin, c.SasiMax,
-        //                else
-        //            else
-        //        finally
 
         /// <summary>
         /// ekzekuton prc_T_ZBRITJEANALITIKE_ins ne DB dhe kthen statusin e perfundimit te ekzekutimit te SP-se perkatese
@@ -6546,10 +6508,6 @@ namespace DbCore.DbInventari
 
 
         }
-        //[Obsolete("Perdor: clsMesazh ruajZbritjeAnalitike(int idZbritjaAnalitike, int idArtikulli, int idNivelZbritje, int idNjesia, DateTime dateFillimit, DateTime dateMbarimit, " +  
-        //    "decimal sasiMin, decimal sasiMax, decimal vleftaMin, decimal vleftaMax, int zbritjeNeVlere, decimal zbritja, int idPerdoruesi, int idNderViti, int idNdermarje, " + 
-        //    "int idkonfig)",true)]
-        //{ //metoda per ruajtjen e zbritjeAnalitike
 
 
         //    try
@@ -6622,10 +6580,6 @@ namespace DbCore.DbInventari
 
         }
 
-        //[Obsolete("Perdor: clsMesazh modifikoZbritjeAnalitike(int idZbritjaAnalitike, int idArtikulli, int idNivelZbritje, int idNjesia, DateTime dateFillimit, DateTime dateMbarimit, " +
-        //    "decimal sasiMin, decimal sasiMax, decimal vleftaMin, decimal vleftaMax, int zbritjeNeVlere, decimal zbritja, int idPerdoruesi, int idNderViti, int idNdermarje, " +
-        //    "int idkonfig)", true)]
-        //    try
 
         //        //shtimi i parametrave
 
@@ -6779,9 +6733,6 @@ namespace DbCore.DbInventari
         //    try
         //        //shtimi i parametrave
 
-        //        else
-        //        else
-        //    finally
 
         /// <summary>
         /// kthen datatable zbritje analitike artikujsh sipas nivelit
@@ -7346,20 +7297,7 @@ namespace DbCore.DbInventari
         //    try
         //            else
 
-        //                else
-        //                else
-        //            else
-        //        else
-        //[Obsolete("Perdor: clsMesazh fshiMakro(int idKokaMakro)", true)]
-        //{//fshin makro
-        //    try
-        //            else
 
-        //                else
-        //                else
-        //            else
-        //        else
-        //    finally
 
         /// <summary>
         /// kthen datatable makro sipas ndermarjes dhe autorizimit
@@ -7506,23 +7444,10 @@ namespace DbCore.DbInventari
 
         //    try
 
-        //                    else
-        //                    else
-        //                else
-        //            else
-        //        else
-        //[Obsolete("Perdor: clsMesazh ruajMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)", true)]
-        //{//ruan makro
 
 
         //    try
 
-        //                    else
-        //                    else
-        //                else
-        //            else
-        //        else
-        //    finally
 
         /// <summary>
         /// Modifikon nje objekt makro sebashku me trupin dhe autorizimet
@@ -7544,59 +7469,24 @@ namespace DbCore.DbInventari
         //    try
 
 
-        //            if (colLidhjetAutorizim.Count < colLidhjet.Count)//rasti kur jane shtuar rreshta trupi
-
-        //                        else
-        //                    else
-        //            else//rasti kur jane fshire rreshta
-
-        //                        else
-        //                        count++;
-        //                    else
-        //                if (trupat.Count < makro.OColTrupatMakro.Count)//rasti kur jane shtuar rreshta trupi
-
-        //                            else
-        //                        else
-        //                else//rasti kur jane fshire rreshta
 
 
-        //                            else
-        //                            count++;
-        //                        else
 
-        //                else
-        //            else
-        //        else
+
+
+
         ////[Obsolete("Perdor: clsMesazh modifikoMakro(int idKokaMakro, string kodKokaMakro, string pershkrimKokaMakro, int idNderViti, int idPerdoruesi, int idNdermarje)", true)]
         //    //modifikon Makro
 
         //    try
 
 
-        //            if (colLidhjetAutorizim.Count < colLidhjet.Count)//rasti kur jane shtuar rreshta trupi
-
-        //                        else
-        //                    else
-        //            else//rasti kur jane fshire rreshta
-
-        //                        else
-        //                        count++;
-        //                    else
-        //                if (trupat.Count < makro.OColTrupatMakro.Count)//rasti kur jane shtuar rreshta trupi
-
-        //                            else
-        //                        else
-        //                else//rasti kur jane fshire rreshta
 
 
-        //                            else
-        //                            count++;
-        //                        else
 
-        //                else
-        //            else
-        //        else
-        //    finally
+
+
+
 
         /// <summary>
         /// perdoret per te kontrolluar nqs ekziston nje makro me kete kod ne kete ndermarje
@@ -7910,22 +7800,11 @@ namespace DbCore.DbInventari
 
         //    try
 
-        //                else
 
-        //                else
-        //            else
-        //        else
-        //[Obsolete("Perdor: clsMesazh fshiDetajim(int idDetajimArtikulli)", true)]
-        //{//fshin detajimArtikulli
 
         //    try
 
-        //                else
 
-        //                else
-        //            else
-        //        else
-        //    finally
 
         /// <summary>
         /// kthen dataTable detajim artikulli sipas ndermarjes dhe autorizimit

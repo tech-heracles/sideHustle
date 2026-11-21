@@ -50,7 +50,6 @@ namespace DbCore.DbAdmin
             }
         }
 
-        //public void merrVitet(int ndermarrja)
 
         /// <summary>
         /// mbush nje klase me te gjithe vitet    e celura ne kete ndermarje
@@ -128,7 +127,6 @@ namespace DbCore.DbAdmin
                 {
                     this.Add(new clsViti(rreshti));
                 }
-            //    //throw;
             return true;
         }
 

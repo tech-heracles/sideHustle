@@ -283,7 +283,6 @@ namespace PlatinumWeb
                 IdStatusDok = 1
             };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", grid_VeprimeKF);
-            //else
 
             var mesazh = filtri.ruaj();
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, IdNdermarrja, "grid_VeprimeKF", int.Parse(cmbKonfigurimi.Value.ToString()), Komponente);

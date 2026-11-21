@@ -163,15 +163,12 @@ namespace DbCore.DbCRM
         ///// <summary>
         ///// kthen objektin <see cref="DbCore.DbCRM.clsOpsioneAnkete"/>  qe ndodhet ne nje index te caktuar te arraylist-es
         ///// </summary>
-        //public new clsOpsioneAnkete this[int index]
-        //    get { return ((clsOpsioneAnkete)base[index]); }
 
        
         //#endregion
 
         //#region Metoda Private
 
-        //private bool mbushColOpsioneAnketa(DataTable dt)
         //    try
 
 

@@ -19,15 +19,8 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true">
      </asp:ScriptManager>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
-<%--    <asp:UpdatePanel ID="updreports" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
-        <ContentTemplate>--%>
             <asp:SqlDataSource ID="SqlDataSourceRaportet" runat="server">
-               <%-- <SelectParameters>
-                    <asp:ControlParameter ControlID="cmbmodules" PropertyName="Value" DbType="Int32"
-                        Name="IDMODULI" DefaultValue="7" />
-                </SelectParameters>--%>
             </asp:SqlDataSource>
             <table style="border: 1px solid #999999; background-image: url('images/grad_bg_image.gif');
                 background-repeat: repeat-x; height: 85px; width: 100%;">
@@ -235,8 +228,6 @@
                     </td>
                 </tr>
             </table>
-<%--        </ContentTemplate>
-    </asp:UpdatePanel>--%>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceModules" runat="server">

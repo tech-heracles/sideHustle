@@ -1149,9 +1149,7 @@ namespace PlatinumWeb
             gvPunesim.DataBind();
         }
 
-        //private void shtoStatus()
 
-        //private void shtoNdryshimPozicioni()
 
 
         /// <summary>
@@ -2058,7 +2056,6 @@ namespace PlatinumWeb
         /// <summary>
         /// perdoret per te shfaqur llojin ne vend te true/false si dhe filtri i llojit te shfaqet ne forme komboje
         /// </summary>
-        //private static void shtoNjesi(ASPxGridView grida)
 
 
         /// <summary>

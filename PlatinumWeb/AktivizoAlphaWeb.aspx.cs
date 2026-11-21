@@ -19,7 +19,6 @@ namespace PlatinumWeb
         protected void btnInstalo_Click(object sender, EventArgs e)
         {
             string strKey = txtKey1.Text.Trim() + txtKey2.Text.Trim() + txtKey3.Text.Trim() + txtKey4.Text.Trim() + txtKey5.Text.Trim();
-            //else
 
             clsMesazh mesazhi = new clsMesazh();// new Kycim.ReadKF(Kycim.Produkti.AlphaWeb).instaloMeMesazh(strKey, Server.MapPath("~/dlls/icon.dat")); //-komento per momentin
             if (mesazhi.Status)

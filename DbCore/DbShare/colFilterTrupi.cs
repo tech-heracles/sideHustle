@@ -12,10 +12,7 @@ namespace DbCore.DbShare
     public class colFilterTrupi : System.Collections.Generic.List<clsFilterTrupi>
     {
         
-        //public new clsFilterTrupi this[int index]
-        //    get { return ((clsFilterTrupi)base[index]); }
 
-        //public bool merriTeGjithe(int idKokaFilter)
 
 
         #region Konstruktoret

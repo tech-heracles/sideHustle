@@ -86,15 +86,6 @@ namespace PlatinumWeb
             else
                 col.mbushGjitheKonfigurimeAmbjenteshMePershkrimEng(idNdermarrje, idPerdoruesi, 2, idGjuha);
 
-            //        else                  
-            //    else
-            //        col.mbushGjitheKonfigurimeAmbjenteshMePershkrimEng(idNdermarrje, idPerdoruesi, 2, idGjuha); //regjistrime
-            //else
-            //            else
-            //        else
-            //            else
-            //    else
-            //        col.mbushGjitheKonfigurimeAmbjentesh(idNdermarrje, idPerdoruesi, 2, idGjuha); //regjistrime
             gvLupaKonfig.DataSource = col;
             gvLupaKonfig.DataBind();
         }
@@ -165,11 +156,8 @@ namespace PlatinumWeb
                 gvLupaKonfig.Selection.UnselectAll();
         }
 
-        //    else
 
 
-        //            else
-        //        else
 
 
         //    //if (dbAdmin.ekzistonFilter(Kodi_ASPxTextBox.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)))
@@ -233,8 +221,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaKonfig.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodKonfigAmbjente", gvLupaKonfig);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -277,6 +263,5 @@ namespace PlatinumWeb
             }
         }
 
-        //private void mbushComboBoxFiltra(int idNdermarrje)
     }
 }

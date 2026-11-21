@@ -52,7 +52,6 @@
            
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" runat="server">
         </dx:ASPxHiddenField>
@@ -197,17 +196,6 @@
                                 <RequiredField IsRequired="true" />
                             </ValidationSettings>
                         </dx:ASPxTextBox>
-                        <%--   <dx:ASPxMemo ID="pershkrimKonfig_TextBox" runat="server" Width="100%" ClientInstanceName="pershkrimKonfig_TextBox"
-                            Rows="3">
-                            <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
-                                ValidationGroup="entries">
-                                <ErrorImage Height="14px" />
-                                <ErrorFrameStyle ImageSpacing="4px">
-                                    <ErrorTextPaddings PaddingLeft="4px" />
-                                </ErrorFrameStyle>
-                                <RequiredField IsRequired="true" />
-                            </ValidationSettings>
-                        </dx:ASPxMemo>--%>
                     </td>
                 </tr>
                 <tr>
@@ -217,22 +205,6 @@
                         </dx:ASPxLabel>
                     </td>
                     <td class="renditKontrolleCellMeWidth50">
-                        <%--<dx:ASPxComboBox ID="cmbAutorizimi" ClientInstanceName="cmbAutorizimi" Width="100%"
-                            runat="server" SettingsLoadingPanel-ImagePosition="Top" ShowShadow="False">
-                            <DropDownButton>
-                                <Image>
-                                    <SpriteProperties HottrackedCssClass="dxEditors_edtDropDownHover_Aqua" PressedCssClass="dxEditors_edtDropDownPressed_Aqua" />
-                                </Image>
-                            </DropDownButton>
-                            <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
-                                ValidationGroup="entries" SetFocusOnError="true">
-                                <ErrorFrameStyle ImageSpacing="4px">
-                                    <ErrorTextPaddings PaddingLeft="4px" />
-                                </ErrorFrameStyle>
-                                <RequiredField IsRequired="false" />
-                            </ValidationSettings>
-                            <ClientSideEvents ButtonClick="function(s, e) {KPF=0;Autorizime_Click();}" SelectedIndexChanged="function(s,e){Utils.SelektimiBosh(s,e);}" />
-                        </dx:ASPxComboBox>--%>
                         <div>
                             <select id="cmbAutorizimi">
                             </select>
@@ -314,7 +286,6 @@
                                 </ErrorFrameStyle>
                                 <RequiredField IsRequired="true" />
                             </ValidationSettings>
-                            <%--   <ClientSideEvents SelectedIndexChanged="function(s,e){ Kategoria_ComboBoxSelectedIndexChanged(s, e); }" />--%>
                         </dx:ASPxComboBox>
                     </td>
                     <td class="renditKontrolleCaption">
@@ -350,8 +321,6 @@
                 <ClientSideEvents EndCallback="function (s,e) {index_EndCallback();}"></ClientSideEvents>
                 <PanelCollection>
                     <dxp:PanelContent>
-                        <%--    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                        <ContentTemplate>--%>
                         <table width="100%" style="width: 100%">
                             <tr>
                                 <td style="width: 100%">
@@ -444,8 +413,6 @@
                         <asp:HiddenField ID="hfNKAKNKA" runat="server" />
                         <asp:HiddenField ID="hfSDAF" runat="server" />
                         <asp:HiddenField ID="hfZSP" runat="server" />
-                        <%--  </ContentTemplate>
-                    </asp:UpdatePanel>--%>
                     </dxp:PanelContent>
                 </PanelCollection>
             </dxcp:ASPxCallbackPanel >

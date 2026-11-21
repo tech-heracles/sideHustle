@@ -150,7 +150,6 @@ namespace PlatinumWeb.E_PaySlip
         ///// ne menu shtohet nje item 
         ///// </summary>
         ///// <param name="m"></param>
-        //public static void ShtoMenuItem(ASPxMenu m, DbCore.DbShare.clsMenuItem menuitem, bool enabled)
 
         /// <summary>
         /// ne menu shtohet nje item 
@@ -169,7 +168,6 @@ namespace PlatinumWeb.E_PaySlip
                 
                     itemToAdd = m.Items.Add();
                     itemToAdd.ClientEnabled = menuitem.Enabled;
-                //else
             }
             else
             {
@@ -212,7 +210,6 @@ namespace PlatinumWeb.E_PaySlip
         ///// ne menu shtohet nje sub item 
         ///// </summary>
         ///// <param name="m"></param>
-        //public static void ShtoMenuSubItem(ASPxMenu m, DbCore.DbShare.clsMenuItem menuitem, DbCore.DbShare.clsMenuItem parentItem, bool enabled)
 
 
         /// <summary>

@@ -47,7 +47,6 @@
           
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.  window.parent.  SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <asp:UpdatePanel ID="pnl" runat="server">
             <ContentTemplate>
@@ -140,14 +139,6 @@
                                 <dx:ASPxButton ID="ASPxButton1" runat="server" Text="ASPxButton" ClientInstanceName="btn">
                                 </dx:ASPxButton>
                             </div>
-                            <%--  <dx:ASPxLabel ID="lblKodi" runat="server" Text="Kodi">
-                    </dx:ASPxLabel>
-                    <dx:ASPxTextBox ID="txtKodi" runat="server" Width="170px">
-                    </dx:ASPxTextBox>
-                    <dx:ASPxLabel ID="lblPershkrimi" runat="server" Text="Pershkrimi">
-                    </dx:ASPxLabel>
-                    <dx:ASPxTextBox ID="txtPershkrimi" runat="server" Width="170px">
-                    </dx:ASPxTextBox>--%>
                             <br />
                             <table width="100%">
                                 <tr>
@@ -186,8 +177,6 @@
                                     </td>
                                 </tr>
                             </table>
-                            <%--   <dx:ASPxLabel ID="pergjigja" runat="server" Text="">
-                    </dx:ASPxLabel>--%>
                         </dxp:PanelContent>
                     </PanelCollection>
                 </dx:ASPxRoundPanel >

@@ -77,40 +77,6 @@
         </asp:UpdatePanel>
         <div id="dvAktiviteti" style="display: block">
 
-        <%--    <table class="renditKontrolle">
-                <tbody>
-                    <tr>
-                        <td class="renditKontrolleCaption">
-                            <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbAmbjenti" ID="Ambjenti_Label"
-                                runat="server" Style="font-size: large" Text="Ambjenti:">
-                            </dx:ASPxLabel>
-                        </td>
-                        <td class="renditKontrolleCellMeWidth33">
-                            <dx:ASPxComboBox ID="cmbAmbjenti" runat="server" ClientInstanceName="cmbAmbjenti"
-                                Height="24px" Width="100%" SettingsLoadingPanel-ImagePosition="Top" ShowShadow="False"
-                                Style="font-size: medium" AnimationType="None">
-                                <ClientSideEvents SelectedIndexChanged="function(s,e){ndryshoAmbjentin()}" />
-                                <DropDownButton>
-                                    <Image>
-                                        <SpriteProperties HottrackedCssClass="dxEditors_edtDropDownHover_Aqua" PressedCssClass="dxEditors_edtDropDownPressed_Aqua" />
-                                    </Image>
-                                </DropDownButton>
-                                <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
-                                    <ErrorFrameStyle ImageSpacing="4px">
-                                        <ErrorTextPaddings PaddingLeft="4px" />
-                                    </ErrorFrameStyle>
-                                </ValidationSettings>
-                            </dx:ASPxComboBox>
-                        </td>
-                        <td class="renditKontrolleLabelMeWidth33">
-                            <dx:ASPxLabel Wrap="False" ID="lblAmbjenti" runat="server" class="klasePerLblKonfigurimi"
-                                ClientInstanceName="lblAmbjenti">
-                            </dx:ASPxLabel>
-                        </td>
-                      <td class="renditKontrolleCellMeWidth33"></td>
-                    </tr>
-                </tbody>
-            </table>--%>
             <dx:ASPxGridView ID="gvFazat"   
                 Width="100%" ToolTip="Ambjenti i Fazave te Kontrates" runat="server"  OnDataBound="gvFazat_DataBound"  OnCustomCallback="gvFazat_CustomCallback"
                 OnBatchUpdate="gvFazat_BatchUpdate">

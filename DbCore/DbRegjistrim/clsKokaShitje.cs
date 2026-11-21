@@ -3397,7 +3397,6 @@ namespace DbCore.DbRegjistrim
                         if (kodkonfigurimi.Length < 5 || kodkonfigurimi.Substring(0, 5) != "VFONE")
                             shitjemema.idTransferimi = this.idShitjeKoka;
                         shitjemema.oColTrupiShitje = this.oColTrupiShitje;
-                        //clsNjesiAdministrative mag = new clsNjesiAdministrative("MQ", shitjemema.idNdermarje, dbRegj);kodNiveli == "FSH" ? mag.IdNjesiAdministrative : 0
 
                         u_ruajt = pergatitTrupPerMeme(shitjemema, dbRegj, out colkonvertimi, 0, kodNiveli == "OB" ? true : false, idPeriudha, isShitje, kodkonfigurimi.Length < 5 || kodkonfigurimi.Substring(0, 5) != "VFONE");
 
@@ -3755,10 +3754,6 @@ namespace DbCore.DbRegjistrim
                     }
                     totali += t.VleftaMeTvsh;
                     #region komentuar
-                    //if (Math.Round(t.Sasia * t.Cmimi * (1 - t.Zbritje / 100), 2) == t.VleftaPaTvsh)//nivel cmimi pa tvsh
-                    //else
-                    //    if (Math.Round(t.Sasia * t.Cmimi * (1 - t.Zbritje / 100) / (1 + double.Parse(taksa.NormaPerqindje.ToString()) / 100), 2) == t.VleftaPaTvsh)//nivel cmimi me tvsh
-                    //    else
 
                     #endregion
                 }
@@ -5476,7 +5471,6 @@ namespace DbCore.DbRegjistrim
             };
             kokaEkzistueseMag.mbushKokaMagazinaSipasIDGjenerues(kokaEkzistuese.IdShitjeKoka, idKategori == 2 ? 1 : 2, kokaEkzistuese.IdKonfigAmbjente, dbRegj);
             clsDatabaseKontabilitet dbkontab = new clsDatabaseKontabilitet(dbRegj);
-            // if (mekontabilizim) //gerta ///nuk lejon fshirjen e kont te magazines per ushmag
             {
                 clsKokaFleteKontabel tmpKokeFK;
                 if (idKategori == 1)
@@ -6191,7 +6185,6 @@ namespace DbCore.DbRegjistrim
                     {
                         text += "48,1,______,_,__;" + this.NrSerial + ";||";
                     }
-                //else
 
                 if (this.kupon)
                     text += "M,1,______,_,__;" + this.NrSerial + ";||";
@@ -6385,7 +6378,6 @@ namespace DbCore.DbRegjistrim
                             }
                         }
                         //else TODO: per ndermarrjet pa tvsh
-                        //    if (t.Sasia < 0)  //cmimi pa tvsh
                         //    else
                         //    {    //cmimi pa tvsh
 
@@ -6537,8 +6529,6 @@ namespace DbCore.DbRegjistrim
 
                 string text = string.Empty;
                 text = filename + "&&";
-                //text += "H,1,______,_,__;||"; p //hap kase
-                //if (kasa.OColVlerat.ktheVlereOpsioni("KUPONTATIMOR") == "True" && !eshtePrinteFiskal)  //p nr i fatures
                 if (kasa.OColVlerat.ktheVlereOpsioni("KUPONTATIMOR") == "False" && eshtePrinteFiskal)  //nr i fatures 
                     text += "Q,0,______,_,__;" + this.NrDok.Substring(Math.Max(0, this.NrDok.Length - 4)) + ";||";
 
@@ -6547,7 +6537,6 @@ namespace DbCore.DbRegjistrim
                     {
                         if (!string.IsNullOrEmpty(this.NrSerial)) text += "P," + kaseLogicalNumber + ",______,_,__;Serial:" + this.NrSerial + "||"; // sw.WriteLine("P," + kaseLogicalNumber + ",______,_,__;Serial:" + this.NrSerial);
                     }
-                //else
                 if (kaRreshtaKthimi(this))
                 {
                     this.OColTrupiShitje = rendit(this.OColTrupiShitje);
@@ -6568,7 +6557,6 @@ namespace DbCore.DbRegjistrim
                     QPZ = (Math.Abs(t.Sasia)).ToString();
                     //llogaritet cmimi qe shkon ne kasen fiskale
 
-                    //if (true)//nese ndermarrja eshte konfiguruar me cmimet me tvsh, merret nga grida cmimi i dhene dhe shumezohet me kursin, qe te printohet vlera ne mon baze
 
                     //else TODO:llogarit cmimin ne rastin pa tvsh
                     //    //llogaritet cmimi si (cmim pa tvsh * perqindje tvsh per artikullin) dhe shumezohet me kursin, qe te printohet vlera ne mon baze
@@ -6971,7 +6959,6 @@ namespace DbCore.DbRegjistrim
                     QPZ = (Math.Abs(t.Sasia)).ToString();
 
                     //llogaritet cmimi qe shkon ne kasen fiskale
-                    //if (true)    //cmimet me tvsh 
                     //    //nese ndermarrja eshte konfiguruar me cmimet me tvsh, merret nga grida cmimi i dhene dhe shumezohet me kursin, qe te printohet vlera ne mon baze
                     //else
                     //    //llogaritet cmimi si (cmim pa tvsh * perqindje tvsh per artikullin) dhe shumezohet me kursin, qe te printohet vlera ne mon baze
@@ -7016,7 +7003,6 @@ namespace DbCore.DbRegjistrim
                 }
                 //mbyllja e fatures
                 text += "F2;2";   //  sw.WriteLine("F2;2");
-                //     else
                 {//???? ShellExecute( NULL, "open", "C:\Program Files\Internet Explorer\iexplore.exe -new", NULL, NULL, SW_SHOWNORMAL);
                 }
                 stream = text;
@@ -7056,7 +7042,6 @@ namespace DbCore.DbRegjistrim
                 {
                     QPZ = (Math.Abs(t.Sasia)).ToString();
                     //llogaritet cmimi qe shkon ne kasen fiskale
-                    //if (true)    //cmimet me tvsh 
                     //    //nese ndermarrja eshte konfiguruar me cmimet me tvsh, merret nga grida cmimi i dhene dhe shumezohet me kursin, qe te printohet vlera ne mon baze
                     //else
                     //    //llogaritet cmimi si (cmim pa tvsh * perqindje tvsh per artikullin) dhe shumezohet me kursin, qe te printohet vlera ne mon baze
@@ -7190,11 +7175,9 @@ namespace DbCore.DbRegjistrim
                     }
                     //else TODO: te llogaritet per ndermarrjet patvsh
                     //    //llogaritet cmimi si (cmim pa tvsh * perqindje tvsh per artikullin) dhe shumezohet me kursin, qe te printohet vlera ne mon baze
-                    //        if (kasa.OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE") == "False") //'kasa eshte konfiguruar pa presje dhjetore, i dergohen cmimet te konvertuar ne numra te plote
                     //else
                     //    cmimSipasKonfigKase = PPZI * 100;  //kasa eshte konfiguruar me presje dhjetore, i dergohen cmimet te shumezuar me 100, te konvertuar ne numra te plote, ne menyre qe dy shifrat e fundit te perfaqesojne pjesen dhjetore
 
-                    //        ShumaTotale = ShumaTotale + Math.Round(((QPZ * cmimSipasKonfigKase * (1 - ZbritjeAnalitike / 100)) * Math.Pow(10, shifraPasPresjes)), shifraPasPresjes) / Math.Pow(10, shifraPasPresjes);      //rounddown
 
                     ZbritjeAnalitike = Math.Round(t.Zbritje, shifraPasPresjes);
                     double cmimSipasKonfigKase;
@@ -7204,7 +7187,6 @@ namespace DbCore.DbRegjistrim
                     else
                         cmimSipasKonfigKase = PPZI * 100;
 
-                    //ShumaTotale = ShumaTotale + Math.Round((cmimSipasKonfigKase * Math.Pow(10, shifraPasPresjes)), shifraPasPresjes) / Math.Pow(10, shifraPasPresjes);      //rounddown
                     ShumaTotale = ShumaTotale + Math.Round(((QPZ * cmimSipasKonfigKase * (1 - ZbritjeAnalitike / 100)) * Math.Pow(10, shifraPasPresjes)), shifraPasPresjes) / Math.Pow(10, shifraPasPresjes); //rounddown
 
                     DESIC = clsFunksione.kthePershkrimArtikullPerKasen(1, false, "", bool.Parse(kasa.OColVlerat.ktheVlereOpsioni("PRINTOPERSHKRIM2")), t.Pershkrimi, t.Pershkrim2, 32);
@@ -7230,7 +7212,6 @@ namespace DbCore.DbRegjistrim
                 if (perqindja > 0)
                 {
                     if (kasa.OColVlerat.ktheVlereOpsioni("MESHIFRADHJETORE") != "False") //'kasa eshte konfiguruar pa presje dhjetore, i dergohen cmimet te konvertuar ne numra te plote
-                        //else
                         vlefta = (double.Parse(vlefta) * 100).ToString();
                     ShumaTotale = ShumaTotale - Math.Round(double.Parse(vlefta) * this.Kursi, shifraPasPresjes);
                     if ((!uPrintuaZbritjaNeTotal))

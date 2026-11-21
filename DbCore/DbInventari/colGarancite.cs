@@ -145,7 +145,6 @@ namespace DbCore.DbInventari
                 {
                     this.Add(new clsGarancia(rreshti));
                 }
-            //    //throw;
             return true;
         }
 

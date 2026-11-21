@@ -77,7 +77,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsShperndarjeShpenzimeTrupiFaturat(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

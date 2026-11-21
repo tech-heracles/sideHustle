@@ -317,8 +317,6 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(DbCore.mySessionObjects.ktheGjuhe(Session), "gvAmortizimi", DbCore.clsFunksione.GetKomponente(Page.Request), idndermarje, int.Parse(cmbKonfigurimi.Value.ToString()));
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = gvAmortizimi.FilterExpression, IdPerdoruesi = idperdoruesi, IdNdermarje = idndermarje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", gvAmortizimi);
-            //    else
-            //else
 
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();
@@ -514,7 +512,6 @@ namespace PlatinumWeb
                 if (Request.QueryString["lloj"] == "amortizim")
                     koka = new clsKokaErrorImporti(0, "Nga riruatja e amortizimit fillestar ", 90, idNdermarrje, idPerdoruesi);
                 else koka = new clsKokaErrorImporti();
-                //else
                 koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
                 mesazh = koka.ruajErrorImporti();
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "U riruajten " + (rreshtat.Count - err.Rows.Count) + " rreshta dhe deshtuan " + err.Rows.Count + " rreshta! ", pnlMesazhi);

@@ -41,7 +41,6 @@
        
     </asp:ScriptManager>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>

@@ -66,7 +66,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsLlojBuxheti(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

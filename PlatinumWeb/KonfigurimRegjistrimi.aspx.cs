@@ -138,8 +138,6 @@ namespace PlatinumWeb
 
             filtri.FiltraVlera = gvKategoriDok.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivel", gvKategoriDok);
-            //    else
-            //else
 
 
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);

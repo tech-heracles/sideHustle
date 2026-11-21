@@ -253,8 +253,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_Detyrat.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", ASPxGridView_Detyrat);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
@@ -1019,7 +1017,6 @@ namespace PlatinumWeb
                 else
                 {
                     GridUtil.AplikoFilter(DbCore.mySessionObjects.ktheGjuhe(Session), idNdermarrje, gvLupaAnketa, arr[2], "gvLupaAnketa", "CRMDetyra.aspx", 1);
-                    //    else
                 }
             }
             else if (arr.Length == 2)//nese eshte zgjedhur nje konfigurim tek combo e konfigurimeve

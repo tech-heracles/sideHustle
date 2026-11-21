@@ -122,14 +122,12 @@ namespace DbCore.DbKontabiliteti
         {
             clsNenLlojLlogarish data = new clsNenLlojLlogarish(this.IdNenLlojLlogarie);
             return data;
-            //else
         }
 
         public clsNenLlojLlogarish merrNenLlojLlogarieSipasKodit()
         {
             clsNenLlojLlogarish data = new clsNenLlojLlogarish(this.KodNenLlojLlogarie);
             return data;
-            //else
         }
 
         #endregion

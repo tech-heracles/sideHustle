@@ -46,35 +46,23 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         string[] shkronjemadhe = { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T" };
 
         int niv = 0;
-        //    niv++;
 
-        //    niv++;
 
-        //    niv++;
 
-        //    niv++;
 
-        //    niv++;
 
         //    //  if (GetCurrentColumnValue("NIVELI").ToString() == "5")
-        //    //    niv++;
 
         //    //    if (GetCurrentColumnValue("NIVELI").ToString() == "4")
-        //    //   niv++;
 
         //    //     if (GetCurrentColumnValue("NIVELI").ToString() == "3")
-        //    //  niv++;
 
         //    // if (GetCurrentColumnValue("NIVELI").ToString() == "2")
-        //    //   niv++;
 
         //    //  if (GetCurrentColumnValue("NIVELI").ToString() == "1")
-        //    niv++;
-
-        //    //     niv++;
 
 
-        //    //  niv++;
+
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
         public Hashtable SkippedDetailBands

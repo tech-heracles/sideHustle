@@ -152,7 +152,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsGrupiLlogaria(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
         

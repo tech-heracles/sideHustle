@@ -179,12 +179,9 @@
                     </tbody>
                 </table>
                 <div id="dvFillim" class="atributeDiveFshehur">
-                    <%--<div id="dvkonfigurimi_Label">--%>
                     <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbKonfigurimi" ID="konfigurimi_Label"
                         runat="server" Text="Lloji:" ClientInstanceName="konfigurimi_Label">
                     </dx:ASPxLabel>
-                    <%--</div>--%>
-                    <%--<div id="dvcmbKonfigurimi">--%>
                     <dx:ASPxComboBox ID="cmbKonfigurimi" runat="server" ClientInstanceName="cmbKonfigurimi"
                         ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                         <ClientSideEvents SelectedIndexChanged="function(s, e) { ndryshoKonfigurimin() }" />
@@ -203,7 +200,6 @@
                         <DisabledStyle Font-Bold="False">
                         </DisabledStyle>
                     </dx:ASPxComboBox>
-                    <%--</div>--%>
                     <div id="dvlblKonfigurimi">
                         <table>
                             <tr>
@@ -216,14 +212,10 @@
                         </table>
                     </div>
 
-                    <%--<div id="dvlblKodi">--%>
                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server"
                         Text="Kodi:" ClientInstanceName="lblKodi">
                     </dx:ASPxLabel>
-                    <%--</div>--%>
-                    <%--<div id="dvtxtKodi">--%>
                     <dx:ASPxTextBox ID="txtKodi" runat="server" ClientInstanceName="txtKodi" Width="100%">
-                        <%--<ClientSideEvents Init="function (s, e) { }" />--%>
                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
                             ValidationGroup="entries">
                             <ErrorFrameStyle ImageSpacing="4px">
@@ -234,13 +226,9 @@
                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                         </DisabledStyle>
                     </dx:ASPxTextBox>
-                    <%--</div>--%>
-                    <%--<div id="dvlblShenime">--%>
                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtShenime" ID="lblShenime" runat="server"
                         Text="Emertimi:" ClientInstanceName="lblShenime">
                     </dx:ASPxLabel>
-                    <%--</div>--%>
-                    <%--<div id="dvtxtShenime">--%>
                     <dx:ASPxMemo ID="txtShenime" runat="server" ClientInstanceName="txtShenime" Width="100%" Rows="3">
                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries1"
                             ValidateOnLeave="false">
@@ -252,7 +240,6 @@
                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                         </DisabledStyle>
                     </dx:ASPxMemo>
-                    <%--</div>--%>
 
                     <dx:ASPxLabel ID="lblDtFillimi" Wrap="False" AssociatedControlID="dteDtFillimi" runat="server" Text="Date Fillimi" ClientInstanceName="lblDtFillimi"></dx:ASPxLabel>
 
@@ -380,26 +367,6 @@
                                             </tr>
                                         </table>
                                     </td>
-                                    <%--<td style="width: 5%">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <dx:ASPxButton ID="btnSiper" runat="server" Text="Lart" AutoPostBack="false" ClientInstanceName="btnSiper"
-                                                        Width="70px" OnClick="btnSiper_Click">
-                                                        <ClientSideEvents Click="function (s,e){disablebtn()}" />
-                                                    </dx:ASPxButton>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <dx:ASPxButton ID="btnPoshte" runat="server" Text="Poshte" AutoPostBack="false"
-                                                        ClientInstanceName="btnPoshte" Width="70px" OnClick="btnPoshte_Click">
-                                                        <ClientSideEvents Click="function (s,e){disablebtn()}" />
-                                                    </dx:ASPxButton>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>--%>
                                 </tr>
                             </table>
                         </ContentTemplate>
@@ -417,102 +384,6 @@
                 <asp:HiddenField ID="hfGridaDetajimi" runat="server" />
                 <dx:ASPxHiddenField ID="hfTeDrejta" runat="server" ClientInstanceName="hfTeDrejta">
                 </dx:ASPxHiddenField>
-                <%--<table style="width: 100%">
-                    <tr style="width: 100%">
-                        <td style="width: 20%">
-                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Kodi"></dx:ASPxLabel>
-                        </td>
-                        <td style="width: 27%">
-                            <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="80%"></dx:ASPxTextBox>
-                        </td>
-                        <td style="width: 6%"></td>
-                        <td style="width: 20%">
-                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Emertimi"></dx:ASPxLabel>
-                        </td>
-                        <td style="width: 27%">
-                            <dx:ASPxTextBox ID="ASPxTextBox2" runat="server" Width="80%"></dx:ASPxTextBox>
-                        </td>
-                    </tr>
-                    <tr style="width: 100%">
-                        <td style="width: 20%">
-                            <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Date Fillimi"></dx:ASPxLabel>
-                        </td>
-                        <td style="width: 27%">
-                            <dx:ASPxDateEdit ID="ASPxDateEdit1" runat="server" Width="80%"></dx:ASPxDateEdit>
-                        </td>
-                        <td style="width: 6%"></td>
-                        <td style="width: 20%">
-                            <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Date Mbarimi"></dx:ASPxLabel>
-                        </td>
-                        <td style="width: 27%">
-                            <dx:ASPxDateEdit ID="ASPxDateEdit2" runat="server" Width="80%"></dx:ASPxDateEdit>
-                        </td>
-                    </tr>
-                    <%--  <tr>
-                        <td colspan="2" style="width: 47%">
-                            <dx:ASPxListBox ID="lbxFushat" runat="server" Width="100%" Height="500px" ClientInstanceName="lbxFushat"
-                                SettingsLoadingPanel-ImagePosition="Top" OnCallback="lbxFushat_Callback" OnDataBound="lbxFushat_DataBound">
-                                <ClientSideEvents SelectedIndexChanged="function(s, e) { UpdateButtonState(); }"
-                                    EndCallback="function(s, e) { UpdateButtonState(); }" />
-                                <ValidationSettings>
-                                    <ErrorFrameStyle ImageSpacing="4px">
-                                        <ErrorTextPaddings PaddingLeft="4px" />
-                                    </ErrorFrameStyle>
-                                </ValidationSettings>
-                            </dx:ASPxListBox>
-                        </td>
-                        <td style="width: 6%">
-                            <table style="width: 100%">
-                                <tr style="width: 100%">
-                                    <td style="width: 100%">
-                                        <dx:ASPxButton ID="btnDjathtas1" runat="server" Text="&gt;" OnClick="btnDjathtas1_Click"
-                                            ClientInstanceName="btnDjathtas1" Width="100%" ForeColor="White" BackColor="#00A74F">
-                                            <ClientSideEvents Click="function (s,e){disablebtn()}" />
-                                        </dx:ASPxButton>
-                                    </td>
-                                </tr>
-                                <tr style="width: 100%">
-                                    <td style="width: 100%">
-                                        <dx:ASPxButton ID="btnDjathtasGjitha" runat="server" Text="&gt;&gt;" ClientInstanceName="btnDjathtasGjitha"
-                                            Width="100%" OnClick="btnDjathtasGjitha_Click">
-                                            <ClientSideEvents Click="function (s,e){disablebtn()}" />
-                                        </dx:ASPxButton>
-                                    </td>
-                                </tr>
-                                <tr style="width: 100%">
-                                    <td style="width: 100%">
-                                        <dx:ASPxButton ID="btnMajtas1" runat="server" Text="&lt;" ClientInstanceName="btnMajtas1"
-                                            Width="100%" OnClick="btnMajtas1_Click">
-                                            <ClientSideEvents Click="function (s,e){disablebtn()}" />
-                                        </dx:ASPxButton>
-                                    </td>
-                                </tr>
-                                <tr style="width: 100%">
-                                    <td style="width: 100%">
-                                        <dx:ASPxButton ID="btnMajtaGjitha" runat="server" Text="&lt;&lt;" ClientInstanceName="btnMajtaGjitha"
-                                            Width="100%" OnClick="btnMajtaGjitha_Click">
-                                            <ClientSideEvents Click="function (s,e){disablebtn()}" />
-                                        </dx:ASPxButton>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td colspan="2" style="width: 47%">
-                            <dx:ASPxListBox ID="lbxFushatZgjedhur" runat="server" Width="100%" Height="500px" ClientInstanceName="lbxFushatZgjedhur"
-                                SettingsLoadingPanel-ImagePosition="Top" OnCallback="lbxFushat_Callback" OnDataBound="lbxFushat_DataBound">
-                                <ClientSideEvents SelectedIndexChanged="function(s, e) { UpdateButtonState(); }"
-                                    EndCallback="function(s, e) { UpdateButtonState(); }" />
-                                <ValidationSettings>
-                                    <ErrorFrameStyle ImageSpacing="4px">
-                                        <ErrorTextPaddings PaddingLeft="4px" />
-                                    </ErrorFrameStyle>
-                                </ValidationSettings>
-                            </dx:ASPxListBox>
-
-                        </td>
-
-                    </tr>
-                </table>--%>
             </form>
         </div>
         <nav id="menu">

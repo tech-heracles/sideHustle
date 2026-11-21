@@ -29,7 +29,6 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server">
         </dx:ASPxHiddenField>
@@ -308,7 +307,6 @@
                                     runat="server" Text="Metoda:" ClientInstanceName="lblMetoda">
                                 </dx:ASPxLabel>
                                 <dx:ASPxComboBox ID="cmbMetoda" runat="server" ClientInstanceName="cmbMetoda" ShowShadow="False" ReadOnly="false" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
-                                    <%--<ClientSideEvents TextChanged="function(s, e) {cmbMetodeTextChanged(s, e);}" EndCallback="function(s, e) {cmbMetodeEndCallback(s, e);}" />--%>
                                     <DropDownButton>
                                         <Image>
                                             <SpriteProperties HottrackedCssClass="dxEditors_edtDropDownHover_Aqua" PressedCssClass="dxEditors_edtDropDownPressed_Aqua" />
@@ -346,7 +344,6 @@
                 </TabPages>
                 <ClientSideEvents ActiveTabChanged="activeTabChanged" />
 
-                <%--<Paddings Padding="2px" PaddingLeft="5px" PaddingRight="5px" />--%>
             </dxtc:ASPxPageControl>
         </div>
         <asp:UpdatePanel ID="pnlKryesor" runat="server">
@@ -383,7 +380,6 @@
                 </dx:ASPxPopupControl>
             </ContentTemplate>
         </asp:UpdatePanel>
-        <%--</div>--%>
     </form>
 </body>
 </html>

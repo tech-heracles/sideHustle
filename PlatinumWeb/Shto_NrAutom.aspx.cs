@@ -133,7 +133,6 @@ namespace PlatinumWeb
         ///// <summary>
         /////      mbush combon e filtrave
         ///// </summary>
-        //private void mbushComboBoxFiltra()
 
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
@@ -231,8 +230,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_Numrat.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiNrAutom", ASPxGridView_Numrat);
-            //    else
-            //else
             int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;

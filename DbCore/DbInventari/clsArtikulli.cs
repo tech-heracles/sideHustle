@@ -682,8 +682,6 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne  e ndermarje vitit.
         /// </summary>
         //public int IdNderViti
-        //    get { return idNderViti; }
-        //    set { idNderViti = value; }
 
         /// <summary>
         /// Kthen/Vendos ID-ne  e ndermarjes.
@@ -1980,7 +1978,6 @@ namespace DbCore.DbInventari
             if (lloji == 2 && idDetajim1 != 0) //do behet marrja e sasise sipas detajimit te pare dhe te dyte
             {
                 sasi = clsTrupiMagazina.merrSasiDetajimitDyteDheDetajimPare(artikulli, idMag, data, idDetajim1, det.IdDetajimArtikulli); //sipas magazines
-                //sasitot = clsTrupiMagazina.merrSasiDetajimitDyteDheDetajimPare(artikulli, -1, data, idDetajim1, det.IdDetajimArtikulli);//per te gjitha magazinat
                 if (idKategoriDetajimi == 4)
                     dtSeria = clsTrupiMagazina.merrDateSipasDetajimPareDheDyte(artikulli, idMag, idDetajim1, data, det.IdDetajimArtikulli);
             }
@@ -1988,7 +1985,6 @@ namespace DbCore.DbInventari
             {
                 if (idMag > 0)
                     sasi = clsTrupiMagazina.merrSasiSipasDetajimit(artikulli, idMag, data, det.IdDetajimArtikulli, lloji); //sipas magazines
-                //sasitot = clsTrupiMagazina.merrSasiSipasDetajimit(artikulli, -1, data, det.IdDetajimArtikulli, lloji);//per te gjitha magazinat
                 if (idKategoriDetajimi == 4)
                     dtSeria = clsTrupiMagazina.merrDatePerMag(artikulli, idMag > 0 ? idMag : -1, det.IdDetajimArtikulli, data, lloji, dbRegj);
 
@@ -2023,7 +2019,6 @@ namespace DbCore.DbInventari
 
 
             var sasi = clsTrupiMagazina.merrSasiSipasDetajimeve(artikulli, idMag, data, det.IdDetajimArtikulli, lloji, detajime); //sipas magazines
-                                                                                                                                  //sasitot = clsTrupiMagazina.merrSasiSipasDetajimit(artikulli, -1, data, det.IdDetajimArtikulli, lloji);//per te gjitha magazinat
 
             object[] sasiteArtikullit = new object[sasi.Rows.Count];
             for (var i = 0; i < sasi.Rows.Count; i++)
@@ -2046,7 +2041,6 @@ namespace DbCore.DbInventari
 
 
             var sasi = clsTrupiMagazina.merrSasiSipasDetajimeve2(artikulli, idMag, data, det.IdDetajimArtikulli, lloji, detajime); //sipas magazines
-                                                                                                                                   //sasitot = clsTrupiMagazina.merrSasiSipasDetajimit(artikulli, -1, data, det.IdDetajimArtikulli, lloji);//per te gjitha magazinat
 
             object[] sasiteArtikullit = new object[sasi.Rows.Count];
             for (var i = 0; i < sasi.Rows.Count; i++)
@@ -2153,7 +2147,6 @@ namespace DbCore.DbInventari
                                         continue;
                                     }
                                     double sasiaDet = 0;
-                                    //Dictionary<string, object> sasiteArtikullit = merrSasiPerArtPerDateSkadenceOseSeri(lloji, idDetajim1, idMag, data, artikulli, det, shtimModifikim, dokShitje, idDok, detSasiteList, idKategoriDetajimi, dbRegj); //kthen nje objekt me sasite per kete artikull
                                     var sasiTest = sasiteArtikullitTest.Where(x => x.GetType().GetProperty("idDet").GetValue(x, null).ToString() == det.IdDetajimArtikulli.ToString());
                                     foreach (var value in sasiTest)
                                     {
@@ -2192,7 +2185,6 @@ namespace DbCore.DbInventari
                                 if (idKategoriDetajimi == 4)
                                 {
                                     double sasiaDet = 0;
-                                    //Dictionary<string, object> sasiteArtikullit = merrSasiPerArtPerDateSkadenceOseSeri(lloji, idDetajim1, idMag, data, artikulli, det, shtimModifikim, dokShitje, idDok, detSasiteList, idKategoriDetajimi, dbRegj); //kthen nje objekt me sasite per kete artikull
                                     var sasiTest = sasiteArtikullitTest.Where(x => x.GetType().GetProperty("idDet").GetValue(x, null).ToString() == det.IdDetajimArtikulli.ToString());
                                     foreach (var value in sasiTest)
                                     {
@@ -4023,9 +4015,6 @@ namespace DbCore.DbInventari
 
                 if (oColArtikujPerberes != null && oColArtikujPerberes.Count > 0)
                 {
-                    // if (this.Klasa == 4) //klasa Perbere
-                    //    mesazh = dbInv.fshiArtikujPerberes(idArtikulli);//fshihen perberesit e artikullit kryesor sepse do shtohen perberesit e rinj
-                    // else
                     mesazh = dbInv.fshiArtikujPerberesSipasDates(idArtikulli, oColArtikujPerberes[0].DtNdryshimi);//fshihen perberesit e asaj date sepse do shtohen perberesit e rinj
                     if (!mesazh.Status)
                         return new clsMesazh(false, "Nje nga artikujt perberes nuk u ruajt!");
@@ -4494,10 +4483,6 @@ namespace DbCore.DbInventari
         private clsMesazh modifikoArtNeOwn(clsArtikulli art, clsArtikulli artnderm, clsDatabaseInventari db, int idperdoruesi)
         {
             clsMesazh mesazh = new clsMesazh(true, "Transferimi mbaroi me sukses!");
-            //duhet modifikuar vetem: Loan,Artikull dhurate,
-            //Kod dhurate, Pike, Vlere (te ruajtura ne T_ARTIKULLVFONE),
-            //Aparat bazaar, Kod oferte,Stoku max per VFONE, Gjendja max,Grupimi 1,Grupimi 2,Lloji i garancise,Garancia
-            //art eshte artikulli me modifikimet dhe artnderm eshte artikulli tek ndermarrja i cili do te sinkronizohet
             if (art.Kodifikimi1Artikulli > 0)
             {
                 clsKodifikimArtikulli kodifikim1 = new clsKodifikimArtikulli(art.kodifikimi1Artikulli, db);

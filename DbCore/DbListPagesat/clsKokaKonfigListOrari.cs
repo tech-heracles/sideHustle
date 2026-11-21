@@ -374,7 +374,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-        //public static bool ekzistonGrup(string kodi, int idndermarje, int grupi)
 
         #endregion
 

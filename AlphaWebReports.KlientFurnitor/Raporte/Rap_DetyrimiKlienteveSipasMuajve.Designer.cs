@@ -1,5 +1,4 @@
-﻿//using DevExpress.XtraReports.UI.PivotGrid;
-
+﻿
 namespace AlphaWebReports.RaportetDs.KlientFurnitor.Raporte
 {
     partial class Rap_DetyrimiKlienteveSipasMuajve

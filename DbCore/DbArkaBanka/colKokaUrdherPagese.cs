@@ -81,7 +81,6 @@ namespace DbCore.DbArkaBanka
                     Add(new clsKokaUrdherPagese(rreshti, db));
                 }
 
-            //    //throw;
             return true;
         }
 

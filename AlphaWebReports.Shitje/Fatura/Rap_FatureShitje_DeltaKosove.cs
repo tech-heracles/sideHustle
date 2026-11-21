@@ -33,7 +33,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
         ////    xrLabel19.Text = rm.GetString("lblRaportTarga", ci);
         ////    xrLabel24.Text = rm.GetString("lblRaportOraFurnizimit", ci);
 
-            //xrLabel28.Text = rm.GetString("lblNrLlogarieAlPetrol1", ci);\
             xrLabel45.Text= rm.GetString("lblVleraSelia", ci);
             xrLabel38.Text = rm.GetString("lblSelia", ci);
             xrLabel39.Text= rm.GetString("lblRaportAdresa", ci);

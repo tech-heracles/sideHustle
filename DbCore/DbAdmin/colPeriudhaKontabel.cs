@@ -147,7 +147,6 @@ namespace DbCore.DbAdmin
                 {
                     this.Add(new clsPeriudhaKontabel(rreshti));
                 }
-            //    //throw;
             return true;
 
         }

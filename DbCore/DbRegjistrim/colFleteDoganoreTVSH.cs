@@ -63,7 +63,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsFleteDoganoreTVSH(rreshti));
                     }
 
-            //    //throw;
             return true;
             }
 

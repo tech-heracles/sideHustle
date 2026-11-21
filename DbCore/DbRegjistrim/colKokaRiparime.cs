@@ -94,7 +94,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsKokaRiparime(rreshti, db));
                 }
 
-            //    //throw;
             return true;
         }
 

@@ -578,7 +578,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsDokumenti(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
         private bool mbushDokumentaNgaBanka(DataTable dt)

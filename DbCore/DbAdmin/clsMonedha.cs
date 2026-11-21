@@ -457,9 +457,6 @@ namespace DbCore.DbAdmin
                 foreach (clsKurset kursi in OColKurset)
                 {
                     kursi.IdMonedha = IdMonedha;
-                    //    //   if (mesazh.Status)
-                    //    //  else { dbManager.Transaction.Rollback(); return mesazh; }
-                    //else
                     mesazh = kursi.krijoKurs(dbAdmin);
                     if (!mesazh.Status)
                     {
@@ -509,12 +506,7 @@ namespace DbCore.DbAdmin
                     else
                         return mesazh;
                 }
-                //if (colLidhjetAutorizim.Count < colLidhjet.Count)//rasti kur jane shtuar rreshta trupi
-                //        else
 
-                //else//rasti kur jane fshire rreshta
-                //        else
-                //        count++;
 
                 mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
                 return mesazh;

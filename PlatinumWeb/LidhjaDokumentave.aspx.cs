@@ -923,8 +923,6 @@ namespace PlatinumWeb
 
             var col9 = grid_dokKryesor.Columns["VleftaLikuiduar"] as GridViewDataTextColumn;
 
-           // col9.DataItemTemplate = hfShtimModifikim.Value == "shtim"
-          //      ? (ITemplate)new MyDoubleTemplate(false, 2, "0")
             col9.DataItemTemplate = (ITemplate)new MyDoubleTemplate(false, 2, "0");
             col9.Caption = "Vlefta e lidhjes";
 
@@ -975,14 +973,10 @@ namespace PlatinumWeb
 
             var col9 = grid_dokLidhes.Columns["VleftaLikuiduar"] as GridViewDataTextColumn;
 
-            //col9.DataItemTemplate = hfShtimModifikim.Value == "shtim"
-            //    ? (ITemplate)new MyDoubleTemplate(false, 2, "0")
             col9.DataItemTemplate = (ITemplate)new MyDoubleTemplate(false, 2, "0");
             col9.Caption = "Vlefta e lidhjes";
 
             var col10 = grid_dokLidhes.Columns["VleftaLikuiduarMon"] as GridViewDataTextColumn;
-            //col10.DataItemTemplate = hfShtimModifikim.Value == "shtim"
-            //    ? (ITemplate)new MyDoubleTemplate(false, 2, "0")
             col10.DataItemTemplate = (ITemplate)new MyDoubleTemplate(false, 2, "0");
 
             var col7 = grid_dokLidhes.Columns["IdMonedha"] as GridViewDataComboBoxColumn;

@@ -46,7 +46,6 @@
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" runat="server" ClientInstanceName="hfState" ViewStateMode="Enabled">
         </dx:ASPxHiddenField>
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>

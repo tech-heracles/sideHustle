@@ -65,9 +65,6 @@
         <div class="header">    
             <table style="width:100%;">
                 <tr>
-                    <%--<td style="width:1%;">
-                        <a href="#menu"></a>
-                    </td>--%>
                     <td style="width:94%;vertical-align: top;">
                         <dx:ASPxLabel runat="server" ID="lblLista" Font-Size="16px" ></dx:ASPxLabel>
                    

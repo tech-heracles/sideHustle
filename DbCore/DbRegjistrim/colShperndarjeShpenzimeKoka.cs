@@ -75,7 +75,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsShperndarjeShpenzimeKoka(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

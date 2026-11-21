@@ -25,8 +25,6 @@ namespace PlatinumWeb
             DbCore.DbKontabiliteti.colSkemaKontabelNew colSkema = new DbCore.DbKontabiliteti.colSkemaKontabelNew( DbCore.mySessionObjects.ktheNdermarrjeVit(Session));
             gvLupaSkemaKontRegj.DataSource = colSkema;
             gvLupaSkemaKontRegj.DataBind();
-            //else
-            //    else
         }
 
         private void konfiguroPopupGride()

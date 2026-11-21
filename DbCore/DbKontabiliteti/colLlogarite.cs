@@ -389,7 +389,6 @@ namespace DbCore.DbKontabiliteti
                 {
                     Add(new clsLlogari(rreshti));
                 }
-            //    //throw;
             return true;
         }
         private void mbushLlogarite(colLlogarite colLlog)

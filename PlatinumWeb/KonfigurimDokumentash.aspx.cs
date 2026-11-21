@@ -496,7 +496,6 @@ namespace PlatinumWeb
 
             mySessionObjects.ruajAtributetNeSession(Session, _colAtribut);
             grid_kontrollet.DataBind();
-            //grid_kontrollet.FilterExpression
             hfVleratFillestareKontrollet.Value = JsonConvert.SerializeObject(_colAtribut);
         }
 
@@ -1079,7 +1078,6 @@ namespace PlatinumWeb
                         cmb16.Native = true;
                         cmb16.Items.Add("Jo", "Unchecked", "~/images/white.png");
                         cmb16.Items.Add("Po", "Checked", "~/images/red.png");
-                        //cmb16.ClientSideEvents.SelectedIndexChanged = "function(s,e){TextChangedShfaqMobile(cmbShfaqMobile" + e.VisibleIndex.ToString() + ",'ShfaqMobile'," + e.VisibleIndex.ToString() + ");}"; Hequr sepse s'perdorej
                         if (e.VisibleIndex == ((ASPxGridView)sender).VisibleRowCount - 2)
                         {
                             if (ugjet)

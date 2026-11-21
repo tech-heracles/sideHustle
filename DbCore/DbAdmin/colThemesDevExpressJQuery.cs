@@ -118,18 +118,10 @@ namespace DbCore.DbAdmin
         private bool mbushThemesDevExpressJQuery(DataTable dt)
         {
             //try
-            //{
                 foreach (DataRow rreshti in dt.Rows)
                 {
-                    //clsThemesDevExpressJQuery theme = new clsThemesDevExpressJQuery();
-                    //theme.mbushThemeDevExpressJQuery(rreshti);
                     this.Add(new clsThemesDevExpressJQuery(rreshti));
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             return true;
         }
 

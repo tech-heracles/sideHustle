@@ -233,7 +233,6 @@ namespace DbCore.DbAdmin
             return u_fshi;
         }
 
-        //public void merr()
 
         /// <summary>
         /// Kthen/Vendos nje collection me objekte te tipit <see cref="DbCore.DbAdmin.clsNdermarrjeViti"/> . Thirret funksioni

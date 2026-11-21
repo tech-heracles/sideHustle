@@ -57,7 +57,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
            </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ try{ window.parent.SessionTimeout.sendKeepAlive(); } catch(e){}}" />--%>
             </dx:ASPxGlobalEvents>
             <dx:ASPxHiddenField ID="hfFormatNumri" runat="server" ClientInstanceName="hfFormatNumri">
             </dx:ASPxHiddenField>
@@ -562,7 +561,6 @@
             <asp:HiddenField ID="hfKonffillestar" runat="server" />
             <asp:HiddenField ID="hfLlogaria" runat="server" />
             <%-- per te ruajtur konfigurimin  lupes per lupat qe ndodhen ne gride--%>
-           <%-- <asp:HiddenField ID="hfGridaKodi" runat="server" />--%>
             <asp:HiddenField ID="hfGridaDetajimi" runat="server" />
             <asp:HiddenField ID="hfKontrolletNrAutom" runat="server" />
             <asp:HiddenField ID="hfAtributeNrAutom" runat="server" />

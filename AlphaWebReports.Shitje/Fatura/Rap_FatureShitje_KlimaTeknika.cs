@@ -73,7 +73,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE.Fatura
 
         private void xrTableCell6_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //    counter++;
         }
 
         private void xrTableCell18_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

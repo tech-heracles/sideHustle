@@ -306,7 +306,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaKlientFurnitor.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdKlientFurnitor", gvLupaKlientFurnitor);
-            //else
 
             var mesazh = filtri.ruaj();
             PercaktoTemplateMenu();

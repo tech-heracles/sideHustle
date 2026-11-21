@@ -301,8 +301,6 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = gvKonfigUrdherPagese.FilterExpression, IdPerdoruesi = idperdoruesi, IdNdermarje = idNdermarrje, IdStatusDok = 1 };
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvKonfigUrdherPagese);
-            //    else
-            //else
 
 
             mesazh = filtri.ruaj();

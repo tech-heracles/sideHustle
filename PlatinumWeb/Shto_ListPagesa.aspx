@@ -39,7 +39,6 @@ Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
 </asp:ScriptManager>
 <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-    <%--<ClientSideEvents EndCallback="function(s,e){  try{ window.parent.SessionTimeout.sendKeepAlive();}catch(e){}}"/>--%>
 </dx:ASPxGlobalEvents>
 <dx:ASPxHiddenField ID="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
 </dx:ASPxHiddenField>
@@ -277,12 +276,9 @@ Namespace="DevExpress.Web" TagPrefix="dx" %>
     </tbody>
 </table>
 <div id="dvFillim" class="atributeDiveFshehur">
-<%--<div id="dvkonfigurimi_Label">--%>
 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbKonfigurimi" ID="konfigurimi_Label"
               runat="server" Text="Lloji:" ClientInstanceName="konfigurimi_Label">
 </dx:ASPxLabel>
-<%--</div>--%>
-<%--<div id="dvcmbKonfigurimi">--%>
 <dx:ASPxComboBox ID="cmbKonfigurimi" runat="server" ClientInstanceName="cmbKonfigurimi"
                  ShowShadow="False" Width="100%" SettingsLoadingPanel-ImagePosition="Top" AnimationType="None">
     <ClientSideEvents SelectedIndexChanged="function(s,e){ndryshoKonfigurimin()}"/>
@@ -525,12 +521,9 @@ Namespace="DevExpress.Web" TagPrefix="dx" %>
 </table>
 <br/>
 <div id="dvFundi" class="atributeDiveFshehur">
-    <%--<div id="dvlblDtRegjistrimi">--%>
     <dx:ASPxLabel Wrap="False" AssociatedControlID="dteDtRegjistrimi" ID="lblDtRegjistrimi"
                   runat="server" Text="Dt Regjistrimi:" ClientInstanceName="lblDtRegjistrimi">
     </dx:ASPxLabel>
-    <%--</div>--%>
-    <%--<div id="dvdteDtRegjistrimi">--%>
     <dx:ASPxDateEdit ID="dteDtRegjistrimi" runat="server" ClientInstanceName="dteDtRegjistrimi"
                      ShowShadow="False" Width="100%">
         <DropDownButton>
@@ -552,13 +545,9 @@ Namespace="DevExpress.Web" TagPrefix="dx" %>
         <DisabledStyle Font-Bold="False">
         </DisabledStyle>
     </dx:ASPxDateEdit>
-    <%--</div>--%>
-    <%--<div id="dvlblTotali">--%>
     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtVlefta" ID="lblTotali" runat="server"
                   Text="Totali" ClientInstanceName="lblTotali">
     </dx:ASPxLabel>
-    <%--</div>--%>
-    <%--<div id="dvtxtVlefta">--%>
     <dx:ASPxTextBox ID="txtVlefta" runat="server" ClientInstanceName="txtVlefta" Width="100%">
         <ClientSideEvents Init="function(s,e){Utils.initTxtNumber(s,e)}" GotFocus="function(s,e){Utils.gotFocusTxtNumer(s,e);}"
                           LostFocus="function(s,e){Utils.lostFocusTxtNumer(s,e);}"/>
@@ -575,8 +564,6 @@ Namespace="DevExpress.Web" TagPrefix="dx" %>
     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtVlefta2" ID="lblTotali2" runat="server"
                   Text="Totali" ClientInstanceName="lblTotali2">
     </dx:ASPxLabel>
-    <%--</div>--%>
-    <%--<div id="dvtxtVlefta">--%>
     <dx:ASPxTextBox ID="txtVlefta2" runat="server" ClientInstanceName="txtVlefta2" Width="100%">
         <ClientSideEvents Init="function(s,e){Utils.initTxtNumber(s,e)}" GotFocus="function(s,e){Utils.gotFocusTxtNumer(s,e);}"
                           LostFocus="function(s,e){Utils.lostFocusTxtNumer(s,e);}"/>
@@ -590,7 +577,6 @@ Namespace="DevExpress.Web" TagPrefix="dx" %>
         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
         </DisabledStyle>
     </dx:ASPxTextBox>
-    <%--</div>--%>
 </div>
 </asp:Panel>
 </dx:SplitterContentControl>

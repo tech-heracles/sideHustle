@@ -86,7 +86,6 @@ namespace AlphaWebReports.RaportetDs.Amortizimi
 
         private void xrLabel35_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //ResourceManager rm = new ResourceManager("Resources.Strings",
         }
 
         private void xrLabel53_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

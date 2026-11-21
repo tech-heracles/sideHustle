@@ -159,7 +159,6 @@ namespace DbCore.DbProdhimi
                     Add(new clsTrupiSkedulimProdhimi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

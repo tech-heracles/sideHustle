@@ -52,8 +52,6 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne e ndermarjes vitit.
         /// </summary>
         //public int IdNderViti
-        //    get { return idNderViti; }
-        //    set { idNderViti = value; }
         /// <summary>
         /// Kthen/Vendos kodin kategori zbritje.
         /// </summary>

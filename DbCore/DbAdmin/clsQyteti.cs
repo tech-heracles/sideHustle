@@ -184,7 +184,6 @@ namespace DbCore.DbAdmin
 
         #region Metoda Publike
 
-        //public override string ToString()
 
         /// <summary>
         /// Ruan objektin e qytetit ne tabelen perkatese ne databaze.Theret funksionin

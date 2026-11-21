@@ -213,7 +213,6 @@ namespace DbCore.DbAdmin
         /// <summary>
         /// Merr objektin e Kokes se autorizimit nga  databaza. Nuk perdoret.
         /// </summary>
-        //public void merr()
         //{//metoda qe therret klasen clsDatabaseAdmin per marrjen e nje autorizim
 
         /// <summary>

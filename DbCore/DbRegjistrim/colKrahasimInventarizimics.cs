@@ -41,17 +41,10 @@ namespace DbCore.DbRegjistrim
         ///// metoda perdoret gjeresisht ne rastet kur marrim te dhenat e kthyera ne ndonje store procedure ne formatin e nje datatable
         /////  <see cref="DbCore.DbRegjistrim.clsKokaInventarizim"/> 
         ///// </summary>
-        //private bool mbushKokaInventarizm(DataTable dt)
         //    //try
-        //    //{
 
 
-        //    //}
         //    //catch (Exception)
-        //    //{
-        //    //    return false;
-        //    //    //throw;
-        //    //}
 
         #endregion
 

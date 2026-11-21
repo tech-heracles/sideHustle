@@ -181,7 +181,6 @@ namespace PlatinumWeb
                     
                 }
 
-                //    koordinata[i] = "" 
 
             }
         }

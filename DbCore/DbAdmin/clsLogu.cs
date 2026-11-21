@@ -194,7 +194,6 @@ namespace DbCore.DbAdmin
             {
               
                 int id;
-                //ruajLogun(out int idlogu, int idkomponente, int idndermarje, int idperdorues, DateTime dtveprimi, int iddokregj, int idfature)
                 mesazh = dbAdmin.ruajLogun(out id, this.idKompon, this.idNdermarje, this.idPerdorues, this.dtVeprimi, this.idDokRegjistrimi, this.idFature);
                 //Nqs ruhet me sukses koka e infos, vazhdojme me ruajtjen e trupit.
                 if (!mesazh.Status)

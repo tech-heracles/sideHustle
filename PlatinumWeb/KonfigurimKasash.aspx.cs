@@ -176,52 +176,13 @@ namespace PlatinumWeb
             }
         }
         #region komentuar
-        //public void lexoKonfigurimin(int idKonfigurimi)
-        //            case "0":
-        //                { this.cbPrintoTotalDheNeMon.Checked = true; cmbMonedha.ClientEnabled = true; }
-        //                else
-        //                { this.cbPrintoNrKopjeFature.Checked = true; txtNrKopje.ClientEnabled = true; }
-        //                { this.cbPrintoKopjeTeKthimeve.Checked = true; txtNrKopjeKthimesh.ClientEnabled = true; }
-        //            case "1":
 
-        //            case "2":
-        //                { this.cbPrintoTotalDheNeMonBTN.Checked = true; cmbMonedhaBTN.ClientEnabled = true; }
-        //                { this.cbPrintoNrKopjeFatureBTN.Checked = true; txtNrKopjeBTN.ClientEnabled = true; }
-        //                { this.cbPrintoKopjeTeKthimeveBTN.Checked = true; txtNrKopjeKthimeshBTN.ClientEnabled = true; }
-        //            case "3":
 
-        //                { this.cbPrintoTotalDheNeMonCKVNOKI.Checked = true; cmbMonedhaCKVNOKI.ClientEnabled = true; }
 
-        //            case "4":
-        //                { this.cbPrintoTotalDheNeMonPKP.Checked = true; cmbMonedhaPKP.ClientEnabled = true; }
-        //                { this.cbPrintoNrKopjeFaturePKP.Checked = true; txtNrKopjePKP.ClientEnabled = true; }
-        //                { this.cbPrintoKopjeTeKthimevePKP.Checked = true; txtNrKopjeKthimeshPKP.ClientEnabled = true; }
-        //            case "5":
-        //                { this.cbPrintoNrKopjeFatureGEKOS.Checked = true; txtNrKopjeGEKOS.ClientEnabled = true; }
-        //            case "6":
 
-        //private void mbushkonfigurimin()
-        //            case "0":
-        //                { this.cbPrintoTotalDheNeMon.Checked = true; cmbMonedha.ClientEnabled = true; }
-        //                { this.cbPrintoNrKopjeFature.Checked = true; txtNrKopje.ClientEnabled = true; }
-        //                { this.cbPrintoKopjeTeKthimeve.Checked = true; txtNrKopjeKthimesh.ClientEnabled = true; }
-        //            case "1":
 
-        //            case "2":
-        //                { this.cbPrintoTotalDheNeMonBTN.Checked = true; cmbMonedhaBTN.ClientEnabled = true; }
-        //                { this.cbPrintoNrKopjeFatureBTN.Checked = true; txtNrKopjeBTN.ClientEnabled = true; }
-        //                { this.cbPrintoKopjeTeKthimeveBTN.Checked = true; txtNrKopjeKthimeshBTN.ClientEnabled = true; }
-        //            case "3":
 
-        //                { this.cbPrintoTotalDheNeMonCKVNOKI.Checked = true; cmbMonedhaCKVNOKI.ClientEnabled = true; }
 
-        //            case "4":
-        //                { this.cbPrintoTotalDheNeMonPKP.Checked = true; cmbMonedhaPKP.ClientEnabled = true; }
-        //                { this.cbPrintoNrKopjeFaturePKP.Checked = true; txtNrKopjePKP.ClientEnabled = true; }
-        //                { this.cbPrintoKopjeTeKthimevePKP.Checked = true; txtNrKopjeKthimeshPKP.ClientEnabled = true; }
-        //            case "5":
-        //                { this.cbPrintoNrKopjeFatureGEKOS.Checked = true; txtNrKopjeGEKOS.ClientEnabled = true; }
-        //            case "6":
         #endregion
 
         private void ruajKonfigurim(int idNdermarrje)
@@ -819,17 +780,8 @@ namespace PlatinumWeb
             e.Properties["cpNoRows"] = gvNiveleTVSHIVA.VisibleRowCount;
         }
 
-        //protected void btnRaportiX_Click(object sender, EventArgs e)
 
 
-        //          case 1:
-        //          case 2:
-        //              if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
-        //          case 5:
-        //          case 0:
-        //              if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
-        //              else
-        //          default:
 
         protected void btnRaportiX_Click(object sender, EventArgs e)
         {
@@ -881,20 +833,10 @@ namespace PlatinumWeb
         }
 
 
-        //protected void btnRaportiZ_Click(object sender, EventArgs e)
 
 
-        //        case 1:
-        //        case 2:
-        //            if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
-        //                { clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi);        percaktoTemplate();    return;}
 
-        //        case 5:
 
-        //        case 0:
-        //            if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
-        //            else
-        //        default:
 
 
         protected void btnRaportiZ_Click(object sender, EventArgs e)
@@ -928,7 +870,6 @@ namespace PlatinumWeb
                     case 1:
                         break;
                     case 2:
-                        // if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
                         if (kase.OColVlerat.ktheVlereOpsioni("KASEAPOPRINTER") == "False")  //kase
                         {
                             clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Funksioni i kerkuar nuk eshte i mundur per kasen tuaj!", pnlMesazhi);
@@ -947,7 +888,6 @@ namespace PlatinumWeb
                         break;
                     case 0:
                     case 7:
-                        //if (vlera.merrVlereOpsioni("KASEAPOPRINTER") == "True")  //kase
                         if (kase.OColVlerat.ktheVlereOpsioni("KASEAPOPRINTER") == "True") //kase
                             text += "Z," + kaseLogicalNumber + ",______,_,__;";//   swi.WriteLine("Z," + kaseLogicalNumber + ",______,_,__;");
                         else
@@ -963,12 +903,8 @@ namespace PlatinumWeb
         }
 
 
-        //protected void btnPlu_Click(object sender, EventArgs e)
 
 
-        //        case 1:
-        //        case 5:
-        //        case 0:
 
 
         protected void btnPlu_Click(object sender, EventArgs e)

@@ -210,8 +210,6 @@ namespace DbCore.DbAdmin
                 }
                 catch (Exception ex)
                 {
-                    //mund te ndodhi qe ndonje nga db eshte e pa arritshme,
-                    //aplikacioni nuk duhet te fail pavarsisht se ndonje db eshte e paarritshme
                     ImbLogger.Error(ex);
                 }
             });

@@ -288,8 +288,6 @@ int idperdoruesi=DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLlojDifekti.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvLlojDifekti);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;

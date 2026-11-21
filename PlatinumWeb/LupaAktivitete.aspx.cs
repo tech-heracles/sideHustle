@@ -115,14 +115,10 @@ namespace PlatinumWeb
         }
 
 
-        //    else
 
 
-        //            else
-        //        else
 
 
-        //        else
 
         protected void gvLupaAktivitetet_CustomJSProperties(object sender, ASPxGridViewClientJSPropertiesEventArgs e)
         {
@@ -186,8 +182,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaAktivitetet.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdKoka", gvLupaAktivitetet);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -230,6 +224,5 @@ namespace PlatinumWeb
             }
         }
 
-        //private void mbushComboBoxFiltra(int idNdermarrje)
     }
 }

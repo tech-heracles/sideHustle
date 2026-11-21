@@ -666,7 +666,6 @@ namespace DbCore.DbShare
                                 return mesazh;
                             }
                         }
-                        //j++;
                     }
                 }
                 if (!mesazh.Status)

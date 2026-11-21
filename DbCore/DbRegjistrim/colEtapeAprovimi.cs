@@ -76,7 +76,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsEtapeAprovimi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

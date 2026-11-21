@@ -54,7 +54,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
             </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ try{ window.parent.SessionTimeout.sendKeepAlive(); } catch(e){}}" />--%>
             </dx:ASPxGlobalEvents>
             <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true"
                 ViewStateMode="Enabled">
@@ -325,12 +324,9 @@
 
 
                                     <div id="dvFillim" class="atributeDiveFshehur">
-                                        <%--<div id="dvlblLloji">--%>
                                         <dx:ASPxLabel Wrap="False" ID="lblLloji" Text="boo" AssociatedControlID="cmbLloji"
                                             runat="server" ClientInstanceName="lblLloji">
                                         </dx:ASPxLabel>
-                                        <%-- </div>
-                                    <div id="dvcmbLloji">--%>
                                         <dx:ASPxComboBox Width="100%" ID="cmbLloji" runat="server" ClientInstanceName="cmbLloji"
                                             ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top">
                                             <ClientSideEvents SelectedIndexChanged="function(s,e){TextChangedLloji();}" />
@@ -349,13 +345,9 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%-- </div>
-                                     <div id="dvkonfigurimi_Label">--%>
                                         <dx:ASPxLabel Wrap="False" ID="konfigurimi_Label" AssociatedControlID="cmbKonfigurimi"
                                             runat="server" Text="Lloji:" ClientInstanceName="konfigurimi_Label">
                                         </dx:ASPxLabel>
-                                        <%-- </div>
-                                    <div id="dvcmbKonfigurimi">--%>
                                         <dx:ASPxComboBox Width="100%" ID="cmbKonfigurimi" runat="server" ClientInstanceName="cmbKonfigurimi"
                                             ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" AnimationType="None">
                                             <ClientSideEvents SelectedIndexChanged="function(s,e){ndryshoKonfigurimin()}" />
@@ -376,7 +368,6 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%-- </div>--%>
                                         <div id="dvlblKonfigurimi">
                                             <table>
                                                 <tr>
@@ -391,8 +382,6 @@
                                         <dx:ASPxLabel Wrap="False" ID="lblMagazina" AssociatedControlID="btneMagazina" runat="server"
                                             Text="Magazina" ClientInstanceName="lblMagazina">
                                         </dx:ASPxLabel>
-                                        <%--  </div>
-                                    <div id="dvbtneMagazina">--%>
                                         <dx:ASPxComboBox Width="100%" ID="btneMagazina" ClientInstanceName="btneMagazina"
                                             runat="server" ShowShadow="False" Style="margin-bottom: 0px" SettingsLoadingPanel-ImagePosition="Top"
                                              EnableSynchronization="True" OnItemRequestedByValue="btneMagazina_ItemRequestedByValue" 

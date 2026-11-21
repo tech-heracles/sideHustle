@@ -47,28 +47,21 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             niv++;
         }
 
-        //    niv++;
 
-        //    niv++;
 
         //    //  if (GetCurrentColumnValue("NIVELI").ToString() == "5")
-        //    //    niv++;
 
         //    //    if (GetCurrentColumnValue("NIVELI").ToString() == "4")
-        //    //   niv++;
 
         //    //     if (GetCurrentColumnValue("NIVELI").ToString() == "3")
-        //    //  niv++;
 
         //    // if (GetCurrentColumnValue("NIVELI").ToString() == "2")
-        //    //   niv++;
 
         private void xrLabel47_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
         }
 
-        //    //     niv++;
 
 
         private void xrLabel32_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -97,7 +90,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         }
 
 
-        //    //  niv++;
         private Hashtable skippedDetailBands;
         private Hashtable skippedDetailKPF;
         public Hashtable SkippedDetailBands

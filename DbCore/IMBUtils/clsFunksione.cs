@@ -699,7 +699,6 @@ namespace DbCore
 						break;
 
 					case 217:
-						//  case 265:
 						DbCore.DbRegjistrim.clsDokumentLidhesKoka dok = new DbCore.DbRegjistrim.clsDokumentLidhesKoka() { IdKoka = id };
 						dok.merrSipasId();
 						konf = dok.IdKonfigAmbjente;
@@ -825,7 +824,6 @@ namespace DbCore
 						break;
 
 					case "furnitor":
-						//  case "funitor":
 						if (emerkomp.Contains("Grupime"))
 							kodniveli = "";
 						else kodniveli = "F";
@@ -964,7 +962,6 @@ namespace DbCore
 						}
 					}
 				}
-				//if (!liste && !modifikim) //modifikim
 				//    //listen direkt
 				//    //konfVarura.mbushKonfigAmbjVarteseSipasIdKategoriKodNivel( TODO PATI
 				if (konfigurime.Count == 0)
@@ -1870,9 +1867,6 @@ namespace DbCore
 		{
 			StringBuilder str = new StringBuilder();
 			string SpecialChar = lejoPresje ? @"[';<>]" : @"[,';<>]";
-			//    case FusheKontrolli.Pershkrimi:
-			//    case FusheKontrolli.Emri:
-			//    default:
 			Regex rgx = new Regex(SpecialChar, RegexOptions.IgnoreCase);
 			MatchCollection matches = rgx.Matches(text);
 			if (matches.Count > 0)
@@ -2474,7 +2468,6 @@ namespace DbCore
 					}
 				}
 				return new clsMesazh(true);
-				//else //rasti kur nuk e ka te konfiguruar qe pedoruesi te bllokohet, behet bllokimi default(max tre tentativa per nje sesion)
 			}
 		}
 
@@ -8461,7 +8454,6 @@ namespace DbCore
 
 							break;
 
-						//case "Pershkrimi":
 
 						case "Magazina":
 							magazina = vendosVlere(trup, dokTable.Rows[0], out error);
@@ -8570,7 +8562,6 @@ namespace DbCore
 
 				if (importo)
 				{
-					//else
 
 
 					if (!kontrolloPerGabime(vjenNgaImportSQL, fushat, primaryKey, tePaImportuara, dokTable))

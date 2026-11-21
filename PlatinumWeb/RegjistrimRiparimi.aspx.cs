@@ -313,9 +313,7 @@ namespace PlatinumWeb
     
 
         #region shtoModel Komentuar
-        //private void shtoModel(int idNdermarrje, int idPerdoruesi, int idGjuha)
 
-        //    else
         #endregion shtoModel Komentuar
 
 
@@ -431,8 +429,6 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka(idGjuha, "grid_RegRip", komponente, idNdermarrje, int.Parse(cmbKonfigurimi.Value.ToString()));
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = grid_RegRip.FilterExpression, IdPerdoruesi = idPerdoruesi, IdNdermarje = idNdermarrje, IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivel", grid_RegRip);
-            //    else
-            //else
 
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();

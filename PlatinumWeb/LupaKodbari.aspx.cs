@@ -90,11 +90,8 @@ namespace PlatinumWeb
         }
 
 
-        //    else
 
 
-        //            else
-        //        else
 
         //    //if (dbAdmin.ekzistonFilter(Kodi_ASPxTextBox.Text, DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)))
 
@@ -163,8 +160,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaKodbari.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdKodbari", gvLupaKodbari);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -211,6 +206,5 @@ namespace PlatinumWeb
         ///// mbush combon e filtrave
         ///// </summary>
         ///// <param name="idNdermarrje"></param>
-        //private void mbushComboBoxFiltra(int idNdermarrje)
     }
 }

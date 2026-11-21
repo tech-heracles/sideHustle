@@ -70,7 +70,6 @@ namespace PlatinumWeb
             percaktoTemplate();
         }
 
-        //protected void btnFshi_Click(object sender, EventArgs e)
 
 
         protected void cmbVitiAktual_OnSelectedIndexChanged(object sender, EventArgs e)

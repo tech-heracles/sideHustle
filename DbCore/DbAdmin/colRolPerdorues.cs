@@ -81,7 +81,6 @@ namespace DbCore.DbAdmin
                 {
                     this.Add(new clsRolPerdorues(rreshti));
                 }
-            //    //throw;
             return true;
         }
 

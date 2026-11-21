@@ -128,7 +128,6 @@ namespace DbCore.DbProdhimi
                     Add(new clsProduktProdhimi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

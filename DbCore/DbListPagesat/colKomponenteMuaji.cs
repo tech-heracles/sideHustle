@@ -137,7 +137,6 @@ namespace DbCore.DbListPagesat
         /// </summary>
         /// <param name="dt"> data table me te dhenat e tipit komp list pagese</param>
         /// <returns>true ose false nqs objekti u mbush ne rregull me te dhena</returns>
-        //private void mbushKompMuaji(DataTable dt)
 
         #endregion
 

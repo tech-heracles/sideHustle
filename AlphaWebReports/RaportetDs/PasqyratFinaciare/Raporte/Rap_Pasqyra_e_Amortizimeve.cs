@@ -68,22 +68,18 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel73_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //    niv++;
         }
 
         private void xrLabel66_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //   niv++;
         }
 
         private void xrLabel61_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //  niv++;
         }
 
         private void xrLabel56_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //   niv++;
         }
 
         private void xrLabel47_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -93,7 +89,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel79_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //     niv++;
         }
 
         private void xrLabel84_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -170,7 +165,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel84_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //  niv++;
             e.Result = niv + 1;
             e.Handled = true;
         }
@@ -2680,7 +2674,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
-            //    niv++;
         }
 
         private void xrTableCell15_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -3739,7 +3732,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell147_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
-            //    niv++;
         }
 
         private void xrTableCell150_SummaryGetResult(object sender, SummaryGetResultEventArgs e)

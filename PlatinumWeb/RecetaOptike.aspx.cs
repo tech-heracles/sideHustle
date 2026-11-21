@@ -384,7 +384,6 @@ namespace PlatinumWeb
         /// <param name="e">argumentat</param>
         protected void gvRecetaOptike_HeaderFilterFillItems(object sender, ASPxGridViewHeaderFilterEventArgs e)
         {
-            //else
         }
 
         protected void ButtonOk2_Click2(object sender, EventArgs e)

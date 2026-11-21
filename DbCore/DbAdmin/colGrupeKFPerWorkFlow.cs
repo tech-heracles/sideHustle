@@ -63,7 +63,6 @@ namespace DbCore.DbAdmin
                     Add(new clsGrupeKFPerWorkFlow(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

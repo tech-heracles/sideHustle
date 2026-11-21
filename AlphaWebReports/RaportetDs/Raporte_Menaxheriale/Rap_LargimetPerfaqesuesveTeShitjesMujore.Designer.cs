@@ -335,8 +335,6 @@ namespace AlphaWebReports.RaportetDs.Raporte_Menaxheriale
             private XRPageInfo xrPageInfo1;
             private GroupHeaderBand GroupHeader1;
             private XRPivotGrid xrPivotGrid2;
-           // private Ds_LargimetPerfaqsuesveMujoreTableAdapters.PRC_Rap_LargimetPerfaqesuesveTeShitjesMujoreTableAdapter pRC_Rap_LargimetPerfaqesuesveTeShitjesMujoreTableAdapter;
-          //  private Ds_LargimetPerfaqsuesveMujore ds_LargimetPerfaqsuesveMujore1;
             private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField MUAJI1;
             private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField VEPRIMI1;
             private DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField VLERA1;

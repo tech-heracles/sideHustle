@@ -59,7 +59,6 @@ namespace DbCore.DbRegjistrim
 
                     this.Add(new clsVeprimeKFKoka(rreshti));
                 }
-            //    //throw;
             return true;
         }
 

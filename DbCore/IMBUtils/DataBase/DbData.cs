@@ -72,8 +72,6 @@ namespace DbCore.IMBUtils.DataBase
                     MyTransactionScope.DbConnections[MyTransactionScope.TransactionKey] = myScopeDbManager;
                     return myScopeDbManager;
                 }
-                //nuk eshte brenda nje scope-i. Lidhja hapet vetem kur ekzekutohet nje komande (dbManager.Open() ose Execute*),
-                //qe objektet qe krijohen pa u perdorur per query te mos mbajne lidhje te zena nga pool-i.
                 return NewDbManager(DataProviderType.SqlServer, MyConnectionsManager.GetSelectedConNameServer());
             }
         }

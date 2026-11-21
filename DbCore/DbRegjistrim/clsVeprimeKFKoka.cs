@@ -624,7 +624,6 @@ namespace DbCore.DbRegjistrim
             int idKonfigGjenerues, int idGjenerues, int idPerdoruesi, int idkfkunderparti, int idDegeAdministrative, clsDatabaseRegjistrim data, DateTime dtKrijimi)
         {
             idVeprimeKFKoka = data.ruajVeprimeKFKoka(idVeprimeKFKoka, llojVeprimi, nrDok, dtDok, dtRegj, idKF, idLlogKundraParti, pershkrimi, idmonedha, vlefta, idNderm, idNderviti, idStatusDok, idNivel, idKonfigAmbjente, idDokNga, idNivelGjenerues, idKonfigGjenerues, idGjenerues, idPerdoruesi, idkfkunderparti, idDegeAdministrative,dtKrijimi);
-            //else
             return idVeprimeKFKoka;
         }
 

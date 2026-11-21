@@ -130,7 +130,6 @@ namespace DbCore.DbInventari
                     this.Add(new clsArtikullZevendesues(rreshti));
                 }
 
-            //    //throw;
             return true;
 
         }

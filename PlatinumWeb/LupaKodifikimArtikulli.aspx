@@ -41,8 +41,6 @@
       
     </asp:ScriptManager>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ try{ window.parent.  window.parent.    SessionTimeout.sendKeepAlive();} catch (ee){window.parent.  window.parent.  window.parent.  SessionTimeout.sendKeepAlive();
-        }}" />--%>
     </dx:ASPxGlobalEvents>
          <dx:ASPxHiddenField ID="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
             </dx:ASPxHiddenField>

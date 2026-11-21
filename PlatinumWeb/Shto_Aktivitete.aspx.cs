@@ -211,7 +211,6 @@ namespace PlatinumWeb
         /// <summary>
         /// perdoret per te shfaqur njesine e kohes
         /// </summary>
-        //private void shtoNjesiKohe()
 
 
         /// <summary>
@@ -312,8 +311,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvAktivitetet.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvAktivitetet);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;

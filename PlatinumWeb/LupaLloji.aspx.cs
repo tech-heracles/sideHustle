@@ -98,13 +98,10 @@ namespace PlatinumWeb
         {//kur grida ben callback te ruajme te dhenat
 
 
-            //if (initVal != "")//merren te dhenat e hiden fieldeve te trupave te fleteve kontabel nga javascipti
 
-            //for (int i = 0; i < rreshta - 1; i++)//krijohet kolectioni me trupat e fleteve kontabel e futura nga perdoruesi
             //    } if (emri[i] != null && emri[i] != "null" && emri[i] != "")
 
 
-            //else
 
         }
 

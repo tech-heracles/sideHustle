@@ -46,8 +46,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ }" 
-                    ControlsInitialized="function (s,e) {if ($('#hfqkmesazhi').val() == 'shfaqmesazh' || $('#hfqkmesazhiVDK').val() == 'shfaqmesazh') {  popMesazhQK.Show();}}" />--%>
             </dx:ASPxGlobalEvents>
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                 <ContentTemplate>
@@ -195,8 +193,6 @@
                     <dx:ASPxLabel Wrap="False" ID="pergjigja" runat="server" Text="" ForeColor="Red"
                         ClientInstanceName="pergjigja">
                     </dx:ASPxLabel>
-                    <%--<dx:ASPxLabel ID="status" runat="server" Text="false" ClientInstanceName ="statusNew">
-        </dx:ASPxLabel>--%>
                     <asp:HiddenField ID="status1" runat="server" Value="false" />
                 </ContentTemplate>
             </asp:UpdatePanel>

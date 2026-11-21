@@ -44,7 +44,6 @@
     <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
     </dx:ASPxHiddenField>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ }" />--%>
     </dx:ASPxGlobalEvents>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -160,8 +159,6 @@
     <dx:ASPxHiddenField ID="hfTeDrejta" runat="server" ClientInstanceName="hfTeDrejta">
     </dx:ASPxHiddenField>
     </div>
-    <%--<dx:ASPxLabel ID="pergjigja" runat="server" ForeColor="Green">
-    </dx:ASPxLabel>--%>
     <asp:HiddenField ID="hfAutorizime" runat="server" />
     </form>
 </body>

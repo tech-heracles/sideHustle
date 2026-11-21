@@ -52,7 +52,6 @@ namespace DbCore.DbInventari
                   this.Add(new clsArtikullPerberesTemplateKoka(rreshti));
               }
 
-          //    //throw;
           return true;
 
       }

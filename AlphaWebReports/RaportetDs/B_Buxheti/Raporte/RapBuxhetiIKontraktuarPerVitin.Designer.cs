@@ -718,8 +718,6 @@ namespace AlphaWebReports.RaportetDs.B_Buxheti.Raporte
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;
-        //private CalculatedField calculatedField1;
-        //private CalculatedField calculatedField2;
         private XRControlStyle GrupimTop1;
         private XRControlStyle TitulliRaport;
         private XRControlStyle TabelaKryesore;

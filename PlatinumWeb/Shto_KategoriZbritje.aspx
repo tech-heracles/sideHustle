@@ -215,12 +215,9 @@
                                         <tbody>
                                         </tbody>
                                     </table>
-                                    <%--<div id="dvlblKodi">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi2" ID="lblKodi" runat="server"
                                         Text="Kodi:" ClientInstanceName="lblKodi">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtKodi2">--%>
                                     <dx:ASPxTextBox ID="txtKodi2" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKodi2">
                                         <ClientSideEvents TextChanged="function(s, e) {
 }" />
@@ -236,13 +233,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblPershkrimi">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtPershkrimi2" ID="lblPershkrimi"
                                         runat="server" Text="Pershkrimi:" ClientInstanceName="lblPershkrimi">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtPershkrimi2">--%>
                                     <dx:ASPxMemo ID="txtPershkrimi2" runat="server" Width="100%" AutoPostBack="false"
                                         ClientInstanceName="txtPershkrimi2" Rows="3">
                                         <ClientSideEvents TextChanged="function(s, e) {
@@ -257,13 +250,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxMemo>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblZbritja">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtZbritja" ID="lblZbritja" runat="server"
                                         Text="Zbritja:" ClientInstanceName="lblZbritja">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtZbritja">--%>
                                     <dx:ASPxTextBox ID="txtZbritja" runat="server" Width="100%" AutoPostBack="false"
                                         ClientInstanceName="txtZbritja">
                                         <ClientSideEvents TextChanged="function(s, e) {
@@ -278,13 +267,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblMonedha">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbMonedha" ID="lblMonedha" runat="server"
                                         Text="Monedha:" ClientInstanceName="lblMonedha">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvcmbMonedha">--%>
                                     <dx:ASPxComboBox ID="cmbMonedha" runat="server" ClientInstanceName="cmbMonedha"
                                         ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                         <DropDownButton>
@@ -302,7 +287,6 @@
                                         <DisabledStyle Font-Bold="False">
                                         </DisabledStyle>
                                     </dx:ASPxComboBox>
-                                    <%--</div>--%>
                                     <br />
                                     <dx:ASPxGridView ID="gvTrupiKategoriZbritje" runat="server" ClientInstanceName="gvTrupiKategoriZbritje"
                                         OnAfterPerformCallback="gvTrupiKategoriZbritje_AfterPerformCallback" OnHtmlRowCreated="gvTrupiKategoriZbritje_HtmlRowCreated"

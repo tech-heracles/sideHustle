@@ -454,7 +454,6 @@ namespace DbCore.DbRegjistrim
         {
             colDegeAdministrative data = new colDegeAdministrative();
             data.mbushGjitheDegeAdministrative(this.IdNdermarje);
-            //return data.merrGjitheNjesiAdministrative(this.idNdermarrje); //i kalohet idNdermarje
             return data;
         }
 

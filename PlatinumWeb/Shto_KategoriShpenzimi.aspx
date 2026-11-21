@@ -23,7 +23,6 @@
        
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
        
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true"
                 ViewStateMode="Enabled">
@@ -272,7 +271,6 @@
 
 
                                                 </td>
-                                               <%-- <td width="3%"></td>--%>
                                                 <td class="renditKontrolleCaption">
                                                     <dx:ASPxLabel ID="lblNiveli" runat="server" AssociatedControlID="txtNiveli"
                                                         ClientInstanceName="lblNiveli" Text="Niveli:"

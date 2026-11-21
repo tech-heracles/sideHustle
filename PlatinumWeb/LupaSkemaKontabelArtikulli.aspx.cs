@@ -94,19 +94,15 @@ namespace PlatinumWeb
 
 
         #region metodaShtimi komentuar
-        //private void shtoLlogariBlerje()
         //{// shton kombobox tek grida per llogarine
 
 
-        //private void shtoLlogariShitje()
         //{// shton kombobox tek grida per llogarine
 
 
-        //private void shtoLlogariTretet()
         //{// shton kombobox tek grida per llogarine
 
 
-        //private void shtoLlogariShpenzime()
         //{// shton kombobox tek grida per llogarine
         #endregion metodaShtimi komentuar
 
@@ -210,8 +206,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaSkemaKontArt.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdSkemaKontabilitetiArtikulli", gvLupaSkemaKontArt);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -254,6 +248,5 @@ namespace PlatinumWeb
             }
         }
 
-        //private void mbushComboBoxFiltra(int idNdermarrje)
     }
 }

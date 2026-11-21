@@ -6245,11 +6245,9 @@ namespace PlatinumWeb
 					param[4] = sqlParam1;
 					DbCore.mySessionObjects.ruajParametratERaportit(Session, param, guidString);
 				}
-				//long lastOpenDate = 0;_REgjistrim
 				ReportFunctions.konfigDataSetRaporti(report, oSp.SpEmri, idPerdorues, azhornim, idNdermarje, idnderviti, dtmbarimi, idkonfig, idperiudha, sqlParam);
 				HfState.Set("lastOpenDate", DateTimeOffset.UtcNow.ToUnixTimeSeconds());
 				HfState.Set("filter", ((ASPxRadioButtonList)navBarFiltrat.Groups[0].FindControl("radDtDok")).SelectedItem.Value.ToString());
-				//else  
 
 				if (((DataSet)report.DataSource).Tables[0].Rows.Count == 0)
 					ImbLogger.Warn($"Raporti me emer {RaportiEmerReal} nuk ka te dhena per periudhen e zgjedhur.");

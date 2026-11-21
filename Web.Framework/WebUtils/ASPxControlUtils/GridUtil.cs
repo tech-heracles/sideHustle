@@ -64,8 +64,6 @@ namespace PlatinumWeb
             // //per momentin eshte vetem lloji i pagerit
 
 
-            //     per momentin po ja vendosim fixe
-            // else
         }
 
         /// <summary>
@@ -684,7 +682,6 @@ namespace PlatinumWeb
 
                 if (col == null)
                 {
-                    //ImbLogger.Error(
                     continue;
                 }
 
@@ -951,8 +948,6 @@ namespace PlatinumWeb
 
             grida.FilterExpression = filtra.FiltraVlera;
             renditGriden(filtra.KoloneRenditje, grida);            
-            //grida.SortBy(grida.Columns[filtra.KoloneRenditje], filtra.DrejtimRenditje
-            //    ? ColumnSortOrder.Ascending
         }
 
         public static void AplikoFilter(int idGjuha, int idNdermarrje, ASPxGridView grida, string filtraKodi, string emriGrides, string emerKomponente, int idKonfigurimi)
@@ -1095,7 +1090,6 @@ namespace PlatinumWeb
                 grid.SettingsLoadingPanel.Mode = GridViewLoadingPanelMode.Disabled;
         }
         
-        //public static void konfigGrideListeEMadhePaThemePerKonfigurim(ASPxGridView grid, String KeyFieldName, bool searchPanelVisible = true, bool LoadingPanelAktiv = true)
 
         /// <summary>
         /// percakton atributet e grides per popup e medha, por pa percaktuar temen
@@ -1885,9 +1879,6 @@ namespace PlatinumWeb
             clsFiltraGrida filtri = new clsFiltraGrida() { FiltraKodi = kodfiltri, FiltraShenime = kodfiltri, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = filtriexp, IdPerdoruesi = idPerdoruesi, IdNdermarje = idNdermarrje, IdStatusDok = 1 };
             filtri.KoloneRenditje = ktheKolRenditjeNgaGridaPerRuajtje(renditjedefault, grida, hfState);
             filtri.DrejtimRenditje = true; //kjo kolone s'do perdoret me
-            //    else
-            //else
-            //else
 
             clsFiltraGrida filtraekzistues = new clsFiltraGrida();
             if (kodfiltri == "FilterDefault")   //nqs filtri eshte filtri default qe ruhet tek konfigurimi i dokumentit kontrollojme nqs ky filter ekziston dhe e modifikojme. filtri default eshte filtri i konfigurimit. filtrat e tjere jane filtrat qe shfaqen tek comboja lart e filtrave qe i ruan perdoruesi
@@ -2073,7 +2064,6 @@ namespace PlatinumWeb
                         {
                             gridView.FilterExpression = filtra.FiltraVlera;
                             GridUtil.renditGriden(filtra.KoloneRenditje, gridView, gridView.KeyFieldName);
-                            //else
 
                             hfStatusi.Value = "true";
                         }

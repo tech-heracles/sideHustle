@@ -64,7 +64,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             var lista = new ListEditItemCollection
             {
-              //  {"",0},
                 {rm.GetString("cmbStatusiListaLidhjaDokDraft", ci), 0},
                 {rm.GetString("cmbStatusiListaLidhjaDokRuajtur", ci), 1},
                 {rm.GetString("msgStatusRefuzuar", ci), 4},
@@ -172,7 +171,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             var lista = new ListEditItemCollection
             {
-              //  {"",0},
                 {rm.GetString("cmbLlojiKlient", ci), true},
                 {rm.GetString("cmbLlojiFurnitor", ci), false}
             };
@@ -209,7 +207,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             var lista = new ListEditItemCollection
             {
-              //{"",0},
                 {"", -1},
                 {rm.GetString("cmbMenyrePageseMeMirebesim", ci), Convert.ToInt32(MenyrePagese.Me_mirebesim)},
                 {rm.GetString("cmbMenyrePagesePagese", ci), Convert.ToInt32(MenyrePagese.Pagese)},
@@ -269,7 +266,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             var lista = new ListEditItemCollection
             {
-              //  {"",0},
                 {rm.GetString("draftKF", ci), true},
                 {rm.GetString("draftFinanciar", ci), false}
             };
@@ -281,7 +277,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             var lista = new ListEditItemCollection
             {
-                //{"",0},
                 {rm.GetString("cmbNeProces", ci), 0},
                 {rm.GetString("cmbEkzekutuar", ci), 1},
                 {rm.GetString("cmbAnulluar", ci), 2}
@@ -293,7 +288,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             var lista = new ListEditItemCollection
             {
-              //  {"",0},
                 {rm.GetString("lblHyrje", ci), 1},
                 {rm.GetString("lblDalje", ci), 2}
             };
@@ -386,7 +380,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
             var lista = new ListEditItemCollection
             {
-              //  {"",0},
                 {rm.GetString("cmbGjiniaFemer", ci), Convert.ToBoolean(Gjinia.Femer)},
                 {rm.GetString("cmbGjiniaMashkull", ci), Convert.ToBoolean(Gjinia.Mashkull)}
             };
@@ -484,7 +477,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
             var lista = new ListEditItemCollection
             {
-              //  {"",0},
                 {rm.GetString("cmbItemBlerjeShitjevlere", ci), 1},
                 {rm.GetString("cmbItemBlerjeShitjeperqindje", ci), 2}
 
@@ -671,7 +663,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             var lista = new ListEditItemCollection
             {
-                // {"",0},
                 {rm.GetString("labelRaportNr", ci), Convert.ToInt32(NjesiPagese.Nr)},
                 {rm.GetString("listItemTab", ci), Convert.ToInt32(NjesiPagese.Tab)},
                 {rm.GetString("listItemFormula", ci), Convert.ToInt32(NjesiPagese.For)}

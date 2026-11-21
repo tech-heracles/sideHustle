@@ -102,8 +102,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvKategoriArkive.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivel", gvKategoriArkive);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;
@@ -294,8 +292,6 @@ namespace PlatinumWeb
             List<object> rreshtat = gvKategoriArkive.GetSelectedFieldValues("IdKategoriArkive");
             foreach (int id in rreshtat)
             {
-                //TODO: PATI te behet kontrolli a eshte e lidhur te tabela T_ARKIVA
-                //else
                     DbCore.clsMesazh mesazh = DbCore.DbShare.clsKategoriArkive.fshi(id, DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
                     if (mesazh.Status)
                         clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, MessagesResource.Messages["msgFshirjeMeSukses"], pnlMesazhi);

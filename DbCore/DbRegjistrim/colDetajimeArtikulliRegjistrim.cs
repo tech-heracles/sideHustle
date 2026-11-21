@@ -62,7 +62,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsDetajimArtikulliRegjistrim(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

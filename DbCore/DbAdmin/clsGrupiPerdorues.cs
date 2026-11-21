@@ -183,7 +183,6 @@ namespace DbCore.DbAdmin
         ///// <summary>
         ///// Nuk perdoret.
         ///// </summary>
-        //public void merr()
 
         /// <summary>
         ///Kthen nje collection me objekte te tipit <c>clsGrupiPerdorues</c> te cilat i merr nga tabela 

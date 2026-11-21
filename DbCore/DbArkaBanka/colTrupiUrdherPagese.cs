@@ -140,7 +140,6 @@ namespace DbCore.DbArkaBanka
                     Add(new clsTrupiUrdherPagese(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

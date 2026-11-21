@@ -60,7 +60,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsSkemaAzhornimi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

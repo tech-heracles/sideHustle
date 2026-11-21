@@ -164,9 +164,6 @@
     }
     </style>
     <link href="FaqeKryesore.css" rel="stylesheet" />
-    <%--   <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/jquery.cookie.js" type="text/javascript"></script>
-    <script src="js/aspx.js/Login_Ndermarrje.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script> --%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery.cookie.js;~/js/aspx.js/Login_Ndermarrje.aspx-IMB.2.1.js&v76""
         type="text/javascript"></script>
     <meta name="description" content="Login-i i ndermarrjes" />

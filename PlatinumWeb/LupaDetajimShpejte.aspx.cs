@@ -117,7 +117,6 @@ namespace PlatinumWeb
             }
             else if (!String.IsNullOrEmpty(Request.QueryString["veprimi"]) && Request.QueryString["veprimi"] != "undefined")
             {
-                //dt = DbCore.DbInventari.colDetajimeArtikulli.ktheDetajimeSipasArtikullitNdermarrjesDheLlojit(artikulli, idNdermarrje, idPerdorues, 0);//bosh
                 dt = DbCore.DbInventari.colDetajimeArtikulli.ktheDetajimeSipasNdermarrjesAndAutorizimeSipasKategorise(idNdermarrje, idPerdorues, int.Parse(Request.QueryString["veprimi"]));
             }
             else

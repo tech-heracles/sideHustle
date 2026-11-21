@@ -25,7 +25,6 @@ namespace PlatinumWeb
             if (context.Request.Files.Count > 0)
             {
                 string fileId="", filePrefix="", filePath="";
-              //  fileEx="",
                 ArrayList filesExt = new ArrayList();
 
                 if (context.Request.Files["filenameShp"] != null)

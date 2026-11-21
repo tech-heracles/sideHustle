@@ -121,7 +121,6 @@ namespace DbCore.DbProdhimi
                     Add(new clsKokaEkzekutim(rreshti, db));
                 }
 
-            //    //throw;
             return true;
         }
 

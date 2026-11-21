@@ -232,7 +232,6 @@ namespace DbCore.DbAsete
         ///// <param name="idnivelgjenerues">(int) Id e nivelit gjenerues.</param>
         ///// <returns>Kthen clsMesazh me atribut statusi True nese modifikimi kryhet me sukses ose False dhe mesazhin e gabimit ne te kundert.</returns>
 
-        //        else
 
         /// <summary>
         /// MODULI ASETE:

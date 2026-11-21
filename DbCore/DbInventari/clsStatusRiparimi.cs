@@ -435,7 +435,6 @@ namespace DbCore.DbInventari
                         this.Autorizimi = db["Autorizimi"].ToString();
                    
                         
-                    //else
                     return true;
                 }
                 catch (InvalidCastException)

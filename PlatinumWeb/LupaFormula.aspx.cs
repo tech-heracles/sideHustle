@@ -392,8 +392,6 @@ namespace PlatinumWeb
 
             filtri.FiltraVlera = gvFormula.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdFormula", gvFormula);
-            //    else
-            //else
             filtri.IdPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdNdermarje = idNderm;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();

@@ -26,11 +26,6 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){
-          if (window.parent.identikuesPerPopupFormula == 'LupaArtShpejt')
-              window.parent.window.parent.window.parent.SessionTimeout.sendKeepAlive();
-          else
-              window.parent.window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server">
         </dx:ASPxHiddenField>
@@ -39,27 +34,6 @@
                 <table>
                     <tr>
                         <td>
-                          <%--  <dx:ASPxMenu ID="ASPxMenu1" ClientVisible="false"  ClientInstanceName="ASPxMenu1" runat="server" OnDataBound="ASPxMenu1_DataBound"
-                                ItemImagePosition="Top" Width="100%" AutoPostBack="true" ShowPopOutImages="True"
-                               >
-                                <RootItemSubMenuOffset FirstItemX="-1" FirstItemY="-1" X="-1" Y="-1" />
-                                <SubMenuStyle GutterWidth="0px" HorizontalAlign="Justify" />
-                                <ClientSideEvents ItemClick="function(s, e) {
-	                                    menu_click(s,e);
-                                        }" Init="function(s) {s.SetClientVisible(true);}" />
-                                <ItemImage Height="32px" Width="32px">
-                                </ItemImage>
-                                <SubMenuItemImage Height="16px" Width="16px">
-                                </SubMenuItemImage>
-                                <RootItemSubMenuOffset FirstItemX="-1" FirstItemY="-1" X="-1" Y="-1"></RootItemSubMenuOffset>
-                                <ItemStyle DropDownButtonSpacing="12px" PopOutImageSpacing="18px" VerticalAlign="Middle">
-                                    <Paddings PaddingBottom="1px" PaddingTop="9px" />
-                                    <Paddings PaddingTop="9px" PaddingBottom="1px"></Paddings>
-                                </ItemStyle>
-                                <SubMenuItemStyle Width="32px">
-                                </SubMenuItemStyle>
-                                <SubMenuStyle GutterWidth="0px" HorizontalAlign="Justify"></SubMenuStyle>
-                            </dx:ASPxMenu>--%>
                         </td>
                     </tr>
                     <tr>
@@ -85,7 +59,6 @@
                         </td>                       
                         <td style="width: 60%">
                             <dx:ASPxTextBox ID="koordinate" ClientInstanceName="koordinate" runat="server" Width="100%">
-                                <%--<ClientSideEvents TextChanged="function (s, e){ ndryshoPikeNeHarte(s, e); }" />--%>
                             </dx:ASPxTextBox>
                         </td>
                     </tr>

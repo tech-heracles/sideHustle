@@ -137,8 +137,6 @@
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="pnlKryesor" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
-            <%--<dx:ASPxLabel ID="pergjigja" runat="server" Text="" ForeColor="Green">
-            </dx:ASPxLabel>--%>
             <dx:ASPxGridView ID="gvKategoriDok" ClientInstanceName="gvKategoriDok" runat="server"
                 Width="100%" OnRowInserting="gvKategoriDok_RowInserting" OnDataBound="gvKategoriDok_DataBound"
                 OnAfterPerformCallback="gvKategoriDok_AfterPerformCallback" OnRowValidating="gvKategoriDok_RowValidating"

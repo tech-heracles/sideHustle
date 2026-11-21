@@ -93,7 +93,6 @@ namespace PlatinumWeb
         ///// <summary>
         /////      mbush combon e filtrave
         ///// </summary>
-        //private void mbushComboBoxFiltra()
 
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
@@ -174,7 +173,6 @@ namespace PlatinumWeb
         }
 
      
-        //private void shtoKlient(int idNdermarrje)
 
         protected void gvDokumenta_DataBound(object sender, EventArgs e)
         {
@@ -244,8 +242,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvDokumenta.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdNivel", gvDokumenta);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;

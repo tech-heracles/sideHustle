@@ -64,7 +64,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsKushtPageseKoka(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

@@ -64,7 +64,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsLidhesPerKontroll(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

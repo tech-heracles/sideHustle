@@ -1198,8 +1198,6 @@
         private DevExpress.XtraReports.UI.FormattingRule formattingRule1;
         private DevExpress.XtraReports.UI.CalculatedField KomisioniBankar;
         private DevExpress.XtraReports.UI.CalculatedField VlArketMon;
-        //   private DataSource.Ds_BANKA_DITARIKLASIK ds_BANKA_DITARIKLASIK2;
-        //   private DataSource.Ds_BANKA_DITARIKLASIKTableAdapters.PRC_RAP_BANKA_DITARIKLASIKTableAdapter prC_RAP_BANKA_DITARIKLASIKTableAdapter1;
         private DevExpress.XtraReports.UI.CalculatedField VlPaguarMon;
         private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
         private DevExpress.XtraReports.Parameters.Parameter parameter1;

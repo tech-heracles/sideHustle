@@ -313,7 +313,6 @@ namespace DbCore.DbProdhimi
                     Add(new clsRecepturaProdhimi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

@@ -33,8 +33,6 @@ namespace DbCore.DbCRM
             set { idTrupiKlientAnketa = value; }
         }
 
-        //public byte[] Foto
-        //    get
                
         //    set
 

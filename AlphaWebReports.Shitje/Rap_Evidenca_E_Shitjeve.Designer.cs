@@ -467,8 +467,6 @@
         private DevExpress.XtraReports.UI.XRLabel FiltratLabel;
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
-        //private Ds_Rap_Evidenca_E_Shitjeve ds_Rap_Evidenca_E_Shitjeve1;
-        //private DataSource.Ds_ListepagesatStandarteDinamikeTableAdapters.PRC_RAP_LISTPAGESA_STANDARTE_DINAMIKETableAdapter pRC_RAP_LISTPAGESA_STANDARTE_DINAMIKETableAdapter;
         private DevExpress.XtraReports.UI.XRLabel xrLabel35;
         private DevExpress.XtraReports.Parameters.Parameter Ndermarja;
         private DevExpress.XtraReports.Parameters.Parameter DtRegj;

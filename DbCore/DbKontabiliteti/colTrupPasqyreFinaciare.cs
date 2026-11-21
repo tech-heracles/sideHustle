@@ -74,7 +74,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsTrupPasqyreFinanciare(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

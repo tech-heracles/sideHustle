@@ -914,11 +914,8 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             e.Handled = true;
         }
 
-        //    niv++;
 
-        //    niv++;
 
-        //    niv++;
 
         
         private void xrTableCell49_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -1399,9 +1396,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 e.Result = String.Format("{0:#,#.00}", shuma);
             else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
-            //    else
-            //String vlera1, vlera2;
-            //else
         }
 
         private void xrTableCell93_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -1423,7 +1417,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
                 e.Result = String.Format("{0:#,#.00}", shuma);
             else e.Result = "(" + String.Format("{0:#,#.00}", -shuma) + ")";
             e.Handled = true;
-            //    else
         }
 
         private void xrTableCell94_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -1468,10 +1461,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
             ndrAbs1 = 0;
             gjenVitPara1 = 0;
         }
-//            Iif([shenja] == 'Pozitive',
-//Iif([gjendVitiParaardhes] >= 0,[gjendVitiParaardhes]  ,'('+ -[gjendVitiParaardhes]+')' ),
-        //        else
-        //        else
         private void xrTableCell92_SummaryRowChanged(object sender, EventArgs e)
         {
             if (GetCurrentColumnValue("ndryshimiAbsolut") != null && GetCurrentColumnValue("gjendVitiParaardhesMeShenje") != null)

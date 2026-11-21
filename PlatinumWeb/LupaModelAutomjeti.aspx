@@ -31,7 +31,6 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e) { if(window.parent.identikuesPerPopupModelAutomjeti ==='LupaAutomjetShpejte') window.parent.window.parent.window.parent.SessionTimeout.sendKeepAlive(); else  window.parent.window.parent.SessionTimeout.sendKeepAlive(); }" />--%>
         </dx:ASPxGlobalEvents>
          <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true"
                 ViewStateMode="Enabled">

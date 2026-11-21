@@ -8,14 +8,6 @@
 <script src="js/aspx.js/MenuInfo.ascx-IMB.2.1.js?versioni22" type="text/javascript"></script>
 <table style="width:100%; background-color: #F3F3F3">
     <tr>
-        <%--        <td>
-            <dx:ASPxImage ID="ASPxImage1" runat="server" ImageUrl="~/images/new/about.png" ClientIDMode="Static">
-            </dx:ASPxImage>
-         
-        </td>--%>
-        <%--<dx:ASPxLabel ID="mesazhPage" runat="server" Text="" ClientInstanceName="mesazhPage"
-                Font-Size="Medium" ClientIDMode="Static" Wrap="False">
-            </dx:ASPxLabel> --%>
         <td id="mesazhi" style="width: auto;">
             <dx:ASPxComboBox ID="mesazhList" ClientVisible="false" ClientEnabled="true" ShowImageInEditBox="true"
                 DropDownButton-Visible="false" DropDownButton-Image-UrlHottracked="~/images/new/about.png"
@@ -47,7 +39,6 @@
                         <dx:ASPxButton ID="btnPo" ClientVisible="false" runat="server" CausesValidation="False" ClientInstanceName="btnPo"
                             Text="Po"      
                             ClientIDMode="AutoID" Width="30px">
-                            <%--<ClientSideEvents Click="function(s, e) { poBtnClick(s, e); }" Init="function(s, e) { poBtnInit(s, e); }" />--%>
                         </dx:ASPxButton>
                     </td>
                     <td style="width:5px;">
@@ -56,7 +47,6 @@
                         <dx:ASPxButton ID="btnJo" ClientVisible="false" runat="server" CausesValidation="False" ClientInstanceName="btnJo"
                             Text="Jo"      
                             ClientIDMode="AutoID" Width="30px">
-                            <%--<ClientSideEvents Click="function(s, e) {joBtnClick(s, e);}" Init="function(s, e) { joBtnInit(s, e); }" />--%>
                         </dx:ASPxButton>
                     </td>
                 </tr>
@@ -70,8 +60,3 @@
         </td>
     </tr>
 </table>
-<%--timer.SetEnabled(false);--%>
-<%--<dx:ASPxTimer ID="timer" runat="server" ClientInstanceName="timer" Interval="10000">
-    <ClientSideEvents Tick="   function (s,e){mesazhPage.SetText(); timer.SetEnabled(false); btnPo.SetVisible(false); btnJo.SetVisible(false);hlClose.SetVisible(false);}"
-        Init="function (s,e){timer.SetEnabled(false);}" />
-</dx:ASPxTimer>--%>

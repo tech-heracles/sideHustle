@@ -239,11 +239,8 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<div id="dvlblKodi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server" Text="Kodi:" ClientInstanceName="lblKodi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtKodi">--%>
                                 <dx:ASPxTextBox ID="txtKodi" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKodi">
                                     <ValidationSettings CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true"
                                         Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
@@ -258,8 +255,6 @@
                                 </dx:ASPxTextBox>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtEmertimi" ID="lblEmertimi" runat="server" Text="Emertimi:" ClientInstanceName="lblEmertimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtEmertimi">--%>
                                 <dx:ASPxMemo ID="txtEmertimi" runat="server" Width="100%" AutoPostBack="false"
                                     ClientInstanceName="txtEmertimi" Rows="3">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true">
@@ -310,8 +305,6 @@
                                  <dx:ASPxLabel Wrap="False" AssociatedControlID="cbAktiv" ID="lblMeEmertimKolone" runat="server"
                                     ClientInstanceName="lblMeEmertimKolone" Text="Formati ka kolona:">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcbAktiv">--%>
                                 <dx:ASPxCheckBox ID="cbMeEmertimKolone" runat="server" ClientInstanceName="cbMeEmertimKolone" Width="100%">
                                 </dx:ASPxCheckBox>
                                 <br />
@@ -331,22 +324,6 @@
                                     </StylesEditors>
                                 </dx:ASPxGridView>
                                 
-                                <%--<dx:ASPxGridView ID="gvSeriali" runat="server" ClientInstanceName="gvSeriali" OnAfterPerformCallback="gvSeriali_AfterPerformCallback"
-                                    OnHtmlRowCreated="gvSeriali_HtmlRowCreated" OnCustomCallback="gvSeriali_CustomCallback"
-                                    OnCustomJSProperties="gvSeriali_CustomJSProperties" Width="30%" OnDataBound="gvSeriali_DataBound">
-                                    <ClientSideEvents BeginCallback="function(s, e) {
-	
-             merrTeDhena();
-}" EndCallback="function (s,e){aktivizoGride();}" />
-                                    <Styles>
-                                        <Header ImageSpacing="5px" SortingImageSpacing="5px">
-                                        </Header>
-                                    </Styles>
-                                    <StylesEditors>
-                                        <ProgressBar Height="25px">
-                                        </ProgressBar>
-                                    </StylesEditors>
-                                </dx:ASPxGridView>--%>
                             </dx:ContentControl>
                         </ContentCollection>
                     </dx:TabPage>

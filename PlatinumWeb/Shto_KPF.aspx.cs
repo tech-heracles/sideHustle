@@ -982,9 +982,6 @@ namespace PlatinumWeb
         /// <param name="e"></param>
         //    //kap item qe ka template ne menune e kesaj faqeje
 
-        //            else
-        //            else
-        //            else
 
 
         /// <summary>
@@ -1009,8 +1006,6 @@ namespace PlatinumWeb
                 filtri.FiltraVlera = grid_ListKPFsh1.FilterExpression;
                 filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiKPF", grid_ListKPFsh1);
 
-                //    else
-                //else
             }
             else
                 if (ASPxPageControl2.ActiveTabIndex == 1)
@@ -1018,8 +1013,6 @@ namespace PlatinumWeb
                 filtri.FiltraVlera = grid_ListKPFsh2.FilterExpression;
                 filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiKPF", grid_ListKPFsh2);
 
-                //    else
-                //else
             }
             else
                     if (ASPxPageControl2.ActiveTabIndex == 2)
@@ -1027,8 +1020,6 @@ namespace PlatinumWeb
                 filtri.FiltraVlera = grid_ListKPFsh3.FilterExpression;
                 filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("KodiKPF", grid_ListKPFsh3);
 
-                //    else
-                //else
             }
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;

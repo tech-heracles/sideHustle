@@ -86,7 +86,6 @@ namespace DbCore.DbProdhimi
                     Add(new clsKokaSkedulimProdhimi(rreshti, db));
                 }
 
-            //    //throw;
             return true;
         }
 

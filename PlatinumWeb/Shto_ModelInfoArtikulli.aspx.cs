@@ -513,7 +513,6 @@ namespace PlatinumWeb
         ///// <summary>
         ///// Mbush combon e filtrave te grides ASPxGridView_InfoArtikulli
         ///// </summary>
-        //private void mbushComboBoxFiltra()
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -554,8 +553,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_InfoArtikulli.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", ASPxGridView_InfoArtikulli);
-            //    else
-            //else
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();

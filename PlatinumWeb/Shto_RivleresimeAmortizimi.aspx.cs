@@ -342,7 +342,6 @@ namespace PlatinumWeb
             ConfigureAspxComboBox.percaktoTemplateComboMeLupe(cmbLlogariKunderParti);
             ConfigureAspxComboBox.ShtoKolonaPerLlogarine(cmbLlogariKunderParti);
                 cmbLloji.SelectedIndex = 0;
-            //else
             mbushComboKonfigurimet(false, idGjuha, rm, cultinf);
             ConfigureAspxComboBox.mbushComboStandartAmortizimi(cmbStandarti, idNdermarrje);
             cmbStandarti.SelectedIndex = 0;
@@ -827,36 +826,22 @@ namespace PlatinumWeb
             }
             return trupat;
         }
-        //private void krijoSeriale(DbCore.DbAsete.colSerialetMagazine colserialemag, DbCore.DbAsete.colAmortizimiTrupi trupi, int idstatusdok, int idNdermarrje, int idPerdoruesi, int idKrijuesi, DbCore.DbShare.clsKonfigurimAmbjenti konf, bool kontrollosasi)
 
         //    //if (hfShtimModifikim.Value == "modifikim")
-        //    //{
 
-        //    //}
         //    //foreach (clsTrupiMagazina trup in trupi)
-        //    //{
         //    //    if (trup.IdLlojVeprimi == 1)//rasti artikull
-        //    //    {
         //    //        if (hfSeriale.Contains(trup.IdArtikulli + "_" + hfIdGride.Get(rreshti.ToString())))
-        //    //        {
 
         //    //            for (int i = 0; i < dokumenti.Length; i++)
-        //    //            {
         //    //                if (serialetekzistuese.Find(x => x.IdAQTSeriali == serial.IdAQTSerial && x.IdNjesiAdministrative == trup.IdMag) == null)
 
         //    //                    if (serial.IdNjesiAdministrativeAktuale != trup.IdMag)
-        //    //                    {
-        //    //                    }
 
-        //    //            }
 
-        //    //        }
 
         //    //        if (art.LlojiArt)
         //    //            if (kontrollosasi && ((trup.Sasia * trup.Koeficenti != col.Count && art.MeSerial) || (!art.MeSerial && col.Count == 0)))
-        //    //    }
-        //    //    rreshti++;
-        //    //}
 
 
         /// <summary>

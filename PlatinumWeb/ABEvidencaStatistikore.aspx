@@ -230,7 +230,6 @@
                                             <ErrorFrameStyle ImageSpacing="4px">
                                                 <ErrorTextPaddings PaddingLeft="4px" />
                                             </ErrorFrameStyle>
-                                     <%--       <RegularExpression ErrorText="Kodi duhet te jete numerik" ValidationExpression="^[0-9]+$"></RegularExpression>--%>
                                             <RequiredField IsRequired="true" />
                                         </ValidationSettings>
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">

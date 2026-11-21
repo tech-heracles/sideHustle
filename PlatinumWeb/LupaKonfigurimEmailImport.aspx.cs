@@ -51,7 +51,6 @@ namespace PlatinumWeb
                 if (idKonfigImporti != 0)
                     mbushPopUpListeNgaDB(idKonfigImporti);
             }
-            //else
             percaktoTemplateGride();
 
         }

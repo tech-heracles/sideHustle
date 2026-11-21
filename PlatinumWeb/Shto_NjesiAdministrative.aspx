@@ -29,7 +29,6 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){if(Utils.getUrlVar('vjenNga') !== 'GIS') window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server">
         </dx:ASPxHiddenField>
@@ -304,12 +303,9 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<div id="dvlblKodi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server"
                                     Text="Kodi:" ClientInstanceName="lblKodi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtKodi"> --%>
                                 <dx:ASPxTextBox ID="txtKodi" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKodi">
                                     <ClientSideEvents TextChanged="function(s, e) {	kontrolloKodMagazine(); }" />
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -325,13 +321,9 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div> --%>
-                                <%-- <div id="dvlblPershkrimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtPershkrimi" ID="lblPershkrimi"
                                     runat="server" Text="Pershkrimi:" ClientInstanceName="lblPershkrimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtPershkrimi"> --%>
                                 <dx:ASPxMemo ID="txtPershkrimi" runat="server" Width="100%" AutoPostBack="false"
                                     ClientInstanceName="txtPershkrimi">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries1"
@@ -358,13 +350,9 @@
                                             <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                             </DisabledStyle>
                                         </dx:ASPxTextBox>
-                                <%--</div> --%>
-                                <%-- <div id="dvlblAdresa">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtAdresa" ID="lblAdresa" runat="server"
                                     Text="Adresa:" ClientInstanceName="lblAdresa">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%--<div id="dvtxtAdresa"> --%>
                                 <dx:ASPxMemo ID="txtAdresa" runat="server" ClientInstanceName="txtAdresa" Width="100%">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries1"
                                         ValidateOnLeave="false">
@@ -376,13 +364,9 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxMemo>
-                                <%--</div> --%>
-                                <%--<div id="dvlblInventarizimi"> --%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbInventarizimi" ID="lblInventarizimi"
                                     runat="server" Text="Inventarizimi:" ClientInstanceName="lblInventarizimi">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%--<div id="dvcmbInventarizimi"> --%>
                                 <dx:ASPxComboBox ID="cmbInventarizimi" runat="server" ClientInstanceName="cmbInventarizimi"
                                     ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                     <LoadingPanelImage>
@@ -402,13 +386,9 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxComboBox>
-                                <%--</div> --%>
-                                <%-- <div id="dvlblAktiv">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cbAktiv" ID="lblAktiv" runat="server"
                                     Text="Aktiv:" ClientInstanceName="lblAktiv">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%-- <div id="dvcbAktiv">--%>
                                 <dx:ASPxCheckBox ID="cbAktiv" runat="server" ClientInstanceName="cbAktiv">
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
@@ -448,13 +428,9 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div> --%>
-                                <%--<div id="dvlblNdjekjeGjendje">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cbNdjekjeGjendje" ID="lblNdjekjeGjendje"
                                     runat="server" Text="Ndjekje Gjendje:" ClientInstanceName="lblNdjekjeGjendje">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcbNdjekjeGjendje"> --%>
                                 <dx:ASPxCheckBox ID="cbNdjekjeGjendje" runat="server" ClientInstanceName="cbNdjekjeGjendje"
                                     Width="100%">
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
@@ -471,8 +447,6 @@
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cbDet1" ID="lblDet1"
                                     runat="server" Text="Kontroll gjendje detajim 1:" ClientInstanceName="lblDet1">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcbNdjekjeGjendje"> --%>
                                 <dx:ASPxCheckBox ID="cbDet1" runat="server" ClientInstanceName="cbDet1"
                                     Width="100%">
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
@@ -488,8 +462,6 @@
                                  <dx:ASPxLabel Wrap="False" AssociatedControlID="cbDet2" ID="lblDet2"
                                     runat="server" Text="Kontroll gjendje detajim 2:" ClientInstanceName="lblDet2">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcbNdjekjeGjendje"> --%>
                                 <dx:ASPxCheckBox ID="cbDet2" runat="server" ClientInstanceName="cbDet2"
                                     Width="100%">
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
@@ -502,8 +474,6 @@
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
                                 </dx:ASPxCheckBox>
-                                <%--</div> --%>
-                                <%--<div id="dvlblAutorizimi"> --%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbAutorizimi" ID="lblAutorizimi"
                                     runat="server" Text="Autorizimi:" ClientInstanceName="lblAutorizimi">
                                 </dx:ASPxLabel>
@@ -516,8 +486,6 @@
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="dteDtRegjistrimi" ID="lblDtRegjistrimi"
                                     runat="server" Text="Date Regjistrimi:" ClientInstanceName="lblDtRegjistrimi">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%-- <div id="dvdteDtRegjistrimi">--%>
                                 <dx:ASPxDateEdit Width="100%" ID="dteDtRegjistrimi" runat="server" ClientInstanceName="dteDtRegjistrimi"
                                     ShowShadow="False">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries">
@@ -538,13 +506,9 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxDateEdit>
-                                <%--</div> --%>
-                                <%-- <div id="dvlblDegeAdministrative">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbDegeAdministrative" ID="lblDegeAdministrative"
                                     runat="server" Text="Inventarizimi:" ClientInstanceName="lblDegeAdministrative">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%--<div id="dvcmbDegeAdministrative"> --%>
                                 <dx:ASPxComboBox Width="100%" ID="cmbDegeAdministrative" runat="server" ClientInstanceName="cmbDegeAdministrative"
                                     ShowShadow="False" Height="19px" SettingsLoadingPanel-ImagePosition="Top" >
                                     <LoadingPanelImage>
@@ -568,8 +532,6 @@
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbLloji" ID="lblLloji"
                                     runat="server" Text="Lloji:" ClientInstanceName="lblLloji">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%--<div id="dvcmbDegeAdministrative"> --%>
                                 <dx:ASPxComboBox Width="100%" ID="cmbLloji" runat="server" ClientInstanceName="cmbLloji"
                                     ShowShadow="False" Height="19px" SettingsLoadingPanel-ImagePosition="Top">
                                     <ClientSideEvents SelectedIndexChanged="function (s,e){LlojiChanged(s);}" />
@@ -593,8 +555,6 @@
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="dteDtFillimStatusi" ID="lblDtFillimStatusi"
                                     runat="server" Text="Data e fillimit te statusit:" ClientInstanceName="lblDtFillimStatusi">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%-- <div id="dvdteDtRegjistrimi">--%>
                                 <dx:ASPxDateEdit Width="100%" ID="dteDtFillimStatusi" runat="server" ClientInstanceName="dteDtFillimStatusi"
                                     ShowShadow="False">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="entries">
@@ -615,12 +575,9 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxDateEdit>
-                                <%--</div> --%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKohezgjatja" ID="lblKohezgjatja" runat="server"
                                     ClientInstanceName="lblKohezgjatja" Text="Jetegjatesia ne vite:">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtKodi"> --%>
                                 <dx:ASPxTextBox ID="txtKohezgjatja" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKohezgjatja">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
                                         ValidationGroup="entries" SetFocusOnError="true">
@@ -636,8 +593,6 @@
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbStatusi" ID="lblStatusi"
                                     runat="server" Text="Statusi:" ClientInstanceName="lblStatusi">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%--<div id="dvcmbDegeAdministrative"> --%>
                                 <dx:ASPxComboBox Width="100%" ID="cmbStatusi" runat="server" ClientInstanceName="cmbStatusi"
                                     ShowShadow="False" Height="19px" SettingsLoadingPanel-ImagePosition="Top">
                                     <LoadingPanelImage>
@@ -695,14 +650,10 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxMemo>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtKodi"> --%>
 
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbLlojLayer" ID="lblLlojLayer"
                                     runat="server" Text="Lloj Layeri:" ClientInstanceName="lblLlojLayer">
                                 </dx:ASPxLabel>
-                                <%--</div> --%>
-                                <%--<div id="dvcmbDegeAdministrative"> --%>
                                 <dx:ASPxComboBox Width="100%" ID="cmbLlojLayer" runat="server" ClientInstanceName="cmbLlojLayer"
                                     ShowShadow="False" Height="19px" SettingsLoadingPanel-ImagePosition="Top">
                                     <LoadingPanelImage>
@@ -750,8 +701,6 @@
                                       <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbLlojiQ" ID="lblLlojiQ" runat="server"
                                         Text="Lloj qendre:" ClientInstanceName="lblLlojiQ">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvcmbMonedha">--%>
                                     <dx:ASPxComboBox ID="cmbLlojiQ" runat="server" ClientInstanceName="cmbLlojiQ" ShowShadow="False"
                                         Width="100%" SettingsLoadingPanel-ImagePosition="Top">
                                         <DropDownButton>
@@ -773,8 +722,6 @@
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="qendraKostos_TextBox" ID="lblQenderKosto"
                                         runat="server" Text="Qendra e Kostos:" ClientInstanceName="lblQenderKosto">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvqendraKostos_TextBox">--%>
                                     <dx:ASPxComboBox ID="qendraKostos_TextBox" Enabled="true" runat="server" ClientInstanceName="qendraKostos_TextBox"
                                          EnableCallbackMode="True" OnItemRequestedByValue="qendraKostos_TextBox_ItemRequestedByValue" OnItemsRequestedByFilterCondition="qendraKostos_TextBox_ItemsRequestedByFilterCondition"
                                        SettingsLoadingPanel-ImagePosition="Top"
@@ -831,8 +778,6 @@
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="btnQyteti" ID="lblQyteti" runat="server"
                                         Text="Qyteti:" ClientInstanceName="lblQyteti" ClientVisible="false">
                                     </dx:ASPxLabel>
-                                    <%--</div> --%>
-                                    <%--<div id="dvtxtQyteti"> --%>
                                     <dx:ASPxComboBox ID="btnQyteti" runat="server" ClientInstanceName="btnQyteti" ShowShadow="False"
                                         SettingsLoadingPanel-ImagePosition="Top" Width="100%" ClientVisible="false">
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { }" />
@@ -854,8 +799,6 @@
                                  <dx:ASPxLabel Wrap="False" AssociatedControlID="btnTipiMag" ID="lblTipiMag" runat="server"
                                          ClientInstanceName="lblTipiMag" ClientVisible="false">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvcmbKMSH">--%>
                                     <dx:ASPxComboBox ID="btnTipiMag" runat="server" ClientInstanceName="btnTipiMag" ShowShadow="False"
                                         ReadOnly="false" SettingsLoadingPanel-ImagePosition="Top" ClientVisible="false">
                                         <DropDownButton>

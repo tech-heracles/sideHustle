@@ -30,17 +30,6 @@
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="Stylesheet" type="text/css" href="Stylesheet1.css" />
-    <%--    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/myMesazh-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myButtonClickLupa-IMB.2.1.js?versioni22" type="text/javascript"></script>
-     
-    <script src="js/Utils-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myJQGrid-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myBuxhet-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myFushaShtese-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myNrAuto-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/aspx.js/LupaArtikullShpejte.aspx-IMB.2.2.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/myBuxhet-IMB.2.1.js;~/js/myFushaShtese-IMB.2.1.js;~/js/myNrAuto-IMB.2.1.js;~/js/aspx.js/LupaDetajimShpejte-IMB.2.1.js&v76""
         type="text/javascript"></script>
 </head>
@@ -48,7 +37,6 @@
     <form id="form1" runat="server" style="width: 100%">
         <div>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.window.parent.SessionTimeout.sendKeepAlive();}" />--%>
             </dx:ASPxGlobalEvents>
             <asp:ScriptManager ID="ScriptManager1" runat="server">
              
@@ -147,12 +135,9 @@
                                 <tbody>
                                 </tbody>
                             </table>
-                            <%--<div id="dvlblKodi">--%>
                             <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server"
                                 Text="Kodi:" ClientInstanceName="lblKodi">
                             </dx:ASPxLabel>
-                            <%--</div>--%>
-                            <%--<div id="dvtxtKodi">--%>
                             <dx:ASPxTextBox ID="txtKodi" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKodi">
                                 <ValidationSettings CausesValidation="true" ValidationGroup="entries" SetFocusOnError="True"
                                     Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
@@ -165,13 +150,9 @@
                                 <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                 </DisabledStyle>
                             </dx:ASPxTextBox>
-                            <%--</div>--%>
-                            <%--<div id="dvlblPershkrimi">--%>
                             <dx:ASPxLabel Wrap="False" AssociatedControlID="txtPershkrimi" ID="lblPershkrimi"
                                 runat="server" Text="Pershkrimi:" ClientInstanceName="lblPershkrimi">
                             </dx:ASPxLabel>
-                            <%--</div>--%>
-                            <%--<div id="dvtxtPershkrimi">--%>
                             <dx:ASPxMemo ID="txtPershkrimi" runat="server" Width="100%" AutoPostBack="false"
                                 ClientInstanceName="txtPershkrimi" Rows="3">
                                 <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -183,13 +164,9 @@
                                 <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                 </DisabledStyle>
                             </dx:ASPxMemo>
-                            <%--</div>--%>
-                            <%--<div id="dvlblKlasa">--%>
                             <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbLloji" ID="lblLloji" runat="server"
                                 Text="Klasa:" ClientInstanceName="lblLloji">
                             </dx:ASPxLabel>
-                            <%--</div>--%>
-                            <%--<div id="dvcmbKlasa">--%>
                             <dx:ASPxComboBox ID="cmbLloji" runat="server" ClientInstanceName="cmbLloji" ShowShadow="False"
                                 SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                 <DropDownButton>
@@ -206,13 +183,9 @@
                                 <DisabledStyle Font-Bold="False">
                                 </DisabledStyle>
                             </dx:ASPxComboBox>
-                            <%--</div>--%>
-                            <%--<div id="dvlblKlasa">--%>
                             <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbKategoria" ID="lblKategoria"
                                 runat="server" Text="Klasa:" ClientInstanceName="lblKategoria">
                             </dx:ASPxLabel>
-                            <%--</div>--%>
-                            <%--<div id="dvcmbKlasa">--%>
                             <dx:ASPxComboBox ID="cmbKategoria" runat="server" ClientInstanceName="cmbKategoria"
                                 ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                 <ClientSideEvents TextChanged="function(s, e){ TextChangedKategoria(); }" />
@@ -230,7 +203,6 @@
                                 <DisabledStyle Font-Bold="False">
                                 </DisabledStyle>
                             </dx:ASPxComboBox>
-                            <%--</div>--%>
                             <br />
                             <dx:ASPxGridView ID="gvLupaDetajime" runat="server" ClientInstanceName="gvLupaDetajime"
                                 OnDataBound="gvDetajimArtikulli_DataBound" OnAfterPerformCallback="gvDetajimArtikulli_AfterPerformCallback"
@@ -247,7 +219,6 @@
                                 </StylesEditors>
                                 <SettingsPager></SettingsPager>
                             </dx:ASPxGridView>
-                            <%--</div>--%>
                         </dx:PanelContent>
                     </PanelCollection>
                 </dx:ASPxPanel >

@@ -2353,7 +2353,5 @@
         private DevExpress.XtraReports.UI.XRControlStyle Copyright;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell43;
-        // private DataSource.Ds_PRC_RAP_LISTPAGESA_STANDARTE ds_PRC_RAP_LISTPAGESA_STANDARTE1;
-        // private DataSource.Ds_PRC_RAP_LISTPAGESA_STANDARTETableAdapters.PRC_RAP_LISTPAGESA_STANDARTETableAdapter pRC_RAP_LISTPAGESA_STANDARTETableAdapter;
     }
 }

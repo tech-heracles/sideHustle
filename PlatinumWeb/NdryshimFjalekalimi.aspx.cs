@@ -150,7 +150,6 @@ namespace PlatinumWeb
 
         private void ruajFjalekalim(System.Resources.ResourceManager rm, System.Globalization.CultureInfo ci)
         {
-            //IsStrongPassword;
 
             String pass_vjeter = this.txtPasswordieksistues.Text;
             String pass_ri = password_TextBox.Text;

@@ -40,7 +40,6 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
   </asp:ScriptManager>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.  window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
     <div id='div' style="display: none">
         <asp:UpdatePanel ID="pnl" runat="server">
@@ -130,13 +129,6 @@
                                         </tr>
                                         <tr>
                                             <td align="center" class="style1">
-                                                <%-- <dx:ASPxButton ID="btnOk" runat="server" Text="Ok" AutoPostBack="False"  
-                                             >
-                                            <ClientSideEvents Click="function(s, e) {                   
-                                         window.parent.     btneArtikuj.SetFocus(true); 
-                                         window.parent.popupUniversal.Hide();
-                                        }" />
-                                        </dx:ASPxButton>--%>
                                                 <dx:ASPxTextBox ID="hfArtikulli" runat="server" ClientInstanceName="hfArtikulli"
                                                     Width="0" Height="0" ForeColor="White">
                                                     <Border BorderColor="White" />

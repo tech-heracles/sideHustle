@@ -401,10 +401,6 @@ namespace PlatinumWeb
                 ruajSeriale();
             }
             ////veprimet e menuse
-            //    case "Modifiko":
-            //    case "Pastro":
-            //    case "Shto":
-            //    default:
         }
 
 
@@ -602,8 +598,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvSeriale.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdAQTSerial", gvSeriale);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);

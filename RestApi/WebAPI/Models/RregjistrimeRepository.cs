@@ -1574,7 +1574,6 @@ namespace RestApi.WebAPI.Models
             return new { artikulli = artikulli, infoArt = lista };
         }
 
-        //internal static bool ekzistonKodBar(string kodbar, int idNdermarrje)
 
         public static object[] ktheRowVleraDetajimMeID(int idja, int rreshti, int lloji, string kodartikulli, int idkokamagazina, int idNdermarrje, int idPerdorues, string magazina, string dtDok, bool kontrolloImeiFifo, string[] listeIMEI, bool promocione, bool DokumentTransferimiOwn, bool merrPerberesit)///idkokamagazina perdoret per rastet kur kemi transferimet nga vodafoni per te pare nqs ky detajim eshte tek fatura e blerjes nga e cila eshte konvertuar fh
         {
@@ -3850,7 +3849,6 @@ namespace RestApi.WebAPI.Models
         }
         public static AutoCompleteItem[] ktheArrayKlienteFurnitoresh(string infixText, int tipKlientFurnitor, HttpSessionState Session)
         {
-            //int idPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session); ; //nga sesioni   
             DataTable tmpTable = colKlienteFurnitore.mbushKlienteFurnitoreNdermarrjesAndAutorizimeLikeNew(mySessionObjects.merrIdNdermarrjeSesioni(Session), mySessionObjects.ktheIdPerdoruesi(Session), infixText, tipKlientFurnitor);
             tmpTable.Columns["des"].ColumnName = "desc";
             AutoCompleteItem[] AutoCompleteItem = new AutoCompleteItem[tmpTable.Rows.Count];
@@ -3898,7 +3896,6 @@ namespace RestApi.WebAPI.Models
                 if (kursi == 0 || kursi == -1)
                     kursi = 1;
                 kurse[i] = new { idMonedha = m.IdMonedha, kodMonedha = m.KodiMonedha, kursi = kursi };
-                //else
             }
             return kurse;
         }
@@ -4106,7 +4103,6 @@ namespace RestApi.WebAPI.Models
                             double vlefta = (double)dic["vlefta"];
 
                             int idkushtpagese = 0;
-                            //int.TryParse(idkoka, out idkushtpagese); //TODO NESTILA jep error
                             int diferencaDatave = int.Parse((dataDokBanke - dataFatures).Days.ToString());
                             clsKushtPageseKoka clsKoka = new clsKushtPageseKoka(idkushtpagese);
                             if (clsKoka != null)

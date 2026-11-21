@@ -403,7 +403,6 @@ namespace DbCore.DbRegjistrim
         /// <returns > nje objekt colNivelRegjistrimi me te gjithe nivelet e regjistrimit te kategorise</returns>
         public colNivelRegjistrimi merriTeGjithe()
         {
-            //return data.merrNivelRegjistrimi(this); //i kalohet idKategori
             colNivelRegjistrimi nivele = new colNivelRegjistrimi();
             nivele.mbushNivelRegjistrimi(this.IdKategori, this.idNdermarrje);
             return nivele;

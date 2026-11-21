@@ -17,7 +17,6 @@
 
 <%@ Register Src="~/E-PaySlip/ImbReportToolbar1.ascx" TagPrefix="uc1" TagName="ImbReportToolbar1" %>
 
-<%--<%@ Register Src="~/ImbReportToolbar1.ascx" TagPrefix="uc1" TagName="ImbReportToolbar1" %>--%>
 <!DOCTYPE html>
 <html>
 <head runat="server">
@@ -7724,24 +7723,6 @@
                                                 Text="Automjeti:">
                                             </dx:ASPxLabel>
                                         </td>
-                                        <%--     <td class="tdStyle6">
-                                            <dx:ASPxButtonEdit ID="btneAuto1" Width="80%" runat="server" CssPostfix="Glass"
-                                                ClientInstanceName="btneAuto1" ValueType="System.String" Height="23px">
-                                                <ClientSideEvents ButtonClick=" 
-                                                    function(s,e) {ButtonClickedbtneAuto(s);
-                                                        }" />
-                                                <Buttons>
-                                                    <dx:EditButton>
-                                                    </dx:EditButton>
-                                                </Buttons>
-                                                <ValidationSettings>
-                                                    <ErrorImage Height="14px" Width="14px" />
-                                                    <ErrorFrameStyle ImageSpacing="4px">
-                                                        <ErrorTextPaddings PaddingLeft="4px" />
-                                                    </ErrorFrameStyle>
-                                                </ValidationSettings>
-                                            </dx:ASPxButtonEdit>
-                                        </td>--%>
                                         <td class="tdStyle6">
                                             <dx:ASPxComboBox ID="cmbVeprimiAuto1" Width="80%" runat="server" DropDownRows="8"
                                                 SelectedIndex="0" HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center"
@@ -9092,33 +9073,6 @@
                                 </table>
                             </div>
 
-                            <%--<div id="StatusiMagazine">
-                                <table style="width: 100%;">
-                                    <tr>
-                                        <td class="tdStyle6">
-                                            <dx:ASPxLabel ID="lblStatusiMag" Width="80%" runat="server" CssClass="style13" Text="Statusi:">
-                                            </dx:ASPxLabel>
-                                        </td>
-                                        <td class="tdStyle6">
-                                            <dx:ASPxComboBox ID="cmbStatusiMag" Width="80%" runat="server" CssPostfix="Glass"
-                                                ValueType="System.String" Height="23px" ClientInstanceName="cmbStatusi">
-                                                <ButtonStyle Width="13px">
-                                                </ButtonStyle>
-                                                <ValidationSettings>
-                                                    <ErrorImage Height="14px" Width="14px" />
-                                                    <ErrorFrameStyle ImageSpacing="4px">
-                                                        <ErrorTextPaddings PaddingLeft="4px" />
-                                                    </ErrorFrameStyle>
-                                                </ValidationSettings>
-                                            </dx:ASPxComboBox>
-                                        </td>
-                                        <td class="tdStyle6"></td>
-                                        <td class="tdStyle6"></td>
-                                        <td class="tdStyle6"></td>
-                                        <td class="tdStyle6"></td>
-                                    </tr>
-                                </table>
-                            </div>--%>
 
                             <div id="StatusPerfunduar">
                                 <table style="width: 100%;">
@@ -10791,11 +10745,6 @@
                                                 ValueType="System.String" Height="23px" DropDownRows="3" ClientInstanceName="cmbLlojArtikulli">
                                                 <LoadingPanelImage>
                                                 </LoadingPanelImage>
-                                                <%--      <Items>
-                                                    <dx:ListEditItem Text="Te gjithe"  Value="Te gjithe" Selected="true" />
-                                                    <dx:ListEditItem Text="Afatshkurter" Value="Afatshkurter"  />
-                                                    <dx:ListEditItem Text="Afatgjate" Value="Afatgjate"/>
-                                                </Items>--%>
                                                 <ButtonStyle Width="13px">
                                                 </ButtonStyle>
                                                 <ValidationSettings>

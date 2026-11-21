@@ -220,8 +220,6 @@ namespace PlatinumWeb
         /// perdoret per te shfaqur kodet e klienteve ne vend te id si dhe filtri i klientit te shfaqet ne forme komboje
         /// </summary>        
         /// <param name="idNdermarrje"></param>
-        //private void shtoKlient(int idNdermarrje, int idPerdorues)
-        //    else
         
         /// <summary>
         /// ndodh kur menuja ben bound
@@ -271,8 +269,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = ASPxGridView_Automjete.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Targa", ASPxGridView_Automjete);
-            //    else
-            //else
             int idPerdoruesi = (int)hfState["idPerdoruesi"];
             filtri.IdPerdoruesi = idPerdoruesi;
             filtri.IdNdermarje = idNdermarrje;

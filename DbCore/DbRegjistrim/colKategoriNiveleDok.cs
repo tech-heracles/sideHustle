@@ -149,7 +149,6 @@ namespace DbCore.DbRegjistrim
                     Add(kategori);
                 }
 
-            //    //throw;
             return true;
         }
 
@@ -164,7 +163,6 @@ namespace DbCore.DbRegjistrim
                     Add(kategori);
                 }
 
-            //    //throw;
             return true;
         }
 

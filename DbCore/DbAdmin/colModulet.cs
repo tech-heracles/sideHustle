@@ -123,7 +123,6 @@ namespace DbCore.DbAdmin
                     mod.mbushModul(idGjuha, rreshti);
                     this.Add(mod);
                 }
-            //    //throw;
             return true;
         }
 

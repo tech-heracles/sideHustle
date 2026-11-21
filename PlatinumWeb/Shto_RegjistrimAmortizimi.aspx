@@ -38,7 +38,6 @@
             </LoadingDivStyle>
         </dx:ASPxLoadingPanel>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <div>
             <asp:UpdatePanel runat="server" ID="pnl">

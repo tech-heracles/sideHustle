@@ -130,7 +130,6 @@ namespace DbCore.DbShare
 
                     this.Add(new clsMenuItem(idgjuha, rreshti));
                 }
-            //    //throw;
             return true;
         }
 

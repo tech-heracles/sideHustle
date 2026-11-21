@@ -80,7 +80,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsFleteDoganoreDetajimSub(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

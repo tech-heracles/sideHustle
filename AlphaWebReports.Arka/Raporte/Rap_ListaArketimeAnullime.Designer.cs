@@ -1118,7 +1118,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell13;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell12;
         private DataSource.Ds_LISTA_ARKETIME_ANULLIME ds_Statusi_porsosive_vfone1;
-        //private DataSource.Ds_LISTA_ARKETIME_ANULLIMETableAdapters.PRC_RAP_LISTA_ARKETIME_ANULLIMETableAdapter pRC_RAP_STATUSI_POROSIVE_VFONETableAdapter;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRLabel FiltratLabel;
         private DevExpress.XtraReports.UI.XRTable xrTable2;

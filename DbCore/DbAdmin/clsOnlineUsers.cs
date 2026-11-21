@@ -85,16 +85,11 @@ namespace DbCore.DbAdmin
             set { a = value; }
         }
 
-        //public bool ruaj()
-
-        //public bool modifiko()
-
-        //public bool modifikoAllOffline()
 
 
-        //public void merr()
 
-        //public int merrNrOnline()
+
+
         
 
     }

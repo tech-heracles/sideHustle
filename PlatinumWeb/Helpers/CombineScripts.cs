@@ -69,8 +69,6 @@ namespace PlatinumWeb
                 if (setStartPos >= 0)
                     {
                     string setName = string.Empty;
-                    // if the set says always include all urls within it whenever a single match is found,
-                    // then generate the full set
                     if (mapSet.IsIncludeAll)
                         {
                         // No need send the individual url names when the full set needs to be included

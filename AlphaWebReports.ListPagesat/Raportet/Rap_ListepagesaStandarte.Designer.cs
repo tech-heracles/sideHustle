@@ -2034,7 +2034,5 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell108;
         private AlphaWebReports.ListPagesat.DataSource.Ds_Prc_Rap_ListepagesaStandarte ds_Prc_Rap_ListepagesaStandarte1;
         private AlphaWebReports.ListPagesat.DataSource.Ds_Prc_Rap_ListepagesaStandarteTableAdapters.Prc_Rap_ListepagesaStandarteTableAdapter prc_Rap_ListepagesaStandarteTableAdapter;
-        // private DataSource.Ds_PRC_RAP_LISTPAGESA_STANDARTE ds_PRC_RAP_LISTPAGESA_STANDARTE1;
-        // private DataSource.Ds_PRC_RAP_LISTPAGESA_STANDARTETableAdapters.PRC_RAP_LISTPAGESA_STANDARTETableAdapter pRC_RAP_LISTPAGESA_STANDARTETableAdapter;
     }
 }

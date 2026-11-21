@@ -130,7 +130,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsLlojTakse(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

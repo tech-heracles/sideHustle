@@ -80,7 +80,6 @@ namespace DbCore.DbRegjistrim
 
         private static DateTime PaSekonda(DateTime d) => new DateTime(d.Year, d.Month, d.Day, d.Hour, d.Minute, 0);
 
-        // ROUND(x, 8) i SQL Server-it (gjysma larg zeros)
         private static double Rrumbullako(double x) => Math.Round(x, 8, MidpointRounding.AwayFromZero);
     }
 }

@@ -46,7 +46,6 @@ namespace DbCore.DbAdmin
                     Add(new clsLlojLicence(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

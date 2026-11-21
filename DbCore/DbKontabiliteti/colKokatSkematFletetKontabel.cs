@@ -143,7 +143,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsKokaSkemaFleteKontabel(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

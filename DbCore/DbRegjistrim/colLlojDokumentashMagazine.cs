@@ -131,7 +131,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsLlojDokumentiMagazine(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

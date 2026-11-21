@@ -103,9 +103,6 @@
                                 </tr>
                             </table>
 
-                            <%--</dx:PanelContent>
-                            </PanelCollection>
-                        </dx:ASPxPanel>--%>
                         </dx:PopupControlContentControl>
                     </ContentCollection>
                 </dx:ASPxPopupControl >

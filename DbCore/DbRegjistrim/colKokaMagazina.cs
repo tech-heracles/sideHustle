@@ -555,7 +555,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsKokaMagazina(rreshti, db));
                 }
 
-            //    //throw;
         }
 
         #endregion

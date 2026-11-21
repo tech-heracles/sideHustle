@@ -327,7 +327,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvFleteKontabelKoka.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDukumentiKokaFleteKontabel", gvFleteKontabelKoka);
-            //else
             filtri.IdPerdoruesi = mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             var mesazh = new clsMesazh();

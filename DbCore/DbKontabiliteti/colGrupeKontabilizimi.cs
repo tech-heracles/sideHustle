@@ -128,7 +128,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsGrupKontabilizimi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

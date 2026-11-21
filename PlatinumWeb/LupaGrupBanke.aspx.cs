@@ -288,7 +288,6 @@ namespace PlatinumWeb
             dbArkaBanka.Dispose();
         }
 
-        //public void konfiguroMenu(ASPxMenu menu)
         //    {//konfigurimi i menu si toolbar
 
 

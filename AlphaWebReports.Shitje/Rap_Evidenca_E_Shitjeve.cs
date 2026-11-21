@@ -43,7 +43,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
             fieldGrupimi1.Caption = rm.GetString("filterGrupimP", ci);
             fieldGrupimi1.Width = 70;
             XRPivotGridField fieldPikeShitje = new XRPivotGridField("pikeShitje", PivotArea.ColumnArea);
-            //else 
             XRPivotGridField fieldSasiaNjesi1 = new XRPivotGridField("sasiaNjesi1", PivotArea.DataArea);
             fieldSasiaNjesi1.Caption = "Sasia njesi 1";
             fieldSasiaNjesi1.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;

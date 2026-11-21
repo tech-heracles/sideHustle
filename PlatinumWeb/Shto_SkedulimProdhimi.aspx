@@ -37,7 +37,6 @@
     <link href="js/jqGrid445/plugins/ui.multiselect.css" rel="stylesheet" type="text/css" />
     <link href="js/jqGrid445/css/ui.jqgrid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="js/jquery-ui-timepicker-addon.css" rel="stylesheet" />
-    <%--~/js/jquery-ui-timepicker-it.js;--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/jqGrid445/plugins/ui.multiselect.js;~/js/jqGrid445/grid.locale-en.js;~/js/jqGrid445/jquery.jqGrid.min.js;~/js/myMesazh-IMB.2.1.js;~/js/customCombobox.js;~/js/myJQGrid-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/jquery.ui.datepicker-sq.js;~/js/myNrAuto-IMB.2.1.js;~/js/json2.js;~/JsGlobal.js;~/js/myCookies-IMB.2.1.js;~/js/jquery-ui-timepicker-addon.js;~/js/jquery-ui-sliderAccess.js;~/js/aspx.js/Shto_SkedulimProdhimi.aspx-IMB.4.5.js&v76""
         type="text/javascript"></script>
 </head>
@@ -53,7 +52,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
            </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ try{ window.parent.SessionTimeout.sendKeepAlive(); } catch(e){}}" />--%>
             </dx:ASPxGlobalEvents>
             <dx:ASPxHiddenField ID="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
             </dx:ASPxHiddenField>
@@ -195,7 +193,6 @@
             <asp:HiddenField ID="HfColAktiviteti" runat="server" />
             <asp:HiddenField ID="HfColPlanifikime" runat="server" />
             <asp:HiddenField ID="HfColBurimi" runat="server" />
-            <%--   <asp:HiddenField ID="HfColTvshArt" runat="server" />--%>
             <asp:HiddenField ID="HfColTrupMag" runat="server" />
             <asp:HiddenField ID="HfColArt" runat="server" />
             <asp:HiddenField ID="hfShtimModifikim" runat="server" />

@@ -222,10 +222,6 @@ namespace PlatinumWeb.E_PaySlip
             DataSet ds = (DataSet)report.DataSource;
             if (ds.Tables[0].Rows.Count == 0)
                 shtomesazh(report, emerRaportiReal);
-            //    HeightF = 80
-            //    Text = rm.GetString("lblTeDhenatNukJanePostuar", ci),
-            //    // "Te dhenat per periudhen nuk jane postuar ende",
-            //    SizeF =new  SizeF(7000, 80),
 
 
             report.CreateDocument();
@@ -280,7 +276,6 @@ namespace PlatinumWeb.E_PaySlip
                 headerBand.Controls.Add(new XRLabel()
                 {
                     Text = textSkaTeDhena,
-                    // "Te dhenat per periudhen nuk jane postuar ende",
                     SizeF = new SizeF(600, 23),
                     Name = "labelMesazhTeDhenatJoPostuar"
 
@@ -297,7 +292,6 @@ namespace PlatinumWeb.E_PaySlip
                 XRLabel label = new XRLabel()
                 {
                     Text = textSkaTeDhena,
-                    // "Te dhenat per periudhen nuk jane postuar ende",
                     SizeF = new SizeF(600, 23),
                     Name = "labelMesazhTeDhenatJoPostuar"
 

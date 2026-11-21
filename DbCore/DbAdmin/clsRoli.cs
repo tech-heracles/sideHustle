@@ -461,8 +461,6 @@ namespace DbCore.DbAdmin
                             if (!mesazh.Status)
                                 return mesazh;
                         }
-                        //per te gjithe te ndermarrjet qe jane ne ambjent kontrollojme nese ato ekzistojne ne databaze si rreshta. Nuk na intereson si jane vlerat,
-                        //mjafton te ekzistojne. Ne rast se skemi te drejta tek nje vit i caktuar, por ai ekziston ne databaze, (pra kemi hequr te drejtat nga nje vit por jo gjithe ndermarrja, atehere e fshijme ate rresht 
 
                         for (int i = 0; i < tedrejta.Count; i++)
                         {

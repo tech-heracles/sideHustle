@@ -69,17 +69,6 @@ namespace DbCore.DbAnalizeBuxheti
             clsRreshtaAmbjenti rreshti = new clsRreshtaAmbjenti();
             rreshti.Mbush(record);
             return rreshti;
-            //return new clsRreshtaAmbjenti
-            //    RreshtiId = !Convert.IsDBNull(record["RRESHTIID"]) ? Convert.ToInt32(record["RRESHTIID"]) : 0,
-            //    KodiRreshtit = !Convert.IsDBNull(record["KODI_RRESHTIT"]) ? Convert.ToString(record["KODI_RRESHTIT"]) : "",
-            //    PershkrimiRreshtit = !Convert.IsDBNull(record["PERSHKRIMI_RRESHTIT"]) ? Convert.ToString(record["PERSHKRIMI_RRESHTIT"]) : "",
-            //    IdAmbjenti = !Convert.IsDBNull(record["IDAMBJENTI"]) ? Convert.ToInt32(record["IDAMBJENTI"]) : 0,
-            //    IdStatusDok = !Convert.IsDBNull(record["IDSTATUSDOK"]) ? Convert.ToInt32(record["IDSTATUSDOK"]) : 0,
-            //    IdNdermarrje = !Convert.IsDBNull(record["IDNDERMARRJE"]) ? Convert.ToInt32(record["IDNDERMARRJE"]) : 0,
-            //    IdKrijuesi = !Convert.IsDBNull(record["IDKRIJUESI"]) ? Convert.ToInt32(record["IDKRIJUESI"]) : 0,
-            //    IdModifikuesi = !Convert.IsDBNull(record["IDMODIFIKUESI"]) ? Convert.ToInt32(record["IDMODIFIKUESI"]) : 0,
-            //    DtKrijimi = !Convert.IsDBNull(record["DTKRIJIMI"]) ? Convert.ToDateTime(record["DTKRIJIMI"]) : (DateTime?)null,
-            //    DtModifikimi = !Convert.IsDBNull(record["DTMODIFIKIMI"]) ? Convert.ToDateTime(record["DTMODIFIKIMI"]) : (DateTime?)null,
         }
 
         public clsMesazh Modifiko()

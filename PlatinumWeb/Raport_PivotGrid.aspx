@@ -64,7 +64,6 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="600">
       </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfTeDrejtaRaporti" ClientInstanceName="hfTeDrejtaRaporti" runat="server" SyncWithServer="true"
             ViewStateMode="Enabled">
@@ -224,7 +223,6 @@
                                                 </dx:ASPxTextBox>
                                             </td>
                                             <td>
-                                                <%--<div id="dvlblAutorizimi"> --%>
                                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbAutorizimi" ID="lblAutorizimi"
                                                     runat="server" Text="Nivel Autorizimi:" ClientInstanceName="lblAutorizimi">
                                                 </dx:ASPxLabel>
@@ -700,7 +698,6 @@
                                     <StylesEditors ButtonEditCellSpacing="0">
                                     </StylesEditors>
                                 </dxg:ASPxPivotGrid>
-                               <%-- <uc1:FilterPopup runat="server"  PivotGridID="ASPxPivotGridRaporti"   ID="FilterPopup" />--%>
                                 <br />
                                 <table>
                                     <tr>

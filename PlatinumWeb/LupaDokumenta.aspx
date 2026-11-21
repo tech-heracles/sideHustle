@@ -42,7 +42,6 @@
            
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.  window.parent.  SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <asp:HiddenField ID="kategori" runat="server" />
         <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ASPxRoundPanel1" runat="server" HeaderText="Zgjidh Llogarine"
@@ -200,24 +199,6 @@ buttonClick();
                                 </tr>
                                 <table align="center">
                                     <tr>
-                                        <%-- <td align="center" >
-                                    <dx:ASPxButton ID="btnOk" runat="server" AutoPostBack="False" ClientInstanceName="btnOk"
-                                            Text="Ok">
-                                        <ClientSideEvents Click="function(s, e) {
-                                                             OnGridSelectionChanged(); 
-                                                                                           
-                                                             }" />
-                                    </dx:ASPxButton>
-                                </td>--%>
-                                        <%-- <td align="center">
-                                    <dx:ASPxButton ID="btnClose" runat="server" AutoPostBack="False" ClientInstanceName="btnClose" 
-                                            Text="Mbyll">
-                                        <ClientSideEvents Click="function(s, e) {
-                        
-                         window.parent.popupUniversal.Hide();                                   
-}" />
-                                    </dx:ASPxButton>
-                                </td>--%>
                                     </tr>
                                 </table>
                             </table>
@@ -230,156 +211,6 @@ buttonClick();
             </PanelCollection>
         </dx:ASPxRoundPanel >
         <%--shtuar--%>
-        <%--<dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popZgjidhFiltrin" runat="server" AllowDragging="True"
-            ClientInstanceName="popZgjidhFiltrin" CloseAction="CloseButton" EnableAnimation="False"
-            EnableViewState="False" HeaderText="Zgjidh  Filtrin" Modal="True" PopupHorizontalAlign="WindowCenter"
-            PopupVerticalAlign="WindowCenter" Width="300px" ClientIDMode="AutoID"  
-            CssPostfix="Glass"  >
-            <HeaderStyle>
-                <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
-            </HeaderStyle>
-            <ContentCollection>
-                <dx:PopupControlContentControl ID="PopupControlContentControl2" runat="server">
-                    <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ZgjidhFiltrin_ASPxRoundPanel" runat="server" Width="410px"
-                          ShowHeader="false" CssPostfix="Glass"
-                        GroupBoxCaptionOffsetY="-24px"  >
-                        <ContentPaddings PaddingLeft="4px" PaddingTop="10px" PaddingBottom="10px" />
-                        <PanelCollection>
-                            <dxp:PanelContent ID="PanelContent1" runat="server">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <dx:ASPxLabel ID="Filtri_ASPxLabel" runat="server" Text="Filtri:" Style="font-weight: 700;
-                                                color: #666666">
-                                            </dx:ASPxLabel>
-                                        </td>
-                                        <td style="width: 50%">
-                                            <dx:ASPxTextBox ID="Filtri_ASPxTextBox" runat="server" ClientInstanceName="Filtri_ASPxTextBox">
-                                            </dx:ASPxTextBox>
-                                        </td>
-                                        <td>
-                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                                <ContentTemplate>
-                                                    <dx:ASPxButton ID="LupaFiltri_ASPxButton" runat="server"  
-                                                        CssPostfix="Glass" CausesValidation="False"  >
-                                                        <Image Url="images/Lupe.ico">
-                                                        </Image>
-                                                        <ClientSideEvents Click="function(s, e) {                                                   
-                                                       Filtra_Click(); 
-                                                        }" />
-                                                    </dx:ASPxButton>
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-                                        </td>
-                                        <td>
-                                            <dx:ASPxButton ID="Apliko_ASPxButton"  
-                                                CssPostfix="Glass" runat="server" Text="Apliko" OnClick="Apliko_ASPxButton_Click"
-                                                CausesValidation="False"  
-                                                Style="font-weight: 700">
-                                                <ClientSideEvents CheckedChanged="function(s, e) {
-                                                        }" Click="function(s, e) {
-	                                                        popZgjidhFiltrin.Hide();
-                                                        }" />
-                                            </dx:ASPxButton>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </dxp:PanelContent>
-                        </PanelCollection>
-                    </dx:ASPxRoundPanel >
-                </dx:PopupControlContentControl>
-            </ContentCollection>
-        </dx:ASPxPopupControl >--%>
-        <%-- <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popRuaj" runat="server" AllowDragging="True" ClientInstanceName="popRuaj"
-            CloseAction="CloseButton" EnableAnimation="False" EnableViewState="False" HeaderText="Ruaj Filtrin"
-            Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"
-            Width="300px" ClientIDMode="AutoID"  
-            CssPostfix="Glass"  >
-            <HeaderStyle>
-                <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
-            </HeaderStyle>
-            <ContentCollection>
-                <dx:PopupControlContentControl ID="PopupControlContentControl3" runat="server">
-                    <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="RuajFiltrin_ASPxRoundPanel" runat="server" Width="300px"
-                        EnableTheming="False"   CssPostfix="Glass"
-                        GroupBoxCaptionOffsetY="-24px" ShowHeader="false"  >
-                        <ContentPaddings PaddingLeft="4px" PaddingTop="10px" PaddingBottom="10px" />
-                        <HeaderStyle Height="23px">
-                            <Paddings PaddingBottom="0px" PaddingLeft="2px" PaddingTop="0px" />
-                        </HeaderStyle>
-                        <PanelCollection>
-                            <dxp:PanelContent ID="PanelContent2" runat="server">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <dx:ASPxLabel ID="Kodi_ASPxLabel" runat="server" Text="Kodi:" CssClass="style1">
-                                            </dx:ASPxLabel>
-                                        </td>
-                                        <td>
-                                            <dx:ASPxTextBox ID="Kodi_ASPxTextBox" runat="server" Width="120px" ClientInstanceName="Kodi_ASPxTextBox">
-                                                <ValidationSettings CausesValidation="True">
-                                                </ValidationSettings>
-                                            </dx:ASPxTextBox>
-                                            <asp:RequiredFieldValidator ID="Kodi_RequiredFieldValidator" runat="server" ErrorMessage="Jepni Kodin!"
-                                                ControlToValidate="Kodi_ASPxTextBox" Display="None">
-                                *</asp:RequiredFieldValidator>
-                                            <cc1:ValidatorCalloutExtender ID="Kodi_ValidatorCalloutExtender" Enabled="True" TargetControlID="Kodi_RequiredFieldValidator"
-                                                HighlightCssClass="validorCalloutHighlight" runat="server">
-                                            </cc1:ValidatorCalloutExtender>
-                                            <asp:CustomValidator ID="Kodi_CustomValidator" runat="server" ErrorMessage="Ky kod ekziston"
-                                                ControlToValidate="Kodi_ASPxTextBox" Display="None" OnServerValidate="Kodi_CustomValidator_ServerValidate">*</asp:CustomValidator>
-                                            <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" Enabled="True" TargetControlID="Kodi_CustomValidator"
-                                                HighlightCssClass="validorCalloutHighlight" runat="server">
-                                            </cc1:ValidatorCalloutExtender>
-                                        </td>
-                                        <td>
-                                            <dx:ASPxLabel ID="Shenime_ASPxLabel" runat="server" Text="Shenime:" CssClass="style1">
-                                            </dx:ASPxLabel>
-                                        </td>
-                                        <td>
-                                            <dx:ASPxTextBox ID="Shenime_ASPxTextBox" runat="server" Width="170px">
-                                            </dx:ASPxTextBox>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            <dx:ASPxButton ID="Ruaj_ASPxButton"  
-                                                CssPostfix="Glass" runat="server" Text="Ruaj" OnClick="Ruaj_ASPxButton_Click"
-                                                 >
-                                            </dx:ASPxButton>
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </dxp:PanelContent>
-                        </PanelCollection>
-                    </dx:ASPxRoundPanel >
-                </dx:PopupControlContentControl>
-            </ContentCollection>
-        </dx:ASPxPopupControl >--%>
-        <%--<asp:UpdatePanel ID="pnlfiltra" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True">
-            <ContentTemplate>
-                <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="ASPxPopupControl1" runat="server" AllowDragging="True"
-                    ClientInstanceName="popFiltra" CloseAction="CloseButton" EnableAnimation="False"
-                    EnableViewState="False" HeaderText="Zgjidh Filtrin" Modal="True" PopupHorizontalAlign="WindowCenter"
-                    PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"  
-                    CssPostfix="Glass"  >
-                    <HeaderStyle>
-                        <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
-                    </HeaderStyle>
-                    <ContentCollection>
-                        <dx:PopupControlContentControl ID="PopupControlContentControl5" runat="server">
-                            <iframe id="Iframe1" name="Container" frameborder="0" runat="server"></iframe>
-                        </dx:PopupControlContentControl>
-                    </ContentCollection>
-                </dx:ASPxPopupControl >
-            </ContentTemplate>
-        </asp:UpdatePanel>--%>
         <%--shtuar--%>
         <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
             <ContentTemplate>

@@ -81,41 +81,27 @@ namespace PlatinumWeb
 
         }
 
-        //private bool zgjidhMbrapa(object sender, ASPxGridViewCustomCallbackEventArgs e) {
              
-        //private void mbushListaCallback()
 
             
-       // protected void btnDjathtas1_Click(object sender, EventArgs e)
               
 
        //         //if (drs.Length > 1)
-       //         //{
-       //         //}
                
 
-       // protected void btnDjathtasGjitha_Click(object sender, EventArgs e)
 
 
-       // protected void btnMajtas1_Click(object sender, EventArgs e)
 
 
        //         //if (drs.Length > 1)
-       //         //{
-       //         //}
                 
 
-       // protected void btnMajtaGjitha_Click(object sender, EventArgs e)
-
-       //     DateTimeOffset timezoneIShqiperise = TimeZoneInfo.ConvertTime(DateTime.Now,
 
 
-       //     else
-       //     try
+
 
        //         try
        //             try
-       //                         position++;
 
 
        //         try
@@ -125,12 +111,8 @@ namespace PlatinumWeb
        //     try
        //         try
        //                 //for (int j = 0; j < magazinat.Count; j++)
-       //                 //{
-       //                 position++;
                         
-       //                 // }
 
 
-       // private void kaloArtikujtSiper(int i, DataTable artikujPerRivleresim, DataTable artikujPerTuZgjedhur)
     }
 }

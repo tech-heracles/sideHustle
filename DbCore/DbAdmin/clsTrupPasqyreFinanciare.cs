@@ -121,10 +121,7 @@ namespace DbCore.DbAdmin
             set { llojiZerit = value; }
         }
 
-        //public bool ruaj()
 
-        //public bool modifiko()
 
-        //public bool fshi()
     }
 }

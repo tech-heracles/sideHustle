@@ -34,7 +34,6 @@
        
     </asp:ScriptManager>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
     <div>
         <dx:ASPxMenu ID="ASPxMenu1" ClientVisible="false"  runat="server" Width="40%" ItemAutoWidth="False">

@@ -24,12 +24,8 @@
             </LoadingDivStyle>
         </dx:ASPxLoadingPanel>
         <asp:ScriptManager ID="ScriptManager1" runat="server"  AsyncPostBackTimeout="360000">
-            <%--<Services>
-                <asp:ServiceReference Path="wsfunc.asmx" />
-            </Services>--%>
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-           <%-- <ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfPassPerkohshem" runat="server" ClientInstanceName="hfPassPerkohshem">
         </dx:ASPxHiddenField>

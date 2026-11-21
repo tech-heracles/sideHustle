@@ -239,11 +239,8 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<div id="dvlblKodi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server" Text="Kodi:" ClientInstanceName="lblKodi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtKodi">--%>
                                 <dx:ASPxTextBox ID="txtKodi" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtKodi">
                                     <ValidationSettings CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true"
                                         Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
@@ -256,12 +253,8 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblEmertimi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtEmertimi" ID="lblEmertimi" runat="server" Text="Emertimi:" ClientInstanceName="lblEmertimi">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtEmertimi">--%>
                                 <dx:ASPxMemo ID="txtEmertimi" runat="server" Width="100%" AutoPostBack="false"
                                     ClientInstanceName="txtEmertimi" Rows="3">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" SetFocusOnError="true">
@@ -273,12 +266,8 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxMemo>
-                                <%--</div>--%>
-                                <%--<div id="dvlblTipi">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbLloji" ID="lblLloji" runat="server" ClientInstanceName="lblLloji" Text="Lloji:">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%--<div id="dvcmbTipi">--%>
                                 <dx:ASPxComboBox ID="cmbLloji" runat="server" ClientInstanceName="cmbLloji" Width="100%"
                                     SettingsLoadingPanel-ImagePosition="Top" ShowShadow="False">
                                     <DropDownButton>
@@ -295,8 +284,6 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxComboBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblKostoPlan">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtNrKaraktere" ID="lblNrKaraktere" runat="server" Text="Nr Karaktereve:" ClientInstanceName="lblNrKaraktere">
                                 </dx:ASPxLabel> 
                                  <dx:ASPxComboBox ID="cmbKaraktere" runat="server" ClientInstanceName="cmbKaraktere" Width="100%"
@@ -315,8 +302,6 @@
                                     <DisabledStyle Font-Bold="False">
                                     </DisabledStyle>
                                 </dx:ASPxComboBox>
-                                <%--</div>--%>
-                                <%--<div id="dvtxtKostoPlan">--%>
                                 <dx:ASPxTextBox ID="txtNrKaraktere" ClientInstanceName="txtNrKaraktere" runat="server"
                                 Width="100%">
                                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="True" ValidationGroup="entries" SetFocusOnError="True">
@@ -330,8 +315,6 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvlblAktiv">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="txtFormule" ID="lblFormule" runat="server" Text="Formule:" ClientInstanceName="lblFormule">
                                 </dx:ASPxLabel> 
                                 <dx:ASPxTextBox ID="txtFormule" ClientInstanceName="txtFormule" runat="server"
@@ -346,8 +329,6 @@
                                     <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                     </DisabledStyle>
                                 </dx:ASPxTextBox>
-                                <%--</div>--%>
-                                <%--<div id="dvcbAktiv">--%> 
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="cbAktiv" ID="lblAktiv" runat="server" Text="Aktiv:" ClientInstanceName="lblAktiv">
                                 </dx:ASPxLabel> 
                                 <dx:ASPxCheckBox ID="cbAktiv" runat="server" ClientInstanceName="cbAktiv" Width="100%">
@@ -361,7 +342,6 @@
                                     </DisabledStyle>
                                 </dx:ASPxCheckBox>
                                
-                                <%--</div>--%>
                             </dx:ContentControl>
                         </ContentCollection>
                     </dx:TabPage>

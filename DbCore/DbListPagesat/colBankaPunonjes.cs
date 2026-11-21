@@ -67,7 +67,6 @@ namespace DbCore.DbListPagesat
                     Add(new clsBankaPunonjes(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
         #endregion

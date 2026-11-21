@@ -580,7 +580,6 @@ namespace PlatinumWeb
                 {
                     GridViewDataColumn dataColumn = column as GridViewDataColumn;
                     if (dataColumn == null) continue;
-                    //    else
 
                     if (e.NewValues[dataColumn.FieldName] == null && dataColumn.FieldName != "IdAutorizim")
                     {

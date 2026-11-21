@@ -437,14 +437,12 @@ namespace PlatinumWeb
                 }
             }
             string mesazhInfoSukses = "";
-            //else
 
             if (TeFshire.Count == 1)
                 mesazhInfoSukses = String.Format("{0}{1}{2}", rm.GetString("msgAdministrimiNdermarrjaKod", ci), String.Join(";", TeFshire), rm.GetString("msgAdministrimiFshiMeSukses", ci));
             else
                 if (TeFshire.Count > 1)
                     mesazhInfoSukses = String.Format("{0}{1}{2}", rm.GetString("msgAdministrimiNdermarrjetKod", ci), String.Join(";", TeFshire), rm.GetString("msgAdministrimiFshineMeSukses", ci));
-            //else
             if (mesazhInfoSukses != "")
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, mesazhInfoSukses, pnlMesazhi); //mbushListeNdermarrjesh();
         }
@@ -500,7 +498,6 @@ namespace PlatinumWeb
                 }
                 DataRow newArtDr = DbCore.DbAdmin.colNdermarrjet.merrSipasNdermarjeDR(idndermarje);
                 dt.ImportRow(newArtDr);
-                //cmbRaportuesi.Items.Add(
             }
             else mbushGridNdermarjeshNgaDB(idPerdoruesi, idNdermarrjeLoguar);
         }
@@ -621,9 +618,7 @@ namespace PlatinumWeb
             dt.Dispose();
         }
 
-        //private void mbushListeNdermarrjesh(int idNdermarrje)
 
-        //private void inicializoObjekte()
 
         private void konfiguroGride(int idNdermarrjeLoguar, string kodKonfigurimi, int idKomponente)
         {
@@ -1139,8 +1134,6 @@ namespace PlatinumWeb
             DbCore.mySessionObjects.ruajImazhNeSesion(Session, uploadedFile.FileBytes);
 
 
-            //    else
-            //else
             return ThumbnailFileName;
         }
 

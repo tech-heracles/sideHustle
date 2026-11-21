@@ -31,15 +31,10 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
        </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" runat="server">
         </dx:ASPxHiddenField>
         <div id='div' style="display: none">
-          <%--  <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ASPxRoundPanel1" runat="server" HeaderText="Zgjidh Llogarine"
-                ClientInstanceName="panel" ShowHeader="False">
-                <PanelCollection>
-                    <dx:PanelContent>--%>
                         <%-- shtuar--%>
                         <table width="98%">
                             <tr>
@@ -105,9 +100,6 @@
                             <dx:ASPxComboBox ID="cmbKonfigurimi" runat="server" ClientInstanceName="cmbKonfigurimi" AnimationType="None"
                                  ShowShadow="False" Width="100%" ValueType="System.String" SettingsLoadingPanel-ImagePosition="Top" ClientVisible ="false">
                             </dx:ASPxComboBox>
-                    <%--</dx:PanelContent>
-                </PanelCollection>
-            </dx:ASPxRoundPanel >--%>
         </div>
     </form>
 </body>

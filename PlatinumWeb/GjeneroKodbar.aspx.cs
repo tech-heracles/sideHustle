@@ -162,7 +162,6 @@ namespace PlatinumWeb
                     // per rreshtat qe nuk kane kodbare
                     if (kodbar[0].ToString() == "")
                     {
-                        //int kodBareCount = colKodbare.kodBareCount(Convert.ToInt32(kodbar[1])); //todo senada
                         if (colKodbare.kodBareCount(Convert.ToInt32(kodbar[1])) == 0)
                         {
                             //gjenerohet kodbari i tille qe mos te ekzistoje per artikuj te tjere
@@ -459,7 +458,6 @@ namespace PlatinumWeb
                     row[i] = item[i];
 
                 }
-                //else
                     int index = gvExport.FindVisibleIndexByKeyValue(new object[] { item[0], item[1], item[6],item[18] });
                     JavaScriptSerializer serializusi = new JavaScriptSerializer();
                     object[] Sasia = (object[])serializusi.DeserializeObject(this.hfSasia.Value);
@@ -490,7 +488,6 @@ namespace PlatinumWeb
 
             ////b[14] = "7";
 
-            //i++;
 
             //    
             // gvExport.get
@@ -588,7 +585,6 @@ namespace PlatinumWeb
                
 
                 }
-                //i++;
                 if (e.VisibleIndex == ((ASPxGridView)sender).VisibleRowCount - 2)
                 {
 

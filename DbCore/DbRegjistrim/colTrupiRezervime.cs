@@ -235,7 +235,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsTrupiRezervime(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

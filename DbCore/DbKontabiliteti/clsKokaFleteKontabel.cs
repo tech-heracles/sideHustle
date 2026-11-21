@@ -6276,7 +6276,6 @@ namespace DbCore.DbKontabiliteti
                                 if (dK == 1)
                                     dkmon = 2;
                                 else dkmon = 1;
-                                //else
                                 tLlogKF = new clsTrupiFleteKontabel(new clsDatabaseAdmin(), dK, Math.Abs(veprimTrupi.GjendjaMonBaze), oLlogari, azhornim, idNdermarrje, veprimTrupi.Kursi, llogkf.IdMonedha, data, pershkrimi, eshteAzhornim);
                                 var objektkl = new DbQendraKosto.clsObjektivaKosto();
                                 if (oKlient.IdObjektivaKosto != 0 && oKlient.IdObjektivaKosto != -1)

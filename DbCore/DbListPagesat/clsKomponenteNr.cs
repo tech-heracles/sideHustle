@@ -438,7 +438,6 @@ namespace DbCore.DbListPagesat
             data.Dispose();
             return sukses;
         }
-        //public static bool ekzistonOreShtese(DateTime date, int idpunonjesi, clsDatabazeListPagesa data)
 
 
         public static clsKomponenteNr Krijo(IDataRecord record)

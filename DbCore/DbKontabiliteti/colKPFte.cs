@@ -234,7 +234,6 @@ namespace DbCore.DbKontabiliteti
                 Add(new clsKPF(rreshti));
             }
 
-            //    //throw;
             return true;
         }
 

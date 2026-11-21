@@ -1191,8 +1191,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        //private Ds_FleteDoganoreImport ds_FleteDoganoreImport1;
-        //private Ds_FleteDoganoreImportTableAdapters.PRC_RAP_FLETADOGANOREIMPORTTableAdapter pRC_RAP_FLETADOGANOREIMPORTTableAdapter;
         private DevExpress.XtraReports.UI.XRTable xrTable2;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow2;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
@@ -1233,8 +1231,6 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
-        //private Ds_Rap_RegjistriAnalitikDoganimeImport ds_Rap_RegjistriAnalitikDoganimeImport1;
-        //private Ds_Rap_RegjistriAnalitikDoganimeImportTableAdapters.PRC_RAP_REGJISTRI_ANALITIK_DOGANIMEVE_IMPORTITTableAdapter pRC_RAP_REGJISTRI_ANALITIK_DOGANIMEVE_IMPORTITTableAdapter;
         private DevExpress.XtraReports.Parameters.Parameter KlientFurnitori;
         private DevExpress.XtraReports.UI.XRTable xrTable3;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow3;

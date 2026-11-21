@@ -72,7 +72,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsKokaNdryshimCmimSasi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

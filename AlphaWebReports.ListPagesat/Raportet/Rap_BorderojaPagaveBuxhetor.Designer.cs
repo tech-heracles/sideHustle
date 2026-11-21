@@ -2255,7 +2255,5 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        // private DataSource.Ds_PRC_RAP_LISTPAGESA_STANDARTE ds_PRC_RAP_LISTPAGESA_STANDARTE1;
-        // private DataSource.Ds_PRC_RAP_LISTPAGESA_STANDARTETableAdapters.PRC_RAP_LISTPAGESA_STANDARTETableAdapter pRC_RAP_LISTPAGESA_STANDARTETableAdapter;
     }
 }

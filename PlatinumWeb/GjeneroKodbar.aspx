@@ -51,7 +51,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="360000">
             </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ try{ window.parent.SessionTimeout.sendKeepAlive(); } catch(e){}}" />--%>
             </dx:ASPxGlobalEvents>
                 <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
     </dx:ASPxHiddenField>
@@ -118,13 +117,6 @@
                                                 <table>
                                                     <tr>
                                                         <td>
-                                                            <%--<dx:ASPxButton ID="ButtonOk" runat="server" CausesValidation="False" ClientInstanceName="ButtonOk"
-                                                                OnClick="ButtonOk_Click2" Text="Ok" CssPostfix="Aqua">
-                                                                <ClientSideEvents Click="function(s, e) {
-	popFshi.Hide();
-    Utils.shfaqLoadingGif();;
-}" />
-                                                            </dx:ASPxButton>--%>
                                                         </td>
                                                         <td>
                                                             <dx:ASPxButton ID="ButtonCancel" runat="server" ClientIDMode="AutoID" Text="Anullo"
@@ -185,9 +177,6 @@
                     </ContentCollection>
                 </dx:ASPxPopupControl >
                     <div style="visibility: hidden; display: none">
-                       <%-- <dx:ASPxButton ID="btnPastro" runat="server" Text="ASPxButton" ClientInstanceName="btnPastro"
-                            OnClick="btnPastro_Click">
-                        </dx:ASPxButton>--%>
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -286,56 +275,6 @@
 
                                               
                                             </tr>
-                                           <%-- <tr>
-                                                <td class="renditKontrolleCaption">
-                                                    <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbKategoria" ID="lblKategoria" runat="server" Text="Kategoria" ClientInstanceName="lblKategoria">
-                                                    </dx:ASPxLabel>
-                                                </td>
-                                                <td class="renditKontrolleCellMeWidth50">
-                                                    <dx:ASPxComboBox ID="cmbKategoria" ClientInstanceName="cmbKategoria" runat="server" Width="100%"
-                                                        CssPostfix="Aqua" ShowShadow="False" Style="margin-bottom: 0px" SettingsLoadingPanel-ImagePosition="Top">
-                                                        <ClientSideEvents TextChanged="function(s,e){TextChangedKategoria();}" />
-                                                        <DropDownButton>
-                                                            <Image>
-                                                                <SpriteProperties HottrackedCssClass="dxEditors_edtDropDownHover_Aqua" PressedCssClass="dxEditors_edtDropDownPressed_Aqua" />
-                                                            </Image>
-                                                        </DropDownButton>
-                                                        <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" ValidateOnLeave="false">
-                                                            <ErrorFrameStyle ImageSpacing="4px">
-                                                                <ErrorTextPaddings PaddingLeft="4px" />
-                                                            </ErrorFrameStyle>
-                                                            <RequiredField IsRequired="true" />
-                                                        </ValidationSettings>
-                                                        <DisabledStyle Font-Bold="False">
-                                                        </DisabledStyle>
-                                                    </dx:ASPxComboBox>
-                                                </td>
-                                            </tr>--%>
-                                          <%--  <tr>
-                                                <td class="renditKontrolleCaption">
-                                                    <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbFormati" ID="lblFormati" runat="server" Text="Formati" ClientInstanceName="lblFormati">
-                                                    </dx:ASPxLabel>
-                                                </td>
-                                                <td class="renditKontrolleCellMeWidth50">
-                                                    <dx:ASPxComboBox ID="cmbFormati" ClientInstanceName="cmbFormati" runat="server" Width="100%"
-                                                        CssPostfix="Aqua" ShowShadow="False" Style="margin-bottom: 0px" SettingsLoadingPanel-ImagePosition="Top">
-                                                        <ClientSideEvents ButtonClick="function(s,e){ButtonClickedFormati(s,e)}" LostFocus="function (s,e){MerrFiltraFormati(s,e)}" />
-                                                        <DropDownButton>
-                                                            <Image>
-                                                                <SpriteProperties HottrackedCssClass="dxEditors_edtDropDownHover_Aqua" PressedCssClass="dxEditors_edtDropDownPressed_Aqua" />
-                                                            </Image>
-                                                        </DropDownButton>
-                                                        <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true" ValidationGroup="entries" ValidateOnLeave="false">
-                                                            <ErrorFrameStyle ImageSpacing="4px">
-                                                                <ErrorTextPaddings PaddingLeft="4px" />
-                                                            </ErrorFrameStyle>
-                                                            <RequiredField IsRequired="true" />
-                                                        </ValidationSettings>
-                                                        <DisabledStyle Font-Bold="False">
-                                                        </DisabledStyle>
-                                                    </dx:ASPxComboBox>
-                                                </td>
-                                            </tr>--%>
                                      
                                           
                                             <tr>
@@ -360,8 +299,6 @@
                                                     </dx:ASPxLabel>
                                                 </td>
                                                 <td class="renditKontrolleCellMeWidth50">
-                                                  <%--  <dx:ASPxTextBox ID="txtGjatesiKodbar" runat="server" Width="100%" ClientInstanceName="txtGjatesiKodbar">
-                                                    </dx:ASPxTextBox>--%>
 
 
                                                      <dx:ASPxComboBox ID="cmbGjatesiKodbar" runat="server" ClientInstanceName="cmbGjatesiKodbar"
@@ -383,8 +320,6 @@
                                 </dx:ASPxComboBox>
                                                 </td>
                                                   <td class="renditKontrolleCaption">
-                                                   <%-- <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbFiltri" ID="lblFiltri" runat="server" Text="Filtri" ClientInstanceName="lblFiltri">
-                                                    </dx:ASPxLabel>--%>
                                                 </td>
                                                   <td class="renditKontrolleCellMeWidth50">
                                                     <asp:UpdatePanel ID="pnlfiltri" runat="server" UpdateMode="Conditional">
@@ -392,41 +327,10 @@
                                                             <table>
                                                                 <tr>
                                                                     <td>
-                                                                     <%--   <dx:ASPxComboBox ID="cmbFiltri" ClientInstanceName="cmbFiltri" runat="server" CssPostfix="Aqua"
-                                                                            ShowShadow="False" Style="margin-bottom: 0px" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
-                                                                            <ClientSideEvents SelectedIndexChanged="function(s,e){ 
-                                                                         if (s.FindItemByText(s.GetInputElement().value) != null) {
-                                                                            btnRuaj.SetEnabled(false); btnFshi.SetEnabled(true);
-                                                                        gvExport.PerformCallback('Filter;'+s.GetValue());
-                                                                        } else if (s.GetText() == '') {
-                                                                            btnRuaj.SetEnabled(false);
-                                                                            btnFshi.SetEnabled(false);
-                                                                        }
-                                                                       }"
-                                                                                KeyUp="myMenu.checkText" Init="myMenu.textChanged" />
-                                                                            <DropDownButton>
-                                                                                <Image>
-                                                                                    <SpriteProperties HottrackedCssClass="dxEditors_edtDropDownHover_Aqua" PressedCssClass="dxEditors_edtDropDownPressed_Aqua" />
-                                                                                </Image>
-                                                                            </DropDownButton>
-                                                                            <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
-                                                                                <ErrorFrameStyle ImageSpacing="4px">
-                                                                                    <ErrorTextPaddings PaddingLeft="4px" />
-                                                                                </ErrorFrameStyle>
-                                                                            </ValidationSettings>
-                                                                            <DisabledStyle Font-Bold="False">
-                                                                            </DisabledStyle>
-                                                                        </dx:ASPxComboBox>--%>
                                                                     </td>
                                                                     <td>
-                                                                 <%--       <dx:ASPxButton ID="btnRuaj" runat="server" Text="" ClientInstanceName="btnRuaj"
-                                                                            Image-Url="~/images/new/disk_blue (3).png" OnClick="btnRuaj_Click" Width="10px">
-                                                                        </dx:ASPxButton>--%>
                                                                     </td>
                                                                     <td>
-                                                                      <%--  <dx:ASPxButton ID="btnFshi" runat="server" Text="" ClientInstanceName="btnFshi"
-                                                                            Image-Url="~/images/new/button_cancel-32.png" OnClick="btnFshi_Click" Width="10px">
-                                                                        </dx:ASPxButton>--%>
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -523,7 +427,6 @@
         <div style="visibility: hidden; display: none">
             <dx:ASPxButton ID="btnExporto" runat="server" Text="ASPxButton" ClientInstanceName="btnExporto"
                 OnClick="btnExporto_Click">
-                <%--  <ClientSideEvents Click="function(s, e) { merrTeDhena(s, e); }" />--%>
             </dx:ASPxButton>
              <dx:ASPxButton ID="btnGjenero" runat="server" Text="ASPxButton" ClientInstanceName="btnGjenero"
                 OnClick="gjeneroKodbar_Click">

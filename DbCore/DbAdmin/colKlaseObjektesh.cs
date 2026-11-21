@@ -81,7 +81,6 @@ namespace DbCore.DbAdmin
                         Convert.ToInt32(rreshti["IDAMBJMODULI"]));
                     this.Add(klasa);
                 }
-            //    //throw;
             return true;
         }
 

@@ -105,7 +105,6 @@ namespace PlatinumWeb
         ///// <summary>
         /////      mbush combon e filtrave
         ///// </summary>
-        //private void mbushComboBoxFiltra()
         /// <summary>
         /// mbush menune me buttonat perkates sipas faqes
         /// </summary>
@@ -235,7 +234,6 @@ namespace PlatinumWeb
             this.grid_ShperndarjeShpenzimesh.ToolTip = rm.GetString("TitullShperndarjetEShpenzimeve", cultinf);
         }
 
-        //private void shtoStatus()
 
         protected void grid_ShperndarjeShpenzimesh_DataBound(object sender, EventArgs e)
         {
@@ -307,8 +305,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = grid_ShperndarjeShpenzimesh.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", grid_ShperndarjeShpenzimesh);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
             filtri.IdPerdoruesi = oPerdorues.IdPerdorues;

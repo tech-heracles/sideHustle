@@ -39,7 +39,6 @@
             <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server">
     </dx:ASPxHiddenField>
     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.    SessionTimeout.sendKeepAlive();}" />--%>
     </dx:ASPxGlobalEvents>
     <asp:UpdatePanel ID="pnlKryesor" runat="server">
         <ContentTemplate>

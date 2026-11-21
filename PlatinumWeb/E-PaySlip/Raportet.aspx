@@ -165,9 +165,6 @@
                 </table>
             </div>
             <div style="width: 100%">
-                <%--<dx:ASPxNewsControl ID="newsControl" EnableTheming="True" runat="server" Width="100%" DataSourceID="sqldatasourcereports" NameField="IDRAPORTI" NavigateUrlField="NAVIGATEURL" TextField="RAPEMRI"></dx:ASPxNewsControl>--%>
-      <%--          <asp:UpdatePanel ID="updreportsmodules" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
-                    <ContentTemplate>--%>
                         <table style="border-style: none solid solid solid; border-width: 1px; border-color: #999999; background-color: #FCFCFC; width: 100%; height: 510px;">
                             <tr>
                                 <td></td>

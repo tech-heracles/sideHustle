@@ -238,7 +238,6 @@ namespace PlatinumWeb
                 IdNdermarje = IdNdermarrja,
                 IdStatusDok = 1
             };
-            //else
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", grid_AzhornimKF);
             var mesazh = filtri.ruaj();
             clsToolbarConfig.mbushComboBoxFiltra(IdGjuha, IdNdermarrja, "grid_AzhornimKF", int.Parse(cmbKonfigurimi.Value.ToString()), Komponente);

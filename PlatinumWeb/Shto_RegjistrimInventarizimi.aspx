@@ -329,12 +329,9 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                          <%--     <div id="dvlblFormatiPrintimit">--%>
                                         <dx:ASPxLabel Wrap="False" ID="lblFormatPrintimi" AssociatedControlID="cmbFormatPrintimi"
                                             runat="server" Text="Formati i printimit" ClientInstanceName="lblFormatPrintimi">
                                         </dx:ASPxLabel>
-                                        <%--   </div>
-                                    <div id="dvcmbFormatiPrintimit">--%>
                                         <dx:ASPxComboBox ID="cmbFormatPrintimi" Width="100%" runat="server" ClientInstanceName="cmbFormatPrintimi"
                                             ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top">
                                             <ClientSideEvents SelectedIndexChanged="function(s,e){}" />

@@ -75,7 +75,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsSkemaKontabelTrupiNew(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

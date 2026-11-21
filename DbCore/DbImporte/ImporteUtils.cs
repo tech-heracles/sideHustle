@@ -58,7 +58,6 @@ namespace DbCore.DbImporte
         {
             if (!importo)
                 return new string[0];
-            // ruajtja e dokumenteve mund te rivleresoje artikujt (kosto), prandaj artikujt nuk ruhen kurre gjate importit;
             // perjashtim: te dhenat baze sipas kodit (ImportCache.ArtikullKod), qe ruajtja e dokumenteve nuk i ndryshon
             var llojet = new List<string> { ImportCache.Artikull, ImportCache.Gjendje };
             switch (idKategoria)

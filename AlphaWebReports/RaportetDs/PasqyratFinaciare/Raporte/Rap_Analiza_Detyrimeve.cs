@@ -123,8 +123,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         {
 
 
-            //else
-            //    else
         }
 
         private void GroupHeader7_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -142,33 +140,23 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void lblprindi5_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
 
-            //    else
         }
 
         private void lblPrindi4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
-            //    else
         }
 
         private void lblPrindi3_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
-            //    else
         }
 
         private void lblPrindi2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
-            //    else
         }
 
         private void lblPrindi1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //else
-            //    else
         }
 
         private void xrLabel57_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -388,7 +376,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel59_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //ResourceManager rm = new ResourceManager("Resources.Strings",
 
         }
 
@@ -520,12 +507,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel33_AfterPrint(object sender, EventArgs e)
         {
-            // niv++;
         }
 
         private void xrLabel33_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            // niv++;
             if (niv > 0)
                 nivTemp = niv;
         }
@@ -598,7 +583,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel34_AfterPrint(object sender, EventArgs e)
         {
-            //float diferenca=Co
         }
 
         private void ReportFooter_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -635,7 +619,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel76_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //niv++;
         }
 
         private void xrLabel35_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -645,7 +628,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel66_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //niv++;
 
         }
 
@@ -751,7 +733,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel100_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
               
-            //else
              
        
             double shuma = 0;
@@ -769,7 +750,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel101_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
               
-            //else
              
 
             double shuma = 0;
@@ -889,7 +869,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel102_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
               
-            //else
              
 
             double shuma = 0;
@@ -908,7 +887,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel103_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
            
-            //else
             
 
             double shuma = 0;
@@ -932,7 +910,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel105_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
            
-            //else
                
             double shuma = 0;
             for (int i = 0; i < e.CalculatedValues.Count; i++)
@@ -950,14 +927,12 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel106_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //else
         }
 
 
         private void xrLabel200_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
 
-            //else
 
             
             double shuma = 0;
@@ -976,7 +951,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
     
         private void xrLabel202_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-          //  else
             double ndryshimePerq = gjenVitPara2 == 0 ? 0 : (ndrAbs2 / gjenVitPara2) ;
        
             if (ndryshimePerq >= 0)
@@ -989,7 +963,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
    
         private void xrLabel203_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            //else
             double ndryshimePerq = gjenVitPara3 == 0 ? 0 : (ndrAbs2 / gjenVitPara3) ;
        
             if (ndryshimePerq >= 0)
@@ -1032,7 +1005,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel201_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
                
-            //else
                
             double ndryshimePerq = gjenVitPara5 == 0 ? 0 : (ndrAbs5 / gjenVitPara5);
         
@@ -1045,7 +1017,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel204_SummaryGetResult_1(object sender, SummaryGetResultEventArgs e)
         {
-        //    else
             double ndryshimePerq = gjenVitPara4 == 0 ? 0 : (ndrAbs4 / gjenVitPara4) ;
           
             if (ndryshimePerq >= 0)
@@ -1057,7 +1028,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel205_SummaryGetResult_1(object sender, SummaryGetResultEventArgs e)
         {
-            //else
             double ndryshimePerq = gjenVitPara6 == 0 ? 0 : (ndrAbs6 / gjenVitPara6);
             
             if (ndryshimePerq >= 0)
@@ -1184,7 +1154,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrLabel74_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
 
-            //else
 
          
         }

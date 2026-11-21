@@ -244,7 +244,6 @@ namespace PlatinumWeb
         public void ASPxButtonFshiFilterOk_Click(object sender, EventArgs e)
         {
 
-            //else
             ////cmbFiltra.Items.Remove(new ListEditItem(Convert.ToString(cmbFiltra.Value)));
 
         }

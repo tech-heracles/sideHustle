@@ -32,7 +32,6 @@ namespace DbCore.DbAdmin
         /// <param name="idnderm">id e ndermarrjes</param>
         /// <param name="idperd">id e perdoruesit</param>
         /// <returns>kthen true nese mbushja kryhet me sukses,ne te kundert false</returns>
-        //public bool mbushGjitheThemeAmbjenteSipasNdermPerd(int idperd)
 
         /// <summary>
         /// mbush gjithe themes sipas ndermarrjes dhe perdoruesit
@@ -48,7 +47,6 @@ namespace DbCore.DbAdmin
             return tabela;
         }
 
-        //public bool merrGjitheThemesAmbjenteVjeterZgjedhurPerPerd(int idperd)
 
         public bool merrGjitheThemesAmbjenteVjeterZgjedhurPerPerd(int idperd, clsDatabaseAdmin dbAdmin)
         {

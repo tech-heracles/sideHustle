@@ -128,8 +128,6 @@ namespace DbCore.DbInventari
         /// Kthen/Vendos ID-ne  e ndermarje vitit.
         /// </summary>
         //public int IdNderViti
-        //    get { return idNderViti; }
-        //    set { idNderViti = value; }
         /// <summary>
         /// Kthen/Vendos kodin e monedhes.
         /// </summary>

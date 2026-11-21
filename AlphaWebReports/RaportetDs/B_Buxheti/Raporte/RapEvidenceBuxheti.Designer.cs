@@ -1070,8 +1070,6 @@ namespace AlphaWebReports.RaportetDs.B_Buxheti.Raporte
         private FormattingRule formattingRuleGHTrete;
         private GroupHeaderBand GroupHeader1;
         private FormattingRule formattingRule1;
-        //private CalculatedField calculatedField1;
-        //private CalculatedField calculatedField2;
         private XRControlStyle GrupimTop1;
         private XRControlStyle TitulliRaport;
         private XRControlStyle TabelaKryesore;

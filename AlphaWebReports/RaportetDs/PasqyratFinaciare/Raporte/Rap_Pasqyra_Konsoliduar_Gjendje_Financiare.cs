@@ -627,12 +627,10 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel33_AfterPrint(object sender, EventArgs e)
         {
-            // niv++;
         }
 
         private void xrLabel33_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            // niv++;
             if (niv > 0)
                 nivTemp = niv;
         }
@@ -703,7 +701,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
 
         private void xrLabel34_AfterPrint(object sender, EventArgs e)
         {
-            //float diferenca=Co
         }
 
         private void ReportFooter_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

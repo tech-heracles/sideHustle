@@ -372,7 +372,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell16_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
-            //    niv++;
         }
 
         private void xrTableCell15_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -1255,7 +1254,6 @@ namespace AlphaWebReports.RaportetDs.PasqyratFinaciare.Raporte
         private void xrTableCell147_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             niv++;
-            //    niv++;
         }
 
         private void xrTableCell150_SummaryGetResult(object sender, SummaryGetResultEventArgs e)

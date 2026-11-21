@@ -1973,7 +1973,6 @@ namespace AlphaWebReports.RaportetDs.Blerje
         private DevExpress.XtraReports.UI.XRLabel xrLabel100;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader2;
-        //private DevExpress.XtraReports.UI.CalculatedField TotaliG;
         private DevExpress.XtraReports.UI.XRControlStyle PermbajtjaBold;
         private DevExpress.XtraReports.UI.XRControlStyle Permbajtja;
         private DevExpress.XtraReports.UI.XRControlStyle Titulli;

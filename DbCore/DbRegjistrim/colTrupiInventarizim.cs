@@ -96,7 +96,6 @@ namespace DbCore.DbRegjistrim
                 Add(new clsTrupiInventarizim(rreshti));
             }
 
-            //    //throw;
             return true;
         }
 

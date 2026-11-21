@@ -143,17 +143,14 @@ namespace DbCore.DbAdmin
         ///// <summary>
         ///// Nuk perdoret.
         ///// </summary>
-        //public bool ruaj()
 
         ///// <summary>
         ///// Nuk perdoret.
         ///// </summary>
-        //public bool modifiko()
 
         ///// <summary>
         ///// Nuk perdoret.
         ///// </summary>
-        //public bool fshi()
 
         /// <summary>
         /// Kthen/Vendos nje collection me objekte te tipit <see cref="DbCore.DbAdmin.clsKonfigurime"/>, te cilat i merr nga
@@ -169,7 +166,6 @@ namespace DbCore.DbAdmin
         ///// <summary>
         ///// Nuk perdoret.
         ///// </summary>
-        //public int ekzistonKonfigurimMultiple()
 
         #endregion
 

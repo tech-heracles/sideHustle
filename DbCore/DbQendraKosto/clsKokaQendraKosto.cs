@@ -1483,7 +1483,6 @@ namespace DbCore.DbQendraKosto
         {
             if (this.idKoka > 0)
             {
-                //this.IdStatusDok = idstatusfshirje;  //duhet vendosur nje status i pershtatshem per kete modifikim
                 clsMesazh mesazh = clsKokaQendraKosto.kaloNeHistorik(this.idKoka, idperdoruesi, idstatusfshirje, dbProdh);
                 if (!mesazh.Status)
                     return mesazh;

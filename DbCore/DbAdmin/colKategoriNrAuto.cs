@@ -45,7 +45,6 @@ namespace DbCore.DbAdmin
                     Add(new clsKategoriNrAuto(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

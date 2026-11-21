@@ -149,7 +149,6 @@ namespace DbCore.DbProdhimi
                     Add(new clsTrupiPlanifikim(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

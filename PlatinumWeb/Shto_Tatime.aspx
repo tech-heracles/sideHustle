@@ -28,15 +28,6 @@
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="Stylesheet" type="text/css" href="Stylesheet1.css" />
-    <%--    <script src="js/Utils-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myButtonClickLupa-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myBuxhet-IMB.2.1.js?versioni22" type="text/javascript"></script>
-     
-    <script src="js/myFushaShtese-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myJQGrid-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/aspx.js/Shto_Tatime.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myBuxhet-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/myFushaShtese-IMB.2.1.js;~/js/aspx.js/Shto_Tatime.aspx-IMB.2.1.js&v76""
         type="text/javascript"></script>
 </head>
@@ -46,7 +37,6 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server">
            </asp:ScriptManager>
             <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
             </dx:ASPxGlobalEvents>
             <dx:ASPxHiddenField ID="hfState" runat="server" SyncWithServer="true" ViewStateMode="Enabled">
             </dx:ASPxHiddenField>
@@ -195,12 +185,9 @@
                                     </table>
                                     <br />
                                     <br />
-                                    <%--<div id="dvlblNdryshimi">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbNdryshimi" ID="lblNdryshimi"
                                         runat="server" Text="Data e ndryshimit:" ClientInstanceName="lblNdryshimi">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvcmbNdryshimi" style="visibility: hidden;">--%>
                                     <asp:UpdatePanel ID="cmbNdryshimi_pnlNdryshimi" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
                                             <dx:ASPxComboBox ID="cmbNdryshimi" runat="server" ClientInstanceName="cmbNdryshimi"
@@ -223,7 +210,6 @@
                                             </dx:ASPxComboBox>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
-                                    <%--</div>--%>
                                     <dx:ASPxGridView ID="gvTatimet" ClientInstanceName="gvTatimet" runat="server"
                                         Width="100%" OnDataBound="gvTatimet_DataBound" OnAfterPerformCallback="gvTatimet_AfterPerformCallback"
                                         OnHeaderFilterFillItems="gvTatimet_HeaderFilterFillItems" OnCustomCallback="gvTatimet_CustomCallback"
@@ -261,12 +247,9 @@
                                         <tbody>
                                         </tbody>
                                     </table>
-                                    <%--<div id="dvlblDateAkt">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="dteDateAkt" ID="lblDateAkt" runat="server"
                                         Text="Date Aktivizimi:" ClientInstanceName="lblDateAkt">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvdteDateAkt" style="visibility: hidden; display: 'none';">--%>
                                     <dx:ASPxDateEdit ID="dteDateAkt" runat="server" ClientInstanceName="dteDateAkt"
                                         ShowShadow="False" Width="100%">
                                         <ClientSideEvents DateChanged="function (s,e){ llogaritmin();
@@ -295,13 +278,9 @@
                                         <DisabledStyle Font-Bold="False">
                                         </DisabledStyle>
                                     </dx:ASPxDateEdit>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblMin">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtMin" ID="lblMin" runat="server"
                                         Text="Minimumi:" ClientInstanceName="lblMin">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtMin">--%>
                                     <dx:ASPxTextBox ID="txtMin" runat="server" Width="100%" AutoPostBack="false" ClientInstanceName="txtMin"
                                         DisplayFormatString="0.00">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -315,13 +294,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblMax">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtMax" ID="lblMax" runat="server"
                                         Text="Maximumi:" ClientInstanceName="lblMax">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtMax">--%>
                                     <dx:ASPxTextBox ID="txtMax" runat="server" Width="100%" AutoPostBack="false" DisplayFormatString="0.00"
                                         ClientInstanceName="txtMax">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -335,13 +310,9 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblMenyra">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbMenyra" ID="lblMenyra" runat="server"
                                         ClientInstanceName="lblMenyra" Text="Menyra:">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvcmbMenyra">--%>
                                     <dx:ASPxComboBox ID="cmbMenyra" runat="server" ClientInstanceName="cmbMenyra" Width="100%"
                                         ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top">
                                         <DropDownButton>
@@ -359,13 +330,9 @@
                                         <DisabledStyle Font-Bold="False">
                                         </DisabledStyle>
                                     </dx:ASPxComboBox>
-                                    <%--</div>--%>
-                                    <%--<div id="dvlblNorma">--%>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="txtNorma" ID="lblNorma" runat="server"
                                         Text="Norma:" ClientInstanceName="lblNorma">
                                     </dx:ASPxLabel>
-                                    <%--</div>--%>
-                                    <%--<div id="dvtxtNorma">--%>
                                     <dx:ASPxTextBox ID="txtNorma" runat="server" ClientInstanceName="txtNorma"
                                         Enabled="true" Width="100%">
                                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -378,7 +345,6 @@
                                         <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                         </DisabledStyle>
                                     </dx:ASPxTextBox>
-                                    <%--</div>--%>
                                 </dxw:ContentControl>
                             </ContentCollection>
                         </dxtc:TabPage>

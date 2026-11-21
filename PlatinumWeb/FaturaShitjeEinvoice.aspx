@@ -104,15 +104,6 @@
     <div> 
        
      <table id="table" width: 70% ></table>
-       <%--  <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Active
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Partially Paid</a>
-                        <a class="dropdown-item" href="#">Inactive</a>
-                    </div>
-                </div>--%>
 
      </div>
  

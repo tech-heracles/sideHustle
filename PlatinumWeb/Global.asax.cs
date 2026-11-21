@@ -102,7 +102,6 @@ namespace PlatinumWeb
 					ImbLogger.Error(ex, "Licencat nuk u lexuan ne nisje te aplikacionit");
 				}
 				// Sinkronizimi i te dhenave baze (artikuj, kliente, magazina) drejt Firebase eshte i ndalur.
-				// Per ta rinisur: MasterDataAvec.Fillo();
 				InitializeObjects();
 				RouteTable.Routes.MapOwinPath("/External", app => new Startup().Configuration(app));
 
@@ -304,7 +303,6 @@ namespace PlatinumWeb
 				if (ex.GetType() == typeof(System.Web.HttpException))
 				{
 					// The Complete Error Handling Example generates
-					// some errors using URLs with "NoCatch" in them;
 					// ignore these here to simulate what would happen
 					// if a global.asax handler were not implemented.
 					if (ex.Message.Contains("NoCatch") || ex.Message.Contains("maxUrlLength"))

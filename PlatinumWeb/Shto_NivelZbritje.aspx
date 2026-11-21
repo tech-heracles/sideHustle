@@ -26,12 +26,6 @@
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="Stylesheet" type="text/css" href="Stylesheet1.css" />
-    <%--    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myButtonClickLupa-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myMesazh-IMB.2.1.js?versioni22" type="text/javascript"></script>
-     
-    <script src="js/aspx.js/Shto_NivelZbritje.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myMesazh-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/Shto_NivelZbritje.aspx-IMB.2.1.js&v76"
         type="text/javascript"></script>
 </head>
@@ -44,7 +38,6 @@
                 <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server">
                 </dx:ASPxHiddenField>
                 <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-                    <%--<ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />--%>
                 </dx:ASPxGlobalEvents>
                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                     <ContentTemplate>
@@ -238,12 +231,9 @@
                                             <tbody>
                                             </tbody>
                                         </table>
-                                        <%--<div id="dvlblKodi">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="txtKodi" ID="lblKodi" runat="server"
                                             ClientInstanceName="lblKodi" Text="Kodi:">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvtxtKodi">--%>
                                         <dx:ASPxTextBox ID="txtKodi" runat="server" AutoPostBack="false" ClientInstanceName="txtKodi"
                                             Width="100%">
                                             <ClientSideEvents Init="function(s, e) { s.Focus();  }" />
@@ -258,13 +248,9 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxTextBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblEmertimi">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="txtEmertimi" ID="lblEmertimi" runat="server"
                                             ClientInstanceName="lblEmertimi" Text="Emertimi i nivelit:">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvtxtEmertimi">--%>
                                         <dx:ASPxMemo ID="txtEmertimi" runat="server" AutoPostBack="false" ClientInstanceName="txtEmertimi"
                                             Width="100%" Rows="3">
                                             <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -277,13 +263,9 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxMemo>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblPrindi">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="btneEmertimPrindi" ID="lblPrindi"
                                             runat="server" ClientInstanceName="lblPrindi" Text="Emertimi i prindit:">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvbtneEmertimPrindi">--%>
                                         <dx:ASPxComboBox ID="btneEmertimPrindi" runat="server" ClientInstanceName="btneEmertimPrindi"
                                             EnableCallbackMode="False"
                                             ReadOnly="false" ValidationSettings-CausesValidation="True" SettingsLoadingPanel-ImagePosition="Top"
@@ -304,19 +286,9 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--  <asp:CustomValidator ID="CustomValidator8" runat="server" ControlToValidate="btneEmertimPrindi"
-                                    Display="None" ErrorMessage="Ky nivel nuk ekziston" OnServerValidate="btneEmertimPrindi_CustomValidator_ServerValidate"
-                                    ValidationGroup="entries">*</asp:CustomValidator>
-                                <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender8" runat="server" Enabled="True"
-                                    HighlightCssClass="validorCalloutHighlight" TargetControlID="CustomValidator8">
-                                </cc1:ValidatorCalloutExtender>--%>
-                                        <%-- </div>--%>
-                                        <%--<div id="dvlblPrioriteti">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="cmbPrioriteti" ID="lblPrioriteti"
                                             runat="server" ClientInstanceName="lblPrioriteti" Width="180px" Text="Prioriteti:">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvcmbPrioriteti">--%>
                                         <dx:ASPxComboBox ID="cmbPrioriteti" runat="server" ClientInstanceName="cmbPrioriteti"
                                             Width="100%" ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top">
                                             <DropDownButton>
@@ -334,7 +306,6 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%--</div>--%>
                                     </dxw:ContentControl>
                                 </ContentCollection>
                             </dxtc:TabPage>

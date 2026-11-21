@@ -487,7 +487,6 @@ namespace RestApi.WebAPI.Models
                         decimal vleraTatime = Convert.ToDecimal(dt.Compute(formula, ""));
                         normaFaktike = vleratatime / P;
                         break;
-                        //if (tatimet[k].Menyra  c == 1) //totale
                         //else //progresive
                     }
                 }
@@ -908,7 +907,6 @@ namespace RestApi.WebAPI.Models
             }
 
 
-            //    //break;
             //} else
                
 
@@ -1485,7 +1483,6 @@ namespace RestApi.WebAPI.Models
                     kompPage.Formula = PercaktoDm(kompPage.Formula, ditemuajindryshueshme, muaji, data, ditemuaji, muajitjeter, vititjeter);
                     break;
 
-                    //case "OD":
             }
         }
 

@@ -180,7 +180,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsPikeShitjeFurnizimi(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

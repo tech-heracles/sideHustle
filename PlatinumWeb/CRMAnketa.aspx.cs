@@ -327,9 +327,6 @@ namespace PlatinumWeb
                     if (dteDtMbarimi.Date >= DateTime.Today && dteDtMbarimi.Date < kok.DtMbarimi)
                         return true;
                 }
-                //    else
-                //    else
-                //    else
             }
             return true;
         }
@@ -675,7 +672,6 @@ namespace PlatinumWeb
                 trupi.Add(tru);
                 i++;
             }
-            //    i++;
 
             return trupi;
         }

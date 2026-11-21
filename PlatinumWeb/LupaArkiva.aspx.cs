@@ -276,8 +276,6 @@ namespace PlatinumWeb
             }
             else
             {
-                //hap ambjnetin e regjistrimit,hap arkiven dhe ngarkon nje dok,
-                //me pas  hap ambjentin e regjistrimit perseri , dhe hap arkiven,ne kete rast duhet te jete i njejti folder tmp
 
                 //ne kete rast i bie qe te jete hapur per here te pare lupa nga ambjenti i shtimit te nje dokumenti
                 //keshtu qe krijojme folderin tmp dhe e ruajme ne hidden field,me qellim qe kur te hapet heren tjeter lupa e arkives te kemi nje tmpFolder

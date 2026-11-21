@@ -100,8 +100,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvLupaDetArtRegj.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("IdDetajimArtikulli", gvLupaDetArtRegj);
-            //    else
-            //else
             DbCore.DbAdmin.clsPerdorues oPerdorues = new DbCore.DbAdmin.clsPerdorues();
 
             oPerdorues = DbCore.mySessionObjects.kthePerdorues(Session);
@@ -240,7 +238,6 @@ namespace PlatinumWeb
             gvLupaDetArtRegj.Columns.Add(colnew);
         }
 
-        //private void shtoKoloneTeRe(String emri)
 
         protected void gvLupaDetArtRegj_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
         {

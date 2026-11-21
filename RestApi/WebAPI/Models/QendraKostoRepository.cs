@@ -211,15 +211,9 @@ namespace RestApi.WebAPI.Models
             return mesazh;
         }
 
-        //internal static object RuajTrupRegjQendraKosto(bool kontrolloShperndare, object[] trupiQK, int idNdermarrje, int idVitNdermarrje, int idPerdorues, int idKoka, int idGjenerues, int idKonfigGjenerues, int idKonfig, string kodKonfig, string nrDok, string nrRef, string shenime, string hfShtimModifikim, DateTime dteDtDok, DateTime dteDtRegj, int idStatusDok, string komponenteNga, bool kontrolloLidhur, bool hfLidhur, int idGjuha)
-        //    try
 
 
-        //    else
 
-        //            else
-        //            else
-        //        else
 
 
         internal static object MerrTrupFKSipasKokes(int idKoka)

@@ -926,8 +926,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        //private Ds_FleteDoganoreImport ds_FleteDoganoreImport1;
-        //private Ds_FleteDoganoreImportTableAdapters.PRC_RAP_FLETADOGANOREIMPORTTableAdapter pRC_RAP_FLETADOGANOREIMPORTTableAdapter;
         private DevExpress.XtraReports.UI.XRTable xrTable2;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow2;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;

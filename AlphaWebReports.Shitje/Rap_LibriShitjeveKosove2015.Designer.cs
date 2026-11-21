@@ -2044,7 +2044,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
         private DevExpress.XtraReports.UI.XRLabel xrLabel97;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
-        //private DevExpress.XtraReports.UI.CalculatedField TotaliG;
         private DevExpress.XtraReports.UI.XRControlStyle PermbajtjaBold;
         private DevExpress.XtraReports.UI.XRControlStyle Permbajtja;
         private DevExpress.XtraReports.UI.XRControlStyle Titulli;

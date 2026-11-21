@@ -19,12 +19,6 @@
 <body>
     <form id="form1" runat="server">
          
- <%--   <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true">
-<%--    </asp:ScriptManager>--%>
-  <%--  <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-        <ClientSideEvents EndCallback="function(s,e){ window.parent.SessionTimeout.sendKeepAlive();}" />
-    </dx:ASPxGlobalEvents>
-        <asp:HiddenField  runat="server" />--%>
     
     <div>
         <table style="border: 1px solid #999999; background-image: url('images/grad_bg_image.gif');
@@ -111,20 +105,6 @@
                                     <dx:ASPxLabel ID="lblpersonalizuara" runat="server" Text="Raportet e personalizuara"
                                         Style="color: #003366; font-size: 10pt; font-family: Tahoma; color: #666666;">
                                     </dx:ASPxLabel>
-                                  <%--  <dx:ASPxComboBox ID="cmbmodules" DataSourceID="SqlDataSourceModules" runat="server"
-                                        TextField="MODULIPERSHK" ValueField="IDMODULI" AutoPostBack="True">
-                                    </dx:ASPxComboBox>--%>
-                              <%--      <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSourceRaportet"  >
-                                        <ItemTemplate>
-                                            <br />
-                                            <img src="images/document_edit.png" alt="" />
-                                            <dx:ASPxHyperLink runat="server" Font-Bold="false" Font-Size="10" NavigateUrl="javascript:void('0')"
-                                                ID="HPL1" Text='<%# Eval("RAPEMRI") %>'>
-                                            </dx:ASPxHyperLink>
-                                            <dx:ASPxButton ID="filtroButton" runat="server" EnableTheming="False" 
-                                                AutoPostBack="False" EnableViewState="False" NavigateUrl="javascript:void('0')" />
-                                        </ItemTemplate>
-                                    </asp:Repeater>--%>
                                 </td>
                                 <td>
                                     <table align="right" width="15%">
@@ -152,24 +132,6 @@
                 </tr>
             </table>
         <dx:ASPxSiteMapControl ID="sitemap" runat="server"  Width="100%" DefaultLevelProperties-Font-Size="18px" OnDataBound="sitemap_DataBound" FlowLayoutTextLineHeight="24px" Font-Size="18px"   >
-         <%--          <NodeTemplate>
-                                        <table border="0" cellpadding="0" cellspacing="0" style="">
-                                                  <tr>
-                                                <td style="white-space: nowrap; padding-right: 7px;">
-                                                    
-                                                     <dx:ASPxHyperLink ForeColor="#666666" ID="Label1" runat="server" Text='<%# Eval("Title") %>'
-                                                        NavigateUrl='<%# Eval("Url") %>' ImageUrl="~/images/filter2.png" EnableTheming="false" />
-                                                </td>
-                                                <td style="white-space: nowrap; padding: 3px;">
-                                                    
-                                                </td>
-                                                <td>
-                                                
-                                            </td>
-
-                                            </tr>
-                                        </table>
-                                    </NodeTemplate>--%>
         </dx:ASPxSiteMapControl>
     </div>
     </form>

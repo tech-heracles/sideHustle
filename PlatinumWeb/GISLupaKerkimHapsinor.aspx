@@ -43,12 +43,6 @@
         <dx:ASPxHiddenField ID="hfState" runat="server">
         </dx:ASPxHiddenField>
         <div id='div' style="display: none">
-            <%--     <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <ClientSideEvents EndCallback="function(s,e){ if(typeof(window.parent.window.parent.window.parent.SessionTimeout) != 'undefined')
-                window.parent.window.parent.window.parent.SessionTimeout.sendKeepAlive();
-                else
-                window.parent.window.parent.SessionTimeout.sendKeepAlive();}" />
-        </dx:ASPxGlobalEvents>--%>
             <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ASPxRoundPanel1" runat="server" ClientInstanceName="panel"
                 Width="100%" Height="100%" HeaderText="Lupa e kerkimit" ShowHeader="False">
                 <PanelCollection>
@@ -163,8 +157,6 @@
                                                     OnDataBound="gvLupaKerko_DataBound"  ToolTip="Kerkimi hapsinor"
                                                     Width="100%">
                                                     <ClientSideEvents RowDblClick="OnGridSelectionChanged"  FocusedRowChanged="OnGridSelectionChanged" />
-                                                    <%--
-                                                    <ClientSideEvents EndCallback="function(s,e){callBackPanel.PerformCallback();}" />--%>
                                                     <Styles>
                                                         <Header ImageSpacing="5px" SortingImageSpacing="5px">
                                                         </Header>

@@ -128,9 +128,7 @@ namespace DbCore.DbAdmin
             return u_ruajt;
         }
 
-        //public bool modifiko()
 
-        //public bool fshi()
 
         public clsMesazh ruajGrupAuditimiDheTrupin(clsGrupAuditimi gr)
         {

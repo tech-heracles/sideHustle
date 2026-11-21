@@ -27,18 +27,6 @@
      <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <%--   <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/myMesazh-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myFaqeCelje-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myButtonClickLupa-IMB.2.1.js?versioni22" type="text/javascript"></script>
-     
-    <script src="js/Utils-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script src="js/myJQGrid-IMB.2.1.js?versioni22" type="text/javascript"></script>
-    <script type="text/javascript" src="js/myCookies-IMB.2.1.js?versioni22"></script>
-    <script src="JsGlobal.js" type="text/javascript"></script>
-    <script src="js/json2.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/myNrAuto-IMB.2.1.js?versioni22"></script>
-    <script src="js/aspx.js/LidhjaDokumentave.aspx-IMB.2.1.js?versioni22" type="text/javascript"></script>--%>
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/JsGlobal.js;~/js/json2.js;~/js/myNrAuto-IMB.2.1.js;~/js/aspx.js/LidhjaDokumentave.aspx-IMB.2.1.js&v76""
         type="text/javascript"></script>
 </head>
@@ -54,7 +42,6 @@
           
         </asp:ScriptManager>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ try{ window.parent.SessionTimeout.sendKeepAlive(); } catch(e){}}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxHiddenField ID="hfState" ClientInstanceName="hfState" runat="server" SyncWithServer="true"
             ViewStateMode="Enabled">
@@ -217,12 +204,9 @@
                                         </tbody>
                                     </table>
                                     <div id="dvFillim" class="atributeDiveFshehur">
-                                        <%--<div id="dvkonfigurimi_Label">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="konfigurimi_ComboBox" ID="konfigurimi_Label"
                                             runat="server" ClientInstanceName="konfigurimi_Label" Text="Zgjidhni konfigurimin:">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvkonfigurimi_ComboBox" style="visibility: hidden;">--%>
                                         <dx:ASPxComboBox ID="konfigurimi_ComboBox" runat="server" ClientInstanceName="konfigurimi_ComboBox"
                                             ShowShadow="False" SettingsLoadingPanel-ImagePosition="Top" Width="100%">
                                             <ClientSideEvents SelectedIndexChanged="function(s,e){ndryshoKonfigurimin()}" />
@@ -241,7 +225,6 @@
                                             <DisabledStyle Font-Bold="False">
                                             </DisabledStyle>
                                         </dx:ASPxComboBox>
-                                        <%-- </div>--%>
                                         <div id="dvlblKonfigurimi">
                                             <table>
                                                 <tr>
@@ -257,12 +240,9 @@
                                         </dx:ASPxHiddenField>
                                         <dx:ASPxHiddenField ID="hfNrAuto" runat="server" ClientInstanceName="hfNrAuto">
                                         </dx:ASPxHiddenField>
-                                        <%--<div id="dvlblNr">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="nrLidhje_TextBox" ID="lblNr" runat="server"
                                             Text="Numer lidhje: " ClientInstanceName="lblNr">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvnrLidhje_TextBox">--%>
                                         <dx:ASPxTextBox ID="nrLidhje_TextBox" runat="server" Width="100%" ClientInstanceName="nrLidhje_TextBox">
                                             <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
                                                 ValidationGroup="entries">
@@ -274,13 +254,9 @@
                                             <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                             </DisabledStyle>
                                         </dx:ASPxTextBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblData">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="dtDokumenti_DateEdit" ID="lblData"
                                             runat="server" Text="Date dokumenti: " ClientInstanceName="lblData">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvdtDokumenti_DateEdit">--%>
                                         <dx:ASPxDateEdit ID="dtDokumenti_DateEdit" runat="server" ClientInstanceName="dtDokumenti_DateEdit"
                                             Width="100%" ShowShadow="False">
                                             <ClientSideEvents DateChanged="function(s,e){DateChanged(s,e)}" GotFocus="function(s, e){ dateGotFocus( s, e); }" />
@@ -303,13 +279,9 @@
                                                 <FooterStyle Spacing="17px"></FooterStyle>
                                             </CalendarProperties>
                                         </dx:ASPxDateEdit>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblKlientFurnitori">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="klientFurnitor_ButtonEdit" ID="lblKlientFurnitori"
                                             runat="server" Text="Klient/Furnitor: " ClientInstanceName="lblKlientFurnitori">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvklientFurnitor_ButtonEdit">--%>
                                         <dx:ASPxComboBox ID="klientFurnitor_ButtonEdit" runat="server" ClientInstanceName="klientFurnitor_ButtonEdit"
                                             Width="100%" ShowShadow="False" ValueType="System.Int32" EnableClientSideAPI="True"
                                             IncrementalFilteringMode="Contains" EnableSynchronization="True" EnableCallbackMode="True"
@@ -381,23 +353,12 @@
                                     <br />
                                     <table id="tblTotal" class="renditKontrolle" align="right">
                                         <tbody>
-                                            <%--<tr>
-                                            <td>
-                                            </td>
-                                            <td>
-                                            </td>
-                                            <td width="50%">
-                                            </td>
-                                        </tr>--%>
                                         </tbody>
                                     </table>
                                     <div id="dvTotal" class="atributeDiveFshehur">
-                                        <%--<div id="dvlblDateRegj">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="dtRegjistrimi_DateEdit" ID="lblDateRegj"
                                             runat="server" Text="Date regjistrimi: " ClientInstanceName="lblDateRegj">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvdtRegjistrimi_DateEdit">--%>
                                         <dx:ASPxDateEdit ID="dtRegjistrimi_DateEdit" runat="server" ClientInstanceName="dtRegjistrimi_DateEdit"
                                             ShowShadow="False" Width="100%">
                                             <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" CausesValidation="true"
@@ -419,13 +380,9 @@
                                                 <FooterStyle Spacing="17px"></FooterStyle>
                                             </CalendarProperties>
                                         </dx:ASPxDateEdit>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblTotali">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="txtTotali" ID="lblTotali" ClientInstanceName="lblTotali"
                                             runat="server" Text="Totali">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvtxtTotali">--%>
                                         <dx:ASPxTextBox ID="txtTotali" ClientInstanceName="txtTotali" runat="server"
                                             Width="100%">
                                             <ClientSideEvents Init="function(s,e){Utils.initTxtNumber(s,e)}" GotFocus="function(s,e){Utils.gotFocusTxtNumer(s,e);}" LostFocus="function(s,e){Utils.lostFocusTxtNumer(s,e);}" />
@@ -439,13 +396,9 @@
                                             <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                             </DisabledStyle>
                                         </dx:ASPxTextBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblTotali2">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="txtTotali2" ID="lblTotali2" ClientInstanceName="lblTotali2"
                                             runat="server" Text="Totali">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvtxtTotali2">--%>
                                         <dx:ASPxTextBox ID="txtTotali2" ClientInstanceName="txtTotali2" runat="server"
                                             Width="100%">
                                             <ClientSideEvents Init="function(s,e){Utils.initTxtNumber(s,e)}" GotFocus="function(s,e){Utils.gotFocusTxtNumer(s,e);}" LostFocus="function(s,e){Utils.lostFocusTxtNumer(s,e);}" />
@@ -459,13 +412,9 @@
                                             <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                             </DisabledStyle>
                                         </dx:ASPxTextBox>
-                                        <%--</div>--%>
-                                        <%--<div id="dvlblDiferenca">--%>
                                         <dx:ASPxLabel Wrap="False" AssociatedControlID="txtDiferenca" ID="lblDiferenca"
                                             ClientInstanceName="lblDiferenca" runat="server" Text="Diferenca">
                                         </dx:ASPxLabel>
-                                        <%--</div>--%>
-                                        <%--<div id="dvtxtDiferenca">--%>
                                         <dx:ASPxTextBox ID="txtDiferenca" ClientInstanceName="txtDiferenca" runat="server"
                                             Width="100%">
                                             <ClientSideEvents Init="function(s,e){Utils.initTxtNumber(s,e)}" GotFocus="function(s,e){Utils.gotFocusTxtNumer(s,e);}" LostFocus="function(s,e){Utils.lostFocusTxtNumer(s,e);}" />
@@ -479,7 +428,6 @@
                                             <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
                                             </DisabledStyle>
                                         </dx:ASPxTextBox>
-                                        <%--</div>--%>
                                     </div>
                                     <br />
                                     <br />
@@ -493,19 +441,6 @@
                 <Images>
                 </Images>
             </dx:ASPxSplitter >
-            <%--  <dx:ASPxButton ID="ruajLidhje_Button" runat="server" Text="Ruaj Lidhje" CausesValidation="false"
-            ClientInstanceName="ruajLidhje_Button" AutoPostBack="false"  
-             >
-            <ClientSideEvents Click="function(s,e){ 
-                                    merrTeDhena();
-                                    merrTeDhena1();
-                                    if(isValid())
-                                    {
-                                        popKuadruar.Show();
-                                        grid_llogarite.PerformCallback();
-                                    } 
-                                    }" />
-        </dx:ASPxButton>--%>
             <asp:UpdatePanel ID="pnlKryesor" runat="server">
                 <ContentTemplate>
                     <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popKuadruar" runat="server" AllowDragging="True" ClientInstanceName="popKuadruar"

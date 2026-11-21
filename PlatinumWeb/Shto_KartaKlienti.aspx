@@ -323,12 +323,9 @@
                                     </DisabledStyle>
                                 </dx:ASPxMemo>
 
-                                <%--<div id="dteDitelindja">--%>
                                 <dx:ASPxLabel Wrap="False" AssociatedControlID="dteDitelindja" ID="lblDitelindja" runat="server"
                                     Text="Date Aktivizimi:" ClientInstanceName="lblDitelindja">
                                 </dx:ASPxLabel>
-                                <%--</div>--%>
-                                <%-- <div lblDateAkt>--%>
                                 <dx:ASPxDateEdit ID="dteDitelindja" runat="server" ClientInstanceName="dteDitelindja"
                                     ShowShadow="False" Width="100%">
                                     <DropDownButton>
@@ -443,30 +440,6 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <%--<dx:ASPxGridView ID="gvLimiti" ClientInstanceName="gvLimiti" Width="100%" ToolTip="Ambjenti i Limitit te Kartes" runat="server" OnCustomCallback="gvLimiti_CustomCallback"
-                                    OnBatchUpdate="gvLimiti_BatchUpdate" OnDataBound="gvLimiti_DataBound">
-                                    <ClientSideEvents BeginCallback="gvBeginCallBack" 
-                                        EndCallback="gvEndCallback" CustomButtonClick="CustomButtonsClick" BatchEditRowValidating="rowValidation" BatchEditStartEditing="StartEditing" BatchEditEndEditing="EndEditing" />
-
-                                    <Styles>
-                                        <Header ImageSpacing="5px" SortingImageSpacing="5px">
-                                        </Header>
-                                    </Styles>
-                                    <SettingsPager PageSize="15">
-                                    </SettingsPager>
-                                    <ClientSideEvents />
-                                    <StylesEditors>
-                                        <CalendarHeader Spacing="1px">
-                                        </CalendarHeader>
-                                        <ProgressBar Height="25px">
-                                        </ProgressBar>
-                                    </StylesEditors>
-
-                                    <Templates>
-                                        <StatusBar>
-                                        </StatusBar>
-                                    </Templates>
-                                </dx:ASPxGridView>--%>
 
                                 <div id="divgride1" style="min-height: 200px;">
                                     <div class="dx-viewport demo-container">

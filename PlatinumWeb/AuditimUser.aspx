@@ -20,7 +20,6 @@
 		<asp:ScriptManager ID="ScriptManager1" runat="server">
 		</asp:ScriptManager>
 		<dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-			<%--<ClientSideEvents EndCallback="End_Callback" />--%>
 		</dx:ASPxGlobalEvents>
 		<dx:ASPxHiddenField ID="hfState" runat="server" ClientInstanceName="hfState">
 		</dx:ASPxHiddenField>

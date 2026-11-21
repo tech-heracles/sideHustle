@@ -172,7 +172,6 @@ namespace DbCore.DbAsete
 		/// <param name="idAmortizimKoka">(int) Id automatike e kokes qe po gjeneron kete trup.</param>
 		/// <param name="idNjesiAdministrative">(int) Id e njesi administrative ku po ndodh ndryshimi i statusit.</param>
 		/// <returns>Kthen True nese nuk ndodh asnje gabim gjate marrjes se trupit te dokumentit te amortizimit ose False ne te kundert.</returns>
-		//public bool merrAmortizimTrupiSipasIdKokaAmortizimiIdNjesiAdministrative(int idAmortizimKoka, int idNjesiAdministrative)
 
 		/// <summary>
 		/// MODULI ASETE:
@@ -349,7 +348,6 @@ namespace DbCore.DbAsete
 				amortizimiTrupPerHyrje.HdAmortizimVjetor = -amortizimiTrupPerDalje.HdAmortizimVjetor;
 				amortizimiTrupPerHyrje.NormaAmortizimi = llogaritNormenAmortizimit(amortizimiTrupPerDalje.IdArtikulli, amortizimiKrijuarNgaDalja.IdLlojStandarti, magazinatransf, amortizimiTrupPerDalje.DateAmortizimi, this.objektiKod, amortizimiTrupPerDalje.Artikull.KodArtikulli);
 
-				//i++;
 				Add(amortizimiTrupPerHyrje);
 			}
 			return true;
@@ -506,7 +504,6 @@ namespace DbCore.DbAsete
 			lista.AddRange(colAm);
 			lista.AddRange(colRez);
 			colAmortizimiKoka kokaAmortizimiPerModifikim = new colAmortizimiKoka();
-			//colAm.ktheArtikujNormaAmortizimiBrendaDatave
 			bool serialIRi = true, tempSerialIRi = true;
 			bool merrDateAmortizimiDokMePare = false;
 			DateTime DateAmortizimiTemp = DateTime.Now;
@@ -1765,7 +1762,6 @@ mosLlogaritAmortizimShtese, FAFanalitike, FAFpermbledhese, FAB, FASS, ref index,
 		/// <param name="FAFpermbledhese"></param>
 		/// <param name="dbAsete">(clsDatabazeAsete) Merr objektin e transaksionit qe te lidhi veprimet me njera tjetren.</param>
 		/// <returns>Kthen True nese llogaritja kryhet me sukses, ne te kundert False.</returns>
-		//private static bool llogaritDitetAmortizimShtese(clsAmortizimiTrupiAbstract clsTrupiAmortRi, clsAmortizimiTrupiAbstract trupAmortRresht, int llojiDokumentitAktual, clsKarakteristikaStandarti karakteristikaStandarti, int idhistorikufundit, bool ndryshimstatusimagazine, int FAB, int FASS, int FAFanalitike, int FAFpermbledhese)
 		private static bool llogaritDitetAmortizimShtese(clsAmortizimiTrupiAbstract clsTrupiAmortRi, clsAmortizimiTrupiAbstract trupAmortRresht, int llojiDokumentitAktual, clsKarakteristikaStandarti karakteristikaStandarti, int idhistorikufundit, bool ndryshimstatusimagazine, int FAFanalitike, int FAFpermbledhese, clsDatabazeAsete dbAsete)
 		{
 			if ((float)(clsTrupiAmortRi.DateAmortizimi - clsTrupiAmortRi.DateMePareAmortizimi).TotalDays < 0)

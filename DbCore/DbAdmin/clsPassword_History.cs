@@ -33,7 +33,6 @@ namespace PlatinumWeb
         public int PassHistoryID
         {
             get { return passHistoryID; }
-           // set { passHistoryID = value; }
         }
 
         /// <summary>

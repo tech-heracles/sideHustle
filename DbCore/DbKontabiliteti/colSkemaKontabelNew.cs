@@ -54,7 +54,6 @@ namespace DbCore.DbKontabiliteti
         ///// Thirret funksioni <see cref="DbCore.DbKontabiliteti.clsDatabaseKontabilitet.ktheSkemaKontabelNewSipasID"/>
         ///// </summary>
         //[Obsolete("Perdor: clsSkemaKontabelNew ktheSkemeKontabelNewSipasID(int id)", true)]
-        //    //return data;
 
         #endregion
 
@@ -73,7 +72,6 @@ namespace DbCore.DbKontabiliteti
                     Add(new clsSkemaKontabelNew(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

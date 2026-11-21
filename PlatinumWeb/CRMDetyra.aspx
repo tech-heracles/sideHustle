@@ -28,7 +28,6 @@
     <link id="Link2" runat="server" rel="icon" href="~/images/brand/avec-favicon.png" type="image/png" />
     <link href="css/selectize.css" type="text/css" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <%--<script type="text/javascript" src="~/js/srcCRM/js/jquery.mmenu.min.all.js"></script>--%>
     <link type="text/css" rel="stylesheet" href="~/js/srcCRM/css/jquery.mmenu.all.css" />
     <link type="text/css" rel="stylesheet" href="AlphaCRM.css" />
     <link href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />

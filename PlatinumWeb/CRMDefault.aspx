@@ -15,10 +15,8 @@
     <link id="Link1" runat="server" rel="shortcut icon" href="~/images/brand/avec-favicon.png" type="image/png" />
     <link id="Link2" runat="server" rel="icon" href="~/images/brand/avec-favicon.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <%--<script type="text/javascript" src="~/js/srcCRM/js/jquery.mmenu.min.all.js"></script>--%>
     <link type="text/css" rel="stylesheet" href="~/js/srcCRM/css/jquery.mmenu.all.css" />
     <link type="text/css" rel="stylesheet" href="AlphaCRM.css" />
-    <%--<link rel="stylesheet" media="screen (min-width: 768px)" href="AlphaCRM.css" />--%>
     <link href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
      <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/Utils-IMB.2.1.js;~/JsGlobal.js;~/js/srcCRM/js/jquery.mmenu.min.all.js;~/js/myNrAuto-IMB.2.1.js&v49"

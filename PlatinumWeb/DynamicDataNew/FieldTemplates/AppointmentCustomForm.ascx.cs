@@ -225,7 +225,6 @@ public partial class AppointmentCustomForm : SchedulerFormControl
             lblResource, edtResource,
             tbDescription,
             ddKlient,ddResource,
-            //ddLlojDetyre,ddResource1,
              GetMultiResourceEditor()
         };
 
@@ -281,16 +280,12 @@ public partial class AppointmentCustomForm : SchedulerFormControl
 
     protected void ddKlient_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
     {
-        //if (ddLlojDetyre.Value.Equals("1"))//klient
 
-        //else if (ddLlojDetyre.Value.Equals("2"))//detyre
     }
 
     protected void ddKlient_ItemsRequestedByFilterCondition(object source, ListEditItemsRequestedByFilterConditionEventArgs e)
     {
-        //if (ddLlojDetyre.Value.Equals("1"))//klient
 
-        //else if (ddLlojDetyre.Value.Equals("2"))//detyre
 
 
     }

@@ -38,7 +38,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsShperndarjeShpenzimeLlogarite(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

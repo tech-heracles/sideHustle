@@ -163,7 +163,6 @@ namespace PlatinumWeb
                 hfState.Set("periudha", JsonConvert.SerializeObject(mySessionObjects.merrPeriudheKontabel(Session)));
                 hfState.Set("RoliSR", false);
                 hfState.Set("idDok", idDok);
-                //hfState.Set("idMonBazeNdermarrje", clsMonedha.ktheIdMonedhenENdermarrjes(IdNdermarrja)); //nuk duhet sepse e marrim me poshte me objektin e ndermarrjes
 
                 colRoli rolet = new colRoli();
                 rolet.mbushRoletSipasIdPerdoruesi(DbCore.mySessionObjects.ktheIdPerdoruesi(Session));
@@ -1235,7 +1234,6 @@ namespace PlatinumWeb
 
         public void btnJo_Click(object sender, EventArgs e)
         {
-            //else 
             if (pergjigja.Text == "ruaj")
                 clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgRuajtjeMeSukses", MessagesResource.KtheCultureInfo((int)hfState["idGjuha"])), pnlMesazhi);
         }
@@ -2146,7 +2144,6 @@ namespace PlatinumWeb
             cmbModeli.Columns.Add(colprove);
             cmbModeli.Columns.Add(colemer);
             cmbModeli.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            //cmbModeli.DropDownStyle = DropDownStyle.DropDown; komentuar sepse kur eshte drop down lejon shtimin e nje lloj konfigurimi te ndryshem nga lista
             cmbModeli.DataSource = result;
             cmbModeli.ValueField = "IdKonfigAmbjente";
             cmbModeli.DataBind();
@@ -3295,7 +3292,6 @@ namespace PlatinumWeb
             ImbLogger.LogTraceShitje($"Mbaroi metoda mbushComboBoxFazat me parameter col:{JsonConvert.SerializeObject(col)}");
         }
 
-        //protected void cmbKarta_Callback(object source, DevExpress.Web.CallbackEventArgsBase e)
 
 
         /// <summary>
@@ -4642,7 +4638,6 @@ namespace PlatinumWeb
                    }).Select(ac => new
                    {
                        IdArtikulli = ac.Key.IdArtikulli,
-                       //  IdMag = ac.Key.IdMag,
                        Sasia = ac.Sum(acs => acs.Sasia),
                    });
                 String artikujt = "";

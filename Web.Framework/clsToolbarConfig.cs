@@ -164,7 +164,6 @@ namespace PlatinumWeb
         ///// ne menu shtohet nje item 
         ///// </summary>
         ///// <param name="m"></param>
-        //public static void ShtoMenuItem(ASPxMenu m, DbCore.DbShare.clsMenuItem menuitem, bool enabled)
 
         /// <summary>
         /// ne menu shtohet nje item 
@@ -183,7 +182,6 @@ namespace PlatinumWeb
 
                 itemToAdd = m.Items.Add();
                 itemToAdd.ClientEnabled = menuitem.Enabled;
-                //else
             }
             else
             {

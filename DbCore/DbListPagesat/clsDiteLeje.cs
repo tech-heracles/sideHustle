@@ -351,8 +351,6 @@ namespace DbCore.DbListPagesat
         }
 
 
-        //public static bool ekzistonOreShtese(DateTime date, int idpunonjesi)
-        //public static bool ekzistonOreShtese(DateTime date, int idpunonjesi, clsDatabazeListPagesa data)
 
 
         #endregion

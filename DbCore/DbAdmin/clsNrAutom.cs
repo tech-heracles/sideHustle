@@ -290,8 +290,6 @@ namespace DbCore.DbAdmin
         }
 
         //public int IdNderViti
-        //    get { return idNderViti; }
-        //    set { idNderViti = value; }
         public int IdNdermarja
         {
             get { return idNdermarja; }
@@ -785,7 +783,6 @@ namespace DbCore.DbAdmin
             //Me kete kusht kontrollojme nese nuk ka mbaruar afati i perdorimit te numrit automatik
             //Nese ka mbaruar atehre do kthehet vetem nje vlere boshe, pra kontolli nuk do vazhdoj te jete me automatik
             //por lidhja e tij me nr automatik do mbetet nese behen shtime me data brenda afatit te perdorimit te nr automatik
-            //if (!this.eshteAktivNrAutomatik(dtAktuale,null)) //kur nuk eshte aktiv 
             if (!this.eshteAktivNrAutomatik(dtAktuale)) //kur nuk eshte aktiv 
                 return "";
             return ktheVlerenParsardheseNrAutomatik(dtAktuale, true);
@@ -926,7 +923,6 @@ namespace DbCore.DbAdmin
                 }
             }
 
-            //else
             isValid = isValid && (this.NgaDataNrAutom.Date <= data.Date) && (this.DeriMeNrAutom.Date >= data.Date);
             ImbLogger.LogTraceShitje($"Filloi metoda per kontrollin nqs nje numer automatik eshte aktiv ose jo mbaroi dhe ktheu :{isValid}");
             return isValid;     

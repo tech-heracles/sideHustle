@@ -336,8 +336,6 @@ namespace PlatinumWeb
             filtri.GridaKokaId = koka.IdGridaKoka;
             filtri.FiltraVlera = gvNjesiAdm.FilterExpression;
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("Kodi", gvNjesiAdm);
-            //    else
-            //else
             filtri.IdPerdoruesi = DbCore.mySessionObjects.ktheIdPerdoruesi(Session);
             filtri.IdNdermarje = idNdermarrje;
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
@@ -876,8 +874,6 @@ namespace PlatinumWeb
         ///// </summary>
         ///// <param name="source">derguesi</param>
         ///// <param name="e">argumentat</param>
-        //protected void cmbMagPrind_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
-        //protected void cmbMagPrind_ItemsRequestedByFilterCondition(object source, ListEditItemsRequestedByFilterConditionEventArgs e)
 
         private bool isValidNjesiAdministrative(ResourceManager rm, CultureInfo ci, int idNdermarrje, int idNderVit)
         {

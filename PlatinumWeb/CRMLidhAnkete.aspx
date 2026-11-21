@@ -176,8 +176,6 @@
                 <!--  FUNDI MENUSE-->
                 <!-- TABET -->
                 <div id="dvInfoArtikulli">
-                   <%-- <asp:UpdatePanel ID="pnlGrida" runat="server" UpdateMode="Conditional">
-                        <ContentTemplate>--%>
                             <dx:ASPxGridView ID="gvKlienti"  ToolTip="Veprimtaria" runat="server" ClientInstanceName="gvKlienti"
                                 Width="100%" OnProcessColumnAutoFilter="gvKlienti_ProcessColumnAutoFilter"
                                 OnHtmlRowCreated="gvKlienti_HtmlRowCreated" OnAfterPerformCallback="gvKlienti_AfterPerformCallback"
@@ -213,8 +211,6 @@
                                 </StylesEditors>
                             </dx:ASPxGridView>
                             <asp:HiddenField ID="hfRuaj" runat="server" />
-                       <%-- </ContentTemplate>
-                    </asp:UpdatePanel>--%>
                 </div>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>

@@ -30,8 +30,6 @@ namespace AlphaWebReports.RaportetDs.RAP_SHITJE
 
         private void caktoFormatinENumrave()
         {
-            //xrLabel32.XlsxFormatString = xrLabel33.XlsxFormatString = xrLabel36.XlsxFormatString = xrLabel37.XlsxFormatString = xrLabel39.XlsxFormatString = xrLabel41.XlsxFormatString = xrLabel42.XlsxFormatString
-            //    = xrLabel25.XlsxFormatString = xrLabel26.XlsxFormatString = xrLabel27.XlsxFormatString = xrLabel28.XlsxFormatString = xrLabel29.XlsxFormatString = xrLabel30.XlsxFormatString
         }
 
  

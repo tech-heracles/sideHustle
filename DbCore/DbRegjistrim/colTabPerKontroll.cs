@@ -65,7 +65,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsTabPerKontroll(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

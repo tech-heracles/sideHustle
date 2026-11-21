@@ -313,12 +313,8 @@
         private DevExpress.XtraReports.Parameters.Parameter parameter3;
         private DevExpress.XtraReports.Parameters.Parameter parameter2;
         private DevExpress.XtraReports.Parameters.Parameter parameter1;
-        //private DataSource.Ds_Rap_DetyrimiKlienteveSipasMuajveTableAdapters.PRC_Rap_DetyrimiKlienteveSipasMuajveTableAdapter prC_Rap_DetyrimiKlienteveSipasMuajveTableAdapter1;
-        //private DataSource.Ds_Rap_DetyrimiKlienteveSipasMuajve ds_Rap_DetyrimiKlienteveSipasMuajve1;
-        //private DataSource.Ds_Rap_DetyrimiKlienteveSipasMuajveTableAdapters.PRC_Rap_DetyrimiKlienteveSipasMuajveTableAdapter pRC_Rap_DetyrimiKlienteveSipasMuajveTableAdapter;
         public DevExpress.XtraReports.UI.XRPivotGrid xrPivotGrid1;
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
-        //private DataSource.Ds_Rap_DetyrimiKlienteveSipasMuajve ds_Rap_DetyrimiKlienteveSipasMuajve2;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
         private DataSource.Ds_Prc_Rap_AnalitikAnketa ds_Prc_Rap_AnalitikAnketa1;
         private DataSource.Ds_Prc_Rap_AnalitikAnketaTableAdapters.Prc_Rap_AnalitikAnketaTableAdapter prc_Rap_AnalitikAnketaTableAdapter;

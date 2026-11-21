@@ -72,8 +72,6 @@ namespace DbCore.DbShare
 
             }
         //public colFilterTrupi OColFilterTrupi
-        //    get { return oColFilterTrupi; }
-        //    set { oColFilterTrupi = value; }
         /// <summary>
         /// kam pershtypjen qe set-i nuk duhet lene
         /// </summary>
@@ -288,7 +286,6 @@ namespace DbCore.DbShare
 
         //duhet pare metoda merrTrupinFiltri
         //[Obsolete("Nuk perdoret:",true)]
-        //public void merr(int idRaporti)
 
         public colFilterKoka merriTeGjitheNgaModuli(int idModuli)
         {

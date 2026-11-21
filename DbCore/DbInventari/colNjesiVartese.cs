@@ -83,7 +83,6 @@ namespace DbCore.DbInventari
                     Add(new clsNjesiVartese(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

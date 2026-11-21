@@ -68,7 +68,6 @@ namespace DbCore.DbRegjistrim
                     Add(new clsFleteDoganoreKoka(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
 

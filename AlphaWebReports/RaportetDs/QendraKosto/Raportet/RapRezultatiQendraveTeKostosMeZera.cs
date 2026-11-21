@@ -175,7 +175,6 @@ namespace AlphaWebReports.RaportetDs.QendraKosto.Raportet
         private void xrLabel5_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
                 e.Result = ktheRezultat(shuma);
-           // else
             e.Handled = true;
         }
 

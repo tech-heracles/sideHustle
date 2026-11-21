@@ -243,7 +243,6 @@ namespace PlatinumWeb
             gvEkzekutimi.Columns["#"].VisibleIndex = 0;
         }
 
-        //private void shtoStatus() 
 
 
         /// <summary>
@@ -314,8 +313,6 @@ namespace PlatinumWeb
             DbCore.DbAdmin.clsGridaKoka koka = new DbCore.DbAdmin.clsGridaKoka((int)hfState["idGjuha"], "gvEkzekutimi", "EkzekutimProdhimi.aspx", (int)hfState["idNdermarrje"], int.Parse(cmbKonfigurimi.Value.ToString()));
             DbCore.DbAdmin.clsFiltraGrida filtri = new DbCore.DbAdmin.clsFiltraGrida() { FiltraKodi = cmbFiltra.Text, FiltraShenime = cmbFiltra.Text, FiltraUniversal = false, GridaKokaId = koka.IdGridaKoka, FiltraVlera = gvEkzekutimi.FilterExpression, IdPerdoruesi = (int)hfState["idPerdoruesi"], IdNdermarje = (int)hfState["idNdermarrje"], IdStatusDok = 1 };
             filtri.KoloneRenditje = GridUtil.ktheKolRenditjeNgaGridaPerRuajtje("NrDok", gvEkzekutimi);
-            //    else
-            //else
 
             DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
             mesazh = filtri.ruaj();

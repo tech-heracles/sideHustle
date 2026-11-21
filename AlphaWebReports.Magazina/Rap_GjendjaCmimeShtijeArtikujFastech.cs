@@ -64,7 +64,6 @@ namespace AlphaWebReports.RaportetDs.Magazina
             fieldNivelCmimi.Caption = rm.GetString("labelRaportiCmimet", ci);
             XRPivotGridField fieldVleraCmimi = new XRPivotGridField("Cmimet", PivotArea.DataArea);
           
-            //else
             
             fieldVleraCmimi.Caption = rm.GetString("labelRaportiCmimet", ci);
             fieldVleraCmimi.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;

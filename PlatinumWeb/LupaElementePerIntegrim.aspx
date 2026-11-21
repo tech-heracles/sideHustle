@@ -42,10 +42,6 @@
     </dx:ASPxHiddenField>
     <div id='div' style="display: none">
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
-            <%--<ClientSideEvents EndCallback="function(s,e){ if(typeof(window.parent.window.parent.window.parent.SessionTimeout) != 'undefined') 
-                window.parent.window.parent.window.parent.SessionTimeout.sendKeepAlive(); 
-                else 
-                window.parent.window.parent.SessionTimeout.sendKeepAlive();}" />--%>
         </dx:ASPxGlobalEvents>
         <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ASPxRoundPanel1" runat="server" ClientInstanceName="panel"
             Width="100%" Height="100%" HeaderText="Zgjidh Nivelin e autorizimeve" ShowHeader="False">

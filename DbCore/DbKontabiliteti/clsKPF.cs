@@ -712,8 +712,6 @@ namespace DbCore.DbKontabiliteti
                 return new clsMesazh(false, ce.Message);
             }
         }
-        //[Obsolete("Perdor nga klasa perkatese: clsMesazh modifikoKPFAndBuxhete(int idkpf, string kodikpf, int nivelikpf, string emertimikpf, bool inakt, string shenimekpf, int grupikpf, int idnder, int idndervit, " +
-        //    "int idperdoruesi, int idkonfig)", true)]
 
         /// <summary>
         /// Ekzekuton nje transaksion per te fshire nje objekt clsKPF dhe autorizimet e lidhur me te.

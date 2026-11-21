@@ -83,7 +83,6 @@ namespace DbCore.DbListPagesat
                     Add(new clsBandaPunonjes(rreshti));
                 }
 
-            //    //throw;
             return true;
         }
         #endregion

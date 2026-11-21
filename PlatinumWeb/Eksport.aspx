@@ -128,28 +128,6 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
 
-            <%--            <dx:ASPxSplitter EnableHierarchyRecreation="false" ID="ASPxSplitter1" runat="server" Width="100%" Height="670px" ClientInstanceName="splitter"
-                CssPostfix="Aqua" PaneMinSize="670px">
-                <Panes>
-                    
-                    <dx:SplitterPane PaneStyle-BackColor="Transparent" Separators-Size="10px" ScrollBars="Vertical">
-                        <Separators Size="10px">
-                        </Separators>
-                        <PaneStyle>
-                        </PaneStyle>
-                        <ContentCollection>
-                            <dx:SplitterContentControl ID="SplitterContentControl1" runat="server">
-                                <asp:Panel ID="ContentPanel" runat="server">--%>
-            <%-- <asp:UpdatePanel ID="pnlLidhur" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
-                    <table id='hl' runat="server">
-                    </table>
-                </ContentTemplate>
-            </asp:UpdatePanel>--%>
-            <%-- <table id="tblFillim">
-                <tbody>
-                </tbody>
-            </table>--%>
             <div id="dvFillim" class="atributeDiveFshehur">
                 <table class="renditKontrolle">
                     <tr>
@@ -513,14 +491,7 @@
                     </tr>
                 </table>
 
-                <%-- <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-                     <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="ASPxMenu1" />
-                </Triggers>
-                    <ContentTemplate>--%>
 
-                <%-- </ContentTemplate>
-                </asp:UpdatePanel>--%>
                 <table style="width: 100%">
                     <tr>
                         <td style="vertical-align: top">
@@ -543,26 +514,8 @@
                     </tr>
                 </table>
             </div>
-            <%-- </asp:Panel>
-                            </dx:SplitterContentControl>
-                        </ContentCollection>
-                    </dx:SplitterPane>
-                </Panes>
-                <Styles CssPostfix="Aqua">
-                </Styles>
-                <Images>
-                </Images>
-            </dx:ASPxSplitter>--%>
-            <%--<asp:HiddenField ID="HfKonfAmb" runat="server" />--%>
             <asp:HiddenField ID="hfShtimModifikim" runat="server" />
-            <%--<asp:HiddenField ID="HiddenField1" runat="server" />--%>
-            <%--<asp:HiddenField ID="HFStatusiDokumentit" runat="server" />--%>
-            <%--<asp:HiddenField ID="hfKolonaGride" runat="server" />--%>
-            <%--<asp:HiddenField ID="HfGridCol" runat="server" />--%>
-            <%--<asp:HiddenField ID="hfKonffillestar" runat="server" />--%>
             <%-- per te ruajtur konfigurimin  lupes per lupat qe ndodhen ne gride--%>
-            <%--<asp:HiddenField ID="hfGridaKodi" runat="server" />--%>
-            <%--<asp:HiddenField ID="hfGridaDetajimi" runat="server" />--%>
         </div>
         <div>
             <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupUniversal" runat="server" AllowDragging="True" ClientInstanceName="popupUniversal"

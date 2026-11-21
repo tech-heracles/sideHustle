@@ -124,8 +124,6 @@ namespace DbCore.Raporte
             foreach (var reportDll in reportsDlls)
             {
                 var a = Assembly.Load(reportDll);
-                //This is a hack in order to keep things simple.. We try to find the report by original namespace not (AlphaWebReports)
-                //this should be changed in the near future.
                 Type t = a.GetType("AlphaWebReports." + reportName);
                 if (t == null)
                 {
