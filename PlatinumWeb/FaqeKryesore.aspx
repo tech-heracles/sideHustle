@@ -451,12 +451,6 @@
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Import" Name="Import.aspx" Visible="false">
                                                                 </dx:MenuItem>
-                                                                <dx:MenuItem Text="Import shitje Winline karta" Name="ImportWK.aspx?lloji=importwk" Visible="false">
-                                                                </dx:MenuItem>
-                                                                <dx:MenuItem Text="Import Flete Kontabel" Name="ImportWK.aspx?lloji=importfk" Visible="false">
-                                                                </dx:MenuItem>
-                                                                <dx:MenuItem Text="Transferim Dalje" Name="transferimDaljePopup">
-                                                                </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Elemente per integrim" Name="ElementePerIntegrim.aspx" Visible="false">
@@ -821,9 +815,6 @@
                                                                 <dx:MenuItem Text=" E Re" Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=blerje&shtim_modifikim=shtim"
                                                                     Visible="false">
                                                                 </dx:MenuItem>
-                                                                <dx:MenuItem Text=" Fatura Blerje Einvoice" Name="FaturaBlerjeEinvoice.aspx"
-                                                                    Visible="true">
-                                                                </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
 
@@ -911,8 +902,6 @@
                                                                             Text="E Re" Visible="false">
                                                                         </dx:MenuItem>
                                                                     </Items>
-                                                                </dx:MenuItem>
-                                                                <dx:MenuItem Name="NdryshimCmimi.aspx" Text="Ndryshim Cmimi" Visible="false">
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Inventarizim per artikujt afatshkurter" Name="inventarizim-artikulli" Visible="false">
                                                                     <Items>
@@ -1062,9 +1051,6 @@
                                                             <Items>
                                                                         <dx:MenuItem Text=" Lista" Name="RegjistrimDokumentash.aspx?shitje_blerje=shitje"  Visible="false">  </dx:MenuItem>
                                                                         <dx:MenuItem Text=" E Re" Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje&shtim_modifikim=shtim"  Visible="false">  </dx:MenuItem>
-                                                                        <dx:MenuItem Text="Fatura Shitje Einvoice" Name="FaturaShitjeEinvoice.aspx"
-                                                                        Visible="true">
-                                                                        </dx:MenuItem>        
                                                                         <dx:MenuItem Text="Gjenero fature permbledhese" Name="GjeneroFaturePermbledhese.aspx"  Visible="false"> </dx:MenuItem>
                                                                         <dx:MenuItem Text="Ruajtja automatike e dokumentave" Name="GjenerimAutomatik.aspx" Visible="false">  </dx:MenuItem>
                                                            </Items>
@@ -1184,9 +1170,6 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=13" Text="Blerjet" Visible="false">
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Text=" Fatura Blerje Einvoice" Name="FaturaBlerjeEinvoice.aspx"
-                                                           Visible="true">
-                                                                </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=17" Text="Burimet Njerëzore" Visible="false">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=57" Text="Buxheti" Visible="false">
@@ -1207,15 +1190,9 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=12" Text="Shitjet" Visible="false">
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Text="Fatura Shitje Einvoice" Name="FaturaShitjeEinvoice.aspx" Visible="true">
-                                                        </dx:MenuItem>
                                                         <dx:MenuItem Name="RaporteGrida.aspx?lloji=GjendjaEMagazines" Text="Raport Gjendja e Magazines" Visible="false">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="RaporteGrida.aspx?lloji=GjendjaEArtikujveMeSeriale" Text="Raport Gjendja e Artikujve me Seriale" Visible="false">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Name="RaporteGrida.aspx?lloji=gjendjaArtikujveIMEI" Text="Gjendja e Artikujve me IMEI" Visible="false">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Name="RaporteGrida.aspx?lloji=gjendjaArtikujveIMEIEkspozitor" Text="Gjendja e artikujve me IMEI ne ekspozitor" Visible="false">
                                                         </dx:MenuItem>
                                                     </Items>
                                                 </dx:MenuItem>
@@ -1333,9 +1310,6 @@
                                                         <dxnb:NavBarItem Name="Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje&shtim_modifikim=shtim"
                                                             Text="Regjistrimet e shitjeve" Visible="false">
                                                         </dxnb:NavBarItem>
-                                                        <dx:NavBarItem Name="FaturaBlerjeEinvoice.aspx?"
-                                                            Text="Fatura Blerje Einvoice" Visible="true">
-                                                        </dx:NavBarItem>
 
                                                     </Items>
                                                 </dxnb:NavBarGroup>
@@ -1461,8 +1435,6 @@
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=13" Text="Blerjet" Visible="false">
                                                         </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="FaturaBlerjeEinvoice.aspx?" Text="FaturaBlerjeEinvoice" Visible="true">
-                                                        </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=12" Text="Shitjet" Visible="false">
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=16" Text="Inventar" Visible="false">
@@ -1486,10 +1458,6 @@
                                                         <dxnb:NavBarItem Name="RaporteGrida.aspx?lloji=GjendjaEMagazines" Text="Raport Gjendja e Magazines" Visible="false">
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="RaporteGrida.aspx?lloji=GjendjaEArtikujveMeSeriale" Text="Raport Gjendja e Artikujve me Seriale" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="RaporteGrida.aspx?lloji=gjendjaArtikujveIMEI" Text="Gjendja e Artikujve me IMEI" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="RaporteGrida.aspx?lloji=gjendjaArtikujveIMEIEkspozitor" Text="Gjendja e artikujve me IMEI ne ekspozitor" Visible="false">
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=22" Text="Raporte menaxheriale" Visible="false">
                                                         </dxnb:NavBarItem>

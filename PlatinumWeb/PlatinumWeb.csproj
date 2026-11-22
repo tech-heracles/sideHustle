@@ -777,8 +777,6 @@
     <Content Include="B_Shto_RegjistrimBuxheti.aspx" />
     <Content Include="DynamicData\FieldTemplates\ucPopUpEinvoice.ascx" />
     <Content Include="DynamicData\FieldTemplates\ucPopUpEinvoice_Edit.ascx" />
-    <Content Include="FaturaShitjeEinvoice.aspx" />
-    <Content Include="FaturaBlerjeEinvoice.aspx" />
     <Content Include="GjendjeArkeDitore.aspx" />
     <Content Include="images\FaqjaPare\AlphaWEB-png.png" />
     <Content Include="images\FaqjaPare\GIFWEB_BLUE_1.svg">
@@ -1269,7 +1267,6 @@
     <Content Include="js\aspx.js\Asistenti.aspx-IMB.5.8.js" />
     <Content Include="js\aspx.js\LupaShopsHierarkiLeaveReason.aspx-IMB.7.2.js" />
     <Content Include="js\aspx.js\LupaShopsHierarkiStatus.aspx-IMB.7.2.js" />
-    <Content Include="js\aspx.js\NdryshimCmimi.aspx-IMB.4.0.30.js" />
     <Content Include="js\aspx.js\Pajisje.aspx-IMB.5.8.js" />
     <Content Include="js\aspx.js\PostoEPaySlip.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\RaporteUtils.js" />
@@ -1339,7 +1336,6 @@
     <Content Include="LupaShopsHierarkiStatus.aspx" />
     <Content Include="LupaShopsHierarkiUniform.aspx" />
     <Content Include="MbylljePeriudhe.html" />
-    <Content Include="NdryshimCmimi.aspx" />
     <Content Include="Pajisje.aspx" />
     <Content Include="PostoEPaySlip.aspx" />
     <Content Include="public\AlphaCRM.css" />
@@ -2813,9 +2809,7 @@
     <Content Include="images\uncheck2.png" />
     <Content Include="images\xlsx24.png" />
     <Content Include="ImbReportToolbar.ascx" />
-    <Content Include="ImportWK.aspx" />
     <Content Include="js\aspx.js\GjeneroFaturePermbledhese.aspx-IMB.4.2.js" />
-    <Content Include="js\aspx.js\ImportWK.aspx-IMB.4.0.js" />
     <Content Include="js\aspx.js\KonfigurimeEmail.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaArkiva.aspx-IMB.3.3.js" />
     <Content Include="js\aspx.js\LupaAutomjeti.aspx-IMB.4.0.js" />
@@ -4497,20 +4491,6 @@
     <Compile Include="ElementePerIntegrim.aspx.designer.cs">
       <DependentUpon>ElementePerIntegrim.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FaturaShitjeEinvoice.aspx.cs">
-      <DependentUpon>FaturaShitjeEinvoice.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FaturaShitjeEinvoice.aspx.designer.cs">
-      <DependentUpon>FaturaShitjeEinvoice.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FaturaBlerjeEinvoice.aspx.cs">
-      <DependentUpon>FaturaBlerjeEinvoice.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FaturaBlerjeEinvoice.aspx.designer.cs">
-      <DependentUpon>FaturaBlerjeEinvoice.aspx</DependentUpon>
-    </Compile>
     <Compile Include="FaturaShitjeveEinvoice.aspx.cs">
       <DependentUpon>FaturaShitjeveEinvoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4557,6 +4537,7 @@
       <DependentUpon>GjendjeArkeDitore.aspx</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AvecToolbar.cs" />
+    <Compile Include="Helpers\CelesatEPunonjesve.cs" />
     <Compile Include="Helpers\CombineScripts.cs" />
     <Compile Include="Helpers\EksportRapid.cs" />
     <Compile Include="Helpers\ScriptDeferFilter.cs" />
@@ -4828,13 +4809,6 @@
     </Compile>
     <Compile Include="LupaShopsHierarkiUniform.aspx.designer.cs">
       <DependentUpon>LupaShopsHierarkiUniform.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NdryshimCmimi.aspx.cs">
-      <DependentUpon>NdryshimCmimi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NdryshimCmimi.aspx.designer.cs">
-      <DependentUpon>NdryshimCmimi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\OWIN\AuthHelper.cs" />
     <Compile Include="Infrastructure\OWIN\SimpleAuthorizationServerProvider.cs" />
@@ -5264,13 +5238,6 @@
     </Compile>
     <Compile Include="ImbReportToolbar.ascx.designer.cs">
       <DependentUpon>ImbReportToolbar.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="ImportWK.aspx.cs">
-      <DependentUpon>ImportWK.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ImportWK.aspx.designer.cs">
-      <DependentUpon>ImportWK.aspx</DependentUpon>
     </Compile>
     <Compile Include="KonfigurimeEmail.aspx.cs">
       <DependentUpon>KonfigurimeEmail.aspx</DependentUpon>

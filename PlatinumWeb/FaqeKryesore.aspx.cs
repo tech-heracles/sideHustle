@@ -565,9 +565,6 @@ namespace PlatinumWeb
 			Menu("konfigurime", "import-eksport", "konfig-formati", "Shto_KonfigurimFormatImporti.aspx").Text = rm.GetString("MenuItemERe", ci);
 			Menu("konfigurime", "import-eksport", "Eksport.aspx").Text = rm.GetString("MenuItemEksport", ci);
 			Menu("konfigurime", "import-eksport", "Import.aspx").Text = rm.GetString("MenuItemImport", ci);
-			Menu("konfigurime", "import-eksport", "ImportWK.aspx?lloji=importwk").Text = rm.GetString("MenuItemImportShitjeWinlineCarta", ci);
-			Menu("konfigurime", "import-eksport", "ImportWK.aspx?lloji=importfk").Text = rm.GetString("MenuItemImportFleteKontabel", ci);
-			Menu("konfigurime", "import-eksport", "transferimDaljePopup").Text = rm.GetString("MenuItemTransferimDalje", ci);
 			Menu("konfigurime", "ElementePerIntegrim.aspx").Text = rm.GetString("MenuItemElementePerIntegrim", ci);
 			Menu("konfigurime", "instrumenta").Text = rm.GetString("MenuItemInstrumenta", ci);
 			Menu("konfigurime", "instrumenta", "FormatNumrash.aspx").Text = rm.GetString("MenuItemFormatiNumrave", ci);
@@ -722,8 +719,6 @@ namespace PlatinumWeb
 			Menu("regjistrime", "fatura-blerje", "RegjistrimDokumentash.aspx?shitje_blerje=blerje").Text = rm.GetString("MenuItemLista", ci);
 			Menu("regjistrime", "fatura-blerje", "Shto_RegjistrimDokumentash.aspx?shitje_blerje=blerje&shtim_modifikim=shtim").Text = rm.GetString("MenuItemERe", ci);
 
-			Menu("regjistrime", "fatura-blerje", "FaturaBlerjeEinvoice.aspx").Text = "Fatura Blerje Einvoice";
-			Menu("regjistrime", "fatura-blerje", "FaturaBlerjeEinvoice.aspx").Visible = true;
 
 
 			Menu("regjistrime", "EkzekutimBuxheti").Text = rm.GetString("MenuItem_EkzekutimBuxheti", ci);
@@ -759,7 +754,6 @@ namespace PlatinumWeb
 			Menu("regjistrime", "magazina", "regjistrime-dalje").Text = rm.GetString("NavBarItemDokumentatDaljeve", ci);
 			Menu("regjistrime", "magazina", "regjistrime-dalje", "RegjistrimMagazine.aspx?lloj=dalje").Text = rm.GetString("MenuItemLista", ci);
 			Menu("regjistrime", "magazina", "regjistrime-dalje", "Shto_RegjistrimMagazine.aspx?lloj=dalje&shtim_modifikim=shtim").Text = rm.GetString("MenuItemERe", ci);
-			Menu("regjistrime", "magazina", "NdryshimCmimi.aspx").Text = rm.GetString("MenuItemNdryshimCmimi", ci);
 			Menu("regjistrime", "magazina", "inventarizim-artikulli").Text = rm.GetString("NavBarItemInventarizimASH", ci);
 			Menu("regjistrime", "magazina", "inventarizim-artikulli", "RegjistrimInventarizimi.aspx?lloj=ash").Text = rm.GetString("MenuItemLista", ci);
 			Menu("regjistrime", "magazina", "inventarizim-artikulli", "Shto_RegjistrimInventarizimi.aspx?lloj=ash&shtim_modifikim=shtim").Text = rm.GetString("MenuItemERe", ci);
@@ -819,9 +813,7 @@ namespace PlatinumWeb
 			Menu("regjistrime", "fatura-shitjesh").Text = rm.GetString("MenuItemFaturatShitjeve", ci);
 			Menu("regjistrime", "fatura-shitjesh", "RegjistrimDokumentash.aspx?shitje_blerje=shitje").Text = rm.GetString("MenuItemLista", ci);
 			Menu("regjistrime", "fatura-shitjesh", "Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje&shtim_modifikim=shtim").Text = rm.GetString("MenuItemERe", ci);
-			Menu("regjistrime", "fatura-shitjesh", "FaturaShitjeEinvoice.aspx").Text = rm.GetString("MenuItemRaportShitjetEinvoice", ci);
 
-			Menu("regjistrime", "fatura-shitjesh", "FaturaShitjeEinvoice.aspx").Visible = true;
 
 			Menu("regjistrime", "fatura-shitjesh", "GjeneroFaturePermbledhese.aspx").Text = rm.GetString("menuItemFaturaShitjeGjeneroFaturePermbledhese", ci);
 			Menu("regjistrime", "fatura-shitjesh", "GjenerimAutomatik.aspx").Text = rm.GetString("menuItemFaturaShitjeRuajteAutomatikeDokumentave", ci);
@@ -866,8 +858,6 @@ namespace PlatinumWeb
 			Menu("raportet", "Raportet.aspx?idmod=6").Text = rm.GetString("MenuItemRaportBanka", ci);
 			Menu("raportet", "Raportet.aspx?idmod=19").Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
 			Menu("raportet", "Raportet.aspx?idmod=13").Text = rm.GetString("MenuItemRaportBlerjet", ci);
-			Menu("raportet", "FaturaBlerjeEinvoice.aspx").Text = rm.GetString("MenuItemRaportFaturatEBlrejes", ci);
-			Menu("raportet", "FaturaBlerjeEinvoice.aspx").Visible = true;
 
 			Menu("raportet", "Raportet.aspx?idmod=17").Text = rm.GetString("MenuItemRaportBurimetNjerezore", ci);
 			Menu("raportet", "Raportet.aspx?idmod=57").Text = rm.GetString("MenuItemBuxheti", ci);
@@ -879,12 +869,8 @@ namespace PlatinumWeb
 			Menu("raportet", "Raportet.aspx?idmod=24").Text = rm.GetString("MenuItemRaportCRM", ci);
 			Menu("raportet", "Raportet.aspx?idmod=20").Text = rm.GetString("MenuItemRaportQendratKostos", ci);
 			Menu("raportet", "Raportet.aspx?idmod=12").Text = rm.GetString("MenuItemRaportShitjet", ci);
-			Menu("raportet", "FaturaShitjeEinvoice.aspx").Text = rm.GetString("MenuItemRaportShitjetEinvoice", ci);
-			Menu("raportet", "FaturaShitjeEinvoice.aspx").Visible = true;
 			Menu("raportet", "RaporteGrida.aspx?lloji=GjendjaEMagazines").Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
 			Menu("raportet", "RaporteGrida.aspx?lloji=GjendjaEArtikujveMeSeriale").Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
-			Menu("raportet", "RaporteGrida.aspx?lloji=gjendjaArtikujveIMEI").Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
-			Menu("raportet", "RaporteGrida.aspx?lloji=gjendjaArtikujveIMEIEkspozitor").Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
 
 
 			DevExpress.Web.MenuItem ikonaImazhPerdoruesMenuLart = ASPxMenu1.Items.FindByName("ikonaImazhPerdorues");
@@ -931,8 +917,6 @@ namespace PlatinumWeb
 			NavElement("blerjeShitje", "Shto_RegjistrimDokumentash.aspx?shitje_blerje=blerje&shtim_modifikim=shtim").Text = rm.GetString("NavBarItemRegjistrimetBlerjeve", ci);
 			NavElement("blerjeShitje", "RegjistrimDokumentash.aspx?shitje_blerje=shitje").Text = rm.GetString("MenuItemFaturatShitjeve", ci);
 			NavElement("blerjeShitje", "Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje&shtim_modifikim=shtim").Text = rm.GetString("NavBarItemRegjistrimetShitjeve", ci);
-			NavElement("blerjeShitje", "FaturaBlerjeEinvoice.aspx?").Text = "Fatura Blerje Einvoice";
-			NavElement("blerjeShitje", "FaturaBlerjeEinvoice.aspx?").Visible = true;
 
 
 			NavGrup("arkaBanka").Text = rm.GetString("MenuItemRaportArkadheBanka", ci);
@@ -991,7 +975,6 @@ namespace PlatinumWeb
 			NavGrup("rap").Text = rm.GetString("MenuItemRaportet", ci);
 			NavElement("rap", "Raportet.aspx?idmod=7").Text = rm.GetString("MenuItemRaportKontabiliteti", ci);
 			NavElement("rap", "Raportet.aspx?idmod=13").Text = rm.GetString("MenuItemRaportBlerjet", ci);
-			NavElement("rap", "FaturaBlerjeEinvoice.aspx?").Visible = true;
 			NavElement("rap", "Raportet.aspx?idmod=12").Text = rm.GetString("MenuItemRaportShitjet", ci);
 			NavElement("rap", "Raportet.aspx?idmod=16").Text = rm.GetString("MenuItemRaportInventari", ci);
 			NavElement("rap", "Raportet.aspx?idmod=9").Text = rm.GetString("MenuItemRaportKlientetdheFurnitoret", ci);
@@ -1004,8 +987,6 @@ namespace PlatinumWeb
 			NavElement("rap", "Raportet.aspx?idmod=19").Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
 			NavElement("rap", "RaporteGrida.aspx?lloji=GjendjaEMagazines").Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
 			NavElement("rap", "RaporteGrida.aspx?lloji=GjendjaEArtikujveMeSeriale").Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
-			NavElement("rap", "RaporteGrida.aspx?lloji=gjendjaArtikujveIMEI").Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEI", ci);
-			NavElement("rap", "RaporteGrida.aspx?lloji=gjendjaArtikujveIMEIEkspozitor").Text = rm.GetString("MenuItemRaportGjendjaArtikujveIMEIEkspozitor", ci);
 			NavElement("rap", "Raportet.aspx?idmod=22").Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
 			NavElement("rap", "Raportet.aspx?idmod=24").Text = rm.GetString("MenuItemRaporteCRM", ci);    // Raportet CRM
 			NavElement("rap", "Raportet.aspx?idmod=57").Text = rm.GetString("MenuItemRaportBuxheti", ci);

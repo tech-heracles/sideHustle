@@ -1,0 +1,5 @@
+/* Rollback of 03-titujt-e-faqeve.sql: puts back the page titles saved before the change. */
+SET XACT_ABORT ON;
+UPDATE k SET KOMPPERSHKRIMI_sq = b.KOMPPERSHKRIMI_sq
+FROM T_KOMPONENTE k JOIN dbo.T_KOMPONENTE_TITUJ_BACKUP_20261122 b ON b.IDKOMPON = k.IDKOMPON;
+DROP TABLE dbo.T_KOMPONENTE_TITUJ_BACKUP_20261122;

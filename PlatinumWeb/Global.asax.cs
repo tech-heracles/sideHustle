@@ -95,7 +95,9 @@ namespace PlatinumWeb
 				// kompanite dhe lidhjet me databazat e tyre vijne nga licencat ne Firebase (jo me nga T_SERVER_CONNECTIONSTRINGS)
 				try
 				{
-					LicencatAvec.Merr();
+					var licencat = LicencatAvec.Merr();
+					// databazat e bera nga DRAFT ne nje server tjeter: celesat e punonjesve hapen vete pas kesaj
+					PlatinumWeb.Helpers.CelesatEPunonjesve.RregulloNeSfond(licencat.Select(l => l.ConnectionString));
 				}
 				catch (LicencaAvecException ex)
 				{
