@@ -1,0 +1,8 @@
+{
+  "name": "avec-smoke",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Smoke + timing test for AVEC Accounting web app",
+  "scripts": { "smoke": "node smoke-test.js" },
+  "dependencies": { "playwright-core": "1.56.1", "mssql": "11.0.1" }
+}
