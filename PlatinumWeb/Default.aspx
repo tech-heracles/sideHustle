@@ -166,7 +166,9 @@
                 return c;
             }
 
-            function open(source, item, ev) {
+            // the page header shows the name of the card that opened the page (FaqeKryesore: avecMenuTitleFor)
+            function open(source, item, ev, title) {
+                host.avecMenuTitle = title ? { url: item.name || '', title: title } : null;
                 host.kontrolloTeDrejta(source, { item: item, processOnServer: false, htmlEvent: ev || window.event }, item.name);
             }
 
@@ -222,9 +224,10 @@
                     if (!it.name || !it.GetText()) continue;
                     // t = [section, ..., parent, leaf]; the levels between the section and the leaf give the context
                     var parentText = t.length > 2 ? t[t.length - 2] : '';
-                    var title = it.GetText(), desc = parentText;
+                    var title = it.GetText(), desc = parentText, header = title;
                     if (GENERIC.test(title) && parentText) {
                         title = parentText;
+                        header = parentText + (/^lista$/i.test(it.GetText()) ? '' : ' – ' + it.GetText());
                         desc = (t.length > 3 ? t[t.length - 3] + ' · ' : '') + it.GetText();
                     }
                     var k = key(it.name);
@@ -236,7 +239,7 @@
                         if (!known.section) known.section = section;
                         continue;
                     }
-                    var entry = { title: title, desc: desc, section: section, source: topMenu, item: it };
+                    var entry = { title: title, header: header, desc: desc, section: section, source: topMenu, item: it };
                     module(target).entries.push(entry);
                     seen[k] = entry;
                 }
@@ -272,7 +275,7 @@
                     if (withHeaders) grid.appendChild(el('h2', 'dash-section', s || 'Kryesore'));
                     sections[s].sort(function (a, b) { return byText(a.title, b.title) || byText(a.desc, b.desc); });
                     sections[s].forEach(function (e) {
-                        grid.appendChild(card(meta.icon, e.title, e.desc, function (ev) { open(e.source, e.item, ev); }, true));
+                        grid.appendChild(card(meta.icon, e.title, e.desc, function (ev) { open(e.source, e.item, ev, e.header || e.title); }, true));
                     });
                 });
                 window.scrollTo(0, 0);
@@ -288,7 +291,7 @@
                     var meta = MODULES[m.key] || { icon: 'fa-folder-o', desc: '' };
                     var desc = meta.desc || (m.entries.length + ' faqe');
                     grid.appendChild(card(meta.icon, m.text, desc, function (ev) {
-                        if (m.entries.length === 1) open(m.entries[0].source, m.entries[0].item, ev); else showModule(m);
+                        if (m.entries.length === 1) open(m.entries[0].source, m.entries[0].item, ev, m.entries[0].header || m.entries[0].title); else showModule(m);
                     }));
                 });
                 empty.hidden = list.length > 0;

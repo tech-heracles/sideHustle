@@ -3613,6 +3613,11 @@
     <Content Include="images\new\48_attach.png" />
     <Content Include="images\new\48_lock.png" />
     <Content Include="images\new\48_save.png" />
+    <Content Include="images\new\48_copy.png" />
+    <Content Include="images\theme\Avec\menu\ShtoDetyre.png" />
+    <Content Include="images\theme\Avec\menu\ShtoDetyre_W.png" />
+    <Content Include="images\theme\Avec\menu\ShtoKlient.png" />
+    <Content Include="images\theme\Avec\menu\ShtoKlient_W.png" />
     <Content Include="images\new\48_warning.png" />
     <Content Include="images\new\about.png" />
     <Content Include="images\new\about1.png" />

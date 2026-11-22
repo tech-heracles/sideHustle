@@ -86,11 +86,13 @@ namespace PlatinumWeb
 		public static void WriteErrorOnResponse(HttpResponse response, Exception ex)
 		{
 			bool lokale = HttpContext.Current?.Request.IsLocal == true;
-			response.Write("<h2>Global Page Error</h2>\n");
+			// AVEC dark theme; the page opens inside the main frame, so it links back to the dashboard (Default.aspx)
+			response.Write("<div style=\"font-family:'Segoe UI',Arial,sans-serif;background:#121212;color:#f2f2f0;min-height:100vh;margin:-8px;padding:28px;box-sizing:border-box\">\n");
+			response.Write("<h2 style=\"color:#e8683a;margin-top:0\">Faqja nuk mund të hapet</h2>\n");
 			response.Write($"<p>{HttpUtility.HtmlEncode(ex.Message)}</p>\n");
 			if (lokale)
-				response.Write($"<p>{HttpUtility.HtmlEncode(ex.ToString())}</p>\n");
-			response.Write("Return to the <a href='FaqeKryesore.aspx'>Default Page</a>\n");
+				response.Write($"<details><summary style=\"cursor:pointer;color:#a3a3a0\">Detajet teknike</summary><pre style=\"white-space:pre-wrap;color:#a3a3a0;font-size:12px\">{HttpUtility.HtmlEncode(ex.ToString())}</pre></details>\n");
+			response.Write("<p><a style=\"color:#e8683a\" href='Default.aspx'>Kthehu te faqja kryesore</a></p></div>\n");
 		}
 	}
 }

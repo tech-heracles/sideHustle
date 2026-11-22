@@ -574,9 +574,9 @@ function VendosDokumentPlanifikimProdhimi(result) {
  */
 CreateDataGrid = function (columnsKonfig, dataSource) {
     var disabled = $("input[id$='hfLidhur']").val() == 'True' ? true : false;
-    var magazinat = JSON.parse(hfState.Get("colMagPlanifikimi"));
+    var magazinat = JSON.parse(hfState.Get("colMagPlanifikimi")) || []; // a new company may have no warehouse yet
     defaultObject = {
-        IdTrupiPlanifikim: 0, IdArtikulli: 0, KodiArtikull: null, PershkrimArtikull: null, Shenime: null, IdMag: magazinat[0].IdNjesiAdministrative, IdUrdherPorosi: 0,
+        IdTrupiPlanifikim: 0, IdArtikulli: 0, KodiArtikull: null, PershkrimArtikull: null, Shenime: null, IdMag: magazinat.length ? magazinat[0].IdNjesiAdministrative : 0, IdUrdherPorosi: 0,
         Sasia: 1, IdNjesia: 0, Njesia: null, IdDetajim1: 0, Detajim1: null, IdDetajim2: 0, Detajim2: null, Gjeresi: 1, Gjatesi: 1, SasiPermase: 1
     };
     var ds = dataSource ? dataSource : [Utils.CloneObject(defaultObject)];

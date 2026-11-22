@@ -37,28 +37,6 @@
         type="text/javascript"></script>
 </head>
 <body>
-    <dx:ASPxButton class="btn" onclick="shto_dok()">+
-        <ClientSideEvents click="shto_dok(s, e)" />
-    </dx:ASPxButton>
-<style>
-.btn {
-  height: 50px;
-  width: 50px;
-  line-height: 50px;
-  font-size: 2em;
-  border-radius: 50%;
-  background-color: #e8683a;
-  color: white;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-  position: fixed;
-  z-index: 1;
-  bottom: 5%;
-  right: 2%;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
-}
-</style>
     <form id="form1" runat="server">
 
         <dx:ASPxLoadingPanel ID="LoadingPanel" runat="server" ClientInstanceName="LoadingPanel"

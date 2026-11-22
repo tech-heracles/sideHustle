@@ -241,16 +241,35 @@ function callWebServiceKtheInfoLartPerdorues(emerKomponente, id, idPerdoruesi, i
     }).done(SucceededCallbackInfoLart);
 }
 
+// AVEC: the page opened from a dashboard card shows that card's name in the header (Default.aspx sets
+// window.avecMenuTitle). Pages reached from inside it (Shto, Shiko, ...) keep the name from the database.
+function avecMenuTitleFor() {
+    var t = window.avecMenuTitle;
+    if (!t || !t.url) return null;
+    try {
+        var w = splitter.GetPaneByName('paneKryesor').GetContentIFrame().contentWindow;
+        var parts = t.url.replace(/[?&]+$/, '').split('?');
+        if (w.location.pathname.split('/').pop().toLowerCase() !== parts[0].toLowerCase()) return null;
+        var search = decodeURIComponent(w.location.search).toLowerCase();
+        var params = (parts[1] || '').split('&');
+        for (var i = 0; i < params.length; i++)
+            if (params[i] && search.indexOf(params[i].toLowerCase()) === -1) return null;
+        return t.title;
+    } catch (e) { return null; }
+}
+
+function avecVendosTitull(emer) {
+    var boolShfaqPerdoruesMenu = hfState.Get("ShfaqPerdoruesMenu");
+    if (boolShfaqPerdoruesMenu)
+        lblFaqja.SetText(hfState.Get("EmerMbiemerPerdorues") + ' : ' + emer);
+    else
+        lblFaqja.SetText(emer);
+}
+
 function SucceededCallbackInfoLart(result) {
     if (result && result.d)
         result = result.d;
-    var boolShfaqPerdoruesMenu = hfState.Get("ShfaqPerdoruesMenu");
-    if (boolShfaqPerdoruesMenu) {
-        var emerMbiemerPerdorues = hfState.Get("EmerMbiemerPerdorues");
-        lblFaqja.SetText(emerMbiemerPerdorues + ' : ' + result.emerKomponente);
-    }
-    else
-        lblFaqja.SetText(result.emerKomponente);
+    avecVendosTitull(avecMenuTitleFor() || result.emerKomponente);
 }
 
 function callWebServiceKtheMesazhPerPerdoruesin() {

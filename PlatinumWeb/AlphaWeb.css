@@ -696,8 +696,9 @@ div.noUndoGrida .dx-datagrid-rowsview .dx-data-row .dx-cell-modified .dx-highlig
 .menuToolbar {
     margin-bottom: 10px;
     overflow-x: auto;
-    border: 1px solid rgb(221, 221, 221);
-    background: rgb(245, 245, 245);
+    border: 1px solid #383838; /* AVEC dark theme (was light grey) */
+    background: #1a1a1a;
+    border-radius: 10px;
     height: 62px;
     overflow-y: hidden;
 }
@@ -728,7 +729,7 @@ div.noUndoGrida .dx-datagrid-rowsview .dx-data-row .dx-cell-modified .dx-highlig
 }
 
 .menuToolbar .dx-item-content > div:hover {
-    background: rgba(0, 114, 197, 1);
+    background: rgba(232, 104, 58, 0.14);
 }
 
 .menuItemImage {

@@ -4,6 +4,7 @@
  *
  * - Grid filter row: hidden by default and shown with a funnel button next to the grid tools.
  *   The choice is remembered per browser (localStorage "avec.filtersOn").
+ * - Empty grids: the English "No data to display" becomes "Nuk ka të dhëna".
  */
 (function () {
     'use strict';
@@ -58,14 +59,27 @@
         apply(!body.classList.contains('avec-filters-off'));
     }
 
+    // empty grids say it in Albanian, like the rest of the program ("No data to display" -> "Nuk ka të dhëna")
+    var EN = /^\s*No data( to display)?\s*$/;
+    function translateEmpty() {
+        var cells = document.querySelectorAll('.dxgvEmptyDataRow_Material td, .dx-datagrid-nodata, .dx-empty-message, .dxpgEmptyDataRow');
+        for (var i = 0; i < cells.length; i++) {
+            var walker = document.createTreeWalker(cells[i], NodeFilter.SHOW_TEXT, null, false), n;
+            while ((n = walker.nextNode())) {
+                if (EN.test(n.nodeValue)) n.nodeValue = 'Nuk ka të dhëna';
+            }
+        }
+    }
+
     body.classList.toggle('avec-filters-off', !filtersOn());
     ensureButtons();
+    translateEmpty();
 
     // grids re-render after callbacks and partial postbacks
     var pending = false;
     new MutationObserver(function () {
         if (pending) return;
         pending = true;
-        setTimeout(function () { pending = false; ensureButtons(); }, 150);
+        setTimeout(function () { pending = false; ensureButtons(); translateEmpty(); }, 150);
     }).observe(body, { childList: true, subtree: true });
 })();

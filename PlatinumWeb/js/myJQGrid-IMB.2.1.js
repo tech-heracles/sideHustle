@@ -1056,7 +1056,7 @@ myJQGrid.vendosMagazineDefault = function (params, idRreshti, grida) {
     if (params.emerEditorMagazina != undefined && grida.getTekstQelize(params.emerEditorMagazina, idRreshti) == "") {
         var KodiMag = kodiMagazinaPare;
         var PershkrimiMag = !params.magazinaPare ? "" : params.magazinaPare.Pershkrimi;
-        if (params.butonMagazina.GetSelectedItem() != null) {
+        if (params.butonMagazina && params.butonMagazina.GetSelectedItem() != null) { // some pages (Rivleresime) have no warehouse box
             KodiMag = params.butonMagazina.GetSelectedItem().GetColumnText('Kodi');
             PershkrimiMag = params.butonMagazina.GetSelectedItem().GetColumnText('Pershkrimi');
         }
@@ -1064,7 +1064,7 @@ myJQGrid.vendosMagazineDefault = function (params, idRreshti, grida) {
         grida.setTekstQelize(params.emerEditorPershkrimMagazina, idRreshti, PershkrimiMag);
     }
     if (params.emerEditorMagazina2 != undefined && grida.getTekstQelize(params.emerEditorMagazina2, idRreshti) == "") {
-        var KodiMag2 = params.butonMagazina2.GetSelectedItem() == null ? kodiMagazinaPare : params.butonMagazina2.GetSelectedItem().GetColumnText('Kodi');
+        var KodiMag2 = !params.butonMagazina2 || params.butonMagazina2.GetSelectedItem() == null ? kodiMagazinaPare : params.butonMagazina2.GetSelectedItem().GetColumnText('Kodi');
         grida.setTekstQelize(params.emerEditorMagazina2, idRreshti, KodiMag2);
     }
 }

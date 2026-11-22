@@ -417,6 +417,10 @@ namespace PlatinumWeb
 					tmpGrup.ClientVisible = count != 0;
 
 				}
+				// Projekt Buxheti (PBA) is only for reporting companies: its pages log out anyone else, so the
+				// group is not shown for the others (2026-11-22)
+				if (!DbCore.DbAdmin.clsNdermarrje.EshteRaportuese(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)))
+					NavGrup("analizeBuxheti").ClientVisible = false;
 				DevExpress.Web.MenuItem ikonaImazhPerdoruesMenuLart = ASPxMenu1.Items.FindByName("ikonaImazhPerdorues");
 				ikonaImazhPerdoruesMenuLart.Visible = true;
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("LupaPersonalizoPerdorues.aspx").Visible = true;
@@ -1041,35 +1045,40 @@ namespace PlatinumWeb
 
 
 			NavGrup("analizeBuxheti").Text = rm.GetString("MenuItemGrupAnalizBuxheti", ci);//"Analiza e Buxhetit";
-			NavElement("analizeBuxheti", "ABKonfiguroFusha.aspx").Text = rm.GetString("MenuItem_0_AnalizBuzheti", ci); //Konfigurimi i zerave per ambjentet e analizes se buxhetit//
-			NavElement("analizeBuxheti", "ABParashikimShpenzimeKonfig.aspx").Text = rm.GetString("MenuItem_3_AnalizBuxheti", ci);  //Regjistrimi i buxhetit permbledhes//
-			NavElement("analizeBuxheti", "ABKonfiguroShpenzimeOperative.aspx").Text = rm.GetString("MenuItem_4_AnalizBuxheti", ci);   //Regjistrimi i parashikimit te shpenzimeve per personelin//
-			NavElement("analizeBuxheti", "ABBuxhetPermbledhes.aspx").Text = rm.GetString("MenuItem_5_AnalizBuxheti", ci);   //Regjistrimi i parashikimit te te ardhurave//
-			NavElement("analizeBuxheti", "ABParashikimShpenzPersoneli.aspx").Text = rm.GetString("MenuItem_6_AnalizBuxheti", ci);   //Regjistrimi i shpenzimeve kapitale//
-			NavElement("analizeBuxheti", "ABParashikimTeArdhura.aspx").Text = rm.GetString("MenuItem_7_AnalizBuxheti", ci);    //Regjistrimi i projektbuxhetit per tre vite
-			NavElement("analizeBuxheti", "ABShpenzimeKapitale.aspx").Text = rm.GetString("MenuItem_8_AnalizBuxheti", ci); //Regjistrimi i planifikimit te produkteve  // 
-			NavElement("analizeBuxheti", "ABPBuxheti3Vjecar.aspx").Text = rm.GetString("MenuItem_9_AnalizBuxheti", ci);  //Regjistrimi i shpenzimeve operative 
-			NavElement("analizeBuxheti", "ABPlanifikimiIProdukteve.aspx").Text = rm.GetString("MenuItem_12_AnalizBuxheti", ci);  //Regjistrimi i pasqyres organike
-			NavElement("analizeBuxheti", "ABShpenzimeOperative.aspx").Text = rm.GetString("MenuItem_13_AnalizBuxheti", ci); //Regjistrimi i evidences statistikore
-			NavElement("analizeBuxheti", "ABInventariPerdorues.aspx").Text = rm.GetString("MenuItem_31_AnalizBuxheti", ci); //Planifikim dhe realizim
-			NavElement("analizeBuxheti", "ABInventariVite.aspx").Text = rm.GetString("MenuItem_28_AnalizBuxheti", ci); //Regjistrim i realizimit te prokurimeve publike
-			NavElement("analizeBuxheti", "ABPasqyraOrganike.aspx").Text = rm.GetString("MenuItem_30_AnalizBuxheti", ci); //Regjistrim i parashikimit te prokurimeve publike
-			NavElement("analizeBuxheti", "ABEvidencaStatistikore.aspx").Text = rm.GetString("MenuItem_14_AnalizBuxheti", ci);  //Raporti per projekt buxhetin permbledhes
-			NavElement("analizeBuxheti", "ABPlanifikimRealizim.aspx").Text = rm.GetString("MenuItem_15_AnalizBuxheti", ci); //Raporti per parashikimin e te ardhurave
-			NavElement("analizeBuxheti", "ABProkurimePublike.aspx").Text = rm.GetString("MenuItem_16_AnalizBuxheti", ci); //Raporti per parashikimin e shpenzimeve per personelin
-			NavElement("analizeBuxheti", "ABProkurimePublikeParashikim.aspx").Text = rm.GetString("MenuItem_17_AnalizBuxheti", ci);  //Raporti per projekt buxhetin ne zerin e shpenzimeve operative ne vitet pasardhes
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=BuxhetPermbledhes").Text = rm.GetString("MenuItem_18_AnalizBuxheti", ci);  //Raporti per projekt buxhetin ne zerin e shpenzimeve operative ne 3 vitet pasardhese
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ParashikimiTeArdhura").Text = rm.GetString("MenuItem_22_AnalizBuxheti", ci);   //Raporti per parashikimin e shpenzimeve kapitale
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ParashikimShpenzPersoneli").Text = rm.GetString("MenuItem_20_AnalizBuxheti", ci);  //Raporti per projekt buxhetin 3 vjecar
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeOperative").Text = rm.GetString("MenuItem_19_AnalizBuxheti", ci);     //Raporti per shpenzimet operative ne baze mujore
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeOperative3Vjecar").Text = rm.GetString("MenuItem_21_AnalizBuxheti", ci); //Raporti per planifikimin e produkteve te programit
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeKapitale").Text = rm.GetString("MenuItem_23_AnalizBuxheti", ci);  //Raporti per parashikimin e shpenzimeve per vitin pasardhes(Raportuese)
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=PBuxheti3Vjecar").Text = rm.GetString("MenuItem_24_AnalizBuxheti", ci);            //Raporti permbledhes per shpenzimet operative
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeOperativeMujore").Text = rm.GetString("MenuItem_27_AnalizBuxheti", ci);  // Raporti i evidences statistikore(Raportuese)
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=PlanifikimiIProdukteve").Text = rm.GetString("MenuItem_25_AnalizBuxheti", ci);      //Raporti i inventarit sipas viteve (Raportuese)
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ParashikimShpenzimeshRaportuese").Text = rm.GetString("MenuItem_26_AnalizBuxheti", ci);     //Raporti i inventarit sipas perdoruesve(Raportuese)
-			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeOperativePermbledhese").Text = rm.GetString("MenuItem_29_AnalizBuxheti", ci);     //Regjistri i realizimit te prokurimeve publike
-			NavElement("analizeBuxheti", "ABPivotGrid.aspx?raporti=EvidencaStatistikore").Text = rm.GetString("MenuItem_32_AnalizBuxheti", ci);     //Tabela permbledhese e planifikimeve dhe realizimeve
+			// each page gets the resource string of its own name (the list had slipped by one place, 2026-11-22)
+			NavElement("analizeBuxheti", "ABKonfiguroFusha.aspx").Text = rm.GetString("MenuItem_0_AnalizBuzheti", ci);
+			NavElement("analizeBuxheti", "ABParashikimShpenzimeKonfig.aspx").Text = rm.GetString("MenuItem_1_AnalizBuzheti", ci);
+			NavElement("analizeBuxheti", "ABKonfiguroShpenzimeOperative.aspx").Text = rm.GetString("MenuItem_2_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABBuxhetPermbledhes.aspx").Text = rm.GetString("MenuItem_3_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABParashikimShpenzPersoneli.aspx").Text = rm.GetString("MenuItem_4_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABParashikimTeArdhura.aspx").Text = rm.GetString("MenuItem_5_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABShpenzimeKapitale.aspx").Text = rm.GetString("MenuItem_6_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABPBuxheti3Vjecar.aspx").Text = rm.GetString("MenuItem_7_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABPlanifikimiIProdukteve.aspx").Text = rm.GetString("MenuItem_8_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABShpenzimeOperative.aspx").Text = rm.GetString("MenuItem_9_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABInventariPerdorues.aspx").Text = rm.GetString("MenuItem_10_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABInventariVite.aspx").Text = rm.GetString("MenuItem_11_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABPasqyraOrganike.aspx").Text = rm.GetString("MenuItem_12_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABEvidencaStatistikore.aspx").Text = rm.GetString("MenuItem_13_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABPlanifikimRealizim.aspx").Text = rm.GetString("MenuItem_31_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABProkurimePublike.aspx").Text = rm.GetString("MenuItem_28_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABProkurimePublikeParashikim.aspx").Text = rm.GetString("MenuItem_30_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=BuxhetPermbledhes").Text = rm.GetString("MenuItem_14_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ParashikimiTeArdhura").Text = rm.GetString("MenuItem_15_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ParashikimShpenzPersoneli").Text = rm.GetString("MenuItem_16_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeOperative").Text = rm.GetString("MenuItem_17_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeOperative3Vjecar").Text = rm.GetString("MenuItem_18_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeKapitale").Text = rm.GetString("MenuItem_22_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=PBuxheti3Vjecar").Text = rm.GetString("MenuItem_20_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeOperativeMujore").Text = rm.GetString("MenuItem_19_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=PlanifikimiIProdukteve").Text = rm.GetString("MenuItem_21_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ParashikimShpenzimeshRaportuese").Text = rm.GetString("MenuItem_23_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=ShpenzimeOperativePermbledhese").Text = rm.GetString("MenuItem_24_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABRaporti.aspx?raporti=RegjistriIRealizimitTeProkurimevePublike").Text = rm.GetString("MenuItem_29_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABPivotGrid.aspx?raporti=EvidencaStatistikore").Text = rm.GetString("MenuItem_27_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABPivotGrid.aspx?raporti=InventariSipasViteve").Text = rm.GetString("MenuItem_25_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABPivotGrid.aspx?raporti=InventariSipasPerdoruesve").Text = rm.GetString("MenuItem_26_AnalizBuxheti", ci);
+			NavElement("analizeBuxheti", "ABPivotGrid.aspx?raporti=PlanifikimRealizim").Text = rm.GetString("MenuItem_32_AnalizBuxheti", ci);
 
 			//Buxheti
 			NavGrup("buxheti").Text = rm.GetString("MenuItemBuxheti", ci);

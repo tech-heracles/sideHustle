@@ -1,8 +1,6 @@
 ﻿; var identifikuesPerPopupMagazina = "Rivleresim";
 var identikuesPerPopupArtikulli = "Rivleresim";
 var pageState = false;
-window.parent.open("https://rivleresimi.alpha.al/Prezantohu.aspx", "_blank");
-window.parent.location.reload();
 function ButtonClickMagazina() {
     myButtonClickLupa.ButtonClickMagazina(hfState.Get("msgZgjidhMagazinen"), '', 720, 650);
 }

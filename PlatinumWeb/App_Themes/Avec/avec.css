@@ -1911,3 +1911,74 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) [id="lblEmriNdermarr
     font-weight: 600;
     color: var(--avec-text) !important;
 }
+
+/* ===================================================================================================
+   Fixes after the page-by-page review (2026-11-22)
+   =================================================================================================== */
+
+/* grid tools that hold more than icons (period radios, labels, combos) take their own row above the
+   search box instead of floating over it and over the column headers */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material:has(.dxgvSearchPanel_Material) .dxgvTitlePanel_Material:has(.dxeRadioButtonList_Material, .dxeButtonEdit_Material, .dxeTextBox_Material, span.dxeBase_Material) {
+    position: static !important;
+    width: 100% !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--avec-border) !important;
+    border-radius: 0 !important;
+    padding: 6px 10px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material:has(.dxeRadioButtonList_Material, .dxeButtonEdit_Material, .dxeTextBox_Material, span.dxeBase_Material) > table {
+    margin-left: auto;
+}
+
+/* radio lists (Periudha: Ditore, Javore, ...) use the theme text colour, not blue or red */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeRadioButtonList_Material label,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeRadioButtonList_Material .dxichTextCellSys,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeRadioButtonList_Material .dxichTextCellSys span {
+    color: var(--avec-text) !important;
+}
+
+/* old page toolbars (ASPxMenu with Height="5px" in the markup): the box grows with its buttons, so the
+   grid below no longer covers them (Lloje transporti, Kusht dergimi, Kusht pagese, Makro, ...) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal {
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[style*="width: 40%"],
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[style*="width:40%"] {
+    width: auto !important;
+}
+
+/* list pages whose grid was laid out at half the page width */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) form > div[style*="width: 50%"]:has(table.dxgvControl_Material),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) form > div[style*="width:50%"]:has(table.dxgvControl_Material) {
+    width: 100% !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material[style*="width:50%"]:not(.dxpc-content table),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material[style*="width:40%"]:not(.dxpc-content table) {
+    width: 100% !important;
+}
+
+/* page tabs never touch each other ("Te pergjithshmeKontakti") */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtc-stripContainer li.dxtc-tab,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtc-stripContainer li.dxtc-activeTab {
+    margin-right: 20px !important;
+}
+
+/* selectize fields (Formate printimi, Konfigurim dokumenti) follow the dark theme */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-input,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-input.full,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-input input,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-dropdown {
+    background: var(--avec-surface-high) !important;
+    color: var(--avec-text) !important;
+    border-color: var(--avec-border) !important;
+    box-shadow: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-dropdown .active {
+    background: var(--avec-orange-tint) !important;
+    color: var(--avec-text) !important;
+}
