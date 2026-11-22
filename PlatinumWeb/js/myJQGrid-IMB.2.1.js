@@ -1522,7 +1522,9 @@ myJQGrid.fixGridWidth = function (grid, mainDiv, niveli) {
         if (widthToSet <= 0)
             return;
         //console.log("SetWidth: " + widthToSet+"; niveli: "+niveli);
-        grid.jqGrid('setGridWidth', widthToSet, true);
+        // a grid that is not fully built yet (e.g. Shto amortizim fillestar on load) makes jqGrid throw here;
+        // the width is set again on the next resize, so the page must not stop on it
+        try { grid.jqGrid('setGridWidth', widthToSet, true); } catch (e) { }
     }
 };
 

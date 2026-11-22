@@ -1,0 +1,83 @@
+/* AVEC theme: fixes after the page-by-page review (2026-11-22).
+   Its own file so that browsers fetch it at once (theme files carry no version in their URL). */
+
+
+/* grid tools that hold more than icons (period radios, labels, combos) take their own row above the
+   search box instead of floating over it and over the column headers */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material:has(.dxgvSearchPanel_Material) .dxgvTitlePanel_Material:has(.dxeRadioButtonList_Material, .dxeButtonEdit_Material, .dxeTextBox_Material, span.dxeBase_Material) {
+    position: static !important;
+    width: 100% !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--avec-border) !important;
+    border-radius: 0 !important;
+    padding: 6px 10px !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material:has(.dxeRadioButtonList_Material, .dxeButtonEdit_Material, .dxeTextBox_Material, span.dxeBase_Material) > table {
+    margin-left: auto;
+}
+
+/* radio lists (Periudha: Ditore, Javore, ...) use the theme text colour, not blue or red */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeRadioButtonList_Material label,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeRadioButtonList_Material .dxichTextCellSys,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxeRadioButtonList_Material .dxichTextCellSys span {
+    color: var(--avec-text) !important;
+}
+
+/* old page toolbars (ASPxMenu with Height="5px" in the markup): the box grows with its buttons, so the
+   grid below no longer covers them (Lloje transporti, Kusht dergimi, Kusht pagese, Makro, ...) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal {
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[style*="width: 40%"],
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[style*="width:40%"] {
+    width: auto !important;
+}
+
+/* list pages whose grid was laid out at half the page width */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) form > div[style*="width: 50%"]:has(table.dxgvControl_Material),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) form > div[style*="width:50%"]:has(table.dxgvControl_Material) {
+    width: 100% !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material[style*="width:50%"]:not(.dxpc-content table),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material[style*="width:40%"]:not(.dxpc-content table) {
+    width: 100% !important;
+}
+
+/* page tabs never touch each other ("Te pergjithshmeKontakti") */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer li.dxtc-tab:not(.dxtc-last),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material > .dxtc-stripContainer li.dxtc-activeTab:not(.dxtc-last) {
+    margin-right: 20px !important;
+}
+
+/* selectize fields (Formate printimi, Konfigurim dokumenti) follow the dark theme */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-input,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-input.full,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-input input,
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-dropdown {
+    background: var(--avec-surface-high) !important;
+    color: var(--avec-text) !important;
+    border-color: var(--avec-border) !important;
+    box-shadow: none !important;
+}
+
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-dropdown .active {
+    background: var(--avec-orange-tint) !important;
+    color: var(--avec-text) !important;
+}
+
+/* list view of pages whose tab strip has more than one row (ul.dxtc-row, e.g. Celje arka/banka): the record
+   tabs stay hidden until a record is opened, like on the other pages (avec.css, "list view" rule) */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) ul.dxtc-row:has(> li.dxtc-tab.dxtc-lead:is([style*="display:none"], [style*="display: none"])) > li.dxtc-tab:not(.dxtc-lead) {
+    display: none !important;
+}
+
+/* the page toolbar moves up onto the tab row only when the page itself has tabs at the top; tabs inside the
+   document accordion (Shto ekzekutim: "Produktet") keep the toolbar in its own row above the form */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):not(:has(.dxtcLite_Material.dxtc-top:not(.ui-accordion .dxtcLite_Material))) div:has(> table div.dxm-main[id$="ASPxMenu1"]) {
+    position: static !important;
+    width: 100% !important;
+}

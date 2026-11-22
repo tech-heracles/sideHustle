@@ -604,6 +604,7 @@
     <Content Include="css\avec-shell.css" />
     <Content Include="images\brand\avec-favicon.png" />
     <Content Include="App_Themes\Avec\avec.css" />
+    <Content Include="App_Themes\Avec\zzzz-avec-review.css" />
     <Content Include="css\avec-login.css" />
     <Content Include="images\brand\avec-icon-192.png" />
     <Content Include="images\brand\avec-icon-512.png" />
