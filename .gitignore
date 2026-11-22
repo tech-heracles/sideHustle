@@ -33,3 +33,6 @@ PlatinumWeb/avecLicense.config
 PlatinumWeb/App_Data/licencat-avec.dat
 
 docs/sql/optimisation/*.log
+
+# local runtime data of this installation (Firebase company id -> company id)
+PlatinumWeb/App_Data/avec-ndermarrjet.json
