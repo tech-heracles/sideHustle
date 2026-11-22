@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LupaDegaAdministrative.aspx.cs"
     Inherits="PlatinumWeb.LupaDegaAdministrative" %>
+<%@ Register TagPrefix="avec" Namespace="PlatinumWeb" Assembly="PlatinumWeb" %>
 
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web" TagPrefix="dx" %>
@@ -51,24 +52,7 @@
                     <table width="100%">
                         <tr>
                             <td>
-                                <dx:ASPxMenu ID="ASPxMenu1" ClientVisible="false"  ClientInstanceName="ASPxMenu1" runat="server" OnDataBound="ASPxMenu1_DataBound"
-                                    ItemImagePosition="Top" Width="100%" AutoPostBack="true" ShowPopOutImages="True"
-                                   >
-                                    <RootItemSubMenuOffset FirstItemX="-1" FirstItemY="-1" X="-1" Y="-1" />
-                                    <SubMenuStyle GutterWidth="0px" HorizontalAlign="Justify" />
-                                    <ClientSideEvents ItemClick="function(s, e) {
-	                        menu_click(s,e);
-                            }" Init="function(s) {s.SetClientVisible(true);}" />
-                                    <ItemImage Height="32px" Width="32px">
-                                    </ItemImage>
-                                    <SubMenuItemImage Height="16px" Width="16px">
-                                    </SubMenuItemImage>
-                                    <ItemStyle DropDownButtonSpacing="12px" PopOutImageSpacing="18px" VerticalAlign="Middle">
-                                        <Paddings PaddingBottom="1px" PaddingTop="9px" />
-                                    </ItemStyle>
-                                    <SubMenuItemStyle Width="32px">
-                                    </SubMenuItemStyle>
-                                </dx:ASPxMenu>
+                                <avec:AvecToolbar ID="ASPxMenu1" runat="server" OnDataBound="ASPxMenu1_DataBound" />
                             </td>
                         </tr>
                         <tr>

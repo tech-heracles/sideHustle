@@ -4550,6 +4550,7 @@
     <Compile Include="GjendjeArkeDitore.aspx.designer.cs">
       <DependentUpon>GjendjeArkeDitore.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AvecToolbar.cs" />
     <Compile Include="Helpers\CombineScripts.cs" />
     <Compile Include="Helpers\EksportRapid.cs" />
     <Compile Include="Helpers\ScriptDeferFilter.cs" />

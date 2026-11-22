@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Shto_RegjistrimDokumentash.aspx.cs" Inherits="PlatinumWeb.Shto_RegjistrimDokumentash" Async="true" %>
+<%@ Register TagPrefix="avec" Namespace="PlatinumWeb" Assembly="PlatinumWeb" %>
 
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dxnb" %>
@@ -58,22 +59,7 @@
             <ContentTemplate>
                 <div id="divLart">
                     <div id="dvMenuButona">
-                        <dx:ASPxMenu ID="ASPxMenu1" ClientVisible="false" runat="server" AutoPostBack="true" ClientInstanceName="ASPxMenu1"
-                            ItemImagePosition="Top" OnDataBound="ASPxMenu1_DataBound" OnItemClick="ASPxMenu1_ItemClick"
-                            SeparatorWidth="1px" ShowPopOutImages="True" Width="100%">
-                            <RootItemSubMenuOffset FirstItemX="-1" FirstItemY="-1" X="-1" Y="-1" />
-                            <SubMenuStyle GutterWidth="0px" HorizontalAlign="Justify" />
-                            <ClientSideEvents ItemClick="menu_click" Init="function(s) {s.SetClientVisible(true);}" />
-                            <ItemImage Height="32px" Width="32px">
-                            </ItemImage>
-                            <SubMenuItemImage Height="16px" Width="16px">
-                            </SubMenuItemImage>
-                            <ItemStyle DropDownButtonSpacing="12px" PopOutImageSpacing="18px" VerticalAlign="Middle">
-                                <Paddings PaddingBottom="1px" PaddingTop="9px" />
-                            </ItemStyle>
-                            <SubMenuItemStyle Width="32px">
-                            </SubMenuItemStyle>
-                        </dx:ASPxMenu>
+                        <avec:AvecToolbar ID="ASPxMenu1" runat="server" OnDataBound="ASPxMenu1_DataBound" OnItemClick="ASPxMenu1_ItemClick" SeparatorWidth="1px" ClientSideEvents-ItemClick="menu_click" />
                     </div>
                     <div id="dvMenu" style="display: none">
                         <asp:UpdatePanel ID="pnlMesazhi" runat="server" UpdateMode="Conditional">

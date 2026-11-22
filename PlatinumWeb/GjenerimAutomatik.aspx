@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GjenerimAutomatik.aspx.cs" Inherits="PlatinumWeb.GjenerimAutomatik" %>
+<%@ Register TagPrefix="avec" Namespace="PlatinumWeb" Assembly="PlatinumWeb" %>
 
 
 <%@ Register Assembly="EO.Web" Namespace="EO.Web" TagPrefix="eo" %>
@@ -42,22 +43,7 @@
         <div>
             <asp:UpdatePanel runat="server" ID="pnl">
                 <ContentTemplate>
-                    <dx:ASPxMenu ID="ASPxMenu1" ClientVisible="false"  ClientInstanceName="ASPxMenu1" runat="server" OnDataBound="ASPxMenu1_DataBound"
-                        ItemImagePosition="Top" Width="100%" AutoPostBack="true" ShowPopOutImages="True"
-                        OnItemClick="ASPxMenu1_ItemClick" SeparatorWidth="1px">
-                        <RootItemSubMenuOffset FirstItemX="-1" FirstItemY="-1" X="-1" Y="-1" />
-                        <SubMenuStyle GutterWidth="0px" HorizontalAlign="Justify" />
-                        <ClientSideEvents  ItemClick="function(s, e) { menuClick(s,e);}" Init="function(s) {s.SetClientVisible(true);}" />
-                        <ItemImage Height="32px" Width="32px">
-                        </ItemImage>
-                        <SubMenuItemImage Height="16px" Width="16px">
-                        </SubMenuItemImage>
-                        <ItemStyle DropDownButtonSpacing="12px" PopOutImageSpacing="18px" VerticalAlign="Middle">
-                            <Paddings PaddingBottom="1px" PaddingTop="9px" />
-                        </ItemStyle>
-                        <SubMenuItemStyle Width="32px">
-                        </SubMenuItemStyle>
-                    </dx:ASPxMenu>
+                    <avec:AvecToolbar ID="ASPxMenu1" runat="server" OnDataBound="ASPxMenu1_DataBound" OnItemClick="ASPxMenu1_ItemClick" SeparatorWidth="1px" ClientSideEvents-ItemClick="function(s, e) { menuClick(s,e);}" />
                     <asp:UpdatePanel ID="pnlMesazhi" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
                             <dx:ASPxMenu ID="MenuInfo" runat="server" ClientInstanceName="MenuInfo" Width="100%"
