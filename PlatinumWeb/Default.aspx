@@ -6,7 +6,7 @@
     <title>AVEC Accounting</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/avec-dashboard.css?v=2" rel="stylesheet" />
+    <link href="css/avec-dashboard.css?v=3" rel="stylesheet" />
 </head>
 <body class="avec-dashboard">
     <form id="form1" runat="server">
@@ -166,6 +166,20 @@
                 return c;
             }
 
+            // "+ E re" on a list card: opens the form for a new document of that list
+            function addNewButton(c, onClick) {
+                var b = el('span', 'dash-card-new');
+                b.setAttribute('role', 'button');
+                b.setAttribute('tabindex', '0');
+                b.title = 'Dokument i ri';
+                b.innerHTML = '<i class="fa fa-plus"></i> E re';
+                function go(ev) { ev.stopPropagation(); ev.preventDefault(); onClick(ev); }
+                b.addEventListener('click', go);
+                b.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') go(ev); });
+                c.classList.add('dash-card-has-new');
+                c.appendChild(b);
+            }
+
             // the page header shows the name of the card that opened the page (FaqeKryesore: avecMenuTitleFor)
             function open(source, item, ev, title) {
                 host.avecMenuTitle = title ? { url: item.name || '', title: title } : null;
@@ -255,6 +269,57 @@
                 }
             }
 
+            // ---- grouping inside a module, by what the page is for (2026-11-22) ----
+            // sections of the top menu -> the function they serve, in this order
+            var SECTION_OF = {
+                'regjistrime': 'Dokumente', 'çelje': 'Të dhëna bazë', 'celje': 'Të dhëna bazë',
+                'konfigurime': 'Konfigurime', 'raporte': 'Raporte', 'raportet': 'Raporte', 'administrim': 'Të dhëna bazë'
+            };
+            var SECTION_ORDER = ['', 'Dokumente', 'Të dhëna bazë', 'Konfigurime', 'Raporte', 'Administrim'];
+            // each module also shows its own reports (they stay in the "Raporte" card too)
+            var MODULE_REPORTS = {
+                kontabiliteti: ['raportet.aspx?idmod=7'],
+                inventari: ['raportet.aspx?idmod=16', 'raportegrida.aspx?lloji=gjendjaemagazines', 'raportegrida.aspx?lloji=gjendjaeartikujvemeseriale'],
+                blerjeShitje: ['raportet.aspx?idmod=12', 'raportet.aspx?idmod=13', 'raportet.aspx?idmod=9'],
+                arkaBanka: ['raportet.aspx?idmod=2', 'raportet.aspx?idmod=6'],
+                hr: ['raportet.aspx?idmod=17'],
+                prodhimi: ['raportet.aspx?idmod=18'],
+                qk: ['raportet.aspx?idmod=20'],
+                amortizimi: ['raportet.aspx?idmod=21'],
+                buxheti: ['raportet.aspx?idmod=57']
+            };
+
+            function sectionOf(e) {
+                var s = SECTION_OF[(e.section || '').toLowerCase()];
+                if (s !== undefined) return s;
+                return e.section ? e.section : '';
+            }
+
+            // a page that creates a new document (its list is shown on another card)
+            function isNewForm(e) {
+                var u = (e.item.name || '').toLowerCase();
+                return u.indexOf('shtim_modifikim=shtim') !== -1 || /(^|·\s*)e re$/i.test(e.desc || '') ||
+                    /^shto /i.test(e.title) || / (e re|i ri)$/i.test(e.title);
+            }
+
+            // page name without "Shto"/"Shto_" and without the letter e, so Shto_Planifikim ~ Planifikimi,
+            // ShtoVeprimBanka ~ VeprimeBanka; query values (lloji=..., lloj=...) must match too
+            function pageKey(u) {
+                var parts = (u || '').toLowerCase().split('?');
+                var name = parts[0].replace('.aspx', '').replace(/shto_?/g, '').replace(/e/g, '');
+                var vals = (parts[1] || '').split('&').map(function (kv) { return kv.split('=')[1] || ''; })
+                    .filter(function (v) { return v && v !== 'shtim'; });
+                return { name: name, vals: vals };
+            }
+
+            function sameDocument(list, form) {
+                if (list.title.toLowerCase() === form.title.toLowerCase().replace(/^shto /, '')) return true;
+                var a = pageKey(list.item.name), b = pageKey(form.item.name);
+                if (!(a.name && b.name && (a.name.indexOf(b.name) === 0 || b.name.indexOf(a.name) === 0))) return false;
+                return a.vals.every(function (v) { return b.vals.indexOf(v) !== -1; }) &&
+                    b.vals.every(function (v) { return a.vals.indexOf(v) !== -1; });
+            }
+
             // ---- render ----
             function showModule(m) {
                 var meta = MODULES[m.key] || { icon: 'fa-folder-o' };
@@ -263,19 +328,47 @@
                 crumbs.hidden = false;
                 crumbTitle.textContent = m.text;
 
+                var entries = m.entries.slice();
+                (MODULE_REPORTS[m.key] || []).forEach(function (u) {
+                    var r = seen[u];
+                    if (r && entries.indexOf(r) === -1)
+                        entries.push({ title: r.title, header: r.header || r.title, desc: '', section: 'Raporte', source: r.source, item: r.item, report: true });
+                });
+
+                // list + new form of the same document = one card with an "E re" button
+                var forms = entries.filter(isNewForm), lists = entries.filter(function (e) { return !isNewForm(e); });
+                var used = [];
+                lists.forEach(function (l) {
+                    if (l.report) return;
+                    for (var i = 0; i < forms.length; i++) {
+                        if (used.indexOf(forms[i]) === -1 && sameDocument(l, forms[i])) { l.newForm = forms[i]; used.push(forms[i]); break; }
+                    }
+                });
+                var shown = lists.concat(forms.filter(function (f) { return used.indexOf(f) === -1; }));
+
                 var sections = {}, names = [];
-                m.entries.forEach(function (e) {
-                    var s = e.section || '';
+                shown.forEach(function (e) {
+                    var s = e.newForm && sectionOf(e) === '' ? sectionOf(e.newForm) : sectionOf(e);
                     if (!sections[s]) { sections[s] = []; names.push(s); }
                     sections[s].push(e);
                 });
-                names.sort(function (a, b) { return a === '' ? -1 : b === '' ? 1 : byText(a, b); });
+                names.sort(function (a, b) {
+                    var ia = SECTION_ORDER.indexOf(a), ib = SECTION_ORDER.indexOf(b);
+                    if (ia === -1) ia = SECTION_ORDER.length; if (ib === -1) ib = SECTION_ORDER.length;
+                    return ia - ib || byText(a, b);
+                });
                 var withHeaders = names.length > 1;
                 names.forEach(function (s) {
                     if (withHeaders) grid.appendChild(el('h2', 'dash-section', s || 'Kryesore'));
                     sections[s].sort(function (a, b) { return byText(a.title, b.title) || byText(a.desc, b.desc); });
                     sections[s].forEach(function (e) {
-                        grid.appendChild(card(meta.icon, e.title, e.desc, function (ev) { open(e.source, e.item, ev, e.header || e.title); }, true));
+                        var desc = e.newForm ? (e.desc || '').replace(/\s*·?\s*lista$/i, '') : e.desc;
+                        var c = card(e.report ? 'fa-file-text-o' : meta.icon, e.title, desc, function (ev) { open(e.source, e.item, ev, e.header || e.title); }, true);
+                        if (e.newForm) {
+                            var f = e.newForm;
+                            addNewButton(c, function (ev) { open(f.source, f.item, ev, f.header && f.header !== f.title ? f.header : e.title + ' – e re'); });
+                        }
+                        grid.appendChild(c);
                     });
                 });
                 window.scrollTo(0, 0);

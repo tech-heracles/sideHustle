@@ -81,3 +81,49 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):not(:has(.dxtcLite_M
     position: static !important;
     width: 100% !important;
 }
+
+/* ---- CRM (opens in its own tab): AVEC colours instead of the old green */
+html:has(link[href*="AlphaCRM.css"]) .header,
+html:has(link[href*="AlphaCRM.css"]) .footer {
+    background: var(--avec-surface, #1a1a1a) !important;
+    border-bottom: 1px solid var(--avec-border, #383838) !important;
+    color: var(--avec-text, #f2f2f0) !important;
+}
+
+html:has(link[href*="AlphaCRM.css"]) .fa {
+    color: var(--avec-orange, #e8683a);
+}
+
+/* the CRM tiles are green PNGs with a white icon: shifted to the AVEC orange, the icon stays white */
+img[src*="images/CRM/fa-"] {
+    filter: hue-rotate(226deg) saturate(2.2) brightness(0.95);
+}
+
+/* agents' route calendar: the light days (#F2F2F2 set inline by the scheduler) follow the dark theme */
+.dxscDateCellBody_Material[style*="#F2F2F2"],
+.dxscDateCellBody_Material[style*="#f2f2f2"] {
+    background-color: var(--avec-surface-highest, #2e2e2e) !important;
+    border-color: var(--avec-border, #383838) !important;
+}
+
+/* ---- report viewer (DevExpress web document viewer, Raporti.aspx): dark surface and toolbar; the report
+   pages themselves stay white like paper */
+.dxrd-designer-wrapper.dxd-surface-back-color {
+    background-color: var(--avec-bg, #121212) !important;
+}
+
+.dxrd-preview .dxrd-toolbar-wrapper,
+.dxrd-preview .dxrd-toolbar {
+    background-color: var(--avec-surface, #1a1a1a) !important;
+    border-color: var(--avec-border, #383838) !important;
+}
+
+.dxrd-preview .dx-button.dx-button-normal {
+    background-color: var(--avec-surface-high, #232323) !important;
+    color: var(--avec-text, #f2f2f0) !important;
+    border-color: var(--avec-border, #383838) !important;
+}
+
+.dxrd-preview .dx-button.dx-button-normal .dx-button-text {
+    color: var(--avec-text, #f2f2f0) !important;
+}

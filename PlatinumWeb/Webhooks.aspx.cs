@@ -264,7 +264,7 @@ namespace PlatinumWeb
         }
         private void EmrateTabeve()
         {
-            ASPxPageControl1.TabPages[0].Text = MessagesResource.Messages[""];
+            ASPxPageControl1.TabPages[0].Text = MessagesResource.Messages["TePergjithshmeTab"];
             ASPxPageControl1.TabPages[1].Text = MessagesResource.Messages["MenuItemWebhooks"];
         }
         private void konfiguroVleraFillestare(int idPerdoruesi, int idNdermarrje, ResourceManager rm, CultureInfo cultinf, int idGjuha)

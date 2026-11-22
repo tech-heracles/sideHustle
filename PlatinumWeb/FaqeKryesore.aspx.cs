@@ -955,8 +955,8 @@ namespace PlatinumWeb
 			NavElement("qk", "KonfigurimeQK.aspx").Text = rm.GetString("MenuItemKonfigurimeQK", ci);
 			NavElement("qk", "Shto_QendraKosto.aspx").Text = rm.GetString("MenuItemQendraKostoShto", ci);
 			NavElement("qk", "Shto_SkemaQendraKosto.aspx").Text = rm.GetString("MenuItemSkemaQendraKosto", ci);
-			NavElement("qk", "Shto_ObjektivaKosto.aspx").Text = rm.GetString("MenuItemRegjistrimQK", ci);
-			NavElement("qk", "RegjistrimQendraKosto.aspx").Text = rm.GetString("MenuItemRegjistrimQKRe", ci);
+			NavElement("qk", "RegjistrimQendraKosto.aspx").Text = "Regjistrime në qendra kosto"; // the resource strings were swapped
+			NavElement("qk", "Shto_RegjistrimQendraKosto.aspx").Text = "Regjistrim në qendra kosto i ri";
 
 
 			NavGrup("amortizimi").Text = rm.GetString("MenuItemAmortizimi", ci);

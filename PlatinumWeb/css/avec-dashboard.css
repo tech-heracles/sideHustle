@@ -234,3 +234,39 @@ html, body.avec-dashboard {
 .dash-section:first-child {
     margin-top: 0;
 }
+
+/* list card with its "+ E re" (new document) button on the right */
+.dash-card-has-new {
+    position: relative;
+    padding-right: 78px;
+}
+
+.dash-card-new {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 9px;
+    border: 1px solid #383838;
+    border-radius: 8px;
+    background: #232323;
+    color: #f2f2f0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.dash-card-new .fa {
+    color: #e8683a;
+    font-size: 11px;
+}
+
+.dash-card-new:hover,
+.dash-card-new:focus-visible {
+    border-color: #e8683a;
+    background: rgba(232, 104, 58, 0.14);
+    outline: none;
+}
