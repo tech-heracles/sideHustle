@@ -941,8 +941,8 @@
                                                                         </dx:MenuItem>
                                                                     </Items>
                                                                 </dx:MenuItem>
-                                                                <%-- Rivleresimi i inventarit (RivleresimMagazine.aspx) is a page with no content that only opened
-                                                                     the vendor's external site; removed from the menu 2026-11-22 --%>
+                                                                <dx:MenuItem Name="RivleresimMagazine.aspx" Text="Rivlerësimi i inventarit" Visible="false">
+                                                                </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>                                                        
                                                         <dx:MenuItem Text="Prodhimi" Name="prodhim" Visible="false">
