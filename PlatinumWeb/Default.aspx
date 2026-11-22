@@ -241,7 +241,9 @@
                     var title = it.GetText(), desc = parentText, header = title;
                     if (GENERIC.test(title) && parentText) {
                         title = parentText;
-                        header = parentText + (/^lista$/i.test(it.GetText()) ? '' : ' – ' + it.GetText());
+                        header = /^lista$/i.test(it.GetText()) ? parentText
+                            : /^e re$/i.test(it.GetText()) ? 'Shto ' + parentText.toLowerCase()
+                            : parentText + ' – ' + it.GetText();
                         desc = (t.length > 3 ? t[t.length - 3] + ' · ' : '') + it.GetText();
                     }
                     var k = key(it.name);
