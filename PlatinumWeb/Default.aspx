@@ -166,13 +166,13 @@
                 return c;
             }
 
-            // "+ E re" on a list card: opens the form for a new document of that list
+            // "+ Shto" on a list card: opens the form for a new document of that list
             function addNewButton(c, onClick) {
                 var b = el('span', 'dash-card-new');
                 b.setAttribute('role', 'button');
                 b.setAttribute('tabindex', '0');
-                b.title = 'Dokument i ri';
-                b.innerHTML = '<i class="fa fa-plus"></i> E re';
+                b.title = 'Shto dokument të ri';
+                b.innerHTML = '<i class="fa fa-plus"></i> Shto';
                 function go(ev) { ev.stopPropagation(); ev.preventDefault(); onClick(ev); }
                 b.addEventListener('click', go);
                 b.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') go(ev); });
@@ -366,7 +366,7 @@
                         var c = card(e.report ? 'fa-file-text-o' : meta.icon, e.title, desc, function (ev) { open(e.source, e.item, ev, e.header || e.title); }, true);
                         if (e.newForm) {
                             var f = e.newForm;
-                            addNewButton(c, function (ev) { open(f.source, f.item, ev, f.header && f.header !== f.title ? f.header : e.title + ' – e re'); });
+                            addNewButton(c, function (ev) { open(f.source, f.item, ev, f.header && f.header !== f.title ? f.header : 'Shto ' + e.title.toLowerCase()); });
                         }
                         grid.appendChild(c);
                     });
