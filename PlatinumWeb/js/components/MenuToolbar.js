@@ -66,27 +66,18 @@ function MenuToolbar() {
         };
 
         this.expandAll = function () {
-            var splitpane0 = window.parent.splitter.GetPane(0);
-            var splitpane1 = window.parent.splitter.GetPane(1);
-            var splitpane4 = window.parent.splitter.GetPane(2);
-            var splitpane2 = splitpane1.GetPane(0);
-            var splitpane3 = splitpane1.GetPane(1);
-            if (splitpane0 == null || splitpane1 == null || splitpane2 == null || splitpane3 == null || splitpane4 == null) return;
-            splitpane0.Collapse(splitpane1);
-            splitpane4.Collapse(splitpane1);
-            splitpane2.Collapse(splitpane3);
+            // pa panelin e navigimit (hequr 2026-11-23): ekran i plote = palosen koka dhe fundi
+            var s = window.parent && window.parent.splitter;
+            if (!s || !s.GetPane(0) || !s.GetPane(1) || !s.GetPane(2)) return;
+            s.GetPane(0).Collapse(s.GetPane(1));
+            s.GetPane(2).Collapse(s.GetPane(1));
         };
 
         this.collapseAll = function () {
-            var splitpane0 = window.parent.splitter.GetPane(0);
-            var splitpane1 = window.parent.splitter.GetPane(1);
-            var splitpane4 = window.parent.splitter.GetPane(2);
-            var splitpane2 = splitpane1.GetPane(0);
-            var splitpane3 = splitpane1.GetPane(1);
-            if (splitpane0 == null || splitpane1 == null || splitpane2 == null || splitpane3 == null || splitpane4 == null) return;
-            splitpane0.Expand(splitpane1);
-            splitpane4.Expand(splitpane1);
-            splitpane2.Expand(splitpane3);            
+            var s = window.parent && window.parent.splitter;
+            if (!s || !s.GetPane(0) || !s.GetPane(1) || !s.GetPane(2)) return;
+            s.GetPane(0).Expand(s.GetPane(1));
+            s.GetPane(2).Expand(s.GetPane(1));
         };
     };
 

@@ -104,8 +104,52 @@ $(document).ready(function () {
     var stringKonfigRap = hfState.Get("konfigRap");
     hfState.Remove("konfigRap");
     pageState.params = { konfigRap: stringKonfigRap == "" ? false : JSON.parse(stringKonfigRap), lista: JSON.parse(hfState.Get("listaRap")), fushaLinkut: pageState.fushaLinkut, idModuliRaporteve: pageState.idModuliRaporteve, selektorHomeMenu: pageState.selektorHomeMenu, fushaEmrit: pageState.fushaEmrit, fushaIdRaportit: pageState.idRaporti, etiketa: { kryesore: (pageState.idGjuha == 0 ? "Kryesore" : "Main"), teTjera: (pageState.idGjuha == 0 ? "Te tjera" : "Others"), raporteTeri: (pageState.idGjuha == 0 ? "Raporte te rinj" : "New reports") }, selektorMenu: ".titull" };
-    $("#menuHomePage").imblist(pageState.params);
+    ndertoKartat();
 });
+
+// Raportet e modulit si karta, njesoj si kartat e Kryefaqes (pa grupe, pa "Te tjera", pa shirita), sipas alfabetit.
+// Karta hap raportin si me pare: me filtra (filtroButtonClick), per kubet (moduli 19) linkun nga databaza.
+function ndertoKartat() {
+    var p = pageState.params;
+    var kerko = $('<div class="avec-raportet-kerko"><input type="search" placeholder="Kërko raport…" /></div>');
+    $(p.selektorMenu).empty().append(kerko);
+    var grid = $('<main class="dash-grid dash-grid-items"></main>');
+    var bosh = $('<p class="dash-empty" hidden>Nuk ka raporte.</p>');
+    $(p.selektorHomeMenu).empty().append(grid, bosh);
+    var lista = (p.lista || []).slice().sort(function (a, b) {
+        return String(a[p.fushaEmrit] || '').localeCompare(String(b[p.fushaEmrit] || ''), 'sq', { sensitivity: 'base' });
+    });
+    function hap(item) {
+        if (p.idModuliRaporteve != 19) {
+            filtroButtonClick(item[p.fushaIdRaportit], item[p.fushaEmrit]);
+            return;
+        }
+        var linku = String(item[p.fushaLinkut] || '').replace(/^'|'$/g, '');
+        if (/^javascript:/i.test(linku))
+            (new Function(linku.replace(/^javascript:/i, '').replace(/&quot;/g, '"')))();
+        else if (linku)
+            window.location.href = linku;
+    }
+    function shfaq(filtri) {
+        var f = (filtri || '').toLowerCase();
+        grid.empty();
+        var n = 0;
+        lista.forEach(function (item) {
+            var emri = String(item[p.fushaEmrit] || '');
+            if (f && emri.toLowerCase().indexOf(f) === -1) return;
+            var c = $('<button type="button" class="dash-card dash-card-small">' +
+                '<div class="dash-card-top"><span class="dash-icon"><i class="fa fa-file-text-o"></i></span><i class="fa fa-arrow-right dash-arrow"></i></div>' +
+                '<div class="dash-card-body"><span class="dash-card-title"></span></div></button>');
+            c.find('.dash-card-title').text(emri);
+            c.on('click', function () { hap(item); });
+            grid.append(c);
+            n++;
+        });
+        bosh.prop('hidden', n > 0);
+    }
+    kerko.find('input').on('input', function () { shfaq(this.value); });
+    shfaq('');
+}
 
 function changeName() {
     myFaqeCelje.shtoHandlerSession();

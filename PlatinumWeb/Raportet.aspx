@@ -9,6 +9,8 @@
     <title>AVEC Accounting</title>
     
      <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
+    <link href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/avec-dashboard.css?v=3" rel="stylesheet" />
     <link href="js/css/le-frog/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"
         runat="server" id="themeJQuery" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -174,9 +176,18 @@
                 width: 138px;
                 height: 116px;
             }
+        /* raportet si karta, njesoj si Kryefaqja (Default.aspx / avec-dashboard.css), 2026-11-23 */
+        .avec-raportet-kerko { margin: 0 0 4px 0; }
+        .avec-raportet-kerko input {
+            width: 280px; max-width: 100%; height: 34px; padding: 0 12px; border-radius: 8px;
+            border: 1px solid #383838; background: #1a1a1a; color: #f2f2f0; font-size: 14px; outline: none;
+        }
+        .avec-raportet-kerko input:focus { border-color: #e8683a; }
+        #menuHomePage .dash-grid { display: grid !important; padding: 12px 0; }
+        #menuHomePage .dash-card { width: auto !important; margin: 0 !important; }
     </style>
 
-    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/imbList.js;~/js/aspx.js/Raportet.aspx-IMB.2.1.js&v76"
+    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/imbList.js;~/js/aspx.js/Raportet.aspx-IMB.2.1.js&v82"
         type="text/javascript"></script> 
 </head>
 <body class="bootstrap-iso">

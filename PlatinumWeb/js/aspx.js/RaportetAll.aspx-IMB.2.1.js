@@ -37,13 +37,11 @@ window.RaportetAll = (function () {
     };
 
     var expandAll = function (s, e) {
-        splitpane0.Collapse(splitpane1);
-        splitpane2.Collapse(splitpane3);
+        if (splitpane0 && splitpane1) splitpane0.Collapse(splitpane1);   // paneli i navigimit nuk ekziston me
     };
 
     var collapseAll = function (s, e) {
-        splitpane0.Expand(splitpane1);
-        splitpane2.Expand(splitpane3);
+        if (splitpane0 && splitpane1) splitpane0.Expand(splitpane1);
     };
 
     return {
