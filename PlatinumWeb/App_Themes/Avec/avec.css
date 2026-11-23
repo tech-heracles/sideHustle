@@ -1707,11 +1707,18 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizo
    Model picker and Importo are hidden at the user's request.
    ================================================================== */
 
-/* ---- hidden: Model picker (cmbKonfigurimi row) and Importo */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="konfigurimi_Label"]),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="lblKonfigurimi"]),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="lblModeli"]),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> table[id$="cmbKonfigurimi"]) {
+/* ---- hidden: Model picker (cmbKonfigurimi row) and Importo
+   A cell that also holds a grid is never hidden: in 66 lupat the picker sits directly in the round panel's
+   content cell together with the grid, and hiding that cell left the lupa black (2026-11-23). There only the
+   picker itself is hidden. */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="konfigurimi_Label"]):not(:has(.dxgv, .ui-jqgrid)),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="lblKonfigurimi"]):not(:has(.dxgv, .ui-jqgrid)),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="lblModeli"]):not(:has(.dxgv, .ui-jqgrid)),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> table[id$="cmbKonfigurimi"]):not(:has(.dxgv, .ui-jqgrid)),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(.dxgv, .ui-jqgrid) > table[id$="cmbKonfigurimi"],
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(.dxgv, .ui-jqgrid) > [id$="lblKonfigurimi"],
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(.dxgv, .ui-jqgrid) > [id$="konfigurimi_Label"],
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(.dxgv, .ui-jqgrid) > [id$="lblModeli"] {
     display: none !important;
 }
 

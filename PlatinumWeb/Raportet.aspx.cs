@@ -14,7 +14,6 @@ namespace PlatinumWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            StiliPerRaportet();
             if (!IsPostBack)
             {
                 EmrateLabelave();
@@ -79,12 +78,5 @@ namespace PlatinumWeb
             btnExpandAll.ToolTip = MessagesResource.Messages["tooltipBtnExpandAll"];
         }
 
-        private void StiliPerRaportet()
-        {
-            if (Convert.ToInt32(Request.QueryString["idTheme"]) == 1941)
-            {
-                menuHomePage.Attributes.Add("class", "Box_MetropolisBlue");
-            }
-        }
     }
 }

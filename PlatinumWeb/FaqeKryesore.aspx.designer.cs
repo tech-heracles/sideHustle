@@ -92,6 +92,10 @@ namespace PlatinumWeb
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::DevExpress.Web.ASPxMenu ASPxMenuPerdoruesi;
+
+        protected global::System.Web.UI.WebControls.PlaceHolder phMenuteVjetra;
+
         protected global::DevExpress.Web.ASPxMenu ASPxMenu1;
 
         /// <summary>

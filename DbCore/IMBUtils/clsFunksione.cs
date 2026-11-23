@@ -2673,10 +2673,10 @@ namespace DbCore
 			using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin())
 			{
 				DataTable dt = dbAdmin.merrNdermarrjetEPerdoruesitDataTable(idPerdoruesi);
-				int idTheme = clsThemesAmbjente.ktheIdTheme(idPerdoruesi);
+				// idTheme nuk kalohet me ne URL: tema eshte gjithmone "Avec" (Web.config <pages theme>), askush nuk e lexonte
 				if (dt.Rows.Count == 0 || dt.Rows.Count > 1)//Nese kam me shume se nje ndermarrje shkoj tek faqja e ndermarrjeve
 				{
-					response.Redirect(shtoVarToUrl("Login_Ndermarrje.aspx?google=true", "idTheme", idTheme.ToString()), false);
+					response.Redirect("Login_Ndermarrje.aspx?google=true", false);
 					return new clsMesazh(true);
 				}
 				DataRow rreshti = dt.Rows[0];
@@ -2690,13 +2690,11 @@ namespace DbCore
 				mySessionObjects.ruajObjectNeSesion(sesioni, "shfaqdefault");
 				if (redirectToPage != "")
 				{
-					response.Redirect(shtoVarToUrl(redirectToPage, "idTheme", idTheme.ToString()), false);
+					response.Redirect(redirectToPage, false);
 					return mesazh;
 				}
-				//    response.Redirect(shtoVarToUrl(komponente, "idTheme", idTheme.ToString()), false);//tocheck Getson
-				//response.Redirect(shtoVarToUrl("FaqeKryesore.aspx", "idTheme", idTheme.ToString()), false); //tocheck Getson
 				string komponente = clsFunksione.ktheKomponenteDefaultPerPerdorues(idPerdoruesi, idNdermarrjes, "FaqeKryesore.aspx", vitiNdermarrjes);
-				response.Redirect(shtoVarToUrl(komponente, "idTheme", idTheme.ToString()), false); //tocheck Getson
+				response.Redirect(komponente, false);
 				return mesazh;
 			}
 		}
@@ -2820,10 +2818,8 @@ namespace DbCore
 			if (redirectToDefaultComponent)
 			{
 
-				int idTheme = IMBUtils.Types.Converter.MerrVlereOseDefault<int>(Request.QueryString["idTheme"]);
-				if (idTheme == 0) idTheme = DbCore.DbAdmin.clsThemesAmbjente.ktheIdTheme(idPerdoruesi);
 				var currentQueryString = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-				currentQueryString.Set("idTheme", idTheme.ToString());
+				currentQueryString.Remove("idTheme");   // mbetje nga temat per perdorues; tema eshte gjithmone "Avec"
 				currentQueryString.Set(ScopeManager.ScopeIdKey, newScopeID);
 				string komponente = DbCore.clsFunksione.ktheKomponenteDefaultPerPerdorues(idPerdoruesi, idNdermarrjes, "FaqeKryesore.aspx", vitiNdermarrjes);
 				var stringNgjites = komponente.ContainsAnyIgnoreCase("?") ? "&" : "?";

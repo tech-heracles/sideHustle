@@ -130,8 +130,20 @@
             }
 
             var host = window.parent && window.parent !== window ? window.parent : null;
-            var navbar = host && host.navbar;
-            var topMenu = host && host.menu;
+            // faqet qe perdoruesi mund te hape (sipas te drejtave), nga menuja e vjeter lart dhe navbar-i qe nuk shfaqen me:
+            // FaqeKryesore.aspx.cs i dergon si window.avecMenuTeDhena; ketu marrin te njejten forme si kontrollet e dikurshme
+            var teDhena = host && host.avecMenuTeDhena;
+            function nyje(d) {
+                var femijet = (d.c || []).map(nyje);
+                return {
+                    name: d.n, GetText: function () { return d.t; }, GetVisible: function () { return true; },
+                    GetItemCount: function () { return femijet.length; }, GetItem: function (i) { return femijet[i]; }
+                };
+            }
+            var grupet = teDhena ? teDhena.navbar.map(nyje) : [];
+            var navbar = teDhena && { GetGroupCount: function () { return grupet.length; }, GetGroup: function (i) { return grupet[i]; } };
+            var rrenja = teDhena && nyje({ n: '', t: '', c: teDhena.menu });
+            var topMenu = teDhena && { GetRootItem: function () { return rrenja; } };
             var grid = document.getElementById('dashGrid');
             var crumbs = document.getElementById('dashCrumbs');
             var crumbTitle = document.getElementById('dashCrumbTitle');

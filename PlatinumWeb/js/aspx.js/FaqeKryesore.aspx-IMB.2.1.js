@@ -60,14 +60,10 @@ function kontrolloTeDrejta(s, e, emrimenuse) {
         return;
     }
     myCookies.createCookie('adresa', emrimenuse, 1);
-    var idTheme = Utils.getNumberOrDefaultFromUrl('idTheme') == 0 ? hfState.Get("idTheme") : 0;
-
-    if (isNaN(idTheme)) idTheme = 0;
-
-    if (idTheme > 0) emrimenuse = emrimenuse.indexOf('?') != -1 ? emrimenuse + '&idTheme=' + idTheme : emrimenuse + '?' + 'idTheme=' + idTheme;
+    // idTheme nuk shtohet me ne URL: tema eshte gjithmone "Avec" (Web.config), askush nuk e lexonte
 
     if (emrimenuse.indexOf("ABPivotGrid") > -1) {
-        emrimenuse = emrimenuse + "&width=" + window.document.body.clientWidth;
+        emrimenuse = Utils.setUrlVar("width", window.document.body.clientWidth, emrimenuse);
     }
     emrimenuse = Utils.setUrlVar("scopeID", Utils.getUrlVar("scopeID"), emrimenuse);
 
@@ -166,7 +162,7 @@ $(document).ready(function (e) {
         stringKonfigMenuSiper = hfState.Get("konfigMenuSiper");
         pageState.idPerdoruesi = hfState.Get("idPerdoruesi");
         pageState.idNdermarrje = hfState.Get("idNdermarrje");
-        window.menuMajtas = new imbMenu(navbar, stringKonfigMenuMajtas, window.menuTypes.navbar, pageState.idPerdoruesi, pageState.idNdermarrje, { idGjuha: hfState.Get("idGjuha") });
+        // menuja majtas (navbar) nuk ekziston me, as personalizimi i saj (imbMenu)
 
         njoftimet = JSON.parse(hfState.Get("njoftimet"));
         afishonjoftime = hfState.Get("afishonjoftime");
@@ -182,7 +178,7 @@ $(document).ready(function (e) {
 
 
 function shfaqSettings() {
-    window.menuMajtas.personalizo();
+    if (window.menuMajtas) window.menuMajtas.personalizo();
 }
 var GetWebhook;
 function pageRefresh(s, e) {//

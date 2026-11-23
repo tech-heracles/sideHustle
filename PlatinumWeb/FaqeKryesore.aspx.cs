@@ -100,7 +100,7 @@ namespace PlatinumWeb
 				string urlImazhPerdoruesi = DbCore.DbShare.clsArkiva.ktheImazhPerdoruesi(idPerdoruesi);
 				if (String.IsNullOrEmpty(urlImazhPerdoruesi) || !System.IO.File.Exists(Server.MapPath(urlImazhPerdoruesi)))
 					urlImazhPerdoruesi = "images/new/perdorues.png";
-				DevExpress.Web.MenuItem ikonaImazhPerdorues = ASPxMenu1.Items.FindByName("ikonaImazhPerdorues");
+				DevExpress.Web.MenuItem ikonaImazhPerdorues = ASPxMenuPerdoruesi.Items.FindByName("ikonaImazhPerdorues");
 				ikonaImazhPerdorues.Image.Url = urlImazhPerdoruesi;
 				ikonaImazhPerdorues.Image.Width = 25;
 				ikonaImazhPerdorues.Image.Height = 25;
@@ -139,8 +139,6 @@ namespace PlatinumWeb
 					hfState.Set("SkadimCertifikate", exCertificateDate);
 				else hfState.Set("SkadimCertifikate", "");
 				EmrateLabelave(ci);
-				var idTheme = !String.IsNullOrEmpty(Request.QueryString["idTheme"]) ? Convert.ToInt32(Request.QueryString["idTheme"]) : DbCore.DbAdmin.clsThemesAmbjente.ktheIdTheme(idPerdoruesi);
-				hfState.Set("idTheme", idTheme);
 				var komponente = !String.IsNullOrEmpty(Request.QueryString["ambienti"]) ? buildQueryStringNgaAmbienti(Request.QueryString) : string.Empty;
 				if (!String.IsNullOrEmpty(Request.QueryString["ambDef"]) && Request.QueryString["ambDef"] == "Dashboard.aspx")
 					komponente = "Dashboard.aspx";
@@ -153,7 +151,6 @@ namespace PlatinumWeb
 					komponente = "Default.aspx";
 				}
 				var scopeID = Request.Params[ScopeManager.ScopeIdKey];
-				komponente = DbCore.clsFunksione.shtoVarToUrl(komponente, "idTheme", idTheme.ToString());
 				komponente = DbCore.clsFunksione.shtoVarToUrl(komponente, ScopeManager.ScopeIdKey, scopeID);
 				ASPxSplitter1.GetPaneByName("paneKryesor").ContentUrl = komponente;
 
@@ -161,8 +158,7 @@ namespace PlatinumWeb
 				cookie.Expires = DateTime.Now.AddDays(1);
 				Response.Cookies.Add(cookie);
 
-				var komponenteFooter = DbCore.clsFunksione.shtoVarToUrl("FooterPanelInfo.aspx", "idTheme", idTheme.ToString());
-				komponenteFooter = clsFunksione.shtoVarToUrl(komponenteFooter, ScopeManager.ScopeIdKey, scopeID);
+				var komponenteFooter = clsFunksione.shtoVarToUrl("FooterPanelInfo.aspx", ScopeManager.ScopeIdKey, scopeID);
 				ASPxSplitter1.GetPaneByName("Footer").ContentUrl = komponenteFooter;
 
 				var njoftimet = new DbCore.DbShare.colNjoftime(idPerdoruesi, DateTime.Now);
@@ -189,6 +185,41 @@ namespace PlatinumWeb
 			queryString = queryString.StartsWith("&") ? queryString.Remove(0, 1) : queryString.EndsWith("&") ? queryString.Remove(queryString.Length - 1, 1) : queryString;
 			return queryStringCol["ambienti"] + "?" + queryString;
 		}
+		protected void Page_PreRender(object sender, EventArgs e)
+		{
+			if (!IsPostBack && DbCore.mySessionObjects.isLogedIn(Session))
+				RegjistroMenuneEKartave();
+		}
+
+		/// <summary>
+		/// Menuja e vjeter lart (ASPxMenu1) dhe navbar-i (ASPxNavBar1) nuk shfaqen me (jane ne phMenuteVjetra, Visible=false):
+		/// pasi TeDrejta() dhe EmrateLabelave() kane vendosur te drejtat dhe emrat, faqet qe perdoruesi mund te hape i
+		/// dergohen shfletuesit si window.avecMenuTeDhena, nga e cila Default.aspx ndertimin e kartave te Kryefaqes.
+		/// Merren vetem elementet qe me pare dergoheshin dhe ishin te dukshme ne shfletues (Visible dhe ClientVisible).
+		/// </summary>
+		private void RegjistroMenuneEKartave()
+		{
+			Func<MenuItem, object> nyjeMenuje = null;
+			nyjeMenuje = m => new
+			{
+				n = m.Name,
+				t = m.Text,
+				c = m.Items.Cast<MenuItem>().Where(x => x.Visible && x.ClientVisible).Select(nyjeMenuje).ToList()
+			};
+			var teDhena = new
+			{
+				menu = ASPxMenu1.Items.Cast<MenuItem>().Where(x => x.Visible).Select(nyjeMenuje).ToList(),
+				navbar = ASPxNavBar1.Groups.Cast<NavBarGroup>().Where(g => g.Visible && g.ClientVisible).Select(g => new
+				{
+					n = g.Name,
+					t = g.Text,
+					c = g.Items.Cast<NavBarItem>().Where(x => x.Visible && x.ClientVisible).Select(x => new { n = x.Name, t = x.Text }).ToList()
+				}).ToList()
+			};
+			string json = JsonConvert.SerializeObject(teDhena, new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml });
+			ClientScript.RegisterClientScriptBlock(GetType(), "avecMenuTeDhena", "window.avecMenuTeDhena = " + json + ";", true);
+		}
+
 		protected void refreshFooter(object sender, EventArgs e)
 		{
 			ASPxSplitter1.GetPaneByName("Footer").ContentUrl = "FooterPanelInfo.aspx";
@@ -421,7 +452,7 @@ namespace PlatinumWeb
 				// group is not shown for the others (2026-11-22)
 				if (!DbCore.DbAdmin.clsNdermarrje.EshteRaportuese(DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)))
 					NavGrup("analizeBuxheti").ClientVisible = false;
-				DevExpress.Web.MenuItem ikonaImazhPerdoruesMenuLart = ASPxMenu1.Items.FindByName("ikonaImazhPerdorues");
+				DevExpress.Web.MenuItem ikonaImazhPerdoruesMenuLart = ASPxMenuPerdoruesi.Items.FindByName("ikonaImazhPerdorues");
 				ikonaImazhPerdoruesMenuLart.Visible = true;
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("LupaPersonalizoPerdorues.aspx").Visible = true;
 				ikonaImazhPerdoruesMenuLart.Items.FindByName("mesazhe").Visible = true;
@@ -450,11 +481,10 @@ namespace PlatinumWeb
 					if ((Request.UrlReferrer != null && (HttpUtility.ParseQueryString(Request.UrlReferrer.Query)["vjenNga"] == "CRM"))
 						|| (DbCore.mySessionObjects.merrObjectNgaSesioni(Session) != null && DbCore.mySessionObjects.merrObjectNgaSesioni(Session).ToString() == "shfaqdefault"))
 					{
-						int idTheme = clsThemesAmbjente.ktheIdTheme(idPerdoruesi);
 						string komponente = clsFunksione.ktheKomponenteDefaultPerPerdorues(idPerdoruesi, idNdermarrje, String.Empty, KodViti);
 						if (komponente != "")
 						{
-							Response.Redirect(DbCore.clsFunksione.shtoVarToUrl(komponente, "idTheme", idTheme.ToString()), false);
+							Response.Redirect(komponente, false);
 							return;
 						}
 						DbCore.mySessionObjects.ruajObjectNeSesion(Session, "");
@@ -873,7 +903,7 @@ namespace PlatinumWeb
 			Menu("raportet", "RaporteGrida.aspx?lloji=GjendjaEArtikujveMeSeriale").Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
 
 
-			DevExpress.Web.MenuItem ikonaImazhPerdoruesMenuLart = ASPxMenu1.Items.FindByName("ikonaImazhPerdorues");
+			DevExpress.Web.MenuItem ikonaImazhPerdoruesMenuLart = ASPxMenuPerdoruesi.Items.FindByName("ikonaImazhPerdorues");
 			ikonaImazhPerdoruesMenuLart.Visible = true;
 			var perdoruesEmerItem = ikonaImazhPerdoruesMenuLart.Items.FindByName("LupaPersonalizoPerdorues.aspx");
 			perdoruesEmerItem.Visible = true;

@@ -42,12 +42,12 @@
     <link rel="dx-theme" data-theme="generic.alphaweb" href="Content/dx.generic.alphaweb.css" data-active="true" />
     <link rel="dx-theme" data-theme="generic.alphaweb.compact" href="Content/dx.generic.alphaweb-compact.css" data-active="false" />
     
-    <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/menu.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v77"> 
+    <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/menu.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v81"> 
     </script>
     <script src="/signalr/hubs"></script>
 
     <link href="FaqeKryesore.css" rel="stylesheet" />
-    <link href="css/avec-shell.css?v=2" rel="stylesheet" />
+    <link href="css/avec-shell.css?v=3" rel="stylesheet" />
     <style>
         html {
             min-height: 100%; /* make sure it is at least as tall as the viewport */
@@ -337,10 +337,186 @@
 
 
                                     <div id="menu" class="menu">
-                                        <dx:ASPxMenu ID="ASPxMenu1" Width="100%" Height="100%" runat="server" EnableClientSideAPI="true" ClientInstanceName="menu">
-                                            <%-- the top menu is no longer shown: its pages are on the home cards (Default.aspx), only the user menu stays --%>
-                                            <ClientSideEvents ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}"
-                                                Init="function(s, e) { var r = s.GetRootItem(); for (var i = 0; i < r.GetItemCount(); i++) { if (r.GetItem(i).name !== 'ikonaImazhPerdorues') r.GetItem(i).SetVisible(false); } }" />
+                                        <dx:ASPxMenu ID="ASPxMenuPerdoruesi" Width="100%" Height="100%" runat="server" EnableClientSideAPI="true" ClientInstanceName="menu">
+                                            <%-- menuja e perdoruesit (lart djathtas); faqet e programit hapen nga kartat e Kryefaqes (Default.aspx) --%>
+                                            <ClientSideEvents ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}" />
+                                            <Items>
+                                                <dx:MenuItem Text="" ItemStyle-Paddings-PaddingTop="6px" Name="ikonaImazhPerdorues"
+                                                    ItemStyle-DropDownButtonStyle-Paddings-PaddingRight="5px" ItemStyle-Paddings-PaddingLeft="14px" ItemStyle-Width="64px">
+                                                    <Items>
+                                                        <dx:MenuItem Text="Perdorues" Name="LupaPersonalizoPerdorues.aspx">
+                                                        </dx:MenuItem>
+                                                        <dx:MenuItem Text="Fjalekalimi" Name="NdryshimFjalekalimi.aspx">
+                                                        </dx:MenuItem>
+                                                        <dx:MenuItem Text="Mesazhe" Name="mesazhe">
+                                                        </dx:MenuItem>
+                                                        <dx:MenuItem Text="Dalje" Name="dalje">
+                                                        </dx:MenuItem>
+                                                    </Items>
+                                                </dx:MenuItem>
+                                            </Items>
+                                        </dx:ASPxMenu>
+                                    </div>
+
+                                </div>
+
+                            </dx:SplitterContentControl>
+                        </ContentCollection>
+                    </dx:SplitterPane>
+                    <%-- Middle pane--%>
+                    <dx:SplitterPane ScrollBars="Auto">
+                        <Separators Size="0px" Visible="False">
+                        </Separators>
+                        <Panes>
+                            <%-- Main pane (iOS problem pane) --%>
+                            <dx:SplitterPane Name="paneKryesor" ContentUrl="javascript:false" ContentUrlIFrameName="frameKryesor"
+                                ScrollBars="Auto" PaneStyle-BackColor="#121212" AutoWidth="true">
+                                <PaneStyle BackColor="#121212">
+                                </PaneStyle>
+                                <ContentCollection>
+                                    <dx:SplitterContentControl ID="SplitterContentControl3" Height="100%" runat="server">
+                                        <div id='diviKryesor'>
+                                        </div>
+                                    </dx:SplitterContentControl>
+                                </ContentCollection>
+                            </dx:SplitterPane>
+
+                        </Panes>
+                    </dx:SplitterPane>
+                    <%-- Footer pane --%>
+                    <dx:SplitterPane Size="30px" ScrollBars="None" AutoWidth="true" MinSize="30px" MaxSize="30px" ShowCollapseForwardButton="True" PaneStyle-Paddings-Padding="0"
+                        Name="Footer" ContentUrl="FooterPanelInfo.aspx" PaneStyle-BackColor="#121212" PaneStyle-CssClass="footer1"
+                        ContentUrlIFrameName="frameFooter">
+                    </dx:SplitterPane>
+                </Panes>
+                <ClientSideEvents Init="function(s,e){pageRefresh(s,e);}"></ClientSideEvents>
+            </dx:ASPxSplitter>
+
+            <dx:ASPxHiddenField ID="hfPeriudhKontabel" runat="server" ClientInstanceName="hfPeriudhKontabel">
+            </dx:ASPxHiddenField>
+            <dx:ASPxHiddenField ID="hfState" runat="server" ClientInstanceName="hfState">
+            </dx:ASPxHiddenField>
+            <asp:HiddenField ID="hfPeriudha" runat="server" />
+            <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupUniversal" runat="server" AllowDragging="True" ClientInstanceName="popupUniversal"
+                CloseAction="CloseButton" EnableAnimation="False" EnableViewState="False" HeaderText="Zgjidh periudhen kontabel"
+                Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"
+                Width="600px" Height="600px" ClientIDMode="AutoID" CssPostfix="Glass" Style="background-color: #EDF3F4">
+                <HeaderStyle>
+                    <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
+                </HeaderStyle>
+                <ContentCollection>
+                    <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
+                        <iframe id="Container" clientidmode="Static" scrolling="no" frameborder="0" runat="server"
+                            width="600" height="600" style="background-color: #EDF3F4"></iframe>
+                    </dx:PopupControlContentControl>
+                </ContentCollection>
+            </dx:ASPxPopupControl>
+            <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupSettings" runat="server" AllowDragging="True" ClientInstanceName="popupSettings"
+                CloseAction="CloseButton" EnableAnimation="False" EnableViewState="False" HeaderText="Zgjidh elementet e menuve"
+                Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"
+                Width="600px" Height="600px" ClientIDMode="AutoID" CssPostfix="Glass" Style="background-color: #EDF3F4">
+                <HeaderStyle>
+                    <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
+                </HeaderStyle>
+                <ContentCollection>
+                    <dx:PopupControlContentControl ID="PopupControlContentControl5" runat="server">
+                        <dx:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel4" runat="server" ClientIDMode="AutoID" Width="680px">
+                            <PanelCollection>
+                                <dx:PanelContent ID="PanelContent4" runat="server" SupportsDisabledAttribute="True">
+                                </dx:PanelContent>
+                            </PanelCollection>
+                        </dx:ASPxPanel>
+                    </dx:PopupControlContentControl>
+                </ContentCollection>
+            </dx:ASPxPopupControl>
+            <uc1:TimeoutControl ID="SessionTimeout" runat="server" />
+            <dx:ASPxHiddenField ID="hfUsername" runat="server"></dx:ASPxHiddenField>
+        </div>
+
+        <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popUpDiteTeMbeturaLicenca" runat="server" AllowDragging="True" ClientIDMode="AutoID"
+            ClientInstanceName="popUpDiteTeMbeturaLicenca" CloseAction="CloseButton" CssPostfix="Glass" EnableAnimation="False" HeaderStyle-HorizontalAlign="Center"
+            EnableViewState="False" Font-Bold="true" HeaderText="Skadim liçence!" HeaderStyle-Font-Size="Medium" Modal="True" PopupHorizontalAlign="WindowCenter"
+            PopupVerticalAlign="WindowCenter" Width="300px">
+            <HeaderStyle>
+                <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
+            </HeaderStyle>
+            <ContentCollection>
+                <dx:PopupControlContentControl ID="PopupControlContentControl2" runat="server">
+                    <dx:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel2" runat="server" ClientIDMode="AutoID" Width="271px">
+                        <PanelCollection>
+                            <dx:PanelContent ID="PanelContent2" runat="server" SupportsDisabledAttribute="True">
+
+                                <div style="text-align: center;">
+
+                                    <dx:ASPxLabel Width="100%" runat="server" ID="lblDiteTeMbeturaTeLicenca" ClientIDMode="AutoID"
+                                        ClientInstanceName="lblDiteTeMbeturaTeLicenca" Font-Bold="True"
+                                        Text="" Font-Size="Small" Wrap="True">
+                                    </dx:ASPxLabel>
+                                </div>
+                                <br />
+                                <div style="text-align: center">
+                                    <dx:ASPxButton ID="ASPxButton1" Width="70px" runat="server" CausesValidation="False" ClientInstanceName="ButtonOk"
+                                        Text="Ok" AutoPostBack="False">
+                                        <ClientSideEvents Click="function(s, e) {popUpDiteTeMbeturaLicenca.Hide();}" />
+                                    </dx:ASPxButton>
+
+                                </div>
+                                <div style="visibility: hidden">
+                                </div>
+                            </dx:PanelContent>
+                        </PanelCollection>
+                    </dx:ASPxPanel>
+                </dx:PopupControlContentControl>
+            </ContentCollection>
+        </dx:ASPxPopupControl>
+
+        <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popUpAzhornim" ContentStyle-HorizontalAlign="Center" runat="server" AllowDragging="True" ClientIDMode="AutoID" ShowOnPageLoad="false"
+            ClientInstanceName="popUpAzhornim" CloseAction="CloseButton" CssPostfix="Glass" EnableAnimation="False" HeaderStyle-HorizontalAlign="Center"
+            EnableViewState="False" Font-Bold="true" HeaderText="Azhurnim versioni!" HeaderStyle-Font-Size="Medium" Modal="True" PopupHorizontalAlign="WindowCenter"
+            PopupVerticalAlign="WindowCenter" Width="300px">
+            <HeaderStyle>
+                <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
+            </HeaderStyle>
+            <ContentCollection>
+                <dx:PopupControlContentControl ID="PopupControlContentControl3" runat="server">
+                    <dx:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel3" runat="server" ClientIDMode="AutoID" Width="500px">
+                        <PanelCollection>
+                            <dx:PanelContent ID="PanelContent3" runat="server" SupportsDisabledAttribute="True">
+
+                                <div style="text-align: center;">
+
+                                    <dx:ASPxLabel Width="100%" runat="server" ID="lblMesazhiPer" ClientIDMode="AutoID"
+                                        ClientInstanceName="lblMesazhiPer" Font-Bold="True"
+                                        Text="" Font-Size="Small" Wrap="True">
+                                    </dx:ASPxLabel>
+                                </div>
+                                <br />
+                                <div style="text-align: center">
+                                    <dx:ASPxButton ID="ASPxButton2" Width="70px" runat="server" CausesValidation="False" ClientInstanceName="ButtonOk"
+                                        Text="Ok" AutoPostBack="False">
+                                        <ClientSideEvents Click="function(s, e) {popUpAzhornim.Hide();}" />
+                                    </dx:ASPxButton>
+
+                                </div>
+                                <div style="visibility: hidden">
+                                </div>
+                            </dx:PanelContent>
+                        </PanelCollection>
+                    </dx:ASPxPanel>
+                </dx:PopupControlContentControl>
+            </ContentCollection>
+        </dx:ASPxPopupControl>
+         <!-- Place this tag where you want the Live Helper Plugin to render. -->
+        <div id="lhc_status_container_page" ></div>
+
+        
+    
+        <%-- Menuja e vjeter lart dhe navbar-i majtas: nuk shfaqen me (Visible=false, nuk dergohen ne shfletues).
+             Mbahen vetem si te dhena: te drejtat i fsheh/shfaq FaqeKryesore.aspx.cs dhe prej tyre ndertohen kartat
+             e Kryefaqes (window.avecMenuTeDhena, shih RegjistroMenuneEKartave). --%>
+        <asp:PlaceHolder ID="phMenuteVjetra" runat="server" Visible="false">
+        <dx:ASPxMenu ID="ASPxMenu1" Width="100%" Height="100%" runat="server">
+                                            
                                             <Items>
                                                 <dx:MenuItem Text="Administrimi" Name="administrimi">
                                                     <Items>
@@ -1196,54 +1372,18 @@
                                                         </dx:MenuItem>
                                                     </Items>
                                                 </dx:MenuItem>
-                                                <dx:MenuItem Text="" ItemStyle-Paddings-PaddingTop="6px" Name="ikonaImazhPerdorues"
-                                                    ItemStyle-DropDownButtonStyle-Paddings-PaddingRight="5px" ItemStyle-Paddings-PaddingLeft="14px" ItemStyle-Width="64px">
-                                                    <Items>
-                                                        <dx:MenuItem Text="Perdorues" Name="LupaPersonalizoPerdorues.aspx">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Text="Fjalekalimi" Name="NdryshimFjalekalimi.aspx">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Text="Mesazhe" Name="mesazhe">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Text="Dalje" Name="dalje">
-                                                        </dx:MenuItem>
-                                                    </Items>
-                                                </dx:MenuItem>
+
                                            
                                             </Items>
                                         </dx:ASPxMenu>
-                                    </div>
-
-                                </div>
-
-                            </dx:SplitterContentControl>
-                        </ContentCollection>
-                    </dx:SplitterPane>
-                    <%-- Middle pane--%>
-                    <dx:SplitterPane ScrollBars="Auto">
-                        <Separators Size="0px" Visible="False">
-                        </Separators>
-                        <Panes>
-                            <%-- Navigation pane --%>
-                            <dx:SplitterPane Size="170px" MinSize="150px" MaxSize="360px" ScrollBars="Auto" Collapsed="True" ShowCollapseBackwardButton="False"
-                                PaneStyle-Paddings-Padding="0" Name="paneNavigimi">
-                                <PaneStyle>
-                                </PaneStyle>
-                                <Separators Size="0px" Visible="False">
-                                </Separators>
-                                <ContentCollection>
-                                    <dx:SplitterContentControl ID="SplitterContentControl2" runat="server">
-                                        <dxnb:ASPxNavBar ID="ASPxNavBar1" runat="server" ClientInstanceName="navbar" Height="100%" Width="100%"
+        <dxnb:ASPxNavBar ID="ASPxNavBar1" runat="server" Height="100%" Width="100%"
                                             AutoCollapse="True" EnableAnimation="True" SyncSelectionMode="CurrentPath"
-                                            ClientSideEvents-ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}"
-                                            ClientSideEvents-HeaderClick="function (s,e) {grupKlick(s,e,e.group.name);}"
                                             EnableClientSideAPI="True" AllowSelectItem="true" Visible="true">
                                             <CollapseImage Height="0px" Width="0px">
                                             </CollapseImage>
                                             <ExpandImage Height="0px" Width="0px">
                                             </ExpandImage>
-                                            <ClientSideEvents HeaderClick="function (s,e) {grupKlick(s,e,e.group.name);}"
-                                                ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}" />
+                                            
                                             <Groups>
                                                 <dxnb:NavBarGroup Text="Administrimi" Name="Administrimi" Expanded="False">
                                                     <Items>
@@ -1583,152 +1723,7 @@
                                             <LoadingPanelImage>
                                             </LoadingPanelImage>
                                         </dxnb:ASPxNavBar>
-                                        <div id="newMenu" class="menu" style="display: none"></div>
-                                    </dx:SplitterContentControl>
-                                </ContentCollection>
-                            </dx:SplitterPane>
-                            <%-- Main pane (iOS problem pane) --%>
-                            <dx:SplitterPane Name="paneKryesor" ContentUrl="javascript:false" ContentUrlIFrameName="frameKryesor"
-                                ScrollBars="Auto" PaneStyle-BackColor="#121212" AutoWidth="true">
-                                <PaneStyle BackColor="#121212">
-                                </PaneStyle>
-                                <ContentCollection>
-                                    <dx:SplitterContentControl ID="SplitterContentControl3" Height="100%" runat="server">
-                                        <div id='diviKryesor'>
-                                        </div>
-                                    </dx:SplitterContentControl>
-                                </ContentCollection>
-                            </dx:SplitterPane>
-
-                        </Panes>
-                    </dx:SplitterPane>
-                    <%-- Footer pane --%>
-                    <dx:SplitterPane Size="30px" ScrollBars="None" AutoWidth="true" MinSize="30px" MaxSize="30px" ShowCollapseForwardButton="True" PaneStyle-Paddings-Padding="0"
-                        Name="Footer" ContentUrl="FooterPanelInfo.aspx" PaneStyle-BackColor="#121212" PaneStyle-CssClass="footer1"
-                        ContentUrlIFrameName="frameFooter">
-                    </dx:SplitterPane>
-                </Panes>
-                <ClientSideEvents Init="function(s,e){pageRefresh(s,e);}"></ClientSideEvents>
-            </dx:ASPxSplitter>
-
-            <dx:ASPxHiddenField ID="hfPeriudhKontabel" runat="server" ClientInstanceName="hfPeriudhKontabel">
-            </dx:ASPxHiddenField>
-            <dx:ASPxHiddenField ID="hfState" runat="server" ClientInstanceName="hfState">
-            </dx:ASPxHiddenField>
-            <asp:HiddenField ID="hfPeriudha" runat="server" />
-            <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupUniversal" runat="server" AllowDragging="True" ClientInstanceName="popupUniversal"
-                CloseAction="CloseButton" EnableAnimation="False" EnableViewState="False" HeaderText="Zgjidh periudhen kontabel"
-                Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"
-                Width="600px" Height="600px" ClientIDMode="AutoID" CssPostfix="Glass" Style="background-color: #EDF3F4">
-                <HeaderStyle>
-                    <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
-                </HeaderStyle>
-                <ContentCollection>
-                    <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
-                        <iframe id="Container" clientidmode="Static" scrolling="no" frameborder="0" runat="server"
-                            width="600" height="600" style="background-color: #EDF3F4"></iframe>
-                    </dx:PopupControlContentControl>
-                </ContentCollection>
-            </dx:ASPxPopupControl>
-            <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupSettings" runat="server" AllowDragging="True" ClientInstanceName="popupSettings"
-                CloseAction="CloseButton" EnableAnimation="False" EnableViewState="False" HeaderText="Zgjidh elementet e menuve"
-                Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"
-                Width="600px" Height="600px" ClientIDMode="AutoID" CssPostfix="Glass" Style="background-color: #EDF3F4">
-                <HeaderStyle>
-                    <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
-                </HeaderStyle>
-                <ContentCollection>
-                    <dx:PopupControlContentControl ID="PopupControlContentControl5" runat="server">
-                        <dx:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel4" runat="server" ClientIDMode="AutoID" Width="680px">
-                            <PanelCollection>
-                                <dx:PanelContent ID="PanelContent4" runat="server" SupportsDisabledAttribute="True">
-                                </dx:PanelContent>
-                            </PanelCollection>
-                        </dx:ASPxPanel>
-                    </dx:PopupControlContentControl>
-                </ContentCollection>
-            </dx:ASPxPopupControl>
-            <uc1:TimeoutControl ID="SessionTimeout" runat="server" />
-            <dx:ASPxHiddenField ID="hfUsername" runat="server"></dx:ASPxHiddenField>
-        </div>
-
-        <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popUpDiteTeMbeturaLicenca" runat="server" AllowDragging="True" ClientIDMode="AutoID"
-            ClientInstanceName="popUpDiteTeMbeturaLicenca" CloseAction="CloseButton" CssPostfix="Glass" EnableAnimation="False" HeaderStyle-HorizontalAlign="Center"
-            EnableViewState="False" Font-Bold="true" HeaderText="Skadim liçence!" HeaderStyle-Font-Size="Medium" Modal="True" PopupHorizontalAlign="WindowCenter"
-            PopupVerticalAlign="WindowCenter" Width="300px">
-            <HeaderStyle>
-                <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
-            </HeaderStyle>
-            <ContentCollection>
-                <dx:PopupControlContentControl ID="PopupControlContentControl2" runat="server">
-                    <dx:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel2" runat="server" ClientIDMode="AutoID" Width="271px">
-                        <PanelCollection>
-                            <dx:PanelContent ID="PanelContent2" runat="server" SupportsDisabledAttribute="True">
-
-                                <div style="text-align: center;">
-
-                                    <dx:ASPxLabel Width="100%" runat="server" ID="lblDiteTeMbeturaTeLicenca" ClientIDMode="AutoID"
-                                        ClientInstanceName="lblDiteTeMbeturaTeLicenca" Font-Bold="True"
-                                        Text="" Font-Size="Small" Wrap="True">
-                                    </dx:ASPxLabel>
-                                </div>
-                                <br />
-                                <div style="text-align: center">
-                                    <dx:ASPxButton ID="ASPxButton1" Width="70px" runat="server" CausesValidation="False" ClientInstanceName="ButtonOk"
-                                        Text="Ok" AutoPostBack="False">
-                                        <ClientSideEvents Click="function(s, e) {popUpDiteTeMbeturaLicenca.Hide();}" />
-                                    </dx:ASPxButton>
-
-                                </div>
-                                <div style="visibility: hidden">
-                                </div>
-                            </dx:PanelContent>
-                        </PanelCollection>
-                    </dx:ASPxPanel>
-                </dx:PopupControlContentControl>
-            </ContentCollection>
-        </dx:ASPxPopupControl>
-
-        <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popUpAzhornim" ContentStyle-HorizontalAlign="Center" runat="server" AllowDragging="True" ClientIDMode="AutoID" ShowOnPageLoad="false"
-            ClientInstanceName="popUpAzhornim" CloseAction="CloseButton" CssPostfix="Glass" EnableAnimation="False" HeaderStyle-HorizontalAlign="Center"
-            EnableViewState="False" Font-Bold="true" HeaderText="Azhurnim versioni!" HeaderStyle-Font-Size="Medium" Modal="True" PopupHorizontalAlign="WindowCenter"
-            PopupVerticalAlign="WindowCenter" Width="300px">
-            <HeaderStyle>
-                <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
-            </HeaderStyle>
-            <ContentCollection>
-                <dx:PopupControlContentControl ID="PopupControlContentControl3" runat="server">
-                    <dx:ASPxPanel EnableHierarchyRecreation="false" ID="ASPxPanel3" runat="server" ClientIDMode="AutoID" Width="500px">
-                        <PanelCollection>
-                            <dx:PanelContent ID="PanelContent3" runat="server" SupportsDisabledAttribute="True">
-
-                                <div style="text-align: center;">
-
-                                    <dx:ASPxLabel Width="100%" runat="server" ID="lblMesazhiPer" ClientIDMode="AutoID"
-                                        ClientInstanceName="lblMesazhiPer" Font-Bold="True"
-                                        Text="" Font-Size="Small" Wrap="True">
-                                    </dx:ASPxLabel>
-                                </div>
-                                <br />
-                                <div style="text-align: center">
-                                    <dx:ASPxButton ID="ASPxButton2" Width="70px" runat="server" CausesValidation="False" ClientInstanceName="ButtonOk"
-                                        Text="Ok" AutoPostBack="False">
-                                        <ClientSideEvents Click="function(s, e) {popUpAzhornim.Hide();}" />
-                                    </dx:ASPxButton>
-
-                                </div>
-                                <div style="visibility: hidden">
-                                </div>
-                            </dx:PanelContent>
-                        </PanelCollection>
-                    </dx:ASPxPanel>
-                </dx:PopupControlContentControl>
-            </ContentCollection>
-        </dx:ASPxPopupControl>
-         <!-- Place this tag where you want the Live Helper Plugin to render. -->
-        <div id="lhc_status_container_page" ></div>
-
-        
+        </asp:PlaceHolder>
     </form>
 
     
