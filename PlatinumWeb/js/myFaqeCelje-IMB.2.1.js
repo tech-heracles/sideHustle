@@ -270,7 +270,7 @@ myFaqeCelje.aktivizoFusha = function (vlerat, hfMod, hfLidhur, emerContaineri) {
         div = $('#dv' + idkontrolli)[0];
         kontrolli = $(emerContaineri + idkontrolli)[0];
         k = Utils.ktheKontroll(idkontrolli);
-        if (!k)
+        if (!k || Object.keys(k).length === 0) // kontroll qe s'ekziston me ne faqe (Utils.ktheKontroll kthen {})
             continue;
         var enabled = false;
         if (hfMod.value == "modifikim") {
@@ -301,7 +301,7 @@ myFaqeCelje.aktivFusha = function (colKontrollet, colAtrTrupi, hfMod, isLidhur, 
         div = $('#dv' + idkontrolli);
         kontrolli = $(emerContaineri + idkontrolli);
         k = Utils.ktheKontroll(idkontrolli);
-        if (!k)
+        if (!k || Object.keys(k).length === 0) // kontroll qe s'ekziston me ne faqe (Utils.ktheKontroll kthen {})
             continue;
         if ((idkontrolli == "dteSalesRepStartDate" || idkontrolli == "dteLeaveDateVodafoneVod") && k.GetEnabled() == false)
             continue;
@@ -578,7 +578,7 @@ myFaqeCelje.SucceededCallbackKonfigurimPergjithshemSeriale = function (colKontro
 
         idkontrolli = colKontrollet[i].KodKontrolli;
         k = Utils.ktheKontroll(idkontrolli);
-        if (!k)
+        if (!k || Object.keys(k).length === 0) // kontroll qe s'ekziston me ne faqe (Utils.ktheKontroll kthen {})
             continue;
         kontrolli = $(k.GetMainElement());
 
