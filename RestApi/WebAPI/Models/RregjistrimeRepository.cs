@@ -3139,15 +3139,6 @@ namespace RestApi.WebAPI.Models
         }
 
 
-        public static string KthePathinEThemit(string input)
-        {
-            DbCore.DbAdmin.clsTheme MyTheme = new DbCore.DbAdmin.clsTheme();
-            MyTheme.EmriTheme = input;
-            MyTheme = MyTheme.merrSipasEmri();
-
-            return MyTheme.PathTheme + ":" + MyTheme.IdTheme;
-        }
-
         internal static object ktheImazheArkive(int idEntitet, int idKategoria)
         {
             colArkiva myArkiva = new colArkiva();
@@ -4137,35 +4128,7 @@ namespace RestApi.WebAPI.Models
             }
             return kushtetPageses;
         }
-        public static clsThemesAmbjente ktheThemeAmbjenteSipasId(int id)
-        {
-            return id == 0 ? null : new clsThemesAmbjente(id);
-        }
 
-        public static object KtheEmratThemeSelektuar(int id, HttpSessionState session)
-        {
-            object[] vlerat = new object[5];
-            DbCore.DbAdmin.clsThemesAmbjente theme = new DbCore.DbAdmin.clsThemesAmbjente(id);
-            vlerat[0] = new DbCore.DbAdmin.clsThemesDevExpressJQuery(theme.IdThemeFrames).EmriTheme;
-            vlerat[1] = new DbCore.DbAdmin.clsThemesDevExpressJQuery(theme.IdThemeFrameKryesor).EmriTheme;
-            vlerat[2] = new DbCore.DbAdmin.clsThemesDevExpressJQuery(theme.IdThemeJQuery).EmriTheme;
-            vlerat[3] = new DbCore.DbAdmin.clsTheme(theme.IdBgImage).EmriTheme;
-            vlerat[4] = id;
-            return vlerat;
-        }
-        public static int KtheIDThemeBgImg(string input)
-        {
-            DbCore.DbAdmin.clsTheme MyTheme = new DbCore.DbAdmin.clsTheme();
-            MyTheme.EmriTheme = input;
-            MyTheme = MyTheme.merrSipasEmri();
-
-            return MyTheme.IdTheme;
-        }
-        public static int KtheIDThemeDevExJQuery(string input)
-        {
-            DbCore.DbAdmin.clsThemesDevExpressJQuery cls = new DbCore.DbAdmin.clsThemesDevExpressJQuery(input);
-            return cls.IdTheme;
-        }
         public static object KaVeprimeVendndodhje(int id)
         {
             return DbCore.DbListPagesat.clsVendndodhjet.kaVeprimeVendndodhjet(id);

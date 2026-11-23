@@ -1020,9 +1020,6 @@ namespace DbCore.DbAdmin
                         if (!mesazh.Status)
                             return mesazh;
                     }
-                    mesazh = clsThemesAmbjente.krijoThemesDefaultPerPerdorues(perdorues.IdPerdorues, dbAdmin);
-                    if (!mesazh.Status)
-                        return mesazh;
 
                     scope.Complete();
                     return new MesazhSuksesi(MessagesResource.Messages["mesazhRuajtjeMeSukses"]);

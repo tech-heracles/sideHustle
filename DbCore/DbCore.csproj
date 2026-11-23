@@ -1048,9 +1048,6 @@
     <Compile Include="DbAdmin\clsTeDrejtaRoli.cs" />
     <Compile Include="DbAdmin\clsTeDrejtat.cs" />
     <Compile Include="DbAdmin\clsTeDrejtaVeprim.cs" />
-    <Compile Include="DbAdmin\clsTheme.cs" />
-    <Compile Include="DbAdmin\clsThemesAmbjente.cs" />
-    <Compile Include="DbAdmin\clsThemesDevExpressJQuery.cs" />
     <Compile Include="DbAdmin\clsTipiFushaShtese.cs" />
     <Compile Include="DbAdmin\clsTrackUser.cs" />
     <Compile Include="DbAdmin\clsTrupiFormatImporti.cs" />
@@ -1118,9 +1115,6 @@
     <Compile Include="DbAdmin\colTeDrejtaRoli.cs" />
     <Compile Include="DbAdmin\colTeDrejtat.cs" />
     <Compile Include="DbAdmin\colTeDrejtatVeprimet.cs" />
-    <Compile Include="DbAdmin\colTheme.cs" />
-    <Compile Include="DbAdmin\colThemesAmbjente.cs" />
-    <Compile Include="DbAdmin\colThemesDevExpressJQuery.cs" />
     <Compile Include="DbAdmin\colTipeFushaShtese.cs" />
     <Compile Include="DbAdmin\colTrackUser.cs" />
     <Compile Include="DbAdmin\colTrupiFormatImporti.cs" />

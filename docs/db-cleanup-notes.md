@@ -9,12 +9,18 @@ Vodafone/Tollona procedures plus `T_MAPPING_BAZAAR` and `VodafoneView`, componen
 LupaNrAutomatik, LupaQendraKosto, LupaValidim, LupaQendraKostoPlote) and the client layouts listed at the end, except
 the ones that are the last layout of a report that stays (215 Alpha Bank book, 736 sales margin, ...).
 
+**Status 2026-11-23, part 2:** `06-heqja-konfigurimeve-dhe-temave.sql` (+ rollback, purge) is applied and purged on
+DRAFT: the Vodafone/Bazaar document configurations VFONE, USHDD, POROSIDD, BAZAAR, POROSIBAZAAR, FBD, FHDealer,
+"Promocioni Plus" (AE) and "Trasfero ne ISKSH" (TFISKSH) with their categories, levels and the pages
+Shto_AlphawebEnhancments / TransferoNeISKSH / LupaSkemaKontabel, and the per-user themes (T_THEME, T_THEMESAMBJENTE,
+T_THEMESDEVEXPRESSJQUERY, T_THEMEUSER, 27 procedures; the code no longer creates 10 theme rows per new user).
+FBKTHIM and FHKTHIM ("kthim" = return documents) were kept: their names are generic, so they need a decision first.
+
 **Still open** (not done, see the sections below): document types VFONE/USHDD/BAZAAR/..., the Vodafone/Tollona columns,
 `T_ARTIKULLVFONE` and `T_KLIENTPERBAZAAR` with their procedures (still called by the code), PRC_RAP_POROSI_VODAFONE and
 PRC_RAP_SHITJEANALITIKE_VODAFONE (report classes still in AlphaWebReports), the report classes of the deleted client
-layouts, the per-user themes (T_THEMESAMBJENTE, clsThemesAmbjente: still created for every new user, never read),
-components TransferoNeISKSH and Shto_AlphawebEnhancments (they have document categories), LupaSkemaKontabel.aspx (the
-page is missing but Shto_FleteKontabel still opens it: a broken lupa, not dead code).
+layouts, the VFONE/USHDD/BAZAAR special cases still in the sales code (clsKokaShitje, Shto_RegjistrimDokumentash), which only
+matter while such configurations exist in a client database.
 
 The code no longer uses the items below, but the AVEC database still contains them. Nothing here has been
 changed in the database yet. Each item says what the code does today, so the draft can be applied at any time.

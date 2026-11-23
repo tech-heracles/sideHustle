@@ -1929,7 +1929,6 @@ namespace DbCore.DbAdmin
             #region T U V X Y Z
             ukrijua = krijodt("T_TAKSAT", "SELECT * FROM  T_TAKSAT WHERE IDNDERM in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_TATIME", "SELECT * FROM  T_TATIME WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);
-            ukrijua = krijodt("T_THEMEUSER", "SELECT * FROM  T_THEMEUSER WHERE IDNDERMARRJE in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_TIPKONTRATE", "SELECT * FROM  T_TIPKONTRATE WHERE IDNDERMARJE in (" + inidnderm + ")", ds, ukrijua);
             ukrijua = krijodt("T_TRUPIFLETEKONTABEL", "SELECT T_TRUPIFLETEKONTABEL.* FROM dbo.T_TRUPIFLETEKONTABEL INNER JOIN dbo.T_KOKAFLETEKONTABEL ON dbo.T_TRUPIFLETEKONTABEL.IDKOKAFLETEKONTABEL = dbo.T_KOKAFLETEKONTABEL.IDKOKAFLETEKONTABEL WHERE IDNDERMARJE in (" + inidnderm + ") and IDKATEGORIA =5", ds, ukrijua);
             ukrijua = krijodt("T_TRUPIFLETEKONTABEL2", "SELECT T_TRUPIFLETEKONTABEL.* FROM dbo.T_TRUPIFLETEKONTABEL INNER JOIN dbo.T_KOKAFLETEKONTABEL ON dbo.T_TRUPIFLETEKONTABEL.IDKOKAFLETEKONTABEL = dbo.T_KOKAFLETEKONTABEL.IDKOKAFLETEKONTABEL WHERE IDNDERMARJE in (" + inidnderm + ") and IDKATEGORIA  in (1,2)", ds, ukrijua);

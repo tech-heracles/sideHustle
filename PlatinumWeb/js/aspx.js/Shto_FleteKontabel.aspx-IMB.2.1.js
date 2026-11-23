@@ -1939,13 +1939,6 @@ function LlogariteClick() {
 
 }
 
-function ShfaqSkemeKontabel() {
-    var hfSkemaFK = $("input[id$='hfLupaSkemaFK']")[0];
-    var queryStr = hfSkemaFK.value;
-    myButtonClickLupa.LupaUniversal_Click(hfState.Get("msgZgjidhSkemenKontabel"), 'LupaSkemaKontabel.aspx?default=0&idKonfigAmbjente=' + queryStr, 600, 600);
-
-}
-
 function ShfaqSkemeFleteKontabel() {
     var hfSkemaFK = $("input[id$='hfLupaSkemaFK']")[0];
     var queryStr = hfSkemaFK.value;

@@ -157,7 +157,6 @@ namespace PlatinumWeb
 		{
 			Mapper.Initialize(cfg =>
 			{
-				cfg.CreateMap<clsThemesAmbjente, clsThemesAmbjente>();
 				cfg.CreateMap<clsTeDrejtaRoli, clsTeDrejtaRoli>();
 				cfg.CreateMap<clsDrejtaTabi, clsDrejtaTabi>();
 				cfg.CreateMap<clsTeDrejtaRaporte, clsTeDrejtaRaporte>();
