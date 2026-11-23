@@ -43,3 +43,12 @@ Pages that log out or reload the app (Dalje, RivleresimMagazine, the PBA AB* pag
 
 Status: `OK`, `WARN` (console errors only), `JSERR` (uncaught JS exception), `ERROR` (HTTP >= 400, error text on
 the page, logout, timeout), `NOOPEN` (button opened no lupa), `SKIPPED`. Exit code 1 if anything is `ERROR`.
+
+## Compare with a baseline
+
+```powershell
+node compare.js results\<baseline>-warm.csv results\<new>-warm.csv results\compare-warm.md
+```
+
+Lists regressions (a page/lupa worse than in the baseline; exit code 1 if any), fixes, median/total page and lupa
+times and the 20 slowest baseline pages before/after. Baseline of 2026-11-22: `2026-11-22-22-12-59-*.csv`.

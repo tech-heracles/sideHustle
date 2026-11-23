@@ -3443,12 +3443,16 @@ namespace DbCore.DbAdmin
         {
 
             this.dbManager.Open();
-            this.dbManager.CreateParameters(3);
-            this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
-            this.dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            this.dbManager.AddParameters(2, "@IDVITI", idViti, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ROLDREJTA_merrTeDrejtaRoliNderVitiMeEmraDheRaporte");
-            return ds.Tables[0];
+            // te drejtat e perdoruesit lexohen ne cdo hyrje; ruhen derisa te ndryshojne tabelat e te drejtave (TeDrejtaCache)
+            return TeDrejtaCache.Merr(dbManager, "prc_T_ROLDREJTA_merrTeDrejtaRoliNderVitiMeEmraDheRaporte|" + idperdoruesi + "|" + idNdermarrje + "|" + idViti, () =>
+            {
+                this.dbManager.CreateParameters(3);
+                this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
+                this.dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
+                this.dbManager.AddParameters(2, "@IDVITI", idViti, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ROLDREJTA_merrTeDrejtaRoliNderVitiMeEmraDheRaporte");
+                return ds.Tables[0];
+            });
         }
 
         public DataTable merrVetemTeDrejtaAmbjete(int idperdoruesi, int idNdermarrje, int idViti)
@@ -3516,12 +3520,28 @@ namespace DbCore.DbAdmin
         {
             ImbLogger.LogTraceShitje($"Filloi metoda merrTeDrejtaSipasKomponentesDheRaportet me parametra idperdoruesi:{idperdoruesi}, idNdermarrje:{idNdermarrje}, idViti:{idViti}, komponente:" + komponente);
             this.dbManager.Open();
-            this.dbManager.CreateParameters(4);
-            this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
-            this.dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            this.dbManager.AddParameters(2, "@IDVITI", idViti, ParameterDirection.Input);
-            this.dbManager.AddParameters(3, "@KOMPONENTE", komponente, ParameterDirection.Input);
-            dbManager.FillObject("prc_T_ROLDREJTA_merrTeDrejtaRoliDheRaporteNderVitiKomponente", objektiPErTuMbushur);
+            // lexohet ne cdo hapje faqeje; ruhet derisa te ndryshojne tabelat e te drejtave (TeDrejtaCache)
+            DataTable dt;
+            try
+            {
+                dt = TeDrejtaCache.Merr(dbManager, "prc_T_ROLDREJTA_merrTeDrejtaRoliDheRaporteNderVitiKomponente|" + idperdoruesi + "|" + idNdermarrje + "|" + idViti + "|" + komponente, () =>
+                {
+                    this.dbManager.CreateParameters(4);
+                    this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
+                    this.dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
+                    this.dbManager.AddParameters(2, "@IDVITI", idViti, ParameterDirection.Input);
+                    this.dbManager.AddParameters(3, "@KOMPONENTE", komponente, ParameterDirection.Input);
+                    return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ROLDREJTA_merrTeDrejtaRoliDheRaporteNderVitiKomponente").Tables[0];
+                });
+                using (DataTableReader reader = dt.CreateDataReader())
+                    while (reader.Read())
+                        objektiPErTuMbushur.Mbush(reader);
+            }
+            catch (Exception ex)
+            {
+                // si me pare me FillObject: gabimi nuk i kalon thirresit, objekti mbetet (pjeserisht) i pambushur
+                ImbLogger.LogTraceShitje("merrTeDrejtaSipasKomponentesDheRaportet: " + ex.Message);
+            }
             ImbLogger.LogTraceShitje($"Mbaroi metoda merrTeDrejtaSipasKomponentesDheRaportet me parametra idperdoruesi:{idperdoruesi}, idNdermarrje:{idNdermarrje}, idViti:{idViti}, komponente:" + komponente);
         }
 

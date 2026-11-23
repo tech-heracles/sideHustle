@@ -1428,6 +1428,7 @@
     <Compile Include="IMBUtils\Cache\ImportCache.cs" />
     <Compile Include="IMBUtils\IdetETabeles.cs" />
     <Compile Include="IMBUtils\Cache\KonfigGrideCache.cs" />
+    <Compile Include="IMBUtils\Cache\TabelaCache.cs" />
     <Compile Include="IMBUtils\Cache\StaticCache.cs" />
     <Compile Include="Raporte\VeprimtariaDitoreExporter.cs" />
     <Compile Include="Utility\DotSpatialEx.cs" />

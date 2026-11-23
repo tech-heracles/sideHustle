@@ -107,6 +107,17 @@ function inicializoGride(isLidhur) {
     ];
 
 
+    // konfigurimi i grides (p.sh. per amortizimin) mund te kete me shume kolona se faqja (txtAmortShtese, txtDite):
+    // renditja mbahet vetem per kolonat e faqes, ndryshe remapColumns le kolona bosh dhe grida jep gabim
+    if (arrayRenditjeKolonaGrides.length > arrayModel.length) {
+        var renditja = arrayRenditjeKolonaGrides.slice(0, arrayModel.length);
+        var sipasVendit = renditja.map(function (v, i) { return i; })
+            .sort(function (a, b) { return (renditja[a] - renditja[b]) || (a - b); });
+        arrayRenditjeKolonaGrides.length = arrayModel.length;
+        for (var r = 0; r < sipasVendit.length; r++)
+            arrayRenditjeKolonaGrides[sipasVendit[r]] = r;
+    }
+
     var selektoriGrides = "#rowed5";
 
     var gridParams = {
