@@ -783,55 +783,6 @@ namespace DbCore
         }
 
         /// <summary>
-        /// ruan te pivot grida te dhenat
-        /// </summary>
-        /// <param name="session">sesioni</param>
-        /// <param name="pivotGridDataSource">datasource i pivotgrides</param>
-        /// <returns>True nese ruajtja perfundoi me sukses, False perndryshe</returns>
-        public static bool ruajTeDhenaPivotGrideNeSession(string keyforPivot, HttpSessionState session, DataView pivotGridDataSource)
-        {
-            MySessionCache["pivotGridDataSourceKond"] = keyforPivot;
-            MySessionCache["pivotGridDataSource"] = pivotGridDataSource;
-            return true;
-        }
-
-        /// <summary>
-        /// merr nga sesioni te dhenat nga pivot grida
-        /// </summary>
-        /// <param name="keyforPivot">keyforPivot</param>
-        /// <param name="session">sesioni</param>
-        /// <param name="pivotGridDataSource">data source i pivot grides</param>
-        /// <returns></returns>
-        public static bool merrTeDhenaPivotGrideNgaSession(string keyforPivot, HttpSessionState session, out DataView pivotGridDataSource)
-        {
-
-            try
-            {
-                if (MySessionCache["pivotGridDataSourceKond"] != null && keyforPivot.CompareTo(MySessionCache["pivotGridDataSourceKond"]) == 0)
-                {
-                    pivotGridDataSource = (DataView)MySessionCache["pivotGridDataSource"];
-                    return true;
-                }
-                else
-                {
-                    MySessionCache["pivotGridDataSource"] = pivotGridDataSource = null;
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                pivotGridDataSource = null;
-                return false;
-            }
-
-        }
-
-        public static void resetTeDhenaPivotGrideNgaSession(HttpSessionState session)
-        {
-            MySessionCache["pivotGridDataSourceKond"] = "";
-        }
-
-        /// <summary>
         /// merr koleksionin e artikujve nga sesioni
         /// </summary>
         /// <param name="session">sesioni</param>
@@ -1305,24 +1256,6 @@ namespace DbCore
                 MySessionCache["colkfZgjedhur"] = col;
             return true;
 
-        }
-
-        /// <summary>
-        /// fshin pivotGridDataSource nga sesioni
-        /// </summary>
-        /// <param name="session">sesioni</param>
-        /// <returns></returns>
-        public static bool fshiTeDhenaPivotGridNgaSessioni(HttpSessionState session)
-        {
-            try
-            {
-                MySessionCache.Remove("pivotGridDataSource");
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         /// <summary>

@@ -5140,19 +5140,6 @@ namespace RestApi.WebAPI.Models
             else return 0;
         }
 
-        public static colKonfigPivotGridaTrupi ktheKonfigurimRaporti(int idGjuha, int idKonfigRaporti, int idModuli)
-        {
-            clsKonfigPivotGridaKoka konfigKoka;
-            if (idKonfigRaporti != -1)
-            {
-                konfigKoka = new clsKonfigPivotGridaKoka(idGjuha, idKonfigRaporti);
-                return konfigKoka.KonfigPivotGridaTrupi;
-            }
-            colKonfigPivotGridaTrupi konfigDefault = colKonfigPivotGridaTrupi.ktheKonfigShto(idGjuha, idModuli);
-
-            return konfigDefault;
-        }
-
         public static string eshteDetajimLidhur(string kodi, int idNdermarrje, HttpSessionState Session)
         {
             if (clsDetajimArtikulli.eshteDetajimLidhurMeArtikull(kodi, idNdermarrje))

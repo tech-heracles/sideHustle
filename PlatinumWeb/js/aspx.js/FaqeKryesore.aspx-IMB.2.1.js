@@ -7,20 +7,6 @@ function Forward() {
     history.go(+1);
     return false;
 }
-function grupKlick(s, e, emrimenuse) {
-    switch (emrimenuse) {
-        case "settings":
-            shfaqSettings();
-            break;
-        case "Dashboard.aspx":
-            var paneKryesor = splitter.GetPaneByName('paneKryesor');
-            paneKryesor.SetContentUrl(emrimenuse);
-            paneKryesor.RefreshContentUrl();
-            break;
-        default:
-            break;
-    }
-}
 
 
 function kontrolloTeDrejta(s, e, emrimenuse) {
@@ -158,11 +144,8 @@ $(document).ready(function (e) {
 
         Utils.PushToGoogleAnalytics(hfState.Get("googleAnalytics"), hfState.Get("googleAnalyticsTrackingId"));
         pageKryesoreState.periudha = $.parseJSON(hfState.Get("periudha"));
-        stringKonfigMenuMajtas = hfState.Get("konfigMenuMajtas");
-        stringKonfigMenuSiper = hfState.Get("konfigMenuSiper");
         pageState.idPerdoruesi = hfState.Get("idPerdoruesi");
         pageState.idNdermarrje = hfState.Get("idNdermarrje");
-        // menuja majtas (navbar) nuk ekziston me, as personalizimi i saj (imbMenu)
 
         njoftimet = JSON.parse(hfState.Get("njoftimet"));
         afishonjoftime = hfState.Get("afishonjoftime");
@@ -177,9 +160,6 @@ $(document).ready(function (e) {
 });
 
 
-function shfaqSettings() {
-    if (window.menuMajtas) window.menuMajtas.personalizo();
-}
 var GetWebhook;
 function pageRefresh(s, e) {//
 

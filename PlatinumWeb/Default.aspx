@@ -48,7 +48,6 @@
                 'amortizimi': { icon: 'fa-building', desc: 'Aktivet afatgjata' },
                 'aprovime-dokumentash': { icon: 'fa-check-square-o', desc: 'Aprovimi i dokumenteve' },
                 'rap': { icon: 'fa-file-text-o', desc: 'Të gjitha raportet' },
-                'bi': { icon: 'fa-bar-chart', desc: 'Analiza e biznesit' },
                 'map': { icon: 'fa-map-marker', desc: 'Hartat e shitjeve' },
                 'crm': { icon: 'fa-comments', desc: 'Klientët, anketat dhe detyrat' },
                 'gis': { icon: 'fa-globe', desc: 'Sistemi gjeografik' },

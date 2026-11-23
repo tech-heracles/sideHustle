@@ -23,7 +23,7 @@
     <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="css/selectize.css" type="text/css" rel="stylesheet" />
-       <script type="text/javascript" src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/selectize.min.js;~/js/multiSelect.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/menu.js;~/js/aspx.js/FormatePrintimi.aspx-IMB.7.1.js&v76"></script>
+       <script type="text/javascript" src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/selectize.min.js;~/js/multiSelect.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/aspx.js/FormatePrintimi.aspx-IMB.7.1.js&v84"></script>
     <style>
         .table-fixed thead{
               width: 580px;

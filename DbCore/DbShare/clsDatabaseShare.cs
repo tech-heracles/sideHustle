@@ -257,14 +257,6 @@ namespace DbCore.DbShare
                 throw new Exception("ERROR: Nuk gjendet nje raport me emrin:" + emriReal);
             return idRaporti;
         }
-        internal int merrIdRaportPivotGridSipasIdModuli(int idModulPivotGrid)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDMODULPIVOTGRID", idModulPivotGrid, ParameterDirection.Input);
-            int idRaporti = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_RAPORTI_selIdRapPivotGridSipasModulit"));
-            return idRaporti;
-        }
 
         internal DataRow merrSipasRaportDesignId(int idrapdesing)
         {

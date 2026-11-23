@@ -229,7 +229,7 @@ namespace PlatinumWeb
                         hfMagazina.Value = t.Vlera.ToString();
                 }
 
-                if ((kodKushti == "ZKDSH" || kodKushti == "ZKDSHI" || kodKushti == "ZKDSHKLSP" || kodKushti == "ZDVFONE") && t.Vlera != 0)
+                if ((kodKushti == "ZKDSH" || kodKushti == "ZKDSHI" || kodKushti == "ZKDSHKLSP") && t.Vlera != 0)
                 {
                     var konfmag = new clsKonfigurimAmbjenti();
                     konfmag.mbushKonfigAmbjSipasId(t.Vlera, IdGjuha, false);
@@ -1672,7 +1672,7 @@ namespace PlatinumWeb
                             hfMagazina.Value = t.Vlera.ToString();
                     }
 
-                    if ((kodKushti == "ZKDSH" || kodKushti == "ZKDSHI" || kodKushti == "ZKDSHKLSP" || kodKushti == "ZDVFONE") && t.Vlera != 0)
+                    if ((kodKushti == "ZKDSH" || kodKushti == "ZKDSHI" || kodKushti == "ZKDSHKLSP") && t.Vlera != 0)
                     {
                         var konfmag = new clsKonfigurimAmbjenti();
                         konfmag.IdKonfigAmbjente = t.Vlera;
@@ -1817,7 +1817,7 @@ namespace PlatinumWeb
                                 hfMagazina.Value = t.Vlera.ToString();
                         }
 
-                        if ((kodKushti == "ZKDSH" || kodKushti == "ZKDSHI" || kodKushti == "ZKDSHKLSP" || kodKushti == "ZDVFONE") && t.Vlera != 0)
+                        if ((kodKushti == "ZKDSH" || kodKushti == "ZKDSHI" || kodKushti == "ZKDSHKLSP") && t.Vlera != 0)
                         {
                             var konfmag = new clsKonfigurimAmbjenti();
                             konfmag.IdKonfigAmbjente = t.Vlera;
@@ -2002,7 +2002,6 @@ namespace PlatinumWeb
                         break;
                     case "ZKDSH":
                     case "ZKDSHI":
-                    case "ZDVFONE":
                         hfVleraShit.Value = e.VisibleIndex.ToString();
                         ConfigureAspxComboBox.percaktoTemplateComboMeLupe(checkVlera);
                         ConfigureAspxComboBox.mbushComboKonfigurimeshSipasKategorisePaKolona(IdPerdoruesi, IdNdermarrja, checkVlera, 1, 2, IdGjuha); //regjistrime
@@ -2259,14 +2258,6 @@ namespace PlatinumWeb
                         ConfigureAspxComboBox.mbushComboKonfigurimeshSipasKategorisePaKolona(IdPerdoruesi, IdNdermarrja, checkVlera, 6, 2, IdGjuha);
                         checkVlera.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedFleteHyrje(Vlera" + e.VisibleIndex + "," + e.VisibleIndex + "); }";
                         checkVlera.ClientSideEvents.LostFocus = "function(s,e){ LostFocusFH(Vlera" + e.VisibleIndex + "," + e.VisibleIndex + "); }";
-                        break;
-                    case "ZTK":
-
-                        hfZevendesim.Value = e.VisibleIndex.ToString();
-                        checkVlera.DataSource = new colAlternativatKushti(_colKush[e.VisibleIndex].IdKusht);
-                        checkVlera.TextField = "Alternativa";
-                        checkVlera.ValueField = "IdAlternativaKushti";
-                        checkVlera.DataBind();
                         break;
                     case "ZT":
 

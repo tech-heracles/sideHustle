@@ -726,11 +726,6 @@ namespace RestApi.WebAPI.Models
             return DbCore.DbListPagesat.clsProfesioneTitujPune.kaVeprimi(id);
         }
 
-        public static bool fshiTeDhenatPivotGrideNgaSessioni(HttpSessionState Session)
-        {
-            return mySessionObjects.fshiTeDhenaPivotGridNgaSessioni(Session);
-        }
-
         public static bool ekzistonNrLlogarie(string prefixText, int idNdermarrje)
         {
             return DbCore.DbKontabiliteti.clsLlogari.ekzistonLlogari(prefixText, idNdermarrje);

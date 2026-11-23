@@ -3517,22 +3517,6 @@ namespace RestApi.WebAPI.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
-        [HttpPost, HttpGet]
-        public HttpResponseMessage ktheKonfigurimRaporti(JObject param)
-        {
-            try
-            {
-                int idGjuha = param["idGjuha"].Value<int>();
-                int idKonfigRaporti = param["idKonfigRaporti"].Value<int>();
-                int idModuli = param["idModuli"].Value<int>();
-
-                return Request.KthePergjigje(RregjistrimeRepository.ktheKonfigurimRaporti(idGjuha, idKonfigRaporti, idModuli));
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
-            }
-        }
 
         [HttpPost, HttpGet]
         public HttpResponseMessage eshteDetajimLidhur(JObject param)

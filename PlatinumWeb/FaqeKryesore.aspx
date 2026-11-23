@@ -42,7 +42,7 @@
     <link rel="dx-theme" data-theme="generic.alphaweb" href="Content/dx.generic.alphaweb.css" data-active="true" />
     <link rel="dx-theme" data-theme="generic.alphaweb.compact" href="Content/dx.generic.alphaweb-compact.css" data-active="false" />
     
-    <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/js/menu.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v81"> 
+    <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v84"> 
     </script>
     <script src="/signalr/hubs"></script>
 
@@ -1342,8 +1342,6 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=6" Text="Banka" Visible="false">
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Name="Raportet.aspx?idmod=19" Text="Business Intelligence" Visible="false">
-                                                        </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=13" Text="Blerjet" Visible="false">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=17" Text="Burimet Njerëzore" Visible="false">
@@ -1593,8 +1591,6 @@
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=21" Text="Amortizimi" Visible="false">
                                                         </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="Raportet.aspx?idmod=19" Text="Business Intelligence" Visible="false">
-                                                        </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="RaporteGrida.aspx?lloji=GjendjaEMagazines" Text="Raport Gjendja e Magazines" Visible="false">
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="RaporteGrida.aspx?lloji=GjendjaEArtikujveMeSeriale" Text="Raport Gjendja e Artikujve me Seriale" Visible="false">
@@ -1605,14 +1601,6 @@
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=57" Text="Buxheti" Visible="false">
                                                         </dxnb:NavBarItem>
-                                                    </Items>
-                                                </dxnb:NavBarGroup>
-                                                <dxnb:NavBarGroup Text="Business Intelligence" Name="bi" Expanded="false">
-                                                    <Items>
-                                                        <dxnb:NavBarItem Name="Raport_PivotGrid.aspx?idModuli=12" Text="Shitje" Visible="false"></dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="Raport_PivotGrid.aspx?idModuli=16" Text="Magazina" Visible="false"></dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="Raport_PivotGrid.aspx?idModuli=13" Text="Blerje" Visible="false"></dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="Raport_PivotGrid.aspx?idModuli=7" Text="Kontabiliteti" Visible="false"></dxnb:NavBarItem>
                                                     </Items>
                                                 </dxnb:NavBarGroup>
                                                 <dxnb:NavBarGroup Text="Harta" Name="map" Expanded="False">

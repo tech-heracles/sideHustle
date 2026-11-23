@@ -1299,7 +1299,6 @@
     <Content Include="js\jquery-1.11.3.min.js" />
     <Content Include="js\jquery.blockUI.js" />
     <Content Include="js\ListPagesaUtils.js" />
-    <Content Include="js\menu.js" />
     <Content Include="js\Menu_IMB.js" />
     <Content Include="js\multiSelect.js" />
     <Content Include="js\noty.defaults.js" />
@@ -3833,7 +3832,6 @@
     <Content Include="js\aspx.js\RaportetAll.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Raporti.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\RaportiShpejte.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\Raport_PivotGrid.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\RegjistrimDokumentash.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\RegjistrimMagazine.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\RivleresimMagazine.aspx-IMB.2.1.js" />
@@ -4009,7 +4007,6 @@
     <Content Include="Raportet.aspx" />
     <Content Include="RaportetAll.aspx" />
     <Content Include="RaportiShpejte.aspx" />
-    <Content Include="Raport_PivotGrid.aspx" />
     <Content Include="RegjistrimAmortizimi.aspx" />
     <Content Include="RegjistrimDokumentash.aspx" />
     <Content Include="RegjistrimNdryshimCmimSasi.aspx" />
@@ -6008,13 +6005,6 @@
     </Compile>
     <Compile Include="RaportiShpejte.aspx.designer.cs">
       <DependentUpon>RaportiShpejte.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Raport_PivotGrid.aspx.cs">
-      <DependentUpon>Raport_PivotGrid.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Raport_PivotGrid.aspx.designer.cs">
-      <DependentUpon>Raport_PivotGrid.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegjistrimAmortizimi.aspx.cs">
       <DependentUpon>RegjistrimAmortizimi.aspx</DependentUpon>

@@ -575,7 +575,6 @@
     <Compile Include="DbRegjistrim\clsGjendjeKlientFurnitor.cs" />
     <Compile Include="DbRegjistrim\clsGrupimDokumentiKoka.cs" />
     <Compile Include="DbRegjistrim\clsGrupimDokumentiTrupi.cs" />
-    <Compile Include="DbRegjistrim\clsGrupimeKolone_PivotGrid.cs" />
     <Compile Include="DbRegjistrim\clsInventarizim.cs" />
     <Compile Include="DbRegjistrim\clsKarta.cs" />
     <Compile Include="DbRegjistrim\clsKasaKoka.cs" />
@@ -592,8 +591,6 @@
     <Compile Include="DbRegjistrim\clsKokaRiparime.cs" />
     <Compile Include="DbRegjistrim\clsKokaShitje.cs" />
     <Compile Include="DbRegjistrim\clsKomenteAprovimi.cs" />
-    <Compile Include="DbRegjistrim\clsKonfigPivotGridaKoka.cs" />
-    <Compile Include="DbRegjistrim\clsKonfigPivotGridaTrupi.cs" />
     <Compile Include="DbRegjistrim\clsKonvertimi.cs" />
     <Compile Include="DbRegjistrim\clsKrahasimInventarizimi.cs" />
     <Compile Include="DbRegjistrim\clsLidhesPerKontroll.cs" />
@@ -648,7 +645,6 @@
     <Compile Include="DbRegjistrim\colGjendjeKlientFurnitor.cs" />
     <Compile Include="DbRegjistrim\colGrupimDokumentiKoka.cs" />
     <Compile Include="DbRegjistrim\colGrupimDokumentiTrupi.cs" />
-    <Compile Include="DbRegjistrim\colGrupimeKolone_PivotGrid.cs" />
     <Compile Include="DbRegjistrim\colInventarizim.cs" />
     <Compile Include="DbRegjistrim\colKarta.cs" />
     <Compile Include="DbRegjistrim\colKategoriNiveleDok.cs" />
@@ -661,8 +657,6 @@
     <Compile Include="DbRegjistrim\colKokaRiparime.cs" />
     <Compile Include="DbRegjistrim\colKokaShitje.cs" />
     <Compile Include="DbRegjistrim\colKomenteAprovimi.cs" />
-    <Compile Include="DbRegjistrim\colKonfigPivotGridaKoka.cs" />
-    <Compile Include="DbRegjistrim\colKonfigPivotGridaTrupi.cs" />
     <Compile Include="DbRegjistrim\colKonvertimi.cs" />
     <Compile Include="DbRegjistrim\colKrahasimInventarizimics.cs" />
     <Compile Include="DbRegjistrim\colLidhesPerKontroll.cs" />

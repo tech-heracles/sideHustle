@@ -1748,7 +1748,7 @@ myFaqeCelje.krijoMenuPerCRM = function (idPerdoruesi, idNdermarrje, idVitNdermar
         var html = htmlHomePage = "";
         var $ul = $('#ulMenu');
         var $ulHomePage = $('#myHomePage');
-        var menuShtese = ['Raport_PivotGrid.aspx', 'Shto_KlientFurnitor.aspx?kf=klient', 'Raportet.aspx?idmod=24'];
+        var menuShtese = ['Shto_KlientFurnitor.aspx?kf=klient', 'Raportet.aspx?idmod=24'];
 
         for (var i = 0; i < menute.length; i++) {
             if (eshteHomePage && menute[i].KOMPONEMRI == "CRMDefault.aspx") //Eshte vet Home dhe e shtojme vetem te menuja anash dhe jo te faqja default sepse te ajo jemi
@@ -1757,7 +1757,7 @@ myFaqeCelje.krijoMenuPerCRM = function (idPerdoruesi, idNdermarrje, idVitNdermar
                 continue;
             }
 
-            if ((menute[i].KOMPONEMRI).indexOf(menuShtese[0]) != -1 || (menute[i].KOMPONEMRI).indexOf(menuShtese[1]) != -1 || (menute[i].KOMPONEMRI).indexOf(menuShtese[2]) != -1) {
+            if ((menute[i].KOMPONEMRI).indexOf(menuShtese[0]) != -1 || (menute[i].KOMPONEMRI).indexOf(menuShtese[1]) != -1) {
                 html += "<li><a href=" + menute[i].KOMPONEMRI + "&vjenNga=CRM>" + "<span style='vertical-align:middle' class='fa " + menute[i].IMAGEURL + " fa-2x'></span>" + "&nbsp; " + menute[i].PERSHKRIMKOMPONENTE + "</a></li>";
                 if (eshteHomePage) {
                     htmlHomePage += "<li class='ui-li-has-thumb'><a class='ui-btn ui-btn-icon-right ui-icon-carat-r' href=" + menute[i].KOMPONEMRI + "&vjenNga=CRM>" + "<img class='ui-li-thumb' src='images/CRM/" + menute[i].IMAGEURL + ".png'>" + "<h2>" + menute[i].PERSHKRIMKOMPONENTE + "</h2></a></li>";

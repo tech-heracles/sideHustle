@@ -9,11 +9,6 @@ function myTimeStamp() {
                 return myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds() +
     ":" + myDate.getMilliseconds();
 }
-function hapKubin(idModuli) {
-    var ngaCRM = Utils.getUrlVar("vjenNga");
-    var width = $(window).width();
-    myFaqeCelje.kontrolloTeDrejta("Raport_PivotGrid.aspx?idModuli=" + idModuli + "&windowWidth=" + width + "&vjenNga=" + ngaCRM);
-}
 function hapRaport(idRaporti, emerRaporti, filtro) {
     console.log(emerRaporti);
     if (window.parent && window.parent.SucceededCallbackInfoLart)
@@ -108,7 +103,7 @@ $(document).ready(function () {
 });
 
 // Raportet e modulit si karta, njesoj si kartat e Kryefaqes (pa grupe, pa "Te tjera", pa shirita), sipas alfabetit.
-// Karta hap raportin si me pare: me filtra (filtroButtonClick), per kubet (moduli 19) linkun nga databaza.
+// Karta hap raportin si me pare, me filtra (filtroButtonClick).
 function ndertoKartat() {
     var p = pageState.params;
     var kerko = $('<div class="avec-raportet-kerko"><input type="search" placeholder="Kërko raport…" /></div>');
@@ -120,15 +115,7 @@ function ndertoKartat() {
         return String(a[p.fushaEmrit] || '').localeCompare(String(b[p.fushaEmrit] || ''), 'sq', { sensitivity: 'base' });
     });
     function hap(item) {
-        if (p.idModuliRaporteve != 19) {
-            filtroButtonClick(item[p.fushaIdRaportit], item[p.fushaEmrit]);
-            return;
-        }
-        var linku = String(item[p.fushaLinkut] || '').replace(/^'|'$/g, '');
-        if (/^javascript:/i.test(linku))
-            (new Function(linku.replace(/^javascript:/i, '').replace(/&quot;/g, '"')))();
-        else if (linku)
-            window.location.href = linku;
+        filtroButtonClick(item[p.fushaIdRaportit], item[p.fushaEmrit]);
     }
     function shfaq(filtri) {
         var f = (filtri || '').toLowerCase();

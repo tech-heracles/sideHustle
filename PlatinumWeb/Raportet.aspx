@@ -187,7 +187,7 @@
         #menuHomePage .dash-card { width: auto !important; margin: 0 !important; }
     </style>
 
-    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/imbList.js;~/js/aspx.js/Raportet.aspx-IMB.2.1.js&v82"
+    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/imbList.js;~/js/aspx.js/Raportet.aspx-IMB.2.1.js&v83"
         type="text/javascript"></script> 
 </head>
 <body class="bootstrap-iso">

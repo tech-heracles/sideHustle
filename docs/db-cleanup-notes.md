@@ -1,5 +1,21 @@
 # Database cleanup notes (input for the DB draft)
 
+**Status 2026-11-23:** `docs/sql/draft/05-heqja-bi-dhe-mbetjeve.sql` (+ `05-rollback-…`, `05-pastrimi-perfundimtar.sql`)
+is applied and purged on DRAFT. It removed: the Business Intelligence module (Raport_PivotGrid, module 19 and its 7 cube
+reports, 5 pivot tables, 29 pivot procedures), the Vodafone reports below (except 129, whose layout is still used by
+documents), the toolbar items 113/115, the options DEVFOne/ZDVFONE/KGJVFONE/ZBVFONE/RSHTT/RSHTTK/RSHTTKE/ZTK, 52 unused
+Vodafone/Tollona procedures plus `T_MAPPING_BAZAAR` and `VodafoneView`, components of pages that no longer exist
+(UserThemes, PreviewThemeAmbjente, ImportWK importwk/importfk, Shto_Makro, Modifiko_Makro, NdryshimCmimi, LupaLlogariaKf,
+LupaNrAutomatik, LupaQendraKosto, LupaValidim, LupaQendraKostoPlote) and the client layouts listed at the end, except
+the ones that are the last layout of a report that stays (215 Alpha Bank book, 736 sales margin, ...).
+
+**Still open** (not done, see the sections below): document types VFONE/USHDD/BAZAAR/..., the Vodafone/Tollona columns,
+`T_ARTIKULLVFONE` and `T_KLIENTPERBAZAAR` with their procedures (still called by the code), PRC_RAP_POROSI_VODAFONE and
+PRC_RAP_SHITJEANALITIKE_VODAFONE (report classes still in AlphaWebReports), the report classes of the deleted client
+layouts, the per-user themes (T_THEMESAMBJENTE, clsThemesAmbjente: still created for every new user, never read),
+components TransferoNeISKSH and Shto_AlphawebEnhancments (they have document categories), LupaSkemaKontabel.aspx (the
+page is missing but Shto_FleteKontabel still opens it: a broken lupa, not dead code).
+
 The code no longer uses the items below, but the AVEC database still contains them. Nothing here has been
 changed in the database yet. Each item says what the code does today, so the draft can be applied at any time.
 

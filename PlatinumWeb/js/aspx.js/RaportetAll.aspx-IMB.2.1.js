@@ -13,11 +13,6 @@ window.RaportetAll = (function () {
         window.location = "Raporti.aspx?idraporti=" + s + "&windowWidth=" + width + "&radButon=" + btnradPeriudha.GetSelectedItem().value + "&dateNga=" + dtdoknga.GetText() + "&dateDeri=" + dtdokderi.GetText() + "&Filtro=false&vjenNga=" + ngaCRM + "&previousPage=RaportetAll";
     };    
 
-    var hapKubin = function (s) {
-        var width = $(window).width();
-        myFaqeCelje.kontrolloTeDrejta("Raport_PivotGrid.aspx?idModuli=" + s + "&windowWidth=" + width);
-    };
-
     var filtroButtonClick = function (idRaporti) {
         window.location = "Raporti.aspx?idraporti=" + idRaporti + "&windowWidth=" + width + "&radButon=&dateNga=&dateDeri=&Filtro=true&vjenNga=" + ngaCRM + "&previousPage=RaportetAllNew";
     };
@@ -46,7 +41,6 @@ window.RaportetAll = (function () {
 
     return {
         hapRaportin: filtroButtonClick,
-        hapKubin: hapKubin,
         filtroButtonClick: filtroButtonClick,
         klickselectedvaluedok: klickselectedvaluedok,
         expandAll: expandAll,
@@ -57,6 +51,4 @@ window.RaportetAll = (function () {
 function hapraportin(s) {
     RaportetAll.hapRaportin(s);
 }
-function hapKubin(s) {
-    RaportetAll.hapKubin(s);
-}
+

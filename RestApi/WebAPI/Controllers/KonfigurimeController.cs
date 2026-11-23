@@ -531,18 +531,6 @@ namespace RestApi.WebAPI.Controllers
                 return Request.KthePergjigjeGabim(param, ex);
             }
         }
-        [HttpPost, HttpGet]
-        public HttpResponseMessage fshiTeDhenatPivotGrideNgaSessioni(JObject param)
-        {
-            try
-            {
-                return Request.KthePergjigje(KonfigurimeRepository.fshiTeDhenatPivotGrideNgaSessioni(Session));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
 
 
         [HttpPost, HttpGet]

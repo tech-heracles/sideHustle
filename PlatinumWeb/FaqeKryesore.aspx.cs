@@ -59,7 +59,6 @@ namespace PlatinumWeb
 				var ndermarrja = DbCore.mySessionObjects.ktheKodNdermarrje(Session);
 
 				var idNdermarrje = DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session);
-				string stringKonfigMenuMajtas = DbCore.DbShare.clsKonfigMenu.ktheListKonfigMenu(idPerdoruesi, idNdermarrje);
 				hfState.Set("adminUser", false);
 				clsPerdorues perdorues = new clsPerdorues(mySessionObjects.ktheIdPerdoruesi(Session));
 				foreach (var role in perdorues.OColRolPerdoruesi)
@@ -67,7 +66,6 @@ namespace PlatinumWeb
 					clsRoli rol = new clsRoli(role.IdRoli);
 					if (rol.KodRoli == "RA" || rol.KodRoli == "RAS") hfState.Set("adminUser", true);
 				}
-				hfState.Set("konfigMenuMajtas", String.IsNullOrEmpty(stringKonfigMenuMajtas) ? "" : stringKonfigMenuMajtas);
 				hfState.Set("idPerdoruesi", idPerdoruesi);
 				hfState.Set("ShfaqPerdoruesMenu", user.ShfaqPerdoruesMenu);
 				hfState.Set("EmerMbiemerPerdorues", user.EmriPerdorues + ' ' + user.MbiemriPerdorues);
@@ -317,11 +315,6 @@ namespace PlatinumWeb
 								{
 									ASPxMenu1.Items[i].Items[j].Items[m].Visible = true;
 									countnenmenu++;
-									continue;
-								}
-								if (ASPxMenu1.Items[i].Items[j].Items[m].Name == "ImportWK.aspx?lloji=importwk" && !DbCore.mySessionObjects.merrEshteMemeSesioni(Session))
-								{
-									ASPxMenu1.Items[i].Items[j].Items[m].Visible = false;
 									continue;
 								}
 								var dr = dt.Select("KOMPONEMRI= '" + ASPxMenu1.Items[i].Items[j].Items[m].Name.Split('&')[0] + "'");
@@ -886,7 +879,6 @@ namespace PlatinumWeb
 			Menu("raportet", "Raportet.aspx?idmod=21").Text = rm.GetString("MenuItemAmortizimi", ci);
 			Menu("raportet", "Raportet.aspx?idmod=2").Text = rm.GetString("MenuItemRaportArka", ci);
 			Menu("raportet", "Raportet.aspx?idmod=6").Text = rm.GetString("MenuItemRaportBanka", ci);
-			Menu("raportet", "Raportet.aspx?idmod=19").Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
 			Menu("raportet", "Raportet.aspx?idmod=13").Text = rm.GetString("MenuItemRaportBlerjet", ci);
 
 			Menu("raportet", "Raportet.aspx?idmod=17").Text = rm.GetString("MenuItemRaportBurimetNjerezore", ci);
@@ -1014,18 +1006,11 @@ namespace PlatinumWeb
 			NavElement("rap", "Raportet.aspx?idmod=18").Text = rm.GetString("MenuItemRaportProdhimi", ci);
 			NavElement("rap", "Raportet.aspx?idmod=20").Text = rm.GetString("MenuItemRaportQendratKostos", ci);
 			NavElement("rap", "Raportet.aspx?idmod=21").Text = rm.GetString("MenuItemAmortizimi", ci);
-			NavElement("rap", "Raportet.aspx?idmod=19").Text = rm.GetString("MenuItemRaportBussinesIntelligence", ci);
 			NavElement("rap", "RaporteGrida.aspx?lloji=GjendjaEMagazines").Text = rm.GetString("MenuItemRaportiGjendjaEMagazines", ci);
 			NavElement("rap", "RaporteGrida.aspx?lloji=GjendjaEArtikujveMeSeriale").Text = rm.GetString("MenuItemRaportGjendjaEArtikujveMeSeriale", ci);
 			NavElement("rap", "Raportet.aspx?idmod=22").Text = rm.GetString("MenuItemRaporteMenaxheriale", ci);
 			NavElement("rap", "Raportet.aspx?idmod=24").Text = rm.GetString("MenuItemRaporteCRM", ci);    // Raportet CRM
 			NavElement("rap", "Raportet.aspx?idmod=57").Text = rm.GetString("MenuItemRaportBuxheti", ci);
-
-
-			NavGrup("bi").Text = rm.GetString("MenuItemGroupBusinessIntelligence", ci); //"Business Intelligence";
-			NavElement("bi", "Raport_PivotGrid.aspx?idModuli=12").Text = rm.GetString("labelShitje", ci);
-			NavElement("bi", "Raport_PivotGrid.aspx?idModuli=16").Text = rm.GetString("lblRaportMagazina", ci);
-			NavElement("bi", "Raport_PivotGrid.aspx?idModuli=13").Text = rm.GetString("labelBlerje", ci);
 
 
 			NavGrup("map").Text = rm.GetString("MenuGroupHarta", ci);

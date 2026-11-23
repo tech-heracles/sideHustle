@@ -169,12 +169,6 @@ namespace DbCore.DbShare
             }
         }
 
-        public static int KtheIdRaportPivotGridSipasIdModuli(int idModulPivotGrid)
-        {
-            using (var dbshare = new clsDatabaseShare())
-                return dbshare.merrIdRaportPivotGridSipasIdModuli(idModulPivotGrid);
-        }
-
         public static DataTable KtheListRaportesh(int idNdermarrje, int idPerdoruesi, int idGjuha, int idViti, int idModuli)
         {
             using (var dbshare = new clsDatabaseShare())
