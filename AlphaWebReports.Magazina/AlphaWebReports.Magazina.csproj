@@ -818,12 +818,6 @@
     <Compile Include="Rap_KontrolliSkadencesArtikujve.Designer.cs">
       <DependentUpon>Rap_KontrolliSkadencesArtikujve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_KartelaArtikulliMagazina_SePDeFn_132061205179799426.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_KartelaArtikulliMagazina_SePDeFn_132061205179799426.Designer.cs">
-      <DependentUpon>Rap_KartelaArtikulliMagazina_SePDeFn_132061205179799426.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_MagazinaGjendjaSipasAutorizimeve.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -890,12 +884,6 @@
     </Compile>
     <Compile Include="Rap_ArtikujGjendjaSipasAutorizimeve.Designer.cs">
       <DependentUpon>Rap_ArtikujGjendjaSipasAutorizimeve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_ArtikujGjendja_SePDeFn_131576498589849832.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ArtikujGjendja_SePDeFn_131576498589849832.Designer.cs">
-      <DependentUpon>Rap_ArtikujGjendja_SePDeFn_131576498589849832.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_ArtikujGjendjeMinMaks.cs">
       <SubType>Component</SubType>
@@ -1089,12 +1077,6 @@
     <Compile Include="Rap_GjendjaPermbledhese_Artikulli1.Designer.cs">
       <DependentUpon>Rap_GjendjaPermbledhese_Artikulli1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_GjendjaPermbledhese_Artikulli1_SePDeFn_131388851709042426.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_GjendjaPermbledhese_Artikulli1_SePDeFn_131388851709042426.Designer.cs">
-      <DependentUpon>Rap_GjendjaPermbledhese_Artikulli1_SePDeFn_131388851709042426.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_GjendjaPermbledhese_ArtikulliMeBlerjeShitje.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1263,12 +1245,6 @@
     <Compile Include="Rap_MagazinaGjendjaMeCmimeShitje.Designer.cs">
       <DependentUpon>Rap_MagazinaGjendjaMeCmimeShitje.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_MagazinaGjendjaMeCmimeShitje_SePDeFn_131575419592516668.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_MagazinaGjendjaMeCmimeShitje_SePDeFn_131575419592516668.Designer.cs">
-      <DependentUpon>Rap_MagazinaGjendjaMeCmimeShitje_SePDeFn_131575419592516668.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_MagazinaGjendjaNeVlefte.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1286,12 +1262,6 @@
     </Compile>
     <Compile Include="Rap_MagazinaGjendjaSipasGrupimeveArt.Designer.cs">
       <DependentUpon>Rap_MagazinaGjendjaSipasGrupimeveArt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_MagazinaGjendjaSipasGrupimeveArt_SePDeFn_131620568140462584.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_MagazinaGjendjaSipasGrupimeveArt_SePDeFn_131620568140462584.Designer.cs">
-      <DependentUpon>Rap_MagazinaGjendjaSipasGrupimeveArt_SePDeFn_131620568140462584.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_MagazinaGjendjaSipasSerialeve.cs">
       <SubType>Component</SubType>
@@ -1316,12 +1286,6 @@
     </Compile>
     <Compile Include="Rap_MagazinaGjendja_Exp.Designer.cs">
       <DependentUpon>Rap_MagazinaGjendja_Exp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_MagazinaGjendja_SePDeFn_131387254592020949.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_MagazinaGjendja_SePDeFn_131387254592020949.Designer.cs">
-      <DependentUpon>Rap_MagazinaGjendja_SePDeFn_131387254592020949.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_MagazinaMaturimiStokut.cs">
       <SubType>Component</SubType>
@@ -1364,24 +1328,6 @@
     </Compile>
     <Compile Include="Rap_MagazinaregjistriAnalitik_NrRend.Designer.cs">
       <DependentUpon>Rap_MagazinaregjistriAnalitik_NrRend.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_MagazinaregjistriAnalitik_SePDeFn_131431345953386046.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_MagazinaregjistriAnalitik_SePDeFn_131431345953386046.Designer.cs">
-      <DependentUpon>Rap_MagazinaregjistriAnalitik_SePDeFn_131431345953386046.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_MagazinaregjistriAnalitik_SePDeFn_131453785396002405.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_MagazinaregjistriAnalitik_SePDeFn_131453785396002405.Designer.cs">
-      <DependentUpon>Rap_MagazinaregjistriAnalitik_SePDeFn_131453785396002405.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_MagazinaregjistriAnalitik_SePDeFn_131559916301232266.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_MagazinaregjistriAnalitik_SePDeFn_131559916301232266.Designer.cs">
-      <DependentUpon>Rap_MagazinaregjistriAnalitik_SePDeFn_131559916301232266.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_MagazinaRegjistriPermbledhes_Format2.cs">
       <SubType>Component</SubType>
@@ -2564,9 +2510,6 @@
     <EmbeddedResource Include="Rap_KontrolliSkadencesArtikujve.resx">
       <DependentUpon>Rap_KontrolliSkadencesArtikujve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_KartelaArtikulliMagazina_SePDeFn_132061205179799426.resx">
-      <DependentUpon>Rap_KartelaArtikulliMagazina_SePDeFn_132061205179799426.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaGjendjaSipasAutorizimeve.resx">
       <DependentUpon>Rap_MagazinaGjendjaSipasAutorizimeve.cs</DependentUpon>
     </EmbeddedResource>
@@ -2599,9 +2542,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ArtikujGjendjaSipasAutorizimeve.resx">
       <DependentUpon>Rap_ArtikujGjendjaSipasAutorizimeve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ArtikujGjendja_SePDeFn_131576498589849832.resx">
-      <DependentUpon>Rap_ArtikujGjendja_SePDeFn_131576498589849832.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ArtikujGjendjeMinMaks.resx">
       <DependentUpon>Rap_ArtikujGjendjeMinMaks.cs</DependentUpon>
@@ -2699,9 +2639,6 @@
     <EmbeddedResource Include="Rap_GjendjaPermbledhese_Artikulli1.resx">
       <DependentUpon>Rap_GjendjaPermbledhese_Artikulli1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_GjendjaPermbledhese_Artikulli1_SePDeFn_131388851709042426.resx">
-      <DependentUpon>Rap_GjendjaPermbledhese_Artikulli1_SePDeFn_131388851709042426.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_GjendjaPermbledhese_ArtikulliMeBlerjeShitje.resx">
       <DependentUpon>Rap_GjendjaPermbledhese_ArtikulliMeBlerjeShitje.cs</DependentUpon>
     </EmbeddedResource>
@@ -2791,9 +2728,6 @@
     <EmbeddedResource Include="Rap_MagazinaGjendjaMeCmimeShitje.resx">
       <DependentUpon>Rap_MagazinaGjendjaMeCmimeShitje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_MagazinaGjendjaMeCmimeShitje_SePDeFn_131575419592516668.resx">
-      <DependentUpon>Rap_MagazinaGjendjaMeCmimeShitje_SePDeFn_131575419592516668.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaGjendjaNeVlefte.resx">
       <DependentUpon>Rap_MagazinaGjendjaNeVlefte.cs</DependentUpon>
     </EmbeddedResource>
@@ -2802,9 +2736,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaGjendjaSipasGrupimeveArt.resx">
       <DependentUpon>Rap_MagazinaGjendjaSipasGrupimeveArt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_MagazinaGjendjaSipasGrupimeveArt_SePDeFn_131620568140462584.resx">
-      <DependentUpon>Rap_MagazinaGjendjaSipasGrupimeveArt_SePDeFn_131620568140462584.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaGjendjaSipasSerialeve.resx">
       <DependentUpon>Rap_MagazinaGjendjaSipasSerialeve.cs</DependentUpon>
@@ -2817,9 +2748,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaGjendja_Exp.resx">
       <DependentUpon>Rap_MagazinaGjendja_Exp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_MagazinaGjendja_SePDeFn_131387254592020949.resx">
-      <DependentUpon>Rap_MagazinaGjendja_SePDeFn_131387254592020949.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaMaturimiStokut.resx">
       <DependentUpon>Rap_MagazinaMaturimiStokut.cs</DependentUpon>
@@ -2841,15 +2769,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaregjistriAnalitik_NrRend.resx">
       <DependentUpon>Rap_MagazinaregjistriAnalitik_NrRend.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_MagazinaregjistriAnalitik_SePDeFn_131431345953386046.resx">
-      <DependentUpon>Rap_MagazinaregjistriAnalitik_SePDeFn_131431345953386046.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_MagazinaregjistriAnalitik_SePDeFn_131453785396002405.resx">
-      <DependentUpon>Rap_MagazinaregjistriAnalitik_SePDeFn_131453785396002405.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_MagazinaregjistriAnalitik_SePDeFn_131559916301232266.resx">
-      <DependentUpon>Rap_MagazinaregjistriAnalitik_SePDeFn_131559916301232266.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaRegjistriPermbledhes_Format2.resx">
       <DependentUpon>Rap_MagazinaRegjistriPermbledhes_Format2.cs</DependentUpon>

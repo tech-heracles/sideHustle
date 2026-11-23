@@ -195,18 +195,6 @@
     <Compile Include="Raporte\RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.Designer.cs">
       <DependentUpon>RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_Gethe.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_Gethe.Designer.cs">
-      <DependentUpon>RAP_ARKA_DITARIKLASIK_Gethe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_Kastrati.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_Kastrati.Designer.cs">
-      <DependentUpon>RAP_ARKA_DITARIKLASIK_Kastrati.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\RAP_ARKA_DITARIKLASIK_NrRend.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -218,12 +206,6 @@
     </Compile>
     <Compile Include="Raporte\RAP_ARKA_DITARITOTAL.Designer.cs">
       <DependentUpon>RAP_ARKA_DITARITOTAL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL_Gethe.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\RAP_ARKA_DITARITOTAL_Gethe.Designer.cs">
-      <DependentUpon>RAP_ARKA_DITARITOTAL_Gethe.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\RAP_ARKA_DITARITOTAL_NrRend.cs">
       <SubType>Component</SubType>
@@ -260,12 +242,6 @@
     </Compile>
     <Compile Include="Raporte\Rap_ARKETIMETORARE.Designer.cs">
       <DependentUpon>Rap_ARKETIMETORARE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_ArketimetSipasDiteve.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_ArketimetSipasDiteve.Designer.cs">
-      <DependentUpon>Rap_ArketimetSipasDiteve.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\Rap_LevizjetELikujditeteve.cs">
       <SubType>Component</SubType>
@@ -323,20 +299,11 @@
     <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.resx">
       <DependentUpon>RAP_ARKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIK_Gethe.resx">
-      <DependentUpon>RAP_ARKA_DITARIKLASIK_Gethe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIK_Kastrati.resx">
-      <DependentUpon>RAP_ARKA_DITARIKLASIK_Kastrati.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_ARKA_DITARIKLASIK_NrRend.resx">
       <DependentUpon>RAP_ARKA_DITARIKLASIK_NrRend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_ARKA_DITARITOTAL.resx">
       <DependentUpon>RAP_ARKA_DITARITOTAL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\RAP_ARKA_DITARITOTAL_Gethe.resx">
-      <DependentUpon>RAP_ARKA_DITARITOTAL_Gethe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_ARKA_DITARITOTAL_NrRend.resx">
       <DependentUpon>RAP_ARKA_DITARITOTAL_NrRend.cs</DependentUpon>
@@ -355,9 +322,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_ARKETIMETORARE.resx">
       <DependentUpon>Rap_ARKETIMETORARE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_ArketimetSipasDiteve.resx">
-      <DependentUpon>Rap_ArketimetSipasDiteve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_LevizjetELikujditeteve.resx">
       <DependentUpon>Rap_LevizjetELikujditeteve.cs</DependentUpon>

@@ -233,12 +233,6 @@
     <Compile Include="Reports\Rap_kontKartelaLlogarive_new.Designer.cs">
       <DependentUpon>Rap_kontKartelaLlogarive_new.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.Designer.cs">
-      <DependentUpon>Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\Rap_kontKartelaLlogarive_Progresive.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -472,9 +466,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive_new.resx">
       <DependentUpon>Rap_kontKartelaLlogarive_new.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.resx">
-      <DependentUpon>Rap_kontKartelaLlogarive_new_SePDeFn_131612669897842545.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Rap_kontKartelaLlogarive_Progresive.resx">
       <DependentUpon>Rap_kontKartelaLlogarive_Progresive.cs</DependentUpon>

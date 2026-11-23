@@ -414,12 +414,6 @@
     <Compile Include="LibriBlerjesPaMerge.Designer.cs">
       <DependentUpon>LibriBlerjesPaMerge.cs</DependentUpon>
     </Compile>
-    <Compile Include="LibriBlerjesSunPetrolium.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="LibriBlerjesSunPetrolium.Designer.cs">
-      <DependentUpon>LibriBlerjesSunPetrolium.cs</DependentUpon>
-    </Compile>
     <Compile Include="LibriBlerjes_AlphaBank.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -475,12 +469,6 @@
     <Compile Include="Rap_ArtikujTeBlereMeCmimTeFunditteBlerjes.Designer.cs">
       <DependentUpon>Rap_ArtikujTeBlereMeCmimTeFunditteBlerjes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_ArtikujTeBlere_SePDeFn_131599656386079580.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ArtikujTeBlere_SePDeFn_131599656386079580.Designer.cs">
-      <DependentUpon>Rap_ArtikujTeBlere_SePDeFn_131599656386079580.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_BlerjeKontrateFurnitori.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -516,12 +504,6 @@
     </Compile>
     <Compile Include="Rap_BlerjeRegjistriAnalitik_ALPETROL.Designer.cs">
       <DependentUpon>Rap_BlerjeRegjistriAnalitik_ALPETROL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_BlerjeRegjistriAnalitik_AlphaBank.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_BlerjeRegjistriAnalitik_AlphaBank.Designer.cs">
-      <DependentUpon>Rap_BlerjeRegjistriAnalitik_AlphaBank.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_BlerjeRegjistriAnalitik_Barkod.cs">
       <SubType>Component</SubType>
@@ -564,12 +546,6 @@
     </Compile>
     <Compile Include="Rap_BlerjeRegjistriPermbledhesPortrait.Designer.cs">
       <DependentUpon>Rap_BlerjeRegjistriPermbledhesPortrait.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_BlerjeRegjistriPermbledhes_AlphaBank.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_BlerjeRegjistriPermbledhes_AlphaBank.Designer.cs">
-      <DependentUpon>Rap_BlerjeRegjistriPermbledhes_AlphaBank.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_BlerjeShpenzimeTeParapaguara.cs">
       <SubType>Component</SubType>
@@ -679,12 +655,6 @@
     <Compile Include="Rap_FleteDoganoreImport.Designer.cs">
       <DependentUpon>Rap_FleteDoganoreImport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_FleteDoganoreImport_SePDeFn_131540171154584613.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_FleteDoganoreImport_SePDeFn_131540171154584613.Designer.cs">
-      <DependentUpon>Rap_FleteDoganoreImport_SePDeFn_131540171154584613.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_FormatBlerjeAlbamediaAng.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -714,12 +684,6 @@
     </Compile>
     <Compile Include="Rap_KartelaArtikulli.Designer.cs">
       <DependentUpon>Rap_KartelaArtikulli.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_KartelaArtikulli_AlphaBank.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_KartelaArtikulli_AlphaBank.Designer.cs">
-      <DependentUpon>Rap_KartelaArtikulli_AlphaBank.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_KartelaArtikulli_Format2.cs">
       <SubType>Component</SubType>
@@ -1337,9 +1301,6 @@
     <EmbeddedResource Include="LibriBlerjesPaMerge.resx">
       <DependentUpon>LibriBlerjesPaMerge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LibriBlerjesSunPetrolium.resx">
-      <DependentUpon>LibriBlerjesSunPetrolium.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LibriBlerjes_AlphaBank.resx">
       <DependentUpon>LibriBlerjes_AlphaBank.cs</DependentUpon>
     </EmbeddedResource>
@@ -1367,9 +1328,6 @@
     <EmbeddedResource Include="Rap_ArtikujTeBlereMeCmimTeFunditteBlerjes.resx">
       <DependentUpon>Rap_ArtikujTeBlereMeCmimTeFunditteBlerjes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ArtikujTeBlere_SePDeFn_131599656386079580.resx">
-      <DependentUpon>Rap_ArtikujTeBlere_SePDeFn_131599656386079580.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_BlerjeKontrateFurnitori.resx">
       <DependentUpon>Rap_BlerjeKontrateFurnitori.cs</DependentUpon>
     </EmbeddedResource>
@@ -1387,9 +1345,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik_ALPETROL.resx">
       <DependentUpon>Rap_BlerjeRegjistriAnalitik_ALPETROL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik_AlphaBank.resx">
-      <DependentUpon>Rap_BlerjeRegjistriAnalitik_AlphaBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_BlerjeRegjistriAnalitik_Barkod.resx">
       <DependentUpon>Rap_BlerjeRegjistriAnalitik_Barkod.cs</DependentUpon>
@@ -1411,9 +1366,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_BlerjeRegjistriPermbledhesPortrait.resx">
       <DependentUpon>Rap_BlerjeRegjistriPermbledhesPortrait.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_BlerjeRegjistriPermbledhes_AlphaBank.resx">
-      <DependentUpon>Rap_BlerjeRegjistriPermbledhes_AlphaBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_BlerjeShpenzimeTeParapaguara.resx">
       <DependentUpon>Rap_BlerjeShpenzimeTeParapaguara.cs</DependentUpon>
@@ -1469,9 +1421,6 @@
     <EmbeddedResource Include="Rap_FleteDoganoreImport.resx">
       <DependentUpon>Rap_FleteDoganoreImport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_FleteDoganoreImport_SePDeFn_131540171154584613.resx">
-      <DependentUpon>Rap_FleteDoganoreImport_SePDeFn_131540171154584613.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_FormatBlerjeAlbamediaAng.resx">
       <DependentUpon>Rap_FormatBlerjeAlbamediaAng.cs</DependentUpon>
     </EmbeddedResource>
@@ -1486,9 +1435,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_KartelaArtikulli.resx">
       <DependentUpon>Rap_KartelaArtikulli.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_KartelaArtikulli_AlphaBank.resx">
-      <DependentUpon>Rap_KartelaArtikulli_AlphaBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_KartelaArtikulli_Format2.resx">
       <DependentUpon>Rap_KartelaArtikulli_Format2.cs</DependentUpon>

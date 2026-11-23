@@ -407,12 +407,6 @@
     <Compile Include="Raporte\Rap_MaturimiFaturaveTeFurnitoreve.Designer.cs">
       <DependentUpon>Rap_MaturimiFaturaveTeFurnitoreve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131468465012365335.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131468465012365335.Designer.cs">
-      <DependentUpon>Rap_KartelaKlient_SePDeFn_131468465012365335.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\Rap_KlientetMeAfateMaturimi.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -424,12 +418,6 @@
     </Compile>
     <Compile Include="Raporte\RapMaturimiFaturaveTeKlienteve.Designer.cs">
       <DependentUpon>RapMaturimiFaturaveTeKlienteve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.Designer.cs">
-      <DependentUpon>Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\RapVeprimetEKlientitPerDatatMeTeFundit.cs">
       <SubType>Component</SubType>
@@ -448,12 +436,6 @@
     </Compile>
     <Compile Include="Raporte\Rap_AnalitikFaturimPagesaFormat2.Designer.cs">
       <DependentUpon>Rap_AnalitikFaturimPagesaFormat2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_AnalitikFaturimPagesa_AlphaBank.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_AnalitikFaturimPagesa_AlphaBank.Designer.cs">
-      <DependentUpon>Rap_AnalitikFaturimPagesa_AlphaBank.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\Rap_AnalitikSipasKartave.cs">
       <SubType>Component</SubType>
@@ -484,12 +466,6 @@
     </Compile>
     <Compile Include="Raporte\Rap_Bonuset_Vjetore_Klienteve.Designer.cs">
       <DependentUpon>Rap_Bonuset_Vjetore_Klienteve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_Bonuset_Vjetore_Te_Klienteve_Delta.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_Bonuset_Vjetore_Te_Klienteve_Delta.Designer.cs">
-      <DependentUpon>Rap_Bonuset_Vjetore_Te_Klienteve_Delta.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\Rap_BuxhetiHarxhuar.cs">
       <SubType>Component</SubType>
@@ -539,12 +515,6 @@
     <Compile Include="Raporte\Rap_KartelaFurnitor.Designer.cs">
       <DependentUpon>Rap_KartelaFurnitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\Rap_KartelaFurnitor_AlphaBank.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_KartelaFurnitor_AlphaBank.Designer.cs">
-      <DependentUpon>Rap_KartelaFurnitor_AlphaBank.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\Rap_KartelaFurnitor_Format2.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -593,24 +563,6 @@
     <Compile Include="Raporte\Rap_KartelaKlient_MonedheBaze1.Designer.cs">
       <DependentUpon>Rap_KartelaKlient_MonedheBaze1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131520114831729620.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131520114831729620.Designer.cs">
-      <DependentUpon>Rap_KartelaKlient_SePDeFn_131520114831729620.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131569421935052357.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131569421935052357.Designer.cs">
-      <DependentUpon>Rap_KartelaKlient_SePDeFn_131569421935052357.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131692964498814101.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_SePDeFn_131692964498814101.Designer.cs">
-      <DependentUpon>Rap_KartelaKlient_SePDeFn_131692964498814101.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\Rap_KartelaKlient_SunPetroleum.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -622,12 +574,6 @@
     </Compile>
     <Compile Include="Raporte\Rap_KartelaKlient_UniversReklama.Designer.cs">
       <DependentUpon>Rap_KartelaKlient_UniversReklama.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.Designer.cs">
-      <DependentUpon>Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\Rap_Kartela_E_Furnitorit.cs">
       <SubType>Component</SubType>
@@ -659,12 +605,6 @@
     <Compile Include="Raporte\RAP_KomisionetSipasAgjenteve.Designer.cs">
       <DependentUpon>RAP_KomisionetSipasAgjenteve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.Designer.cs">
-      <DependentUpon>RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\Rap_LimiteteBonuseve.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -676,18 +616,6 @@
     </Compile>
     <Compile Include="Raporte\Rap_MaturimAnalitikKF.Designer.cs">
       <DependentUpon>Rap_MaturimAnalitikKF.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_MaturimAnalitikKF_AlphaBank.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_MaturimAnalitikKF_AlphaBank.Designer.cs">
-      <DependentUpon>Rap_MaturimAnalitikKF_AlphaBank.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.Designer.cs">
-      <DependentUpon>Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\Rap_MaturimFurnitori.cs">
       <SubType>Component</SubType>
@@ -718,12 +646,6 @@
     </Compile>
     <Compile Include="Raporte\Rap_PermbledhesFaturimPagesaSinani.Designer.cs">
       <DependentUpon>Rap_PermbledhesFaturimPagesaSinani.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesa_AlphaBank.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_PermbledhesFaturimPagesa_AlphaBank.Designer.cs">
-      <DependentUpon>Rap_PermbledhesFaturimPagesa_AlphaBank.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\Rap_PermbledhesFaturimPagesa_SePDeFn_131430462380360507.cs">
       <SubType>Component</SubType>
@@ -791,23 +713,11 @@
     <Compile Include="Raporte\Rap_SituacionIKlienteve.Designer.cs">
       <DependentUpon>Rap_SituacionIKlienteve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\Rap_SituacionIKlienteveAutoElite.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_SituacionIKlienteveAutoElite.Designer.cs">
-      <DependentUpon>Rap_SituacionIKlienteveAutoElite.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\Rap_SituacionIKlienteveLandscape.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Raporte\Rap_SituacionIKlienteveLandscape.Designer.cs">
       <DependentUpon>Rap_SituacionIKlienteveLandscape.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.Designer.cs">
-      <DependentUpon>Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\Rap_SituacionIKlienteveMeAdrese.cs">
       <SubType>Component</SubType>
@@ -839,12 +749,6 @@
     <Compile Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKfSipasAutorizimeve.Designer.cs">
       <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKfSipasAutorizimeve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.Designer.cs">
-      <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\Rap_SituacionIKlienteveSipasMuajve.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -856,12 +760,6 @@
     </Compile>
     <Compile Include="Raporte\Rap_SituacionIKlienteve_Ekspozim.Designer.cs">
       <DependentUpon>Rap_SituacionIKlienteve_Ekspozim.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.Designer.cs">
-      <DependentUpon>Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\Rap_SituacionIKlienteve_MeGrupime.cs">
       <SubType>Component</SubType>
@@ -934,12 +832,6 @@
     </Compile>
     <Compile Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve.Designer.cs">
       <DependentUpon>Rap_Vjetersia_Detyrimeve_Klienteve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.Designer.cs">
-      <DependentUpon>Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1612,17 +1504,11 @@
     <EmbeddedResource Include="Raporte\Rap_MaturimiFaturaveTeFurnitoreve.resx">
       <DependentUpon>Rap_MaturimiFaturaveTeFurnitoreve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SePDeFn_131468465012365335.resx">
-      <DependentUpon>Rap_KartelaKlient_SePDeFn_131468465012365335.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_KlientetMeAfateMaturimi.resx">
       <DependentUpon>Rap_KlientetMeAfateMaturimi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RapMaturimiFaturaveTeKlienteve.resx">
       <DependentUpon>RapMaturimiFaturaveTeKlienteve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.resx">
-      <DependentUpon>Raporte.Rap_LimiteteBonuseve_SePDeFn_131617861305690884.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RapVeprimetEKlientitPerDatatMeTeFundit.resx">
       <DependentUpon>RapVeprimetEKlientitPerDatatMeTeFundit.cs</DependentUpon>
@@ -1632,9 +1518,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_AnalitikFaturimPagesaFormat2.resx">
       <DependentUpon>Rap_AnalitikFaturimPagesaFormat2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_AnalitikFaturimPagesa_AlphaBank.resx">
-      <DependentUpon>Rap_AnalitikFaturimPagesa_AlphaBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_AnalitikSipasKartave.resx">
       <DependentUpon>Rap_AnalitikSipasKartave.cs</DependentUpon>
@@ -1650,9 +1533,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_Bonuset_Vjetore_Klienteve.resx">
       <DependentUpon>Rap_Bonuset_Vjetore_Klienteve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_Bonuset_Vjetore_Te_Klienteve_Delta.resx">
-      <DependentUpon>Rap_Bonuset_Vjetore_Te_Klienteve_Delta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_BuxhetiHarxhuar.resx">
       <DependentUpon>Rap_BuxhetiHarxhuar.cs</DependentUpon>
@@ -1678,9 +1558,6 @@
     <EmbeddedResource Include="Raporte\Rap_KartelaFurnitor.resx">
       <DependentUpon>Rap_KartelaFurnitor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_KartelaFurnitor_AlphaBank.resx">
-      <DependentUpon>Rap_KartelaFurnitor_AlphaBank.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_KartelaFurnitor_Format2.resx">
       <DependentUpon>Rap_KartelaFurnitor_Format2.cs</DependentUpon>
     </EmbeddedResource>
@@ -1705,23 +1582,11 @@
     <EmbeddedResource Include="Raporte\Rap_KartelaKlient_MonedheBaze1.resx">
       <DependentUpon>Rap_KartelaKlient_MonedheBaze1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SePDeFn_131520114831729620.resx">
-      <DependentUpon>Rap_KartelaKlient_SePDeFn_131520114831729620.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SePDeFn_131569421935052357.resx">
-      <DependentUpon>Rap_KartelaKlient_SePDeFn_131569421935052357.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SePDeFn_131692964498814101.resx">
-      <DependentUpon>Rap_KartelaKlient_SePDeFn_131692964498814101.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_KartelaKlient_SunPetroleum.resx">
       <DependentUpon>Rap_KartelaKlient_SunPetroleum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_KartelaKlient_UniversReklama.resx">
       <DependentUpon>Rap_KartelaKlient_UniversReklama.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.resx">
-      <DependentUpon>Rap_KartelaKlient_UniversReklama_SePDeFn_131515109978207873.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_Kartela_E_Furnitorit.resx">
       <DependentUpon>Rap_Kartela_E_Furnitorit.cs</DependentUpon>
@@ -1738,20 +1603,11 @@
     <EmbeddedResource Include="Raporte\RAP_KomisionetSipasAgjenteve.resx">
       <DependentUpon>RAP_KomisionetSipasAgjenteve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.resx">
-      <DependentUpon>RAP_KomisionetSipasAgjenteve_SePDeFn_131580719579936388.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_LimiteteBonuseve.resx">
       <DependentUpon>Rap_LimiteteBonuseve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_MaturimAnalitikKF.resx">
       <DependentUpon>Rap_MaturimAnalitikKF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_MaturimAnalitikKF_AlphaBank.resx">
-      <DependentUpon>Rap_MaturimAnalitikKF_AlphaBank.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.resx">
-      <DependentUpon>Rap_MaturimAnalitikKF_SePDeFn_131515971985638474.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_MaturimFurnitori.resx">
       <DependentUpon>Rap_MaturimFurnitori.cs</DependentUpon>
@@ -1767,9 +1623,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_PermbledhesFaturimPagesaSinani.resx">
       <DependentUpon>Rap_PermbledhesFaturimPagesaSinani.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_PermbledhesFaturimPagesa_AlphaBank.resx">
-      <DependentUpon>Rap_PermbledhesFaturimPagesa_AlphaBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_PermbledhesFaturimPagesa_SePDeFn_131430462380360507.resx">
       <DependentUpon>Rap_PermbledhesFaturimPagesa_SePDeFn_131430462380360507.cs</DependentUpon>
@@ -1804,14 +1657,8 @@
     <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve.resx">
       <DependentUpon>Rap_SituacionIKlienteve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveAutoElite.resx">
-      <DependentUpon>Rap_SituacionIKlienteveAutoElite.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveLandscape.resx">
       <DependentUpon>Rap_SituacionIKlienteveLandscape.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.resx">
-      <DependentUpon>Rap_SituacionIKlienteveLandscape_SePDeFn_131583262401834349.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveMeAdrese.resx">
       <DependentUpon>Rap_SituacionIKlienteveMeAdrese.cs</DependentUpon>
@@ -1828,17 +1675,11 @@
     <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKfSipasAutorizimeve.resx">
       <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKfSipasAutorizimeve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.resx">
-      <DependentUpon>Rap_SituacionIKlienteveSipasGrupimitKf_SePDeFn_131517761317765648.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteveSipasMuajve.resx">
       <DependentUpon>Rap_SituacionIKlienteveSipasMuajve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve_Ekspozim.resx">
       <DependentUpon>Rap_SituacionIKlienteve_Ekspozim.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.resx">
-      <DependentUpon>Rap_SituacionIKlienteve_Ekspozim_SePDeFn_131372611580675568.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_SituacionIKlienteve_MeGrupime.resx">
       <DependentUpon>Rap_SituacionIKlienteve_MeGrupime.cs</DependentUpon>
@@ -1875,9 +1716,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve.resx">
       <DependentUpon>Rap_Vjetersia_Detyrimeve_Klienteve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.resx">
-      <DependentUpon>Rap_Vjetersia_Detyrimeve_Klienteve_Kastrati.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

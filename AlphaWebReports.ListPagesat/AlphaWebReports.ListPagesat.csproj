@@ -596,12 +596,6 @@
     <Compile Include="Raportet\Rap_ListepagesaStandarte_format2_SePDeFn_131622966250587205.Designer.cs">
       <DependentUpon>Rap_ListepagesaStandarte_format2_SePDeFn_131622966250587205.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raportet\Rap_ListepagesaStandarte_SePDeFn_131860691217595526.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_ListepagesaStandarte_SePDeFn_131860691217595526.Designer.cs">
-      <DependentUpon>Rap_ListepagesaStandarte_SePDeFn_131860691217595526.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raportet\Rap_ListpagesaPermbledhese.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -625,12 +619,6 @@
     </Compile>
     <Compile Include="Raportet\Rap_PasqyraSigSuplementare.Designer.cs">
       <DependentUpon>Rap_PasqyraSigSuplementare.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raportet\Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raportet\Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.Designer.cs">
-      <DependentUpon>Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.cs</DependentUpon>
     </Compile>
     <Compile Include="Raportet\Rap_PasqyraSigurimeveTatimeve.cs">
       <SubType>Component</SubType>
@@ -1330,9 +1318,6 @@
     <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarte_format2_SePDeFn_131622966250587205.resx">
       <DependentUpon>Rap_ListepagesaStandarte_format2_SePDeFn_131622966250587205.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raportet\Rap_ListepagesaStandarte_SePDeFn_131860691217595526.resx">
-      <DependentUpon>Rap_ListepagesaStandarte_SePDeFn_131860691217595526.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_ListpagesaPermbledhese.resx">
       <DependentUpon>Rap_ListpagesaPermbledhese.cs</DependentUpon>
     </EmbeddedResource>
@@ -1344,9 +1329,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_PasqyraSigSuplementare.resx">
       <DependentUpon>Rap_PasqyraSigSuplementare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raportet\Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.resx">
-      <DependentUpon>Rap_PasqyraSigSuplementare_SePDeFn_131330920275641538.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raportet\Rap_PasqyraSigurimeveTatimeve.resx">
       <DependentUpon>Rap_PasqyraSigurimeveTatimeve.cs</DependentUpon>

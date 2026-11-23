@@ -208,18 +208,6 @@
     <Compile Include="Raporte\RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.Designer.cs">
       <DependentUpon>RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs</DependentUpon>
     </Compile>
-    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_Gethe.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_Gethe.Designer.cs">
-      <DependentUpon>RAP_BANKA_DITARIKLASIK_Gethe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_Kastrati.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_Kastrati.Designer.cs">
-      <DependentUpon>RAP_BANKA_DITARIKLASIK_Kastrati.cs</DependentUpon>
-    </Compile>
     <Compile Include="Raporte\RAP_BANKA_DITARIKLASIK_levizje.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -243,12 +231,6 @@
     </Compile>
     <Compile Include="Raporte\RAP_BANKA_DITARITOTALRAPORTUES.Designer.cs">
       <DependentUpon>RAP_BANKA_DITARITOTALRAPORTUES.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL_Gethe.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Raporte\RAP_BANKA_DITARITOTAL_Gethe.Designer.cs">
-      <DependentUpon>RAP_BANKA_DITARITOTAL_Gethe.cs</DependentUpon>
     </Compile>
     <Compile Include="Raporte\RAP_BANKA_DITARITOTAL_NrRend.cs">
       <SubType>Component</SubType>
@@ -487,12 +469,6 @@
     <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.resx">
       <DependentUpon>RAP_BANKA_DITARIKLASIKSIPASAUTORIZIMEVEPORTRAIT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIK_Gethe.resx">
-      <DependentUpon>RAP_BANKA_DITARIKLASIK_Gethe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIK_Kastrati.resx">
-      <DependentUpon>RAP_BANKA_DITARIKLASIK_Kastrati.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_BANKA_DITARIKLASIK_levizje.resx">
       <DependentUpon>RAP_BANKA_DITARIKLASIK_levizje.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -505,9 +481,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_BANKA_DITARITOTALRAPORTUES.resx">
       <DependentUpon>RAP_BANKA_DITARITOTALRAPORTUES.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Raporte\RAP_BANKA_DITARITOTAL_Gethe.resx">
-      <DependentUpon>RAP_BANKA_DITARITOTAL_Gethe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raporte\RAP_BANKA_DITARITOTAL_NrRend.resx">
       <DependentUpon>RAP_BANKA_DITARITOTAL_NrRend.cs</DependentUpon>

@@ -1324,12 +1324,6 @@
     <Compile Include="Fatura\Rap_FatureShitjeMeArtikuj_Fredi .Designer.cs">
       <DependentUpon>Rap_FatureShitjeMeArtikuj_Fredi .cs</DependentUpon>
     </Compile>
-    <Compile Include="Fatura\Rap_FatureShitjeMeArtikuj_Fredi_SePDeFn_131546284582735525.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Fatura\Rap_FatureShitjeMeArtikuj_Fredi_SePDeFn_131546284582735525.Designer.cs">
-      <DependentUpon>Rap_FatureShitjeMeArtikuj_Fredi_SePDeFn_131546284582735525.cs</DependentUpon>
-    </Compile>
     <Compile Include="Fatura\Rap_FatureShitjeMeArtikuj_SePDeFn_131400243735191731.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1461,12 +1455,6 @@
     </Compile>
     <Compile Include="Fatura\Rap_FatureShitjeMeduza_SePDeFn_131580707050166016.Designer.cs">
       <DependentUpon>Rap_FatureShitjeMeduza_SePDeFn_131580707050166016.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Fatura\Rap_FatureShitjeMeduza_SePDeFn_131604823757490234.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Fatura\Rap_FatureShitjeMeduza_SePDeFn_131604823757490234.Designer.cs">
-      <DependentUpon>Rap_FatureShitjeMeduza_SePDeFn_131604823757490234.cs</DependentUpon>
     </Compile>
     <Compile Include="Fatura\Rap_FatureShitjeMeduza_SePDeFn_131611720661123046.cs">
       <SubType>Component</SubType>
@@ -1671,12 +1659,6 @@
     </Compile>
     <Compile Include="Fatura\Rap_FatureShitje_Redis_1.Designer.cs">
       <DependentUpon>Rap_FatureShitje_Redis_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Fatura\Rap_FatureShitje_Redis_1_SePDeFn_131310369665828851.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Fatura\Rap_FatureShitje_Redis_1_SePDeFn_131310369665828851.Designer.cs">
-      <DependentUpon>Rap_FatureShitje_Redis_1_SePDeFn_131310369665828851.cs</DependentUpon>
     </Compile>
     <Compile Include="Fatura\Rap_FatureShitje_Redis_1_SePDeFn_131419861401384187.cs">
       <SubType>Component</SubType>
@@ -1971,18 +1953,6 @@
     </Compile>
     <Compile Include="Fatura\Rap_FormatShitjeIMI_Farma.Designer.cs">
       <DependentUpon>Rap_FormatShitjeIMI_Farma.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Fatura\Rap_FormatShitjeIMI_Farma_SePDeFn_131320580472944404.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Fatura\Rap_FormatShitjeIMI_Farma_SePDeFn_131320580472944404.Designer.cs">
-      <DependentUpon>Rap_FormatShitjeIMI_Farma_SePDeFn_131320580472944404.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Fatura\Rap_FormatShitjeIMI_Farma_SePDeFn_131590293987350517.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Fatura\Rap_FormatShitjeIMI_Farma_SePDeFn_131590293987350517.Designer.cs">
-      <DependentUpon>Rap_FormatShitjeIMI_Farma_SePDeFn_131590293987350517.cs</DependentUpon>
     </Compile>
     <Compile Include="Fatura\Rap_FormatShitjeLayo.cs">
       <SubType>Component</SubType>
@@ -2675,24 +2645,6 @@
     <Compile Include="RAP_ArtikujTeShiturSipasKartave.Designer.cs">
       <DependentUpon>RAP_ArtikujTeShiturSipasKartave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_Artikujteshitur_SePDeFn_131306072108028643.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_Artikujteshitur_SePDeFn_131306072108028643.Designer.cs">
-      <DependentUpon>Rap_Artikujteshitur_SePDeFn_131306072108028643.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_Artikujteshitur_SePDeFn_131308526368694547.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_Artikujteshitur_SePDeFn_131308526368694547.Designer.cs">
-      <DependentUpon>Rap_Artikujteshitur_SePDeFn_131308526368694547.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_Artikujteshitur_SePDeFn_131498518321839085.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_Artikujteshitur_SePDeFn_131498518321839085.Designer.cs">
-      <DependentUpon>Rap_Artikujteshitur_SePDeFn_131498518321839085.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_Artikujteshitur_sipasAgjenteve.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2855,12 +2807,6 @@
     <Compile Include="Rap_KartelaAgjenteveShitjes_IMB.Designer.cs">
       <DependentUpon>Rap_KartelaAgjenteveShitjes_IMB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_KartelaAgjenteveShitjes_SePDeFn_131491623208750662.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_KartelaAgjenteveShitjes_SePDeFn_131491623208750662.Designer.cs">
-      <DependentUpon>Rap_KartelaAgjenteveShitjes_SePDeFn_131491623208750662.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_KartelaArtikulliShitje.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2872,12 +2818,6 @@
     </Compile>
     <Compile Include="Rap_KartelaArtikulliShitjesipaskodbareve.Designer.cs">
       <DependentUpon>Rap_KartelaArtikulliShitjesipaskodbareve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_KartelaArtikulliShitje_SePDeFn_131497028865529078.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_KartelaArtikulliShitje_SePDeFn_131497028865529078.Designer.cs">
-      <DependentUpon>Rap_KartelaArtikulliShitje_SePDeFn_131497028865529078.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_KataloguArtikujve.cs">
       <SubType>Component</SubType>
@@ -2896,12 +2836,6 @@
     </Compile>
     <Compile Include="Rap_KomisionetAnalitikeAgjenteve.Designer.cs">
       <DependentUpon>Rap_KomisionetAnalitikeAgjenteve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_KomisionetAnalitikeAgjenteve_SePDeFn_131583172726761533.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_KomisionetAnalitikeAgjenteve_SePDeFn_131583172726761533.Designer.cs">
-      <DependentUpon>Rap_KomisionetAnalitikeAgjenteve_SePDeFn_131583172726761533.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_KomisionetSipasAgjenteve.cs">
       <SubType>Component</SubType>
@@ -2986,12 +2920,6 @@
     </Compile>
     <Compile Include="Rap_LibriShitjeveSipasMuajve.Designer.cs">
       <DependentUpon>Rap_LibriShitjeveSipasMuajve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_LibriShitjeveSunPetrolium.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_LibriShitjeveSunPetrolium.Designer.cs">
-      <DependentUpon>Rap_LibriShitjeveSunPetrolium.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_LibriShitjeve_AlphaBank.cs">
       <SubType>Component</SubType>
@@ -3185,12 +3113,6 @@
     <Compile Include="Rap_ShitjeAgjenteShitje.Designer.cs">
       <DependentUpon>Rap_ShitjeAgjenteShitje.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_ShitjeAgjenteShitje_SePDeFn_131523773625340000.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ShitjeAgjenteShitje_SePDeFn_131523773625340000.Designer.cs">
-      <DependentUpon>Rap_ShitjeAgjenteShitje_SePDeFn_131523773625340000.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_RegjistriArtikujveTePerbereDhePerberesve.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3233,12 +3155,6 @@
     <Compile Include="Rap_ShitjeAnalitikAnoriaSipasAutorizimeve.Designer.cs">
       <DependentUpon>Rap_ShitjeAnalitikAnoriaSipasAutorizimeve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_ShitjeAnalitikAutoElite.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ShitjeAnalitikAutoElite.Designer.cs">
-      <DependentUpon>Rap_ShitjeAnalitikAutoElite.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_ShitjeAnalitikDekoll.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3269,12 +3185,6 @@
     <Compile Include="Rap_ShitjeAnalitikSipasAutorizimeve.Designer.cs">
       <DependentUpon>Rap_ShitjeAnalitikSipasAutorizimeve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_ShitjeAnalitik_AlphaBank.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ShitjeAnalitik_AlphaBank.Designer.cs">
-      <DependentUpon>Rap_ShitjeAnalitik_AlphaBank.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_ShitjeAnalitik_Barkod.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3304,18 +3214,6 @@
     </Compile>
     <Compile Include="Rap_ShitjeAnalitik_portrait.Designer.cs">
       <DependentUpon>Rap_ShitjeAnalitik_portrait.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_ShitjeAnalitik_SePDeFn_131302597895823068.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ShitjeAnalitik_SePDeFn_131302597895823068.Designer.cs">
-      <DependentUpon>Rap_ShitjeAnalitik_SePDeFn_131302597895823068.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_ShitjeAnalitik_SePDeFn_131514061461517768.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ShitjeAnalitik_SePDeFn_131514061461517768.Designer.cs">
-      <DependentUpon>Rap_ShitjeAnalitik_SePDeFn_131514061461517768.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_ShitjeAnalizaArtikujveProdhim.cs">
       <SubType>Component</SubType>
@@ -3364,12 +3262,6 @@
     </Compile>
     <Compile Include="Rap_ShitjeFleteDoganoreExport.Designer.cs">
       <DependentUpon>Rap_ShitjeFleteDoganoreExport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_ShitjeFleteDoganoreExport_SePDeFn_131540115936852559.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ShitjeFleteDoganoreExport_SePDeFn_131540115936852559.Designer.cs">
-      <DependentUpon>Rap_ShitjeFleteDoganoreExport_SePDeFn_131540115936852559.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_ShitjeFormulariDeklarimitTvshKosove.cs">
       <SubType>Component</SubType>
@@ -3436,12 +3328,6 @@
     </Compile>
     <Compile Include="Rap_ShitjePermbledhesSipasAutorizimeve.Designer.cs">
       <DependentUpon>Rap_ShitjePermbledhesSipasAutorizimeve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_ShitjePermbledhes_AlphaBank.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_ShitjePermbledhes_AlphaBank.Designer.cs">
-      <DependentUpon>Rap_ShitjePermbledhes_AlphaBank.cs</DependentUpon>
     </Compile>
     <Compile Include="Rap_ShitjeSipasArtikujve.cs">
       <SubType>Component</SubType>
@@ -5269,9 +5155,6 @@
     <EmbeddedResource Include="Fatura\Rap_FatureShitjeMeArtikuj_Fredi .resx">
       <DependentUpon>Rap_FatureShitjeMeArtikuj_Fredi .cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fatura\Rap_FatureShitjeMeArtikuj_Fredi_SePDeFn_131546284582735525.resx">
-      <DependentUpon>Rap_FatureShitjeMeArtikuj_Fredi_SePDeFn_131546284582735525.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FatureShitjeMeArtikuj_SePDeFn_131400243735191731.resx">
       <DependentUpon>Rap_FatureShitjeMeArtikuj_SePDeFn_131400243735191731.cs</DependentUpon>
     </EmbeddedResource>
@@ -5337,9 +5220,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FatureShitjeMeduza_SePDeFn_131580707050166016.resx">
       <DependentUpon>Rap_FatureShitjeMeduza_SePDeFn_131580707050166016.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Fatura\Rap_FatureShitjeMeduza_SePDeFn_131604823757490234.resx">
-      <DependentUpon>Rap_FatureShitjeMeduza_SePDeFn_131604823757490234.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FatureShitjeMeduza_SePDeFn_131611720661123046.resx">
       <DependentUpon>Rap_FatureShitjeMeduza_SePDeFn_131611720661123046.cs</DependentUpon>
@@ -5442,9 +5322,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FatureShitje_Redis_1.resx">
       <DependentUpon>Rap_FatureShitje_Redis_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Fatura\Rap_FatureShitje_Redis_1_SePDeFn_131310369665828851.resx">
-      <DependentUpon>Rap_FatureShitje_Redis_1_SePDeFn_131310369665828851.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FatureShitje_Redis_1_SePDeFn_131419861401384187.resx">
       <DependentUpon>Rap_FatureShitje_Redis_1_SePDeFn_131419861401384187.cs</DependentUpon>
@@ -5592,12 +5469,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FormatShitjeIMI_Farma.resx">
       <DependentUpon>Rap_FormatShitjeIMI_Farma.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Fatura\Rap_FormatShitjeIMI_Farma_SePDeFn_131320580472944404.resx">
-      <DependentUpon>Rap_FormatShitjeIMI_Farma_SePDeFn_131320580472944404.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Fatura\Rap_FormatShitjeIMI_Farma_SePDeFn_131590293987350517.resx">
-      <DependentUpon>Rap_FormatShitjeIMI_Farma_SePDeFn_131590293987350517.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fatura\Rap_FormatShitjeLayo.resx">
       <DependentUpon>Rap_FormatShitjeLayo.cs</DependentUpon>
@@ -5944,15 +5815,6 @@
     <EmbeddedResource Include="RAP_ArtikujTeShiturSipasKartave.resx">
       <DependentUpon>RAP_ArtikujTeShiturSipasKartave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_Artikujteshitur_SePDeFn_131306072108028643.resx">
-      <DependentUpon>Rap_Artikujteshitur_SePDeFn_131306072108028643.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_Artikujteshitur_SePDeFn_131308526368694547.resx">
-      <DependentUpon>Rap_Artikujteshitur_SePDeFn_131308526368694547.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_Artikujteshitur_SePDeFn_131498518321839085.resx">
-      <DependentUpon>Rap_Artikujteshitur_SePDeFn_131498518321839085.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_Artikujteshitur_sipasAgjenteve.resx">
       <DependentUpon>Rap_Artikujteshitur_sipasAgjenteve.cs</DependentUpon>
     </EmbeddedResource>
@@ -6034,17 +5896,11 @@
     <EmbeddedResource Include="Rap_KartelaAgjenteveShitjes_IMB.resx">
       <DependentUpon>Rap_KartelaAgjenteveShitjes_IMB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_KartelaAgjenteveShitjes_SePDeFn_131491623208750662.resx">
-      <DependentUpon>Rap_KartelaAgjenteveShitjes_SePDeFn_131491623208750662.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_KartelaArtikulliShitje.resx">
       <DependentUpon>Rap_KartelaArtikulliShitje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_KartelaArtikulliShitjesipaskodbareve.resx">
       <DependentUpon>Rap_KartelaArtikulliShitjesipaskodbareve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_KartelaArtikulliShitje_SePDeFn_131497028865529078.resx">
-      <DependentUpon>Rap_KartelaArtikulliShitje_SePDeFn_131497028865529078.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_KataloguArtikujve.resx">
       <DependentUpon>Rap_KataloguArtikujve.cs</DependentUpon>
@@ -6054,9 +5910,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_KomisionetAnalitikeAgjenteve.resx">
       <DependentUpon>Rap_KomisionetAnalitikeAgjenteve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_KomisionetAnalitikeAgjenteve_SePDeFn_131583172726761533.resx">
-      <DependentUpon>Rap_KomisionetAnalitikeAgjenteve_SePDeFn_131583172726761533.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_KomisionetSipasAgjenteve.resx">
       <DependentUpon>Rap_KomisionetSipasAgjenteve.cs</DependentUpon>
@@ -6099,9 +5952,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_LibriShitjeveSipasMuajve.resx">
       <DependentUpon>Rap_LibriShitjeveSipasMuajve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_LibriShitjeveSunPetrolium.resx">
-      <DependentUpon>Rap_LibriShitjeveSunPetrolium.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_LibriShitjeve_AlphaBank.resx">
       <DependentUpon>Rap_LibriShitjeve_AlphaBank.cs</DependentUpon>
@@ -6199,9 +6049,6 @@
     <EmbeddedResource Include="Rap_ShitjeAgjenteShitje.resx">
       <DependentUpon>Rap_ShitjeAgjenteShitje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ShitjeAgjenteShitje_SePDeFn_131523773625340000.resx">
-      <DependentUpon>Rap_ShitjeAgjenteShitje_SePDeFn_131523773625340000.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_RegjistriArtikujveTePerbereDhePerberesve.resx">
       <DependentUpon>Rap_RegjistriArtikujveTePerbereDhePerberesve.cs</DependentUpon>
     </EmbeddedResource>
@@ -6223,9 +6070,6 @@
     <EmbeddedResource Include="Rap_ShitjeAnalitikAnoriaSipasAutorizimeve.resx">
       <DependentUpon>Rap_ShitjeAnalitikAnoriaSipasAutorizimeve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ShitjeAnalitikAutoElite.resx">
-      <DependentUpon>Rap_ShitjeAnalitikAutoElite.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjeAnalitikDekoll.resx">
       <DependentUpon>Rap_ShitjeAnalitikDekoll.cs</DependentUpon>
     </EmbeddedResource>
@@ -6241,9 +6085,6 @@
     <EmbeddedResource Include="Rap_ShitjeAnalitikSipasAutorizimeve.resx">
       <DependentUpon>Rap_ShitjeAnalitikSipasAutorizimeve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ShitjeAnalitik_AlphaBank.resx">
-      <DependentUpon>Rap_ShitjeAnalitik_AlphaBank.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjeAnalitik_Barkod.resx">
       <DependentUpon>Rap_ShitjeAnalitik_Barkod.cs</DependentUpon>
     </EmbeddedResource>
@@ -6258,12 +6099,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjeAnalitik_portrait.resx">
       <DependentUpon>Rap_ShitjeAnalitik_portrait.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ShitjeAnalitik_SePDeFn_131302597895823068.resx">
-      <DependentUpon>Rap_ShitjeAnalitik_SePDeFn_131302597895823068.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ShitjeAnalitik_SePDeFn_131514061461517768.resx">
-      <DependentUpon>Rap_ShitjeAnalitik_SePDeFn_131514061461517768.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjeAnalizaArtikujveProdhim.resx">
       <DependentUpon>Rap_ShitjeAnalizaArtikujveProdhim.cs</DependentUpon>
@@ -6288,9 +6123,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjeFleteDoganoreExport.resx">
       <DependentUpon>Rap_ShitjeFleteDoganoreExport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ShitjeFleteDoganoreExport_SePDeFn_131540115936852559.resx">
-      <DependentUpon>Rap_ShitjeFleteDoganoreExport_SePDeFn_131540115936852559.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjeFormulariDeklarimitTvshKosove.resx">
       <DependentUpon>Rap_ShitjeFormulariDeklarimitTvshKosove.cs</DependentUpon>
@@ -6324,9 +6156,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjePermbledhesSipasAutorizimeve.resx">
       <DependentUpon>Rap_ShitjePermbledhesSipasAutorizimeve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_ShitjePermbledhes_AlphaBank.resx">
-      <DependentUpon>Rap_ShitjePermbledhes_AlphaBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ShitjeSipasArtikujve.resx">
       <DependentUpon>Rap_ShitjeSipasArtikujve.cs</DependentUpon>
