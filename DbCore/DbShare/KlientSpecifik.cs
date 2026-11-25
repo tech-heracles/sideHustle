@@ -9,7 +9,6 @@ namespace DbCore.DbShare
     public enum KlientSpecifik
     {
         KESH,
-        OSHEE,
 
     }
 }

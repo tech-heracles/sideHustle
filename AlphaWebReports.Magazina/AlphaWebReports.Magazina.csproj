@@ -186,11 +186,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_ListaArtikullZbritjeAnalitike.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ds_ListaElementeve_sipasRajoneve.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ds_ListaElementeve_sipasRajoneve.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Ds_MagazinaDaljeNgaDyqani1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -438,12 +433,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_Rap_KontrolliSkadencesArtikujve.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Ds_rap_listaanalitikElem.cs">
-      <DependentUpon>Ds_rap_listaanalitikElem.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Ds_rap_listaanalitikElem.Designer.cs">
-      <DependentUpon>Ds_rap_listaanalitikElem.cs</DependentUpon>
     </Compile>
     <Compile Include="Ds_Rap_MagazinaGjendjaNeVlefte1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1185,18 +1174,6 @@
     <Compile Include="Rap_ListaArtikulZbritjeAnalitike.Designer.cs">
       <DependentUpon>Rap_ListaArtikulZbritjeAnalitike.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rap_Lista_AnalitikElementeveSipasRajoneve_OSHEE.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_Lista_AnalitikElementeveSipasRajoneve_OSHEE.Designer.cs">
-      <DependentUpon>Rap_Lista_AnalitikElementeveSipasRajoneve_OSHEE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Rap_Lista_ElementeveSipasRajoneve_OSHEE.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rap_Lista_ElementeveSipasRajoneve_OSHEE.Designer.cs">
-      <DependentUpon>Rap_Lista_ElementeveSipasRajoneve_OSHEE.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rap_MagazinaDaljeNgaDyqani.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1659,17 +1636,6 @@
     </None>
     <None Include="Ds_ListaArtikullZbritjeAnalitike.xss">
       <DependentUpon>Ds_ListaArtikullZbritjeAnalitike.xsd</DependentUpon>
-    </None>
-    <None Include="ds_ListaElementeve_sipasRajoneve.xsc">
-      <DependentUpon>ds_ListaElementeve_sipasRajoneve.xsd</DependentUpon>
-    </None>
-    <None Include="ds_ListaElementeve_sipasRajoneve.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ds_ListaElementeve_sipasRajoneve.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="ds_ListaElementeve_sipasRajoneve.xss">
-      <DependentUpon>ds_ListaElementeve_sipasRajoneve.xsd</DependentUpon>
     </None>
     <None Include="Ds_MagazinaDaljeNgaDyqani.xsc">
       <DependentUpon>Ds_MagazinaDaljeNgaDyqani.xsd</DependentUpon>
@@ -2198,13 +2164,6 @@
     <None Include="Ds_Rap_KontrolliSkadencesArtikujve.xss">
       <DependentUpon>Ds_Rap_KontrolliSkadencesArtikujve.xsd</DependentUpon>
     </None>
-    <None Include="Ds_rap_listaanalitikElem.xsc">
-      <DependentUpon>Ds_rap_listaanalitikElem.xsd</DependentUpon>
-    </None>
-    <None Include="Ds_rap_listaanalitikElem.xsd" />
-    <None Include="Ds_rap_listaanalitikElem.xss">
-      <DependentUpon>Ds_rap_listaanalitikElem.xsd</DependentUpon>
-    </None>
     <None Include="Ds_Rap_MagazinaGjendjaNeVlefte.xsc">
       <DependentUpon>Ds_Rap_MagazinaGjendjaNeVlefte.xsd</DependentUpon>
     </None>
@@ -2697,12 +2656,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_ListaArtikulZbritjeAnalitike.resx">
       <DependentUpon>Rap_ListaArtikulZbritjeAnalitike.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_Lista_AnalitikElementeveSipasRajoneve_OSHEE.resx">
-      <DependentUpon>Rap_Lista_AnalitikElementeveSipasRajoneve_OSHEE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rap_Lista_ElementeveSipasRajoneve_OSHEE.resx">
-      <DependentUpon>Rap_Lista_ElementeveSipasRajoneve_OSHEE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rap_MagazinaDaljeNgaDyqani.resx">
       <DependentUpon>Rap_MagazinaDaljeNgaDyqani.cs</DependentUpon>
