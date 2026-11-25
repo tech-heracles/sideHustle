@@ -45,7 +45,7 @@ IF NOT EXISTS (SELECT 1 FROM sys.objects WHERE schema_id = SCHEMA_ID('hequr'))
     EXEC ('DROP SCHEMA hequr');
 
 /* moduli i raporteve CRM: hiqet vetem kur nuk i referohet me asgje */
-IF EXISTS (SELECT 1 FROM T_MODULI WHERE IDMODULI = 24 AND (MODULIKODI LIKE '%CRM%' OR MODULIEMRI LIKE '%CRM%'))
+IF EXISTS (SELECT 1 FROM T_MODULI WHERE IDMODULI = 24 AND MODULIKODI = 'M_CRM')
 BEGIN
     SET @sql = N'';
     SELECT @sql = @sql + N'IF EXISTS (SELECT 1 FROM ' + QUOTENAME(OBJECT_SCHEMA_NAME(fk.parent_object_id)) + N'.' + QUOTENAME(OBJECT_NAME(fk.parent_object_id))
