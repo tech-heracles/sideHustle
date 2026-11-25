@@ -330,28 +330,6 @@
     <Compile Include="RaportetDs\B_Buxheti\Raporte\RapEvidenceBuxheti.Designer.cs">
       <DependentUpon>RapEvidenceBuxheti.cs</DependentUpon>
     </Compile>
-    <Compile Include="RaportetDs\CRM\DataSource\Ds_EvidencaDetyrave.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_EvidencaDetyrave.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="RaportetDs\CRM\DataSource\Ds_Prc_Rap_AnalitikAnketa.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ds_Prc_Rap_AnalitikAnketa.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="RaportetDs\CRM\Raporte\RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RaportetDs\CRM\Raporte\RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.Designer.cs">
-      <DependentUpon>RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RaportetDs\CRM\Raporte\Rap_AnalitikAnketa.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RaportetDs\CRM\Raporte\Rap_AnalitikAnketa.Designer.cs">
-      <DependentUpon>Rap_AnalitikAnketa.cs</DependentUpon>
-    </Compile>
     <Compile Include="RaportetDs\Ds_OfertaBlerje.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1583,28 +1561,6 @@
     <None Include="RaportetDs\B_Buxheti\DataSource\Ds_ShperndarjaEBuxhetitTePacaktuar.xss">
       <DependentUpon>Ds_ShperndarjaEBuxhetitTePacaktuar.xsd</DependentUpon>
     </None>
-    <None Include="RaportetDs\CRM\DataSource\Ds_EvidencaDetyrave.xsc">
-      <DependentUpon>Ds_EvidencaDetyrave.xsd</DependentUpon>
-    </None>
-    <None Include="RaportetDs\CRM\DataSource\Ds_EvidencaDetyrave.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_EvidencaDetyrave.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="RaportetDs\CRM\DataSource\Ds_EvidencaDetyrave.xss">
-      <DependentUpon>Ds_EvidencaDetyrave.xsd</DependentUpon>
-    </None>
-    <None Include="RaportetDs\CRM\DataSource\Ds_Prc_Rap_AnalitikAnketa.xsc">
-      <DependentUpon>Ds_Prc_Rap_AnalitikAnketa.xsd</DependentUpon>
-    </None>
-    <None Include="RaportetDs\CRM\DataSource\Ds_Prc_Rap_AnalitikAnketa.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Ds_Prc_Rap_AnalitikAnketa.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="RaportetDs\CRM\DataSource\Ds_Prc_Rap_AnalitikAnketa.xss">
-      <DependentUpon>Ds_Prc_Rap_AnalitikAnketa.xsd</DependentUpon>
-    </None>
     <None Include="RaportetDs\Ds_OfertaBlerje.xsc">
       <DependentUpon>Ds_OfertaBlerje.xsd</DependentUpon>
     </None>
@@ -2430,12 +2386,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="RaportetDs\CRM\Raporte\RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.resx">
-      <DependentUpon>RaportetDs.CRM.Raporte.Rap_EvidencaDetyrave.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RaportetDs\CRM\Raporte\Rap_AnalitikAnketa.resx">
-      <DependentUpon>Rap_AnalitikAnketa.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="RaportetDs\PasqyratFinaciare\Raporte\Rap_Analiza_Aktiveve_Qarkulluese.resx">
       <DependentUpon>Rap_Analiza_Aktiveve_Qarkulluese.cs</DependentUpon>
     </EmbeddedResource>

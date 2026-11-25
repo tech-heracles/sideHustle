@@ -990,9 +990,6 @@ namespace DbCore.DbAdmin
                             if (id == -1)
                                 new MesazhGabimi("Gabim gjate krijimit te rolit!");
                         }
-                        mesazh = DbDashboard.clsDashboard.LidhPerdoruesMeDashboardDefault(new DbDashboard.clsDatabaseDashboard(dbAdmin), perdorues.IdPerdorues);
-                        if (!mesazh.Status)
-                            return mesazh;
                     }
 
                     if (autorizimet != null && autorizimet.Any())
@@ -1085,9 +1082,6 @@ namespace DbCore.DbAdmin
                                 return new clsMesazh(false, "Gabim gjate modifikimit te rolit!");
                         }
 
-                        mesazh = DbDashboard.clsDashboard.LidhPerdoruesMeDashboardDefault(new DbDashboard.clsDatabaseDashboard(dbAdmin),perdorues.IdPerdorues);
-                        if (!mesazh.Status)
-                            return mesazh;
                     }
                     if (autorizimet != null && autorizimet.Any())
                     {
@@ -1171,10 +1165,6 @@ namespace DbCore.DbAdmin
                         if (!mesazh.Status)
                             return mesazh;
                     }
-
-                    mesazh = DbDashboard.clsDashboard.LidhPerdoruesMeDashboardDefault(new DbDashboard.clsDatabaseDashboard(dbAdmin), perdorues.IdPerdorues);
-                    if (!mesazh.Status)
-                        return mesazh;
 
                     mesazh = dbAdmin.fshiPerdorues(perdorues.IdPerdorues);
                     if (!mesazh.Status)

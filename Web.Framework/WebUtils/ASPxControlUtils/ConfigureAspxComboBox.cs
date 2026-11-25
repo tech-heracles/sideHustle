@@ -24,7 +24,6 @@ using PlatinumWeb.ApplicationUtils.ASPxControlExtensions;
 using DbCore.DbProdhimi;
 using DbCore.DbShare;
 using NLog;
-using DbCore.DbGIS;
 using DbCore.DbImporte;
 using DbCore.IMBUtils.Logging;
 
@@ -687,19 +686,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
                 return colDege;
             }, "Kodi", "IdDegeAdministrative");
-        }
-
-        public static void mbushComboLayers(ASPxComboBox cmbLayers, int idPerdorues, int gjuha, int idNdermarrje, int idViti)
-        {
-            using (clsDatabaseGIS db = new clsDatabaseGIS())
-            {
-                cmbLayers.DataSource = db.merrLlojLayeriPerCombo(idPerdorues, gjuha, idNdermarrje, idViti, true);
-                cmbLayers.ValueField = "IdType_IdLayer";
-                cmbLayers.TextField = "Title";
-                cmbLayers.ValueType = typeof(string);
-
-                cmbLayers.DataBind();
-            }
         }
 
         public static void KonfiguroComboBoxKartatPerDhurata(ASPxComboBox comboBox, int idNdermarrje)
@@ -1480,18 +1466,6 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
             combo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
         }
 
-        public static void mbushComboNdermarrjePerGIS(ASPxComboBox combo, bool tePalidhura)
-        {
-            DbCore.DbAdmin.colNdermarrjet colNdermarrjePerGIS = new DbCore.DbAdmin.colNdermarrjet();
-            colNdermarrjePerGIS.mbushNdermarrjePerGIS(tePalidhura);
-            combo.DataSource = colNdermarrjePerGIS;
-            combo.ValueField = "IdNdermarrje";
-            combo.ValueType = typeof(int);
-            combo.TextField = "NdermarrjeKodi";
-            combo.DataBind();
-            combo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-        }
-
         public static void mbushComboKonfigurimeshSipasKategorise(ASPxComboBox combo, colKonfigurimAmbjenti colKonfigAmbjenti)
         {
             combo.DataSource = colKonfigAmbjenti;
@@ -1538,9 +1512,7 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
 
         public static void mbushComboLlojLayerMagazine(ASPxComboBox combo)
         {
-            clsDatabaseGIS dbGis = new clsDatabaseGIS();
-            combo.DataSource = dbGis.ktheGjitheLlojLayerMagazine();
-            dbGis.Dispose();
+            combo.DataSource = DbCore.DbRegjistrim.colNjesiAdministrative.ktheLlojetLayeritMagazine();
             combo.TextField = "PERSHKRIMI";
             combo.ValueField = "IDLLOJLAYER";
             combo.DataBind();

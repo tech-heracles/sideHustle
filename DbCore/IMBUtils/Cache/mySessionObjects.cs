@@ -2,8 +2,6 @@
 using static CacheLayer.GlobalCacheManager;
 using DbCore.DbAdmin;
 using DbCore.DbAsete;
-using DbCore.DbCRM;
-using DbCore.DbGIS;
 using DbCore.DbKontabiliteti;
 using DbCore.DbListPagesat;
 using DbCore.DbProdhimi;
@@ -2711,17 +2709,6 @@ namespace DbCore
             else return null;
 
         }
-        public static colTrupiAnketa merrAnketaVisibleNgaSesioni(HttpSessionState session)
-        {
-
-            if (MySessionCache["colFormatImportiVis"] != null)
-            {
-                return (colTrupiAnketa)MySessionCache["colFormatImportiVis"];
-            }
-            else return null;
-
-
-        }
         public static colAQTSeriale merrSerialeArtikulliNgaSesioni(HttpSessionState session, int idartikulli)
         {
             if (MySessionCache["colSeriale" + idartikulli] != null)
@@ -2781,17 +2768,6 @@ namespace DbCore
             if (MySessionCache["colFormatImportiInVis"] != null)
             {
                 return (colTrupiFormatImporti)MySessionCache["colFormatImportiInVis"];
-            }
-            else return null;
-
-
-        }
-        public static colTrupiAnketa merrAnketaInVisibleNgaSesioni(HttpSessionState session)
-        {
-
-            if (MySessionCache["colFormatImportiInVis"] != null)
-            {
-                return (colTrupiAnketa)MySessionCache["colFormatImportiInVis"];
             }
             else return null;
 
@@ -3297,175 +3273,6 @@ namespace DbCore
 
         public static DataTable MerrNdermarrjeRolNgaSession(HttpSessionState session, string guidString, int idRoli) =>
             (DataTable)MySessionCache[guidString + idRoli];
-
-        #region GIS
-
-        /// <summary>
-        /// Ruahet ne session ndermarrja e punes ne menyre qe te riperdoret sa here qe te jete e nevojshme
-        /// </summary>
-        /// <param name="session">Sessioni</param>
-        /// <param name="ndermarrjePune">klasa e ndermarrjes</param>
-        /// <returns>true</returns>
-        public static bool ruajNdermarrjePuneNeSession(HttpSessionState session, clsNdermarrje ndermarrjePune)
-        {
-            if (MySessionCache["NdermarrjePune"] == null)
-                MySessionCache.Add("NdermarrjePune", ndermarrjePune);
-            else
-                MySessionCache["NdermarrjePune"] = ndermarrjePune;
-            return true;
-        }
-
-        /// <summary>
-        /// Merren te dhenat e ndermarrjes aktuale qe ruhen ne session
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <returns>ndermarrjen e punes</returns>
-        public static clsNdermarrje merrNdermarrjePuneNgaSession(HttpSessionState session)
-        {
-            if (MySessionCache["NdermarrjePune"] == null)
-                return null;
-            else
-                return (clsNdermarrje)MySessionCache["NdermarrjePune"];
-        }
-
-        /// <summary>
-        /// Ruhet ne session mime type logo e ndermarrjes ne menyre qe te riperdoret sa here qe te jete e nevojshme
-        /// </summary>
-        /// <param name="session">Sessioni</param>
-        /// <param name="logoNdermarrje">logo e ndermarrjes</param>
-        /// <returns>true</returns>
-        public static bool ruajMimeTypeLogoNdermarrjeNeSession(HttpSessionState session, string logoNdermarrje)
-        {
-            if (MySessionCache["MimeTypeLogoNdermarrje"] == null)
-                MySessionCache.Add("MimeTypeLogoNdermarrje", logoNdermarrje);
-            else
-                MySessionCache["MimeTypeLogoNdermarrje"] = logoNdermarrje;
-            return true;
-        }
-
-        /// <summary>
-        /// Merren mime type logo e ndermarrjes aktuale qe ruhen ne session
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <returns>logon e ndermarrjs e punes</returns>
-        public static string merrMimeTypeLogoNdermarrjeNgaSession(HttpSessionState session)
-        {
-            if (MySessionCache["MimeTypeLogoNdermarrje"] == null)
-                return null;
-            else
-                return (string)MySessionCache["MimeTypeLogoNdermarrje"];
-        }
-
-        /// <summary>
-        /// Ruhen ne session te drejtat e perdoruesit per te gjithe layerat ne modulin GIS
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <param name="gisTeDrejtaSipasPerdorues">Te drejtat e perdoruesit te loguar</param>
-        /// <returns>true</returns>
-        public static bool ruajGISTeDrejtaSipasPerdoruesNeSession(HttpSessionState session, colTeDrejtaRoli gisTeDrejtaSipasPerdorues)
-        {
-            if (MySessionCache["GISTeDrejtaSipasPerdorues"] == null)
-                MySessionCache.Add("GISTeDrejtaSipasPerdorues", gisTeDrejtaSipasPerdorues);
-            else
-                MySessionCache["GISTeDrejtaSipasPerdorues"] = gisTeDrejtaSipasPerdorues;
-            return true;
-        }
-
-        /// <summary>
-        /// Merren nga session te drejtat e perdoruesit te loguar
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <returns>Kthen gjithe koleksionin e te drejtave te perdoruesit te loguar per modulin GIS</returns>
-        public static colTeDrejtaRoli merrGISTeDrejtaSipasPerdoruesNgaSession(HttpSessionState session)
-        {
-            if (MySessionCache["GISTeDrejtaSipasPerdorues"] == null)
-                return null;
-            else
-                return (colTeDrejtaRoli)MySessionCache["GISTeDrejtaSipasPerdorues"];
-        }
-
-        /// <summary>
-        /// Ruhet ne session workspace per GIS
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <param name="workspace">klasa e workspace aktual</param>
-        /// <returns>true</returns>
-        public static bool ruajWorkspaceNeSession(HttpSessionState session, clsWorkspaceGIS workspace)
-        {
-            if (MySessionCache["GISWorkspace"] == null)
-                MySessionCache.Add("GISWorkspace", workspace);
-            else
-                MySessionCache["GISWorkspace"] = workspace;
-            return true;
-        }
-
-        /// <summary>
-        /// Merren te dhenat e workspace aktual qe ruhen ne session
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <returns>workspace</returns>
-        public static clsWorkspaceGIS merrWorkspaceNgaSession(HttpSessionState session)
-        {
-            if (MySessionCache["GISWorkspace"] == null)
-                return null;
-            else
-                return (clsWorkspaceGIS)MySessionCache["GISWorkspace"];
-        }
-
-        /// <summary>
-        /// Ruhen ne session te gjithe tipet e layerave jane ne nivel konfigurimesh edhe mund te perdoren ne cdo ndermarrje edhe ne cdo rast
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <param name="layersType">colection i tipeve te layerave</param>
-        /// <returns>true</returns>
-        public static bool ruajLayersTypeNeSession(HttpSessionState session, colLayersTypeGIS layersType)
-        {
-            if (MySessionCache["GISLayersType"] == null)
-                MySessionCache.Add("GISLayersType", layersType);
-            else
-                MySessionCache["GISLayersType"] = layersType;
-            return true;
-        }
-
-        /// <summary>
-        /// Merren te dhenat e te gjithe tipeve te layerave qe ruhen ne session
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <returns>layersType</returns>
-        public static colLayersTypeGIS merrLayersTypeNgaSession(HttpSessionState session)
-        {
-            if (MySessionCache["GISLayersType"] == null)
-                return null;
-            else
-                return (colLayersTypeGIS)MySessionCache["GISLayersType"];
-        }
-        /// <summary>
-        /// Ruhen ne session te gjithe layerat jane ne nivel konfigurimesh qe perdoren nga 
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <param name="displayLayer">colection i layerave qe shfaqen ne projekt</param>
-        /// <returns></returns>
-        public static bool ruajDisplayLayersNeSession(HttpSessionState session, colDisplayLayersGIS displayLayer)
-        {
-            if (MySessionCache["GISDisplayLayers"] == null)
-                MySessionCache.Add("GISDisplayLayers", displayLayer);
-            else
-                MySessionCache["GISDisplayLayers"] = displayLayer;
-            return true;
-        }
-        /// <summary>
-        /// Merren te dhenat e te gjithe tipeve te layerave qe ruhen ne session
-        /// </summary>
-        /// <param name="session">sessioni</param>
-        /// <returns>layersType</returns>
-        public static colDisplayLayersGIS merrDisplayLayersNgaSession(HttpSessionState session)
-        {
-            if (MySessionCache["GISDisplayLayers"] == null)
-                return null;
-            else
-                return (colDisplayLayersGIS)MySessionCache["GISDisplayLayers"];
-        }
-        #endregion
 
         #region Metoda per menune
 

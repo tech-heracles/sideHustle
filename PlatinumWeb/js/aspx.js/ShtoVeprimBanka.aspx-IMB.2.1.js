@@ -128,7 +128,6 @@ jQuery(document).ready(function () {
         Utils.resizeSplitter();
         if (Utils.getUrlVar('teDrejta') === "po") {
             window.parent.btn.DoClick();
-            Utils.SetOrRefreshSplitterPaneContentUrl("Footer", "FooterPanelInfo.aspx");
         }
     });
 

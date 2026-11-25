@@ -42,12 +42,11 @@
     <link rel="dx-theme" data-theme="generic.alphaweb" href="Content/dx.generic.alphaweb.css" data-active="true" />
     <link rel="dx-theme" data-theme="generic.alphaweb.compact" href="Content/dx.generic.alphaweb-compact.css" data-active="false" />
     
-    <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;Scripts/jquery.signalR-2.2.2.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v84"> 
+    <script type="text/javascript" src="DX.ashx?jsfileset=Scripts/jquery-3.4.1.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/ui.multiselect.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/Utils-IMB.2.1.js;~/js/Menu_IMB.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myMesazh-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/customCombobox.js;~/DataTables-1.10.12/media/js/jquery.dataTables.min.js;~/DataTables-1.10.12/media/js/dataTables.bootstrap.min.js;~/js/jquery.blockUI.js;~/js/bootstrap-notify.js;~/Scripts/jszip.min.js;~/Scripts/dx.all.js;~/js/localization/DevExtreme.Perkthime.js;~/js/components/Popup.js;~/js/TransferimSerialeUnike.js;~/js/aspx.js/FaqeKryesore.aspx-IMB.2.1.js&v85"> 
     </script>
-    <script src="/signalr/hubs"></script>
 
     <link href="FaqeKryesore.css" rel="stylesheet" />
-    <link href="css/avec-shell.css?v=3" rel="stylesheet" />
+    <link href="css/avec-shell.css?v=4" rel="stylesheet" />
     <style>
         html {
             min-height: 100%; /* make sure it is at least as tall as the viewport */
@@ -305,7 +304,6 @@
     <form id="form1" class="main" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
-        <div id="popup"></div>
         <div class="certificate-notice" id="certificate-notice" style="height: 20px; margin-left: -2px; display:none; text-align: center;">
             
             <p></p>
@@ -336,13 +334,29 @@
                                     </div>
 
 
+                                    <%-- ndermarrja dhe periudha kontabel (me pare ne footer); vlerat mbushen ne FaqeKryesore.aspx.cs --%>
+                                    <div id="kontekstiPunes" class="avec-konteksti">
+                                        <button type="button" class="avec-ktx" onclick="NdryshoNdermarrje()" title="Ndrysho ndermarrjen">
+                                            <i class="fa fa-building-o"></i>
+                                            <span id="lblNdermarrjaEtk" runat="server" class="avec-ktx-etk">Ndermarrja</span>
+                                            <span id="lblNdermarrjaLart" runat="server" class="avec-ktx-vlere ktxNdermarrja"></span>
+                                            <i class="fa fa-angle-down avec-ktx-shigjete"></i>
+                                        </button>
+                                        <button type="button" class="avec-ktx" onclick="ShfaqPeriudhen()" title="Ndrysho periudhen kontabel">
+                                            <i class="fa fa-calendar"></i>
+                                            <span id="lblPeriudhaEtk" runat="server" class="avec-ktx-etk">Periudha</span>
+                                            <span id="lblPeriudhaLart" runat="server" class="avec-ktx-vlere ktxPeriudha"></span>
+                                            <i class="fa fa-angle-down avec-ktx-shigjete"></i>
+                                        </button>
+                                    </div>
+
                                     <div id="menu" class="menu">
                                         <dx:ASPxMenu ID="ASPxMenuPerdoruesi" Width="100%" Height="100%" runat="server" EnableClientSideAPI="true" ClientInstanceName="menu">
                                             <%-- menuja e perdoruesit (lart djathtas); faqet e programit hapen nga kartat e Kryefaqes (Default.aspx) --%>
                                             <ClientSideEvents ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}" />
                                             <Items>
                                                 <dx:MenuItem Text="" ItemStyle-Paddings-PaddingTop="6px" Name="ikonaImazhPerdorues"
-                                                    ItemStyle-DropDownButtonStyle-Paddings-PaddingRight="5px" ItemStyle-Paddings-PaddingLeft="14px" ItemStyle-Width="64px">
+                                                    ItemStyle-DropDownButtonStyle-Paddings-PaddingRight="5px" ItemStyle-Paddings-PaddingLeft="10px">
                                                     <Items>
                                                         <dx:MenuItem Text="Perdorues" Name="LupaPersonalizoPerdorues.aspx">
                                                         </dx:MenuItem>
@@ -357,6 +371,10 @@
                                             </Items>
                                         </dx:ASPxMenu>
                                     </div>
+                                    <a id="btnDalje" runat="server" class="avec-dalje" href="#" title="Dalje">
+                                        <i class="fa fa-sign-out"></i>
+                                        <span id="lblDalje" runat="server">Dalje</span>
+                                    </a>
 
                                 </div>
 
@@ -382,11 +400,6 @@
                             </dx:SplitterPane>
 
                         </Panes>
-                    </dx:SplitterPane>
-                    <%-- Footer pane --%>
-                    <dx:SplitterPane Size="30px" ScrollBars="None" AutoWidth="true" MinSize="30px" MaxSize="30px" ShowCollapseForwardButton="True" PaneStyle-Paddings-Padding="0"
-                        Name="Footer" ContentUrl="FooterPanelInfo.aspx" PaneStyle-BackColor="#121212" PaneStyle-CssClass="footer1"
-                        ContentUrlIFrameName="frameFooter">
                     </dx:SplitterPane>
                 </Panes>
                 <ClientSideEvents Init="function(s,e){pageRefresh(s,e);}"></ClientSideEvents>
@@ -523,8 +536,6 @@
                                                         <dx:MenuItem Text="Asistenti" Name="Asistenti.aspx" Visible="false">
                                                         </dx:MenuItem>
                                                         
-                                                        <dx:MenuItem Text="Dergo mesazh" Name="MessageToAll.html" Visible="false">
-                                                        </dx:MenuItem>
                                                         <dx:MenuItem Text="Fjalekalimi" Name="fjalekalimi" Visible="false">
                                                             <Items>
                                                                 <dx:MenuItem Text="Politika Fjalekalimi" Name="PolitikaFjalekalimi.aspx" Visible="false">
@@ -533,11 +544,7 @@
                                                                 </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Text="Historiku i emaileve" Name="HistorikuEmail.aspx" Visible="false">
-                                                        </dx:MenuItem>
                                                         <dx:MenuItem Text="Hyrjet/daljet në program" Name="AuditimUser.aspx" Visible="false">
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Text="Konfigurime Email" Name="KonfigurimeEmail.aspx" Visible="false">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Konfigurime Ftp" Name="KonfigurimeFtp.aspx" Visible="false">
                                                         </dx:MenuItem>
@@ -568,8 +575,6 @@
                                                                 <dx:MenuItem Text="Autorizimet" Name="Shto_Autorizimet.aspx" Visible="false">
                                                                 </dx:MenuItem>
                                                             </Items>
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Text="Dashboard" Name="Dashboard.aspx" Visible="false">
                                                         </dx:MenuItem>
                                                         
                                                         <dx:MenuItem Text="Webhooks" Name="Webhooks.aspx" Visible="true">
@@ -769,12 +774,6 @@
                                                             </Items>
                                                         </dx:MenuItem>
 
-                                                        <dx:MenuItem Text="Konfigurime GIS" Name="konfig-gis" Visible="false">
-                                                            <Items>
-                                                                <dx:MenuItem Text="Workspace" Name="GISWorkspace.aspx" Visible="false">
-                                                                </dx:MenuItem>
-                                                            </Items>
-                                                        </dx:MenuItem>
                                                     </Items>
                                                 </dx:MenuItem>
                                                 <dx:MenuItem Text="Çelje" Name="celje" ItemStyle-Paddings-PaddingLeft="8px">
@@ -1358,8 +1357,6 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=18" Text="Prodhimi" Visible="false">
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Name="Raportet.aspx?idmod=24" Text="Raportet CRM" Visible="false">
-                                                        </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=20" Text="Qendrat e Kostos" Visible="false">
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Name="Raportet.aspx?idmod=12" Text="Shitjet" Visible="false">
@@ -1597,55 +1594,7 @@
                                                         </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=22" Text="Raporte menaxheriale" Visible="false">
                                                         </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="Raportet.aspx?idmod=24" Text="Raportet CRM" Visible="false">
-                                                        </dxnb:NavBarItem>
                                                         <dxnb:NavBarItem Name="Raportet.aspx?idmod=57" Text="Buxheti" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                    </Items>
-                                                </dxnb:NavBarGroup>
-                                                <dxnb:NavBarGroup Text="Harta" Name="map" Expanded="False">
-                                                    <Items>
-                                                        <dxnb:NavBarItem Name="GoogleHarte.aspx?lloji=mag" Text="Hartat e Njesive Administrative" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="GoogleHarte.aspx?lloji=magshitje" Text="Hartat e shitjeve sipas magazinave" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="GoogleHarte.aspx?lloji=klientshitje" Text="Harta e shitjeve sipas klienteve" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="GoogleHarte.aspx?lloji=funritorblerje" Text="Harta e blerjeve sipas furnitoreve" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="GoogleHarte.aspx?lloji=marzhishitje" Text="Marzhi i shitjes sipas klienteve" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="GoogleHarte.aspx?lloji=pikashitje" Text="Harta e shitjeve sipas pikave te shitjes" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="GoogleHarte.aspx?lloji=maggjendje" Text="Harta e gjendjes se magazinave" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="GoogleHarte.aspx?lloji=amortizimShqiptar" Text="Harta e amortizimit te aseteve ne perqindje" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="GoogleHarte.aspx?lloji=klientKoordinata" Text="Harta e klienteve" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                    </Items>
-                                                </dxnb:NavBarGroup>
-                                                <dxnb:NavBarGroup Text="CRM" Name="crm" Expanded="False">
-                                                    <Items>
-                                                        <dxnb:NavBarItem Text="AVEC CRM" Name="CRMDefault.aspx" Visible="false" Target="_blank">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="CRMRouteAgjenti.aspx" Text="Route i Agjenteve" Target="_blank" Visible="false" />
-                                                        <dxnb:NavBarItem Name="CRMFushaAnkete.aspx" Text="Fusha Ankete" Target="_blank" Visible="false" />
-
-                                                        <dxnb:NavBarItem Name="CRMAnketa.aspx" Text="Konfiguro Ankete" Target="_blank" Visible="false"></dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Name="CRMListaAnketa.aspx" Text="Lista E Anketave" Target="_blank" Visible="false" />
-                                                        <dxnb:NavBarItem Name="CRMLidhAnkete.aspx" Text="Percakto Veprimtarine" Target="_blank" Visible="false" />
-
-                                                        <dxnb:NavBarItem Name="CRMHistoriku.aspx" Text="Historiku" Target="_blank" Visible="false" />
-                                                        <dxnb:NavBarItem Name="CRMDetyra.aspx" Text="Detyrat" Target="_blank" Visible="false" />
-
-                                                        <dxnb:NavBarItem Name="Raportet.aspx?idmod=24" Target="_blank" Text="Raportet CRM" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                    </Items>
-                                                </dxnb:NavBarGroup>
-                                                <dxnb:NavBarGroup Text="GIS" Name="gis" Expanded="False">
-                                                    <Items>
-                                                        <dxnb:NavBarItem Text="AVEC GIS" Name="GISDefault.aspx" Visible="false" Target="_blank">
                                                         </dxnb:NavBarItem>
                                                     </Items>
                                                 </dxnb:NavBarGroup>
@@ -1699,12 +1648,6 @@
                                                         <dxnb:NavBarItem Name="B_RegjistrimBuxheti.aspx?lloji=ekzekutim" Text="Ekzekutim Buxheti" Visible="false"></dxnb:NavBarItem>
                                                     </Items>
                                                 </dxnb:NavBarGroup>
-                                                <dxnb:NavBarGroup Text="Dashboard" Name="dashboard" Expanded="False" Visible="False">
-                                                    <Items>
-                                                        <dxnb:NavBarItem Text="Dashboard" Name="Dashboard.aspx" Visible="false" Target="_blank">
-                                                        </dxnb:NavBarItem>
-                                                    </Items>
-                                                </dxnb:NavBarGroup>
                                                 <dxnb:NavBarGroup Text="Personalizo" Name="settings" Expanded="False" Visible="true">
                                                 </dxnb:NavBarGroup>
                                             </Groups>
@@ -1729,43 +1672,6 @@
         //tr_menu.style.position = "absolute";
         //tr_menu.style.paddingRight = "3%";
         //tr_menu.style.backgroundColor = "#e8683a";
-        //Popup Window
-        window.showPopup = function (template, title) {
-            new Popup().init("#popup", template, { width: "40%", height: "30%", title: title });
-        };
-
-        // The hub
-        pageState.signalR = { hubStart: null, imbChatConn: null };
-        pageState.signalR.isActiv = (hfState.Get("activateSignalR") == 'true') ? true : false;
-
-        window.startHub = function () {
-            if (pageState.signalR.isActiv && pageState.signalR.hubStart == null)
-                pageState.signalR.hubStart = $.connection.hub.start();
-            return pageState.signalR.hubStart;
-        };
-        window.doneHub = function (from, template, title) {
-            if (pageState.signalR.isActiv) {
-                switch (from) {
-                    default:
-                        window.startHub().done(function () {
-                            window.imbChatConn().server.send(template, title);
-                        });
-                }
-            }
-        };
-        // SignalR
-        window.imbChatConn = function () {
-            if (pageState.signalR.isActiv && pageState.signalR.imbChatConn == null)
-                pageState.signalR.imbChatConn = $.connection.messageToAllHub;
-            return pageState.signalR.imbChatConn;
-        };
-
-        if (window.imbChatConn())
-            window.imbChatConn().client.broadcastMessage = function (template, title) {
-                window.showPopup(template, title);
-            };
-
-        window.startHub();
         function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx'); }
         
     </script>

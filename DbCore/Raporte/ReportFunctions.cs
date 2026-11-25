@@ -1171,41 +1171,6 @@ namespace DbCore.Raporte
             } while (retryTrans.isRetrying());
         }
 
-        public static void CreateReportSurveyCrm(MemoryStream excelStream, MemoryStream htmlStream, int idPerdoruesi, int idNdermarrje, DateTime dtTakimi, clsAgjentShitje agjenti, int idGjuha)
-        {
-            var report = new clsRaporti(idGjuha, "analitikVeprimtari");
-            XtraReport xtraReport;
-            try
-            {
-                xtraReport = krijoObjektRaporti("", idGjuha, idPerdoruesi, 0, report.IdRaporti, idNdermarrje, null, 0, clsRaportDesign._rap_landscape, Guid.NewGuid().ToString(), string.Empty);
-            }
-            catch (Exception ex)
-            {
-                throw new MyException($"ndodhi nje gabim ne krijimin e raportit ex {ex.Message}");
-            }
-            try
-            {
-                var parametraRaporti = new Dictionary<string, object>
-                {
-                    {"filterDtTakimi", dtTakimi.ToString("yyyy/MM/dd")},
-                    {"idPerdoruesi", idPerdoruesi},
-                    {"IdNdermarje", idNdermarrje },
-                    {"filterAgjentShitje", agjenti.KodiAgjentShitje }
-                };
-
-                var slqParameters = report.CreateParameters(parametraRaporti);
-                var storeProcedureName = clsSP.GetStoredProcedureName(report.IdSp);
-                konfigDataSetRaporti(xtraReport, storeProcedureName, false, slqParameters);
-            }
-            catch (Exception ex)
-            {
-                throw new MyException($"ndodhi nje gabim ne mbushjen e raportit ex {ex.Message}");
-            }
-
-            xtraReport.ExportToXlsx(excelStream);
-            xtraReport.ExportToImage(htmlStream);
-        }
-
         public static void CreateReportBirthdayCard(MemoryStream memoryStream, int idPerdoruesi, int idNdermarrje, int idDesign, DateTime dtDitelindje, string kodKlienti, int idGjuha)
         {
             var report = new clsRaporti(idGjuha, "Kartolina_ditelindjes_klientit");

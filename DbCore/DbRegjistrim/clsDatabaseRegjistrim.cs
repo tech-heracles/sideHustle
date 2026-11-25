@@ -14068,14 +14068,6 @@ OPTION (LOOP JOIN);");
 
         }
 
-        internal DataTable merrHistorikunEmail(int idNdermarrje, int idPerdoruesi)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDPERDORUES", idPerdoruesi, ParameterDirection.Input);
-            return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_Email_merrHistorikun").Tables[0];
-        }
         internal DataTable merrEmail(string subjekti, DateTime dateDergimi)
         {
             dbManager.Open();
@@ -17257,17 +17249,16 @@ OPTION (LOOP JOIN);");
         }
 
 
-        public DataTable merrSipasNdermarjePerLupeLayerElement(int idnderm, int gjuha)
+        /// <summary>
+        /// Llojet e layer-it te magazinave (fusha "Lloj layeri" e njesive administrative); mbeten pas heqjes se GIS
+        /// sepse ruhen me magazinat.
+        /// </summary>
+        public DataTable ktheGjitheLlojLayerMagazine()
         {
-
             dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IdNdermarje", idnderm, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IdGjuha", gjuha, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_GIS_Lupa_ElementeWEBGISNeNje_sel");
-
+            dbManager.CreateParameters(0);
+            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GIS_App_LLOJLAYERMAGAZINE_merrGjitheLlojLayerMagazine");
             return ds.Tables[0];
-
         }
         public DataTable merrLlojElementesh(int idnderm, int gjuha)
         {

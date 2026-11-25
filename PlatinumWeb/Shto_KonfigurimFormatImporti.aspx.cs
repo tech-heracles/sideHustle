@@ -1285,9 +1285,7 @@ namespace PlatinumWeb
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);
                                 break;
                             case "Lloj Layeri":
-                                DbCore.DbGIS.clsDatabaseGIS dbGis = new DbCore.DbGIS.clsDatabaseGIS();
-                                cmb3.DataSource = dbGis.ktheGjitheLlojLayerMagazine();
-                                dbGis.Dispose();
+                                cmb3.DataSource = DbCore.DbRegjistrim.colNjesiAdministrative.ktheLlojetLayeritMagazine();
                                 cmb3.ValueField = "IDLLOJLAYER";
                                 cmb3.TextField = "PERSHKRIMI";
                                 cmb3.ClientSideEvents.LostFocus = String.Format("function(s,e){{TextChangedEmri(txtVlera{0},'txtVlera', {0});}}", e.VisibleIndex);

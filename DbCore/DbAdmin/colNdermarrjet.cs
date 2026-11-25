@@ -186,18 +186,6 @@ namespace DbCore.DbAdmin
             }
         }
 
-        /// <summary>
-        /// Merr gjithe ndermarrjet e llojeve te licensave ''Zyre'' ose ''SAGIS''
-        /// </summary>
-        /// <param name="tePalidhura">True/False kerkon per te gjithe ndermarrjet apo vetem ato qe nuk kane akoma nje workspace te lidhur me te</param>
-        /// <returns>true ose false nese mbushja e klases u krye me sukses apo jo</returns>
-        public bool mbushNdermarrjePerGIS(bool tePalidhura)
-        {
-            using (clsDatabaseAdmin data = new clsDatabaseAdmin())
-            {
-                return mbushNdermarrjetList(data.merrNdermarrjePerGIS(tePalidhura));
-            }
-        }
 
         public bool mbushNdermarrjeList(DataTable dt)
         {

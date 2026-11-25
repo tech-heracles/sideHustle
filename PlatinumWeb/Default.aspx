@@ -6,22 +6,10 @@
     <title>AVEC Accounting</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/avec-dashboard.css?v=3" rel="stylesheet" />
+    <link href="css/avec-dashboard.css?v=4" rel="stylesheet" />
 </head>
 <body class="avec-dashboard">
     <form id="form1" runat="server">
-        <header class="dash-header">
-            <div>
-                <p class="dash-eyebrow">Mirë se erdhe</p>
-                <h1 class="dash-title"><asp:Label ID="lblEmerNderm" runat="server" /></h1>
-            </div>
-            <dl class="dash-facts">
-                <div><dt>NIPT</dt><dd><asp:Label ID="lblEmerNIpti" runat="server" /></dd></div>
-                <div><dt>Viti</dt><dd><asp:Label ID="lblEmerViti" runat="server" /></dd></div>
-                <div><dt>Qyteti</dt><dd><asp:Label ID="lblEmerQyteti" runat="server" /></dd></div>
-            </dl>
-        </header>
-
         <nav class="dash-crumbs" id="dashCrumbs" hidden>
             <button type="button" class="dash-back" id="dashBack"><i class="fa fa-arrow-left"></i> Kryefaqja</button>
             <span class="dash-crumb-title" id="dashCrumbTitle"></span>
@@ -48,16 +36,13 @@
                 'amortizimi': { icon: 'fa-building', desc: 'Aktivet afatgjata' },
                 'aprovime-dokumentash': { icon: 'fa-check-square-o', desc: 'Aprovimi i dokumenteve' },
                 'rap': { icon: 'fa-file-text-o', desc: 'Të gjitha raportet' },
-                'map': { icon: 'fa-map-marker', desc: 'Hartat e shitjeve' },
-                'crm': { icon: 'fa-comments', desc: 'Klientët, anketat dhe detyrat' },
-                'gis': { icon: 'fa-globe', desc: 'Sistemi gjeografik' },
                 'analizeBuxheti': { icon: 'fa-line-chart', desc: 'Analiza e buxhetit' },
                 'buxheti': { icon: 'fa-pie-chart', desc: 'Planifikimi i buxhetit' },
-                'dashboard': { icon: 'fa-tachometer', desc: 'Treguesit kryesorë' },
                 'help': { icon: 'fa-question-circle', desc: 'Manuali dhe ndihma' },
                 'settings': { icon: 'fa-cog', desc: 'Cilësimet' },
                 // modules that exist only in the top menu
-                'konfigurime': { icon: 'fa-sliders', desc: 'Dokumente, formate, import/eksport' },
+                'konfigurime': { icon: 'fa-sliders', desc: 'Dokumente, formate dhe makro' },
+                'importEksport': { icon: 'fa-exchange', desc: 'Import, eksport dhe integrime', text: 'Import / Eksport' },
                 'sherbime': { icon: 'fa-wrench', desc: 'Riparime dhe receta optike', text: 'Shërbimet' }
             };
 
@@ -65,6 +50,7 @@
             // The longest matching prefix wins; an item that is also in the navbar stays in the navbar's card.
             var MENU_TO_MODULE = {
                 'administrimi': 'Administrimi',
+                'administrimi/KonfigurimeFtp.aspx': 'importEksport',
                 'konfigurime': 'konfigurime',
                 'konfigurime/amortizimi': 'amortizimi',
                 'konfigurime/cmimet': 'blerjeShitje',
@@ -75,7 +61,9 @@
                 'konfigurime/Shto_KPF.aspx': 'kontabiliteti',
                 'konfigurime/konfig-urdher-pagese': 'pagesa',
                 'konfigurime/zbritje-analitike': 'blerjeShitje',
-                'konfigurime/konfig-gis': 'gis',
+                // gjithcka per import/eksport dhe integrime ne nje karte te vetme
+                'konfigurime/import-eksport': 'importEksport',
+                'konfigurime/ElementePerIntegrim.aspx': 'importEksport',
                 'celje': 'konfigurime',
                 'celje/Shto_AgjentShitje.aspx': 'blerjeShitje',
                 'celje/arka-banka': 'arkaBanka',

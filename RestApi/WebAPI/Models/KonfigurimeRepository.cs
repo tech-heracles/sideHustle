@@ -960,27 +960,6 @@ namespace RestApi.WebAPI.Models
             return clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod(kodKonfig, idNderm);
         }
 
-        public static List<Dictionary<string, object>> ktheTeDrejtaAmbjenteshPerCRM(int idPerdoruesi, int idNdermarrje, int idVitNdermarrje)
-        {
-            DataTable dt = DbCore.DbAdmin.colTeDrejtaRoli.mbushTeDrejtaRoliPerCRM(idPerdoruesi, idNdermarrje, idVitNdermarrje);
-            List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
-            Dictionary<string, object> row;
-            foreach (DataRow dr in dt.Rows)
-            {
-                row = dt.Columns.Cast<DataColumn>().ToDictionary(col => col.ColumnName, col => dr[col]);
-
-                if (dr["KOMPONEMRI"].ToString() == "CRMFushaAnkete.aspx")
-                    rows.Insert(2, row);
-                else if (dr["KOMPONEMRI"].ToString() == "CRMListaAnketa.aspx")
-                    rows.Insert(4, row);
-                else if (dr["KOMPONEMRI"].ToString() == "CRMLidhAnkete.aspx")
-                    rows.Insert(4, row);
-                else
-                    rows.Add(row);
-            }
-            return rows;
-        }
-
         public static Object ktheIdMagNgaKodi(string kodMag, int idNdermarrje)
         {
             int idMagazina = clsNjesiAdministrative.ktheIdMagazine(kodMag, idNdermarrje);
@@ -1151,31 +1130,6 @@ namespace RestApi.WebAPI.Models
             List<konfigAmbientiSlim> konfigAmbientiSlim = new List<konfigAmbientiSlim>();
             col.ForEach(x => konfigAmbientiSlim.Add(new konfigAmbientiSlim() { IdKonfigAmbjente = x.IdKonfigAmbjente, KodKonfigAmbjente = x.KodKonfigAmbjente }));
             return new { idKatDok, allNivelet = allNivelet.Table, konfigAmbientiSlim };
-        }
-
-
-        internal static object GetPageConfigurations(HttpSessionState session, string emerKomponente)
-        {
-            object mesazhet = new object();
-            object options = new object();
-            switch (emerKomponente)
-            {
-                case "MessageToAll.html":
-                    mesazhet = new
-                    {
-                        MTA_lblInformacion = MessagesResource.Messages["labelAdministrimiInformacion"],
-                        MTA_msgAktivizoSignalR = MessagesResource.Messages["MTA_msgAktivizoSignalR"]
-                    };
-                    options = new
-                    {
-                        activateSignalR = System.Web.Configuration.WebConfigurationManager.AppSettings["activateSignalR"].ToString()
-                    };
-                    break;
-                default:
-                    break;
-            }
-
-            return new {  Messages = mesazhet, Options = options };
         }
     }
 }

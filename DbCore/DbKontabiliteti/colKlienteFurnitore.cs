@@ -57,12 +57,6 @@ namespace DbCore.DbKontabiliteti
                 return dbKlientFurnitore.ktheKFNdermarrjesAndAutorizimeDTFiltered(idnderm, idperdorues, idKonfig, filter, topRows, sortOrder);
         }
 
-        public static DataTable ktheKFNdermarrjesAndAutorizimeDTPerCrm(int idnderm, int idperdorues)
-        {
-            using (var dbKlientFurnitore = new clsDatabaseKontabilitet())
-                return dbKlientFurnitore.ktheKFNdermarrjesAndAutorizimeDTPerCrm(idnderm, idperdorues);
-        }
-
         public static DataTable merrSipasKFNdermarrjesAndAutorizimeDTExport(int idnderm, int idperdorues, int lloji, string emerTabKoka, string emerFusheId)
         {
             using (var dbKlientFurnitore = new clsDatabaseKontabilitet())

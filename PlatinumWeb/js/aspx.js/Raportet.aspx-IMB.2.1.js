@@ -22,7 +22,7 @@ function hapRaport(idRaporti, emerRaporti, filtro) {
     if (ngaCRM != "undefined")
         myParams.push("vjenNga=" + ngaCRM); 
 
-    window.location.href = (idRaporti == 292 ? "CRMHarte.aspx?" : "Raporti.aspx?") + myParams.join('&');
+    window.location.href = "Raporti.aspx?" + myParams.join('&');
 }
 
 function filtroButtonClick(idRaporti, emerRaporti) {
@@ -156,39 +156,26 @@ function setVisibleModuli(visible) {
     else
         $("#moduliLabel").hide();        
 }
-function expandAll(s, e) {
+// FaqeKryesore ka vetem dy panele: shiritin lart dhe faqen
+function paneletKryesore() {
+    var splitter = window.parent && window.parent.splitter;
+    var lart = splitter && splitter.GetPane(0), faqja = splitter && splitter.GetPane(1);
+    return lart && faqja ? { lart: lart, faqja: faqja } : null;
+}
 
-    if (Utils.getUrlVar("vjenNga") == 'CRM') {
-        return;
-    }
-    var splitpane0 = window.parent.splitter.GetPane(0);
-    var splitpane1 = window.parent.splitter.GetPane(1);
-    var splitpane4 = window.parent.splitter.GetPane(2);
-    var splitpane2 = splitpane1.GetPane(0);
-    var splitpane3 = splitpane1.GetPane(1);
-    splitpane0.Collapse(splitpane1);
-    splitpane4.Collapse(splitpane1);
-    splitpane2.Collapse(splitpane3);
+function expandAll(s, e) {
+    var p = paneletKryesore();
+    if (p) p.lart.Collapse(p.faqja);
     setVisibleModuli(true);
 }
 
-function collapseAll(s, e) {    
+function collapseAll(s, e) {
     if (top.location.href != window.location.href) {
-        var splitpane0 = window.parent.splitter.GetPane(0);
-        var splitpane1 = window.parent.splitter.GetPane(1);
-        var splitpane4 = window.parent.splitter.GetPane(2);
-        var splitpane2 = splitpane1.GetPane(0);
-        var splitpane3 = splitpane1.GetPane(1);
-        splitpane0.Expand(splitpane1);
-        splitpane4.Expand(splitpane1);
-        splitpane2.Expand(splitpane3);
+        var p = paneletKryesore();
+        if (p) p.lart.Expand(p.faqja);
         setVisibleModuli(false);
     }
     else {
-        if (Utils.getUrlVar("vjenNga") == 'CRM') {
-            window.location.href = "CRMDefault.aspx";
-            return;
-        }
         window.location.href = "FaqeKryesore.aspx";
     }
 }

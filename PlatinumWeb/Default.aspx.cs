@@ -87,20 +87,7 @@ namespace PlatinumWeb
                         return;
                     }
                 }
-
-                DbCore.DbAdmin.clsViti vit = new DbCore.DbAdmin.clsViti();
-                vit.mbushVitetMet(vitiNdermarrjes, idNdermarrje);
-                mbushTeDhenaPerNdermarjen(nderm, vit);
-
             }
-        }
-        private void mbushTeDhenaPerNdermarjen(DbCore.DbAdmin.clsNdermarrje nderm, DbCore.DbAdmin.clsViti viti)
-        {
-            lblEmerNderm.Text = nderm.NdermarrjePershkrimi;
-            lblEmerNIpti.Text = nderm.NdermarrjeNipt;
-            lblEmerViti.Text = viti.KodiViti;
-            lblEmerQyteti.Text = nderm.NdermarrjeQytetiPershkrimi;
-
         }
     }
 }

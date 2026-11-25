@@ -19,7 +19,6 @@ using DbCore.classes;
 using DbCore.DbAdmin;
 using DbCore.DbArkaBanka;
 using DbCore.DbAsete;
-using DbCore.DbCRM;
 using DbCore.DbImporte;
 using DbCore.DbInventari;
 using DbCore.DbKontabiliteti;
@@ -239,136 +238,8 @@ namespace PlatinumWeb
 		}
 
 
-		[System.Web.Services.WebMethod(EnableSession = true)]
-		[ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]
-		public DbCore.clsMesazh NjoftoMeEmailPerTakimetEPanisura(string KODNDERMARRJE, string EMAILET, string connectionString)
-		{
-			MyConnectionsManager.SetSelectedConNameServer(connectionString);
-			string subject = "Lajmerim per agjentet";
-			DateTime data = DateTime.Now;
-			DateTime OraLimit = new DateTime(data.Year, data.Month, data.Day, 8, 0, 0);//ora default
-			try
-			{
-				var oraLejuarKonfig = DateTime.Parse(System.Web.Configuration.WebConfigurationManager.AppSettings["OraLimitPerTakimetCRM"]);
-				OraLimit = new DateTime(data.Year, data.Month, data.Day, oraLejuarKonfig.Hour, oraLejuarKonfig.Minute, 0);
-			}
-			catch (Exception ex)
-			{
-				logu.Error(ex, "Ora nga webconfig nuk u lexua ne rregull!");
-			}
-
-			clsMesazh mesazh = new clsMesazh(true, "Te gjithe agjentet jane duke kryer takimet sipas orarit te percaktuar!");
-
-			colEmail emails = new colEmail(subject, DateTime.Now);
-
-			if (emails.Count < 1)
-			{
-				string[] emailet = EMAILET.Split(';');
-				int idNdermarrje = clsNdermarrje.ktheIdNdermarrje(KODNDERMARRJE);
-
-				if (idNdermarrje == 0)
-				{
-					return new clsMesazh(false, string.Format("Ndermarrja me kodin : '{0}' nuk ekziston!"));
-				}
-
-				if (emailet.Length == 0)
-				{
-					return new clsMesazh(false, string.Format("Lista e emaileve eshte bosh!"));
-				}
-
-				colAgjenteShitje agjentPanisurAkoma = new colAgjenteShitje();
-				colAgjenteShitje agjentTePaKontaktuar = new colAgjenteShitje();
-				colAgjenteShitje agjentJashteRrezes = new colAgjenteShitje();
-
-				colSkeduler takimetEPanisurKesajDate = new colSkeduler(KODNDERMARRJE, data);
-				List<int> idUnike = takimetEPanisurKesajDate.GroupBy(x => x.IdPerdoruesi).Select(x => x.Key).ToList();
-
-				colTakimePerKontroll listaETakimeve = new colTakimePerKontroll(KODNDERMARRJE, data);
-
-				foreach (clsTakimePerKontroll takim in listaETakimeve)
-				{
-					takim.UpdateStatusLexuar();
-
-					if (string.IsNullOrWhiteSpace(takim.KoordinataFillimTakimi))
-					{
-						agjentPanisurAkoma.Add(new clsAgjentShitje(takim.IdAgjentShitje));
-					}
-					else if (!takim.BrendaRrezes && !string.IsNullOrWhiteSpace(takim.KoordinataFillimTakimi) && takim.DtKrijimi.Value <= OraLimit)
-					{
-
-						agjentJashteRrezes.Add(new clsAgjentShitje(takim.IdAgjentShitje));
-					}
-					else if (!string.IsNullOrWhiteSpace(takim.KoordinataFillimTakimi) && takim.DtKrijimi.Value > OraLimit)
-					{
-						agjentPanisurAkoma.Add(new clsAgjentShitje(takim.IdAgjentShitje));
-					}
-				}
-
-				List<int> IdAgjenteshTeKontaktuar = listaETakimeve.Select(x => x.IdPerdoruesi).ToList();
-				List<int> agjentetEPakontaktuar = idUnike.Except(IdAgjenteshTeKontaktuar).ToList<int>();
-
-				foreach (int idPeroruesMobile in agjentetEPakontaktuar)
-				{
-					clsAgjentShitje agjent = clsAgjentShitje.MerrAgjentShitjeSipasIdPerdoruesModile(idNdermarrje, idPeroruesMobile);
-					agjentTePaKontaktuar.Add(agjent);
-					clsTakimePerKontroll takimIKontrolluar = new clsTakimePerKontroll
-					{
-						Perdorues = agjent.EmriAgjentShitje,
-						KodNdermarrje = KODNDERMARRJE,
-						Lexuar = true,
-						Uuid = "ALPHAWEB_CRM",
-						RegID = "ALPHAWEB_CRM",
-					};
-
-					takimIKontrolluar.Ruaj();
-				}
-				if (agjentPanisurAkoma.Count > 0 || agjentTePaKontaktuar.Count > 0 || agjentJashteRrezes.Count > 0)
-
-					mesazh = DbCore.EmailComposer.DergoEmailListAgjenteshProblematik(emailet, HttpContext.Current.Request, agjentPanisurAkoma, agjentTePaKontaktuar, agjentJashteRrezes, subject, idNdermarrje);
-			}
-			else
-			{
-				var tePaderguar = emails.Where(x => x.Status == statusEmail.perDergim).ToList<clsEmail>();
-
-				if (tePaderguar.Count > 0)
-					mesazh = DbCore.EmailComposer.RidergoEmailListAgjenteshProblematik(tePaderguar);
-				else
-					mesazh = new clsMesazh(true, "Emaili eshte derguar njehere!");
-			}
-
-			return mesazh;
-		}
 
 
-		[System.Web.Services.WebMethod(EnableSession = true)]
-		[ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]
-		public DbCore.clsMesazh DergoEmailRaportCRM(string KODNDERMARRJE, string USERNAME, string EMAILET, string connectionString)
-		{
-			try
-			{
-				MyConnectionsManager.SetSelectedConNameServer(connectionString);
-				int idGjuha = 0;
-				DateTime data = DateTime.Now;
-				ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-				CultureInfo ci = MessagesResource.KtheCultureInfo(idGjuha);
-				int idNdermarrje = clsNdermarrje.ktheIdNdermarrje(KODNDERMARRJE);
-
-				if (string.IsNullOrEmpty(USERNAME)) throw new MyException("username eshte bosh!");
-
-
-				if (idNdermarrje == 0) throw new MyException(string.Format("Ndermarrja me kodin : '{0}' nuk ekziston!"));
-
-				int idPerdoruesi = clsPerdorues.ktheIdPerdoruesSipasUsername(USERNAME, idNdermarrje);
-
-				if (idPerdoruesi == 0) throw new MyException($"Perdoruesi me username {USERNAME} nuk ekziston!");
-
-				return DbCore.EmailComposer.dergoEmailRaportinCRM(HttpContext.Current.Request, idPerdoruesi, idNdermarrje, idGjuha, rm, ci, data);
-			}
-			catch (Exception ex)
-			{
-				return new clsMesazh(false, ex.Message);
-			}
-		}
 
 		[System.Web.Services.WebMethod(EnableSession = true)]
 		[ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]

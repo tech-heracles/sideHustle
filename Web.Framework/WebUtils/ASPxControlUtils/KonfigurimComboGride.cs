@@ -1567,9 +1567,7 @@ namespace PlatinumWeb.ApplicationUtils.ASPxControlUtils
         {
             grid.KonfiguroCombo(fieldName, "IDLLOJLAYER", "PERSHKRIMI", () =>
             {
-                var dbGis = new DbCore.DbGIS.clsDatabaseGIS();
-                var dt = dbGis.ktheGjitheLlojLayerMagazine();
-                dbGis.Dispose();
+                var dt = DbCore.DbRegjistrim.colNjesiAdministrative.ktheLlojetLayeritMagazine();
                 dt.Dispose();
                 return dt;
             }, session, komponente, guidString);

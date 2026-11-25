@@ -14,9 +14,6 @@
 <script type="text/javascript">
     function expandAll(s, e) {
 
-        if (Utils.getUrlVar("vjenNga") == 'CRM') {
-            return;
-        }
         var splitpane0 = window.parent.splitter.GetPane(0);
         var splitpane1 = window.parent.splitter.GetPane(1);
         var splitpane4 = window.parent.splitter.GetPane(2);
@@ -42,11 +39,6 @@
         }
         else
         {
-            if (Utils.getUrlVar("vjenNga") == 'CRM')
-            {
-                window.location.href = "CRMDefault.aspx";
-                return;
-            }
             if (Utils.getUrlVar("vjenNga") == 'epayslip')
             {
                 window.location.href = "ListaRaporte.aspx?vjenNga=Pini";

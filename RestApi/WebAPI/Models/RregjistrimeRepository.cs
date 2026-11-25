@@ -4150,13 +4150,6 @@ namespace RestApi.WebAPI.Models
                                   select ((DateTime)dr["DateFillimi"]).ToShortDateString()).ToArray();
             return dtFillimi;
         }
-        public static object kaVeprimeOpsion(int idopsioni)
-        {
-            DbCore.DbCRM.clsDatabaseCRM DbCRM = new DbCore.DbCRM.clsDatabaseCRM();
-            if (DbCRM.kaVeprimeOpsion(idopsioni))
-                return "true";
-            else return "false";
-        }
         public static AutoCompleteItem[] ktheArtikullPerProdhim(string prefixText, int klasa, HttpSessionState Session)
         {
             DataTable tmpTable;
@@ -5113,22 +5106,6 @@ namespace RestApi.WebAPI.Models
         public static object ktheKonfigDB(int idKomp, string kodKonf, int idNdermarrje, string kodKontrollKlienti, int idKlienti, bool merrFormatKursi, int idGjuha, int idPerdoruesi, string llojVeprimi, DateTime? dateDok, DateTime? dateDokDefault)
         {
             return clsFunksione.ktheKonfigDB(idKomp, kodKonf, idNdermarrje, kodKontrollKlienti, idKlienti, merrFormatKursi, idGjuha, idPerdoruesi, llojVeprimi, dateDok, dateDokDefault);
-        }
-
-        public static object ruajFushaAnketa(string vlera, string fusha, int index, HttpSessionState Session)
-        {
-            if (vlera == "")
-                return new clsMesazh(false, "Ndodhi nje gabim gjate konvertimit te vleres");
-
-            DbCore.DbCRM.colTrupiAnketa trupavis = mySessionObjects.merrAnketaVisibleNgaSesioni(Session);
-            switch (fusha)
-            {
-
-                case "cbDetyrueshem":
-                    trupavis[index].Detyrueshme = Convert.ToBoolean(vlera);
-                    break;
-            }
-            return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
         }
         public static object[] MerrKonfigurimExporti(int id, HttpSessionState Session)
         {
@@ -6142,14 +6119,6 @@ namespace RestApi.WebAPI.Models
                     KodiSkemaKontabilitetiArtikulli = skema.KodiSkemaKontabilitetiArtikulli
                 };
             return null;
-        }
-        public static int MerrIdKlientiByTakimi(int idTakimi)
-        {
-            var sked = new DbCore.DbCRM.clsSkeduler(idTakimi);
-            if (sked.Lloji == 1)
-                return sked.IdKlienti;
-            //nese eshte detyre
-            return -1;
         }
         public static int ktheIdSuperKategori(string idKategoria)
         {

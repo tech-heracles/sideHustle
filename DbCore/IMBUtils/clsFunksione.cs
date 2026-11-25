@@ -2701,8 +2701,6 @@ namespace DbCore
 
 		public static string shtoVarToUrl(string url, string varName, string varValue)
 		{
-			if (url == "CRMDefault.aspx")
-				return url;
 			if (url.Contains(varName))
 				return url;
 			if (url.Contains("?"))
@@ -11621,23 +11619,10 @@ namespace DbCore
 		public static string ktheKomponenteDefaultPerPerdorues(int idPerdorues, int idNdermarrje, string ambjentDefaultParacaktuar, string KodViti)
 		{
 			string ambjentiDef = clsKomponente.merrKomponenteDefaultPerdoruesiSipasLlojit(idPerdorues, false);
-			if (ambjentiDef == "Mobile") // versioni mobile nuk ekziston me: perdoret ambjenti default
+			// versioni mobile, Dashboard, CRM dhe GIS nuk ekzistojne me: perdoret ambjenti default
+			if (ambjentiDef == "Mobile" || ambjentiDef == "Dashboard.aspx" || ambjentiDef == "CRMDefault.aspx" || ambjentiDef == "GISDefault.aspx")
 				ambjentiDef = "";
-			if (ambjentiDef == "Dashboard.aspx")
-			{
-				var teDrejta = new clsTeDrejtaRoli();
-				int idViti = clsViti.ktheIdVitPerNdermarrjenSipasKodit(idNdermarrje, KodViti);
-				teDrejta.merrTeDrejtaPerKeteKomponente(idPerdorues, idNdermarrje, idViti, ambjentiDef);
-				if (teDrejta.DAmb)
-					ambjentiDef = "FaqeKryesore.aspx?ambDef=" + ambjentiDef;
-				else
-				{
-					ambjentiDef = ambjentDefaultParacaktuar;
-					return ambjentiDef;
-				}
-			}
-
-			if (!String.IsNullOrEmpty(ambjentiDef) && ambjentiDef != "Dashboard.aspx" && ambjentiDef != "CRMDefault.aspx" && ambjentiDef != "GISDefault.aspx")
+			if (!String.IsNullOrEmpty(ambjentiDef))
 				ambjentiDef += "&shtim_modifikim=shtim";
 			if (String.IsNullOrEmpty(ambjentiDef))
 				ambjentiDef = ambjentDefaultParacaktuar;

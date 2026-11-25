@@ -30,35 +30,6 @@ namespace RestApi.WebAPI.Controllers
             }
         }
 
-        public HttpResponseMessage DergoEmailRaportCRM(JObject param)
-        {
-            try
-            {
-                var kodNdermarrje = param["KODNDERMARRJE"].Value<string>();
-                var username = param["USERNAME"].ToObject<string>();
-                var emailet = param["EMAILET"].ToObject<string>();
-                return Request.KthePergjigje(AutomatizimRepository.DergoEmailRaportCRM(kodNdermarrje, username, emailet));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-
-        public HttpResponseMessage NjoftoMeEmailPerTakimetEPanisura(JObject param)
-        {
-            try
-            {
-                var kodNdermarrje = param["KODNDERMARRJE"].Value<string>();
-                var emailet = param["EMAILET"].ToObject<string>();
-                return Request.KthePergjigje(AutomatizimRepository.NjoftoMeEmailPerTakimetEPanisura(kodNdermarrje, emailet));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-
 
         public HttpResponseMessage eksportAutomatikDokumentesh(JObject param)
         {

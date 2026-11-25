@@ -3995,17 +3995,6 @@ namespace DbCore.DbAsete
 		}
 
 
-		internal DataTable MerrAseteJoNeHarte(int idNdermarrje, int idnderviti, int idPerdorues, int idLayerType)
-		{
-			dbManager.Open();
-			dbManager.CreateParameters(4);
-			dbManager.AddParameters(0, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-			dbManager.AddParameters(1, "@IDNDERMVIT", idnderviti, ParameterDirection.Input);
-			dbManager.AddParameters(2, "@IDLAYERTYPE", idLayerType, ParameterDirection.Input);
-			dbManager.AddParameters(3, "@IDPERDORUES", idPerdorues, ParameterDirection.Input);
-			DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ASETE_LIDHJE_MAGAZINE_SERIAL_perNdermarrje");
-			return ds.Tables[0];
-		}
 
 
 		#endregion

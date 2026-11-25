@@ -52,27 +52,6 @@ namespace DbCore.DbAdmin
                 return dt;
             }
         }
-        
-        public static DataTable mbushTeDrejtaRoliPerCRM(int idperdoruesi, int idNdermarrje, int idviti)
-        {
-            clsDatabaseAdmin db = new clsDatabaseAdmin();
-            DataTable dt = db.merrTeDrejtaRoliPerCRM(idperdoruesi, idNdermarrje, idviti);
-            db.Dispose();
-            return dt;
-        }
-
-        public clsMesazh mbushTeDrejtaRoliPerGIS(int idperdoruesi, int idNdermarrje, int idviti)
-        {
-            clsDatabaseAdmin db = new clsDatabaseAdmin();
-            DataTable dt = db.merrTeDrejtaRoliPerGIS(idperdoruesi, idNdermarrje, idviti);
-            if (!mbushTeDrejtaPerTreeGride(dt))
-            {
-                db.Dispose();
-                return new clsMesazh(false, "ERROR: Gabim gjate mbushjes se colectionit nga db-ja");
-            }
-            db.Dispose();
-            return new clsMesazh(true, "Mbushja koleksionit u krye me suskses");
-        }
 
         public clsMesazh mbushTeDrejtaPerdoruesi(int idPerdoruesi, int idNdermarrje, int idViti)
         {

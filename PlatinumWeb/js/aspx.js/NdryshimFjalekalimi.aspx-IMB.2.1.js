@@ -17,13 +17,6 @@
     });
     changeName();
 });
-function onloadNdryshimFjalekalimi() {
-        try {
-            //duhet t'i bej refresh footerit te spliterit ne faqen kryesore qe te ngarkohen keto te dhena
-            Utils.SetOrRefreshSplitterPaneContentUrl("Footer", "FooterPanelInfo.aspx");
-        } catch (e) {}
-
-    }
 function changeName() {
     myFaqeCelje.changeName('NdryshimFjalekalimi.aspx', 0, null);
 }
@@ -46,12 +39,4 @@ function kontrolloPassword(s, e) {
         myMesazh.ShtoMesazhGabimi(hfState.Get('msgPerdoruesitMinGjatesiPassword') + ' ' + gjatesiMinPass + ' ' + hfState.Get('msgPerdoruesitMinKarakterePass'));
     }
 
-}
-
-function EndRequestHandler(sender, args) {
-    if (hfPassPerkohshem.Contains('PassPerkohshem') || hfSkaduarPass.Contains('PassSkaduar')) {
-        if (hfPassPerkohshem.Get('PassPerkohshem') === 'Po' || hfSkaduarPass.Get('PassSkaduar') === 'Po') {
-            onloadNdryshimFjalekalimi();
-        }
-    }
 }

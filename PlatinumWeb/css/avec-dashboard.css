@@ -12,53 +12,6 @@ html, body.avec-dashboard {
     background: transparent !important;
 }
 
-.dash-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 16px 32px;
-    margin-bottom: 20px;
-}
-
-.dash-eyebrow {
-    margin: 0 0 4px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #a3a3a0;
-}
-
-.dash-title {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: #f2f2f0;
-}
-
-.dash-facts {
-    display: flex;
-    gap: 28px;
-    margin: 0;
-}
-
-.dash-facts dt {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #6e6e6b;
-}
-
-.dash-facts dd {
-    margin: 2px 0 0;
-    font-size: 14px;
-    font-weight: 600;
-    color: #f2f2f0;
-    font-variant-numeric: tabular-nums;
-}
-
 .dash-crumbs {
     display: flex;
     align-items: center;

@@ -5817,17 +5817,6 @@ namespace DbCore.DbKontabiliteti
 
             return ds.Tables[0];
         }
-
-        internal DataTable ktheKFNdermarrjesAndAutorizimeDTPerCrm(int idnderm, int idperdorues)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDNDERMARJE", idnderm, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KLIENTFURNITOR_ktheKFNdermarrjesAndAutorizimeDTPerCRM");
-
-            return ds.Tables[0];
-        }
         internal DataTable ktheKFNdermarrjesAndAutorizimeDTExport(int idnderm, int idperdorues, int lloji, string emerTabKoka, string emerFusheID)
         {
             dbManager.Open();

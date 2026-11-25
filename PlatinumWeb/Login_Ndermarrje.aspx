@@ -289,7 +289,6 @@
                     OnClick="ok_ASPxButton_Click"  Width="100px">
                     <ClientSideEvents Click="function(s, e) {
                         updateSessionStorage();
-	            SetSplitterPaneContentUrl('Footer','FooterPanelInfo.aspx');
             }" />
                 </dx:ASPxButton>
             </footer>

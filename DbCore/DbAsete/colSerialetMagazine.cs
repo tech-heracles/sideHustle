@@ -512,20 +512,6 @@ namespace DbCore.DbAsete
             #endregion
         }
 
-        /// <summary>
-        /// kthen nje datatable me asetet qe nuk jane vendosur ende ne harte
-        /// </summary>
-        /// <param name="idNdermarrje"></param>
-        /// <param name="idnderviti"></param>
-        /// <param name="idPerdorues"></param>
-        /// <param name="idLayerType"></param>
-        /// <returns></returns>
-        public static DataTable MerrAseteJoNeHarte(int idNdermarrje, int idnderviti, int idPerdorues, int idLayerType)
-        {
-            using (var dbAsete = new clsDatabazeAsete())
-                return dbAsete.MerrAseteJoNeHarte(idNdermarrje, idnderviti, idPerdorues, idLayerType);
-        }
-
         #endregion
 
         #region Metoda Private

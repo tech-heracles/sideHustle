@@ -26,7 +26,6 @@ namespace PlatinumWeb
         public void Configuration(IAppBuilder app)
         {
             ConfigureOAuth(app);
-            app.MapSignalR();
         }
 
         private void ConfigureOAuth(IAppBuilder app)

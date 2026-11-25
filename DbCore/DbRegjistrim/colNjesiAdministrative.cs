@@ -205,6 +205,12 @@ namespace DbCore.DbRegjistrim
             return dt;
         }
 
+        public static DataTable ktheLlojetLayeritMagazine()
+        {
+            using (clsDatabaseRegjistrim db = new clsDatabaseRegjistrim())
+                return db.ktheGjitheLlojLayerMagazine();
+        }
+
         public static DataTable merrSipasNjesiNdermarjePerLupeDege(int idnderm, int idPerd, bool magNeHArte, int idLlojLayerMagazine, bool kushtMerrMagMeAutorizim)
         {
             clsDatabaseRegjistrim dbartikuj = new clsDatabaseRegjistrim();

@@ -1,4 +1,4 @@
-/* AVEC Accounting - main frame (FaqeKryesore.aspx): top bar with the full menu, content area, footer. */
+/* AVEC Accounting - main frame (FaqeKryesore.aspx): top bar (company, period, user, log out) and content area; there is no footer. */
 html, body, #form1, #backDiv {
     background: #121212 !important;
 }
@@ -67,8 +67,92 @@ html, body, #form1, #backDiv {
     font-weight: 600 !important;
 }
 
+/* company + accounting period (moved here from the old footer) */
+.avec-konteksti {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.avec-ktx {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 34px;
+    max-width: 30vw;
+    padding: 0 12px;
+    background: #1a1a1a;
+    border: 1px solid #2e2e2e;
+    border-radius: 8px;
+    color: #d6d6d3;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.avec-ktx:hover,
+.avec-ktx:focus-visible {
+    border-color: #e8683a;
+    outline: none;
+}
+
+.avec-ktx .fa {
+    color: #e8683a;
+}
+
+.avec-ktx .avec-ktx-shigjete {
+    color: #8a8a87;
+}
+
+.avec-ktx-etk {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8a8a87;
+}
+
+.avec-ktx-vlere {
+    font-weight: 600;
+    color: #f2f2f0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.avec-ktx-vlere.e-kycur {
+    color: #8a8a87;
+}
+
+/* log out, always visible beside the user's name */
+.avec-dalje {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex: none;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 8px;
+    color: #d6d6d3 !important;
+    font-size: 13px;
+    text-decoration: none !important;
+}
+
+.avec-dalje:hover {
+    background: #232323;
+    color: #e8683a !important;
+}
+
+@media (max-width: 900px) {
+    .avec-ktx-etk,
+    .avec-dalje span {
+        display: none;
+    }
+}
+
 #menu.menu {
-    flex: 1 1 auto;
+    flex: none;
     min-width: 0;
     float: none !important;
     height: 55px;
@@ -171,7 +255,7 @@ html, body, #form1, #backDiv {
     background: #2e2e2e !important;
 }
 
-/* ---- content + footer ---- */
+/* ---- content ---- */
 #ASPxSplitter1 td,
 .dxsplControl_Material,
 .dxsplPane_Material,
@@ -184,10 +268,6 @@ html, body, #form1, #backDiv {
 .dxsplVSeparator_Material,
 .dxsplHSeparator_Material {
     background: #121212 !important;
-}
-
-.footer1 {
-    border-top: 1px solid #262626 !important;
 }
 
 /* ---- loader ---- */

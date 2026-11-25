@@ -17,7 +17,7 @@ namespace PlatinumWeb
 		/// <returns></returns>
 		public static bool EshteUrlPaScopeID(string absoluteUrl, string queryUrl)
 		{
-			return ($"~{absoluteUrl}".ContainsAnyIgnoreCase("GISProxyGEO.ashx", "E-Payslip") || !(absoluteUrl.EndsWith(".aspx")));
+			return ($"~{absoluteUrl}".ContainsAnyIgnoreCase("E-Payslip") || !(absoluteUrl.EndsWith(".aspx")));
 		}
 		/// <summary>
 		/// kontrollon nese po tentohet te aksesohet nje faqe login apo reset pass te cilat jane pa auth

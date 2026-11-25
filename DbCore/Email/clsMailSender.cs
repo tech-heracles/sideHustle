@@ -57,19 +57,6 @@ namespace DbCore
             _emerEmali = emerEmali; //duhet ne te dyja rastet
         }
 
-        /// <summary>
-        /// konstruktori qe sherben per dergimin e email-eve nga nje account gmail i alpha web 
-        /// </summary>
-        /// <param name="emerEmali"></param>
-        public clsMailSender(string emerEmali)
-        {
-            _mailServer = "smtp.gmail.com";
-            _port = 587;
-            _mail = System.Web.Configuration.WebConfigurationManager.AppSettings["emailAWeb"].ToString();//"info.imb2009@gmail.com";
-            _passw = System.Web.Configuration.WebConfigurationManager.AppSettings["passEmailAweb"].ToString();  //"Tirana123";
-            _emerEmali = emerEmali;
-            _enableSsl = true;
-        }
 
         /// <summary>
         /// Sends mail using SMTP client
@@ -342,27 +329,6 @@ namespace DbCore
                     string toEmail = toEmails[i];
                     DbCore.DbRegjistrim.clsEmail email = new DbCore.DbRegjistrim.clsEmail(idNdermarrje, toEmail, DateTime.Now, subjekt, body, idPerdoruesi);
                     NeSfond(() => SendPlainAsyncMail(toEmail, subjekt, body, email.IdEmail.ToString(), isBodyHtml));
-                }
-                return true;
-            }
-            catch (MyException)
-            {
-                return false;
-            }
-        }
-        /// <summary>
-        /// rifergon emailet qe nuk jane derguar
-        /// </summary>
-        /// <param name="emailet"></param>
-        /// <returns></returns>
-        public bool ReSendPlainAsyncEmail(List<clsEmail> emailet)
-        {
-            try
-            {
-                foreach (var email in emailet)
-                {
-
-                    NeSfond(() => SendPlainAsyncMail(email.MarresEmail, email.SubjektEmail, email.TrupEmail, email.IdEmail.ToString(), true));
                 }
                 return true;
             }

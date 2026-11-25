@@ -18609,9 +18609,6 @@ i certifikates se NIPT/</value>
   <data name="lblMagazineSkadence" xml:space="preserve">
     <value>Magazine skadence</value>
   </data>
-  <data name="MTA_msgAktivizoSignalR" xml:space="preserve">
-    <value>KUJDES! Ky sherbim nuk eshte i aktivizuar!</value>
-  </data>
   <data name="labelKodbari" xml:space="preserve">
     <value>Kodbari</value>
   </data>

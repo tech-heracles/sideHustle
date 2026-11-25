@@ -2374,9 +2374,7 @@ function kthehuNeFaqenEMeparshme() {
     var idmod = Utils.getUrlVar("idmod");
     var vjenNga = Utils.getUrlVar("vjenNga");
     var previousPage = Utils.getUrlVar("previousPage");
-    if (vjenNga == "CRM")
-        window.location = "RaportetAllNew.aspx?vjenNga=CRM";
-    else if (vjenNga == "Aprovim")
+    if (vjenNga == "Aprovim")
         window.location = "ListeAprovimi.aspx?status=aprovim";
     else if (previousPage == "RaportetAllNew")
         window.location = "RaportetAllNew.aspx";

@@ -66,18 +66,16 @@ function MenuToolbar() {
         };
 
         this.expandAll = function () {
-            // pa panelin e navigimit (hequr 2026-11-23): ekran i plote = palosen koka dhe fundi
+            // pa panelin e navigimit (hequr 2026-11-23) dhe pa footer (hequr 2026-11-25): ekran i plote = paloset koka
             var s = window.parent && window.parent.splitter;
-            if (!s || !s.GetPane(0) || !s.GetPane(1) || !s.GetPane(2)) return;
+            if (!s || !s.GetPane(0) || !s.GetPane(1)) return;
             s.GetPane(0).Collapse(s.GetPane(1));
-            s.GetPane(2).Collapse(s.GetPane(1));
         };
 
         this.collapseAll = function () {
             var s = window.parent && window.parent.splitter;
-            if (!s || !s.GetPane(0) || !s.GetPane(1) || !s.GetPane(2)) return;
+            if (!s || !s.GetPane(0) || !s.GetPane(1)) return;
             s.GetPane(0).Expand(s.GetPane(1));
-            s.GetPane(2).Expand(s.GetPane(1));
         };
     };
 

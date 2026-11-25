@@ -3467,29 +3467,6 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
         }
 
-
-        public DataTable merrTeDrejtaRoliPerCRM(int idperdoruesi, int idNdermarrje, int idViti)
-        {
-            this.dbManager.Open();
-            this.dbManager.CreateParameters(3);
-            this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
-            this.dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            this.dbManager.AddParameters(2, "@IDVITI", idViti, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ROLDREJTA_merrTeDrejtaRoliPerCRM");
-            return ds.Tables[0];
-        }
-
-        public DataTable merrTeDrejtaRoliPerGIS(int idperdoruesi, int idNdermarrje, int idViti)
-        {
-            this.dbManager.Open();
-            this.dbManager.CreateParameters(3);
-            this.dbManager.AddParameters(0, "@IDpERDORUESI", idperdoruesi, ParameterDirection.Input);
-            this.dbManager.AddParameters(1, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            this.dbManager.AddParameters(2, "@IDVITI", idViti, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ROLDREJTA_merrTeDrejtaRoliPerGIS");
-            return ds.Tables[0];
-        }
-
         public DataRow merrTeDrejtaSipasKomponentes(int idperdoruesi, int idNdermarrje, int idViti, string komponente)
         {
 
@@ -5684,19 +5661,6 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
         }
 
-        /// <summary>
-        /// Merr gjithe ndermarrjet e llojeve te licensave ''Zyre'' ose ''SAGIS''
-        /// </summary>
-        /// <param name="tePalidhura">True/False kerkon per te gjithe ndermarrjet apo vetem ato qe nuk kane akoma nje workspace te lidhur me te</param>
-        /// <returns>Kthen nje DataTable me informacion IdNdermarrje/NdermarrjeKodi/NdermarrjePershkrimi </returns>
-        internal DataTable merrNdermarrjePerGIS(bool tePalidhura)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@TEPALIDHURA", tePalidhura, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_NDERMARJE_merrSipasLicensesGIS");
-            return ds.Tables[0];
-        }
 
         //ben kontrollin nese ekziston nje ndermarrje tjeter me kete kod
         internal bool ekzistonNdermarrjeMeKeteKod(String ndermarrjekodi)
@@ -9100,10 +9064,7 @@ namespace DbCore.DbAdmin
             dbManager.AddParameters(0, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
             string pergjigje = Convert.ToString(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_KOMPONENTE_merrKomponenteDefaultPerdoruesi"));
             if (pergjigje != "")
-                if (pergjigje == "CRMDefault.aspx" || pergjigje == "GISDefault.aspx")
-                    return pergjigje;
-                else
-                    return pergjigje + "&shtim_modifikim=shtim";
+                return pergjigje + "&shtim_modifikim=shtim";
             return pergjigje;
         }
 

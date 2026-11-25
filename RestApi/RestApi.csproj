@@ -179,7 +179,6 @@
     <Compile Include="WebAPI\Controllers\AccessController.cs" />
     <Compile Include="WebAPI\Controllers\BuxhetiController.cs" />
     <Compile Include="WebAPI\Controllers\CmimeController.cs" />
-    <Compile Include="WebAPI\Controllers\DashboardController.cs" />
     <Compile Include="WebAPI\Controllers\ImportiController.cs" />
     <Compile Include="WebAPI\Controllers\MbylljePeriudheController.cs" />
     <Compile Include="WebAPI\Controllers\PlanifikimProdhimiController.cs" />
@@ -190,7 +189,6 @@
     <Compile Include="WebAPI\Controllers\AutorizimeController.cs" />
     <Compile Include="WebAPI\Controllers\CeljeController.cs" />
     <Compile Include="WebAPI\Controllers\fushatShteseController.cs" />
-    <Compile Include="WebAPI\Controllers\GISController.cs" />
     <Compile Include="WebAPI\Controllers\KonfigurimeController.cs" />
     <Compile Include="WebAPI\Controllers\ListPagesaController.cs" />
     <Compile Include="WebAPI\Controllers\MyBaseApiController.cs" />
@@ -203,7 +201,6 @@
     <Compile Include="WebAPI\Models\AccessRepository.cs" />
     <Compile Include="WebAPI\Models\BuxhetiRepository.cs" />
     <Compile Include="WebAPI\Models\CmimeRepository.cs" />
-    <Compile Include="WebAPI\Models\DashboardRepository.cs" />
     <Compile Include="WebAPI\Models\ImportiRepository.cs" />
     <Compile Include="WebAPI\Models\MbylljePeriudheRepository.cs" />
     <Compile Include="WebAPI\Models\PlanifikimProdhimiRepository.cs" />
@@ -213,9 +210,7 @@
     <Compile Include="WebAPI\Models\AutomatizimRepository.cs" />
     <Compile Include="WebAPI\Models\AutorizimeRepository.cs" />
     <Compile Include="WebAPI\Models\CeljeRepository.cs" />
-    <Compile Include="WebAPI\Models\CRMRepository.cs" />
     <Compile Include="WebAPI\Models\FushatShteseRepository.cs" />
-    <Compile Include="WebAPI\Models\GISRepository.cs" />
     <Compile Include="WebAPI\Models\KonfigurimeRepository.cs" />
     <Compile Include="WebAPI\Models\ListPagesaRepository.cs" />
     <Compile Include="WebAPI\Models\NodeApiRepository.cs" />

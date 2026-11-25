@@ -18177,9 +18177,6 @@ i certifikates se NIPT/</value>
   <data name="lblMagazineSkadence" xml:space="preserve">
     <value>Warehouse expiration</value>
   </data>
-  <data name="MTA_msgAktivizoSignalR" xml:space="preserve">
-    <value>CAUTION! This service is not enabled!</value>
-  </data>
   <data name="labelKodbari" xml:space="preserve">
     <value>Barcode</value>
   </data>

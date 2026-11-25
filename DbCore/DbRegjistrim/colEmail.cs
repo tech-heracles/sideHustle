@@ -21,12 +21,5 @@ namespace DbCore.DbRegjistrim
             }
             return true;
         }
-        public static DataTable ktheHistorikun(int idNdermarrrje, int idPerdoruesi)
-        {
-            using (clsDatabaseRegjistrim db = new clsDatabaseRegjistrim())
-            {
-                return db.merrHistorikunEmail(idNdermarrrje, idPerdoruesi);
-            }
-        }
     }
 }

@@ -35,11 +35,6 @@ namespace PlatinumWeb.Templates
                     button.Image.Url = "~/images/add_point_off.png";
                     button.Text = "";
                     break;
-                case "Ridergo":
-                    button.Image.Url = "~/images/DergoEmail.png";
-                    button.ClientSideEvents.Click = "function(s,e){ grid_HistorikuEmail.PerformCallback(\"" + gridContainer.VisibleIndex + ";" + gridContainer.KeyValue + "\");}";
-                    button.Text = "";
-                    break;
                 default:
                     break;
             }

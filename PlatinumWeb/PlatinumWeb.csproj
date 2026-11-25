@@ -118,9 +118,6 @@
     <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Dashboard.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Dashboard.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Dashboard.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -294,12 +291,6 @@
     </Reference>
     <Reference Include="JWT, Version=9.0.0.0, Culture=neutral, PublicKeyToken=6f98bca0f40f2ecf, processorArchitecture=MSIL">
       <HintPath>..\packages\JWT.9.0.3\lib\net46\JWT.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.WebApi.Extensions.Compression.Server, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Extensions.Compression.Server.2.0.3\lib\net45\Microsoft.AspNet.WebApi.Extensions.Compression.Server.dll</HintPath>
@@ -581,7 +572,6 @@
     <Content Include="ABShpenzimeKapitale.aspx" />
     <Content Include="ABShpenzimeOperative.aspx" />
     <Content Include="AktivizoAlphaWeb.aspx" />
-    <Content Include="AlphaCRM.css" />
     <Content Include="AlphaWeb.css" />
     <Content Include="App_Data\MenuItems.xml">
       <SubType>Designer</SubType>
@@ -785,9 +775,7 @@
     <Content Include="js\aspx.js\GjendjeArkeDitore.aspx-IMB.6.5.js" />
     <Content Include="js\aspx.js\Webhooks.aspx-IMB.6.5.js" />
     <Content Include="js\components\Popup.js" />
-    <Content Include="js\html.js\MessageToAll-IMB.9.2.js" />
     <Content Include="js\ucPopUpEinvoice.js" />
-    <Content Include="MessageToAll.html" />
     <Content Include="Content\all.css" />
     <Content Include="Content\dx.common.css" />
     <Content Include="Content\dx.dark.compact.css" />
@@ -799,25 +787,16 @@
     <Content Include="css\awStepper.css" />
     <Content Include="css\bootstrap-notify.css" />
     <Content Include="css\selectize.css" />
-    <Content Include="Dashboard.aspx" />
-    <Content Include="js\aspx.js\Dashboard-IMB.8.8.js" />
     <Content Include="js\aspx.js\LupaQendraKostoPrind.aspx-IMB.3.1.js" />
     <Content Include="js\components\awStepper.js" />
     <Content Include="js\components\TabPanel.js" />
     <Content Include="js\components\ReportViewer.js" />
     <Content Include="js\components\MenuToolbar.js" />
     <Content Include="js\components\Wizard.js" />
-    <Content Include="js\Dashboard\SaveExtension.js" />
     <Content Include="js\html.js\MbylljePeriudheWizard-IMB.9.2.js" />
     <Content Include="js\html.js\MbylljePeriudhe-IMB.9.2.js" />
     <Content Include="js\GridaRegjQendraKosto.js" />
     <Content Include="js\jquery-ui.min.js" />
-    <Content Include="images\Dashboard\itemsIcon.svg" />
-    <Content Include="images\Dashboard\refreshIcon.svg" />
-    <Content Include="images\Dashboard\toolsIcon.svg" />
-    <Content Include="images\Dashboard\viewerIcon.svg" />
-    <Content Include="js\Dashboard\online-map-extension.js" />
-    <Content Include="js\Dashboard\SaveAsExtension.js" />
     <Content Include="DataTables-1.10.12\media\css\dataTables.bootstrap.min.css" />
     <Content Include="DataTables-1.10.12\media\images\favicon.ico" />
     <Content Include="DataTables-1.10.12\media\images\sort_asc.png" />
@@ -845,7 +824,6 @@
     <Content Include="E-PaySlip\images\favicon.ico" />
     <Content Include="E-PaySlip\images\keshBCG.jpg" />
     <Content Include="ElementePerIntegrim.aspx" />
-    <Content Include="faviconGIS.ico" />
     <Content Include="FilterPopup.ascx" />
     <Content Include="fine-uploader\continue.gif" />
     <Content Include="fine-uploader\edit.gif" />
@@ -864,43 +842,10 @@
     <Content Include="fine-uploader\templates\simple-thumbnails.html" />
     <Content Include="fine-uploader\trash.gif" />
     <Content Include="FormatePrintimi.aspx" />
-    <Content Include="GISLupaElemente.aspx" />
-    <Content Include="GISWorkspace.aspx" />
-    <Content Include="HistorikuEmail.aspx" />
     <Content Include="AzhornimKlientFurnitor.aspx" />
     <Content Include="Build\AjaxMin.dll" />
     <Content Include="Build\AjaxMinTask.dll" />
-    <Content Include="CRMAnketa.aspx" />
-    <Content Include="CRMHarte.aspx" />
     <Content Include="DynamicDataNew\VerticalAppointmentTemplateCustom.ascx" />
-    <Content Include="E-PaySlip\CRM\1422991992_arrow-left-01-24.png" />
-    <Content Include="E-PaySlip\CRM\1422992681_arrow-right-01-32.png" />
-    <Content Include="E-PaySlip\CRM\AlphaWeb.png" />
-    <Content Include="E-PaySlip\CRM\AlphaWebMenu.png" />
-    <Content Include="E-PaySlip\CRM\Dokumentemagazine.png" />
-    <Content Include="E-PaySlip\CRM\fa-bar-chart.png" />
-    <Content Include="E-PaySlip\CRM\fa-building-o.png" />
-    <Content Include="E-PaySlip\CRM\fa-calendar.png" />
-    <Content Include="E-PaySlip\CRM\fa-check-square-o.png" />
-    <Content Include="E-PaySlip\CRM\fa-cogs.png" />
-    <Content Include="E-PaySlip\CRM\fa-HiqAnketa.png" />
-    <Content Include="E-PaySlip\CRM\fa-HiqDetyra.png" />
-    <Content Include="E-PaySlip\CRM\fa-history.png" />
-    <Content Include="E-PaySlip\CRM\fa-list-alt.png" />
-    <Content Include="E-PaySlip\CRM\fa-list-ol.png" />
-    <Content Include="E-PaySlip\CRM\fa-newspaper-o.png" />
-    <Content Include="E-PaySlip\CRM\fa-shopping-cart.png" />
-    <Content Include="E-PaySlip\CRM\fa-tasks.png" />
-    <Content Include="E-PaySlip\CRM\fa-user.png" />
-    <Content Include="E-PaySlip\CRM\fa-users.png" />
-    <Content Include="E-PaySlip\CRM\faviconCRM.ico" />
-    <Content Include="E-PaySlip\CRM\RaportetMagazines.png" />
-    <Content Include="E-PaySlip\CRM\RaportetShitjes.png" />
-    <Content Include="E-PaySlip\CRM\RegjistrimetMagazines.png" />
-    <Content Include="E-PaySlip\CRM\ShtoArtikuj.png" />
-    <Content Include="E-PaySlip\CRM\ShtoAsete.png" />
-    <Content Include="E-PaySlip\CRM\Shtoblerje.png" />
-    <Content Include="E-PaySlip\CRM\Shtoshitje.png" />
     <Content Include="E-PaySlip\fonts\fontawesome-webfont.svg" />
     <Content Include="E-PaySlip\images\theme\Moderno\menu\Anullo.png" />
     <Content Include="E-PaySlip\images\theme\Moderno\menu\Anullo_W.png" />
@@ -935,7 +880,6 @@
     <Content Include="E-PaySlip\images\theme\Moderno\menu\Zgjidh.png" />
     <Content Include="E-PaySlip\images\theme\Moderno\menu\Zgjidh_W.png" />
     <Content Include="E-PaySlip\ImbReportToolbar1.ascx" />
-    <Content Include="E-PaySlip\js\AlphaCRM.css" />
     <Content Include="E-PaySlip\js\CoreEpaySlip.js" />
     <Content Include="E-PaySlip\js\font-awesome.css" />
     <Content Include="E-PaySlip\js\font-awesome.min.css" />
@@ -956,7 +900,6 @@
     <Content Include="E-PaySlip\Raportet.aspx" />
     <Content Include="E-PaySlip\RaportiEPaySlip.aspx" />
     <Content Include="E-PaySlip\js\RaportiEPaySlip.aspx-IMB.2.1.js" />
-    <Content Include="GISLupaKerkimHapsinor.aspx" />
     <Content Include="images\ALPETROL.png" />
     <Content Include="images\backgrounds\imageA001.png" />
     <Content Include="images\backgrounds\imageA002.png" />
@@ -965,7 +908,6 @@
     <Content Include="images\backgrounds\imageA005.png" />
     <Content Include="images\backgrounds\imageA006.png" />
     <Content Include="images\backgrounds\imageA007.png" />
-    <Content Include="images\CRM\klient_harte.png" />
     <Content Include="images\csv24.png" />
     <Content Include="images\CustomToolbar\exportBirthday.svg" />
     <Content Include="images\CustomToolbar\exportTatime.svg" />
@@ -992,184 +934,6 @@
     <Content Include="images\FaqjaPare\united_kingdom_round_icon_64.png" />
     <Content Include="images\generalLogo_red.png" />
     <Content Include="images\GIFWEB.svg" />
-    <Content Include="images\GIS\attachEmail.png" />
-    <Content Include="images\GIS\Blue\editCartel.png" />
-    <Content Include="images\GIS\Blue\editChange.png" />
-    <Content Include="images\GIS\Blue\editChild.png" />
-    <Content Include="images\GIS\Blue\editChildConn.png" />
-    <Content Include="images\GIS\Blue\editConnect.png" />
-    <Content Include="images\GIS\Blue\editDelete.png" />
-    <Content Include="images\GIS\Blue\editDisconnect.png" />
-    <Content Include="images\GIS\Blue\editDownload.png" />
-    <Content Include="images\GIS\Blue\editDownloadAutoCad.png" />
-    <Content Include="images\GIS\Blue\editDownloadCsv.png" />
-    <Content Include="images\GIS\Blue\editDownloadExcel.png" />
-    <Content Include="images\GIS\Blue\editDownloadGML.png" />
-    <Content Include="images\GIS\Blue\editDownloadShp.png" />
-    <Content Include="images\GIS\Blue\editDrawLine.png" />
-    <Content Include="images\GIS\Blue\editDrawPoint.png" />
-    <Content Include="images\GIS\Blue\editDrawPolygon.png" />
-    <Content Include="images\GIS\Blue\editMove.png" />
-    <Content Include="images\GIS\Blue\editNotConnect.png" />
-    <Content Include="images\GIS\Blue\editParent.png" />
-    <Content Include="images\GIS\Blue\editPurchase.png" />
-    <Content Include="images\GIS\Blue\editSave.png" />
-    <Content Include="images\GIS\Blue\editSelectFeature.png" />
-    <Content Include="images\GIS\Blue\editSnap.png" />
-    <Content Include="images\GIS\Blue\editSnapRefresh.png" />
-    <Content Include="images\GIS\Blue\editSplitLine.png" />
-    <Content Include="images\GIS\Blue\editSplitPolygon.png" />
-    <Content Include="images\GIS\Blue\editTopology.png" />
-    <Content Include="images\GIS\Blue\editUnion.png" />
-    <Content Include="images\GIS\Blue\editUpload.png" />
-    <Content Include="images\GIS\Blue\editUploadGPX.png" />
-    <Content Include="images\GIS\Blue\editUploadSkedar.png" />
-    <Content Include="images\GIS\Blue\editZoomIn.png" />
-    <Content Include="images\GIS\Blue\fileDelete.png" />
-    <Content Include="images\GIS\Blue\goToXYAddFeature.png" />
-    <Content Include="images\GIS\Blue\goToXYArchive.png" />
-    <Content Include="images\GIS\Blue\goToXYArchiveDelete.png" />
-    <Content Include="images\GIS\Blue\goToXYArchiveZoomIn.png" />
-    <Content Include="images\GIS\Blue\goToXYClean.png" />
-    <Content Include="images\GIS\Blue\goToXYPan.png" />
-    <Content Include="images\GIS\Blue\goToXYZoomIn.png" />
-    <Content Include="images\GIS\Blue\images\button\btn.gif" />
-    <Content Include="images\GIS\Blue\images\panel\tool-sprites.gif" />
-    <Content Include="images\GIS\Blue\infoTitle.png" />
-    <Content Include="images\GIS\Blue\measureArea.png" />
-    <Content Include="images\GIS\Blue\measureCoordinate.png" />
-    <Content Include="images\GIS\Blue\measureLength.png" />
-    <Content Include="images\GIS\Blue\searchSpatial.png" />
-    <Content Include="images\GIS\Blue\SearchSpatialLine.png" />
-    <Content Include="images\GIS\Blue\searchTabular.png" />
-    <Content Include="images\GIS\Blue\userAnonymous.png" />
-    <Content Include="images\GIS\Blue\userLogout.png" />
-    <Content Include="images\GIS\DEFAULT\menuBackActiv.png" />
-    <Content Include="images\GIS\DEFAULT\menuBackInactiv.png" />
-    <Content Include="images\GIS\DEFAULT\menuBuffer.png" />
-    <Content Include="images\GIS\DEFAULT\menuDalje.png" />
-    <Content Include="images\GIS\DEFAULT\menuEdit.png" />
-    <Content Include="images\GIS\DEFAULT\menuEmail.png" />
-    <Content Include="images\GIS\DEFAULT\menuForwardActiv.png" />
-    <Content Include="images\GIS\DEFAULT\menuForwardInactiv.png" />
-    <Content Include="images\GIS\DEFAULT\menuGeoLocation.png" />
-    <Content Include="images\GIS\DEFAULT\menuGoToXY.png" />
-    <Content Include="images\GIS\DEFAULT\menuGPS.png" />
-    <Content Include="images\GIS\DEFAULT\menuGradule.png" />
-    <Content Include="images\GIS\DEFAULT\menuHome.png" />
-    <Content Include="images\GIS\DEFAULT\menuHomeExtend.png" />
-    <Content Include="images\GIS\DEFAULT\menuHomeExtend2.png" />
-    <Content Include="images\GIS\DEFAULT\menuHomePaShkrim.png" />
-    <Content Include="images\GIS\DEFAULT\menuInformation.png" />
-    <Content Include="images\GIS\DEFAULT\menuLangAL.png" />
-    <Content Include="images\GIS\DEFAULT\menuLangEN.png" />
-    <Content Include="images\GIS\DEFAULT\menuMarker.png" />
-    <Content Include="images\GIS\DEFAULT\menuMeasure.png" />
-    <Content Include="images\GIS\DEFAULT\menuPan.png" />
-    <Content Include="images\GIS\DEFAULT\menuPrint.png" />
-    <Content Include="images\GIS\DEFAULT\menuSearch.png" />
-    <Content Include="images\GIS\DEFAULT\menuUser.png" />
-    <Content Include="images\GIS\DEFAULT\menuWEB.png" />
-    <Content Include="images\GIS\DEFAULT\menuZoomIn.png" />
-    <Content Include="images\GIS\DEFAULT\menuZoomOut.png" />
-    <Content Include="images\GIS\Purple\editCartel.png" />
-    <Content Include="images\GIS\Purple\editChange.png" />
-    <Content Include="images\GIS\Purple\editChild.png" />
-    <Content Include="images\GIS\Purple\editChildConn.png" />
-    <Content Include="images\GIS\Purple\editConnect.png" />
-    <Content Include="images\GIS\Purple\editDelete.png" />
-    <Content Include="images\GIS\Purple\editDisconnect.png" />
-    <Content Include="images\GIS\Purple\editDownload.png" />
-    <Content Include="images\GIS\Purple\editDownloadAutoCad.png" />
-    <Content Include="images\GIS\Purple\editDownloadCsv.png" />
-    <Content Include="images\GIS\Purple\editDownloadExcel.png" />
-    <Content Include="images\GIS\Purple\editDownloadGML.png" />
-    <Content Include="images\GIS\Purple\editDownloadShp.png" />
-    <Content Include="images\GIS\Purple\editDrawLine.png" />
-    <Content Include="images\GIS\Purple\editDrawPoint.png" />
-    <Content Include="images\GIS\Purple\editDrawPolygon.png" />
-    <Content Include="images\GIS\Purple\editMove.png" />
-    <Content Include="images\GIS\Purple\editNotConnect.png" />
-    <Content Include="images\GIS\Purple\editParent.png" />
-    <Content Include="images\GIS\Purple\editPurchase.png" />
-    <Content Include="images\GIS\Purple\editSave.png" />
-    <Content Include="images\GIS\Purple\editSelectFeature.png" />
-    <Content Include="images\GIS\Purple\editSnap.png" />
-    <Content Include="images\GIS\Purple\editSnapRefresh.png" />
-    <Content Include="images\GIS\Purple\editSplitLine.png" />
-    <Content Include="images\GIS\Purple\editSplitPolygon.png" />
-    <Content Include="images\GIS\Purple\editTopology.png" />
-    <Content Include="images\GIS\Purple\editUnion.png" />
-    <Content Include="images\GIS\Purple\editUpload.png" />
-    <Content Include="images\GIS\Purple\editUploadGPX.png" />
-    <Content Include="images\GIS\Purple\editUploadSkedar.png" />
-    <Content Include="images\GIS\Purple\editZoomIn.png" />
-    <Content Include="images\GIS\Purple\fileDelete.png" />
-    <Content Include="images\GIS\Purple\goToXYAddFeature.png" />
-    <Content Include="images\GIS\Purple\goToXYArchive.png" />
-    <Content Include="images\GIS\Purple\goToXYArchiveDelete.png" />
-    <Content Include="images\GIS\Purple\goToXYArchiveZoomIn.png" />
-    <Content Include="images\GIS\Purple\goToXYClean.png" />
-    <Content Include="images\GIS\Purple\goToXYPan.png" />
-    <Content Include="images\GIS\Purple\goToXYZoomIn.png" />
-    <Content Include="images\GIS\Purple\infoTitle.png" />
-    <Content Include="images\GIS\Purple\measureArea.png" />
-    <Content Include="images\GIS\Purple\measureCoordinate.png" />
-    <Content Include="images\GIS\Purple\measureLength.png" />
-    <Content Include="images\GIS\Purple\searchSpatial.png" />
-    <Content Include="images\GIS\Purple\SearchSpatialLine.png" />
-    <Content Include="images\GIS\Purple\searchTabular.png" />
-    <Content Include="images\GIS\Purple\userAnonymous.png" />
-    <Content Include="images\GIS\Purple\userLogout.png" />
-    <Content Include="images\GIS\Red\editCartel.png" />
-    <Content Include="images\GIS\Red\editChange.png" />
-    <Content Include="images\GIS\Red\editChild.png" />
-    <Content Include="images\GIS\Red\editChildConn.png" />
-    <Content Include="images\GIS\Red\editConnect.png" />
-    <Content Include="images\GIS\Red\editDelete.png" />
-    <Content Include="images\GIS\Red\editDisconnect.png" />
-    <Content Include="images\GIS\Red\editDownload.png" />
-    <Content Include="images\GIS\Red\editDownloadAutoCad.png" />
-    <Content Include="images\GIS\Red\editDownloadCsv.png" />
-    <Content Include="images\GIS\Red\editDownloadExcel.png" />
-    <Content Include="images\GIS\Red\editDownloadGML.png" />
-    <Content Include="images\GIS\Red\editDownloadShp.png" />
-    <Content Include="images\GIS\Red\editDrawLine.png" />
-    <Content Include="images\GIS\Red\editDrawPoint.png" />
-    <Content Include="images\GIS\Red\editDrawPolygon.png" />
-    <Content Include="images\GIS\Red\editMove.png" />
-    <Content Include="images\GIS\Red\editNotConnect.png" />
-    <Content Include="images\GIS\Red\editParent.png" />
-    <Content Include="images\GIS\Red\editPurchase.png" />
-    <Content Include="images\GIS\Red\editSave.png" />
-    <Content Include="images\GIS\Red\editSelectFeature.png" />
-    <Content Include="images\GIS\Red\editSnap.png" />
-    <Content Include="images\GIS\Red\editSnapRefresh.png" />
-    <Content Include="images\GIS\Red\editSplitLine.png" />
-    <Content Include="images\GIS\Red\editSplitPolygon.png" />
-    <Content Include="images\GIS\Red\editTopology.png" />
-    <Content Include="images\GIS\Red\editUnion.png" />
-    <Content Include="images\GIS\Red\editUpload.png" />
-    <Content Include="images\GIS\Red\editUploadGPX.png" />
-    <Content Include="images\GIS\Red\editUploadSkedar.png" />
-    <Content Include="images\GIS\Red\editZoomIn.png" />
-    <Content Include="images\GIS\Red\fileDelete.png" />
-    <Content Include="images\GIS\Red\goToXYAddFeature.png" />
-    <Content Include="images\GIS\Red\goToXYArchive.png" />
-    <Content Include="images\GIS\Red\goToXYArchiveDelete.png" />
-    <Content Include="images\GIS\Red\goToXYArchiveZoomIn.png" />
-    <Content Include="images\GIS\Red\goToXYClean.png" />
-    <Content Include="images\GIS\Red\goToXYPan.png" />
-    <Content Include="images\GIS\Red\goToXYZoomIn.png" />
-    <Content Include="images\GIS\Red\infoTitle.png" />
-    <Content Include="images\GIS\Red\measureArea.png" />
-    <Content Include="images\GIS\Red\measureCoordinate.png" />
-    <Content Include="images\GIS\Red\measureLength.png" />
-    <Content Include="images\GIS\Red\searchSpatial.png" />
-    <Content Include="images\GIS\Red\SearchSpatialLine.png" />
-    <Content Include="images\GIS\Red\searchTabular.png" />
-    <Content Include="images\GIS\Red\userAnonymous.png" />
-    <Content Include="images\GIS\Red\userLogout.png" />
     <Content Include="images\home1.png" />
     <Content Include="images\HRbck.png" />
     <Content Include="images\keshhome.png" />
@@ -1242,26 +1006,18 @@
     <Content Include="js\aspx.js\B_Shto_RegjistrimRialokimBuxheti.aspx-IMB.7.1.js" />
     <Content Include="js\aspx.js\Designer.aspx-IMB.6.4.js" />
     <Content Include="js\aspx.js\FormatePrintimi.aspx-IMB.7.1.js" />
-    <Content Include="js\aspx.js\GISLupaElemente.aspx.js" />
     <Content Include="js\aspx.js\B_KategoriBuxhetimi.aspx-IMB.7.1.js" />
     <Content Include="js\aspx.js\KontabilizimDokumenti.aspx-IMB.7.4.js" />
     <Content Include="js\aspx.js\LogeSistemi.aspx-IMB.8.2.js" />
     <Content Include="js\aspx.js\LupaKategoriSeriali.aspx-IMB.6.8.js" />
     <Content Include="js\aspx.js\LupaKerkoFushaShtese.aspx-IMB.6.6.js" />
-    <Content Include="js\aspx.js\GISWorkspace.aspx-IMB.6.3.0.0.js" />
-    <Content Include="js\aspx.js\HistorikuEmail.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\CRMHarte-IMB.5.3.3.js" />
-    <Content Include="js\aspx.js\GISLupaKerko.aspx-IMB.5.3.3.js" />
     <Content Include="js\aspx.js\KategoriArkive.aspx-IMB.5.4.1.js" />
     <Content Include="js\aspx.js\KonfigurimeFtp.aspx-IMB.6.5.js" />
     <Content Include="js\aspx.js\KrahasimInventarzimi.aspx-IMB.5.4.js" />
-    <Content Include="js\aspx.js\LupaAseteJoNeHarte.aspx-IMB.5.3.3.js" />
     <Content Include="js\aspx.js\LupaKonfigurimEmailImport.aspx-IMB.3.1.js" />
-    <Content Include="js\aspx.js\LupaLayerElementi-IMB.6.3.2.js" />
     <Content Include="js\aspx.js\LupaElementePerIntegrim.aspx-IMB.5.8.js" />
     <Content Include="js\aspx.js\LupaKartaKlienti.aspx-IMB.5.4.1.js" />
     <Content Include="js\aspx.js\LupaPersonalizoPerdorues.aspx-IMB5.7.js" />
-    <Content Include="js\aspx.js\GISLupaObjekte.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaSerialeUnike.aspx-IMB.6.8.js" />
     <Content Include="js\aspx.js\LupaShfaqGrupimPerberes.aspx-IMB.5.7.js" />
     <Content Include="js\aspx.js\Asistenti.aspx-IMB.5.8.js" />
@@ -1305,10 +1061,7 @@
     <Content Include="js\noty\bootstrap.js" />
     <Content Include="js\noty\jquery.noty.packaged.imb.js" />
     <Content Include="js\noty\relax.js" />
-    <Content Include="js\srcGIS\jsFunc\funksioneGisMain.js" />
-    <Content Include="js\srcGIS\jsGoogle\markerwithlabel.js" />
     <Content Include="js\toolbar.js" />
-    <Content Include="GISLupaKerko.aspx" />
     <Content Include="js\ucFushatShtese.js" />
     <Content Include="js\ucPopUpKlonimi.js" />
     <Content Include="js\ucPopupValidimMarreveshje.js" />
@@ -1318,16 +1071,13 @@
     <Content Include="KontabilizimDokumenti.aspx" />
     <Content Include="KrahasimInventarizimi.aspx" />
     <Content Include="LogeSistemi.aspx" />
-    <Content Include="LupaAseteJoNeHarte.aspx" />
     <Content Include="LupaKategoriSeriali.aspx" />
     <Content Include="LupaKerkoFushaShtese.aspx" />
     <Content Include="LupaKonfigurimEmailImport.aspx" />
-    <Content Include="LupaLayerElementi.aspx" />
     <Content Include="LupaElementePerIntegrim.aspx" />
     <Content Include="LupaKartaKlienti.aspx" />
     <Content Include="LupaModelFushaShtese.aspx" />
     <Content Include="LupaPersonalizoPerdorues.aspx" />
-    <Content Include="GISLupaObjekte.aspx" />
     <Content Include="LupaQendraKostoPrind.aspx" />
     <Content Include="LupaSerialeUnike.aspx" />
     <Content Include="LupaShfaqGrupimPerberes.aspx" />
@@ -1341,16 +1091,7 @@
     <Content Include="E-PaySlip\ListaRaporte.aspx" />
     <Content Include="E-PaySlip\Login.aspx" />
     <Content Include="E-PaySlip\OneTimePinForm.aspx" />
-    <Content Include="GISDefault.aspx" />
-    <Content Include="GISUpload.aspx" />
-    <Content Include="images\CRM\fa-bar-chart.png" />
-    <Content Include="images\CRM\fa-list-ol.png" />
-    <Content Include="images\GIS\faviconGIS.ico" />
-    <Content Include="images\GIS\loading.gif" />
-    <Content Include="images\CRM\fa-HiqAnketa.png" />
-    <Content Include="images\CRM\fa-HiqDetyra.png" />
     <Content Include="images\Signature.png" />
-    <Content Include="js\aspx.js\CRMAnketa.aspx-IMB.4.7.js" />
     <Content Include="js\aspx.js\KodeProfesione.aspx-IMB.5.2.js" />
     <Content Include="js\aspx.js\LupaGrupimDokumenti.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaGrupKomponente.aspx-IMB.5.2.js" />
@@ -1381,22 +1122,10 @@
     <Content Include="js\OpenLayers-2.13.1\img\zoombar.png" />
     <Content Include="js\OpenLayers-2.13.1\lib\OpenLayers\WPSClient.js" />
     <Content Include="js\OpenLayers-2.13.1\lib\OpenLayers\WPSProcess.js" />
-    <Content Include="js\srcGIS\css\blueimp-gallery.min.css" />
-    <Content Include="js\srcGIS\css\jquery-ui-1.11.1.css" />
-    <Content Include="js\srcGIS\css\Stile\butonat.css" />
-    <Content Include="js\srcGIS\css\Stile\fileuploadfield.css" />
-    <Content Include="js\srcGIS\css\Stile\GisPageStil.css" />
-    <Content Include="js\srcGIS\css\Stile\loadMsg_en.css" />
-    <Content Include="js\srcGIS\css\Stile\loadMsg_sq.css" />
-    <Content Include="js\srcGIS\css\Stile\print.css" />
-    <Content Include="js\srcGIS\css\Stile\printpreview.css" />
-    <Content Include="js\srcGIS\css\Stile\stile.css" />
-    <Content Include="js\srcGIS\Exporter-all.js" />
     <Content Include="css\fonts\OpenSans-Bold.ttf" />
     <Content Include="css\fonts\OpenSans-Light.ttf" />
     <Content Include="css\fonts\OpenSans-Regular.ttf" />
     <Content Include="css\fonts\OpenSans-LightItalic.ttf" />
-    <Content Include="GISPublicProxy.ashx" />
     <Content Include="AlphaWebExport\liber_blerje.xlsx" />
     <Content Include="AlphaWebExport\liber_blerje2015.xlsx" />
     <Content Include="AlphaWebExport\liber_shitje.xlsx" />
@@ -1448,7 +1177,6 @@
     <Content Include="Scripts\dx.all.js" />
     <Content Include="Scripts\dx.viz-web.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
     <Content Include="Scripts\jszip.js" />
     <Content Include="Scripts\jszip.min.js" />
     <Content Include="Scripts\quill.min.js" />
@@ -1508,409 +1236,8 @@
     <Content Include="fine-uploader\jquery.fine-uploader.js.map" />
     <Content Include="fine-uploader\jquery.fine-uploader.min.js.map" />
     <Content Include="fine-uploader\LICENSE" />
-    <None Include="js\srcGIS\ext-3.4.0\ext-all.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="js\srcGIS\ext-3.4.0\ext-base.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <Content Include="js\srcGIS\ext-3.4.0\resources\css\ext-all.css" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\css\xtheme-gray.css" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\box\corners-blue.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\box\corners.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\box\l-blue.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\box\l.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\box\r-blue.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\box\r.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\box\tb-blue.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\box\tb.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\arrow.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\btn.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\group-cs.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\group-lr.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\group-tb.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\s-arrow-b-noline.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\s-arrow-b.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\s-arrow-bo.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\s-arrow-noline.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\s-arrow-o.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\s-arrow.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\dd\drop-add.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\dd\drop-no.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\dd\drop-yes.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\editor\tb-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\checkbox.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\clear-trigger.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\date-trigger.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\error-tip-corners.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\exclamation.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\radio.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\search-trigger.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\text-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\trigger-square.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\trigger-tpl.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\trigger.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\gradient-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\arrow-left-white.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\arrow-right-white.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\col-move-bottom.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\col-move-top.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\columns.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\dirty.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\done.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\drop-no.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\drop-yes.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\footer-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid-blue-hd.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid-blue-split.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid-hrow.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid-loading.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid-split.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid-vista-hd.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid3-hd-btn.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid3-hrow-over.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid3-hrow.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid3-rowheader.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid3-special-col-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\grid3-special-col-sel-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\group-by.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\group-collapse.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\group-expand-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\group-expand.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\hd-pop.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\hmenu-asc.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\hmenu-desc.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\hmenu-lock.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\hmenu-lock.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\hmenu-unlock.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\hmenu-unlock.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\invalid_line.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\loading.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\mso-hd.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\nowait.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\page-first-disabled.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\page-first.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\page-last-disabled.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\page-last.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\page-next-disabled.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\page-next.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\page-prev-disabled.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\page-prev.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\pick-button.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\refresh-disabled.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\refresh.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\row-check-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\row-expand-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\row-over.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\row-sel.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\sort-hd.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\sort_asc.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\sort_desc.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\wait.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\collapse.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\expand.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\gradient-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\mini-bottom.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\mini-left.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\mini-right.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\mini-top.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\ns-collapse.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\ns-expand.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\panel-close.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\panel-title-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\panel-title-light-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\stick.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\stuck.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\tab-close-on.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\tab-close.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\menu\checked.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\menu\group-checked.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\menu\item-over.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\menu\menu-parent.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\menu\menu.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\menu\unchecked.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\corners-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\left-right.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\light-hd.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\tool-sprite-tpl.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\tool-sprites.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\tool-sprites.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\tools-sprites-trans.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\top-bottom.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\top-bottom.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\white-corners-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\white-left-right.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\white-top-bottom.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\progress\progress-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\qtip\bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\qtip\close.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\qtip\tip-anchor-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\qtip\tip-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\s.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shadow-c.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shadow-lr.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shadow.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\blue-loading.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\calendar.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\glass-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\hd-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\large-loading.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\left-btn.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\loading-balls.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\right-btn.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\warning.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\e-handle-dark.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\e-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\ne-handle-dark.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\ne-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\nw-handle-dark.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\nw-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\s-handle-dark.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\s-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\se-handle-dark.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\se-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\square.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\sw-handle-dark.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\sw-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\slider\slider-bg.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\slider\slider-thumb.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\slider\slider-v-bg.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\slider\slider-v-thumb.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\scroll-left.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\scroll-right.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\scroller-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-btm-inactive-left-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-btm-inactive-right-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-btm-left-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-btm-over-left-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-btm-over-right-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-btm-right-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-close.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-strip-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-strip-bg.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tab-strip-btm-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\tabs-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\btn-arrow-light.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\btn-arrow.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\btn-over-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\gray-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\more.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\tb-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\tb-btn-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\tb-xl-btn-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\tb-xl-sep.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\arrows.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\drop-add.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\drop-between.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\drop-no.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\drop-over.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\drop-under.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\drop-yes.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-end-minus-nl.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-end-minus.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-end-plus-nl.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-end-plus.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-end.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-line.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-minus-nl.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-minus.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-plus-nl.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow-plus.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\elbow.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\folder-open.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\folder.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\leaf.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\loading.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\s.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\window\icon-error.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\window\icon-info.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\window\icon-question.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\window\icon-warning.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\window\left-corners.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\window\left-right.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\window\right-corners.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\window\top-bottom.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\btn-arrow.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\btn-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\btn.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\btn.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\btn_gray_header.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\group-cs.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\group-lr.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\group-tb.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\s-arrow-bo.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\s-arrow-o.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\form\clear-trigger.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\form\date-trigger.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\form\search-trigger.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\form\trigger-square.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\form\trigger.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\gradient-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\col-move-bottom.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\col-move-top.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\grid3-hd-btn.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\grid3-hrow-over.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\grid3-hrow-over2.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\grid3-hrow.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\grid3-hrow2.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\grid3-special-col-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\grid3-special-col-bg2.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\grid3-special-col-sel-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\group-collapse.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\group-expand-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\group-expand.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\page-first.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\page-last.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\page-next.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\page-prev.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\refresh.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\row-expand-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\sort-hd.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\sort_asc.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\sort_desc.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\menu\group-checked.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\menu\item-over-disabled.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\menu\item-over.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\menu\menu-parent.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\corners-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\left-right.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\light-hd.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\tool-sprite-tpl.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\tool-sprites.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\tools-sprites-trans.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\top-bottom.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\top-bottom.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\white-corners-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\white-left-right.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\white-top-bottom.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\progress\progress-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\qtip\bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\qtip\close.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\qtip\tip-anchor-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\qtip\tip-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\s.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\shared\hd-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\shared\left-btn.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\shared\right-btn.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\sizer\e-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\sizer\ne-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\sizer\nw-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\sizer\s-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\sizer\se-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\sizer\square.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\sizer\sw-handle.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\slider\slider-thumb.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\slider\slider-v-thumb.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\scroll-left.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\scroll-right.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\scroller-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-btm-inactive-left-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-btm-inactive-right-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-btm-left-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-btm-over-left-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-btm-over-right-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-btm-right-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-close.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-strip-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-strip-bg.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tab-strip-btm-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\tabs-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\toolbar\bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\toolbar\btn-arrow-light.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\toolbar\btn-arrow.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\toolbar\btn-over-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\toolbar\gray-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\toolbar\more.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\toolbar\tb-bg.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\toolbar\tb-btn-sprite.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tree\arrows.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tree\elbow-end-minus-nl.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tree\elbow-end-minus.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tree\elbow-end-plus-nl.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tree\elbow-end-plus.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\window\icon-error.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\window\icon-info.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\window\icon-question.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\window\icon-warning.gif" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\window\left-corners.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\window\left-right.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\window\right-corners.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\window\top-bottom.png" />
-    <Content Include="js\srcGIS\ext-3.4.0\ux\gridfilters\css\GridFilters.css" />
-    <Content Include="js\srcGIS\ext-3.4.0\ux\gridfilters\css\RangeMenu.css" />
-    <Content Include="js\srcGIS\ext-3.4.0\ux\ux-all.js" />
-    <Content Include="js\srcGIS\GeoExt\css\geoext-all-debug.css" />
-    <Content Include="js\srcGIS\GeoExt\css\layerlegend.css" />
-    <Content Include="js\srcGIS\GeoExt\css\popup.css" />
-    <Content Include="js\srcGIS\GeoExt\css\symbolizercolumn.css" />
-    <Content Include="js\srcGIS\GeoExt\GeoExt.js" />
-    <Content Include="js\srcGIS\GeoExt\images\default\anchor-top.png" />
-    <Content Include="js\srcGIS\GeoExt\images\default\anchor.png" />
-    <Content Include="js\srcGIS\GeoExt\images\default\bullet_arrow_down.png" />
-    <Content Include="js\srcGIS\GeoExt\images\default\bullet_arrow_up.png" />
-    <Content Include="js\srcGIS\GeoExt\images\default\delete.png" />
-    <Content Include="js\srcGIS\GeoExt\images\gray\anchor-top.png" />
-    <Content Include="js\srcGIS\GeoExt\images\gray\anchor.png" />
-    <Content Include="js\srcGIS\GeoExt\images\slate\anchor-top.png" />
-    <Content Include="js\srcGIS\GeoExt\images\slate\anchor.png" />
-    <Content Include="js\srcGIS\jquery-1.11.1.min.js" />
-    <Content Include="js\srcGIS\jquery-ui-1.11.1.min.js" />
-    <Content Include="js\srcGIS\jquery.blueimp-gallery.min.js" />
-    <Content Include="js\srcGIS\jquery.image-gallery.min.js" />
-    <Content Include="js\srcGIS\jsClasses\BaseLayerClass.js" />
-    <Content Include="js\srcGIS\jsClasses\convertTypeDB_GEO.js" />
-    <Content Include="js\srcGIS\jsClasses\Ext.ux.PanelCollapsedTitle.js" />
-    <Content Include="js\srcGIS\jsClasses\FileUploadField.js" />
-    <Content Include="js\srcGIS\jsClasses\geoextUX\LayerTreeBuilder.js" />
-    <Content Include="js\srcGIS\jsClasses\geoextUX\plugins\LayerTreeBuilderNodeAgent.js" />
-    <Content Include="js\srcGIS\jsClasses\geoextUX\widgets\tree\LayerTreeBuilder.js" />
-    <Content Include="js\srcGIS\jsClasses\Harte.js" />
-    <Content Include="js\srcGIS\jsClasses\HarteUI.js" />
-    <Content Include="js\srcGIS\jsClasses\LayerAppClass.js" />
-    <Content Include="js\srcGIS\jsClasses\LoadingPanel.js" />
-    <Content Include="js\srcGIS\jsClasses\MultiPagePrint.js" />
-    <Content Include="js\srcGIS\jsClasses\shapefile.js" />
-    <Content Include="js\srcGIS\jsClasses\SimplePrint.js" />
-    <Content Include="js\srcGIS\jsClasses\sprintf.js" />
-    <Content Include="js\srcGIS\jsClasses\sprintf.min.js" />
-    <Content Include="js\srcGIS\jsClasses\stream.js" />
-    <Content Include="js\srcGIS\jsClasses\UndoRedo.js" />
-    <Content Include="js\srcGIS\jsClasses\VTypesTe.js" />
-    <Content Include="js\srcGIS\jsFunc\canceBackSpace.js" />
-    <Content Include="js\srcGIS\jsFunc\funksioneGisPage.js" />
-    <Content Include="js\srcGIS\jsFunc\funksioneNdihmese.js" />
-    <Content Include="js\srcGIS\jsFunc\funksionePerTeDhenaTeJashtme.js" />
-    <Content Include="js\srcGIS\jsFunc\funksioneReadyGisPage.js" />
-    <Content Include="js\srcGIS\jsInherit\ArrayT.js" />
-    <Content Include="js\srcGIS\jsInherit\ControlClickT.js" />
-    <Content Include="js\srcGIS\jsInherit\ControlClickTT.js" />
-    <Content Include="js\srcGIS\jsInherit\ExportMapTe.js" />
-    <Content Include="js\srcGIS\jsInherit\GetFeatureT.js" />
-    <Content Include="js\srcGIS\jsInherit\GraticuleXYT.js" />
-    <Content Include="js\srcGIS\jsInherit\LayerNodeT.js" />
-    <Content Include="js\srcGIS\jsInherit\ModifyFeatureT.js" />
-    <Content Include="js\srcGIS\jsInherit\MultiPagePrintT.js" />
-    <Content Include="js\srcGIS\jsInherit\OpenLayers_Protocol_HTTP_T.js" />
-    <Content Include="js\srcGIS\jsInherit\PrintExtentT.js" />
-    <Content Include="js\srcGIS\jsInherit\PrintProviderT.js" />
-    <Content Include="js\srcGIS\jsInherit\PropertyGridT.js" />
-    <Content Include="js\srcGIS\jsInherit\RegularPolygonDR.js" />
-    <Content Include="js\srcGIS\jsInherit\SimplePrintT.js" />
-    <Content Include="js\srcGIS\jsInherit\XYZ_A_T.js" />
-    <Content Include="js\srcGIS\varKonfig.js" />
     <Content Include="KodeProfesione.aspx" />
     <Content Include="LupaGrupimDokumenti.aspx" />
-    <Content Include="CRMDefault.aspx" />
-    <Content Include="CRMDetyra.aspx" />
-    <Content Include="CRMFushaAnkete.aspx" />
-    <Content Include="CRMHistoriku.aspx" />
-    <Content Include="CRMLidhAnkete.aspx" />
-    <Content Include="CRMListaAnketa.aspx" />
-    <Content Include="CRMLupaAnketa.aspx" />
-    <Content Include="CRMLupaDetyra.aspx" />
-    <Content Include="CRMLupaHistoriku.aspx" />
-    <Content Include="CRMRouteAgjenti.aspx" />
     <Content Include="css\font-awesome-4.3.0\css\font-awesome.css" />
     <Content Include="css\font-awesome-4.3.0\css\font-awesome.min.css" />
     <Content Include="css\font-awesome-4.3.0\fonts\fontawesome-webfont.svg" />
@@ -1924,38 +1251,12 @@
     <Content Include="public\login.css" />
     <Content Include="css\style.css" />
     <Content Include="Designer.aspx" />
-    <Content Include="DynamicDataNew\FieldTemplates\AppointmentCustomForm.ascx" />
     <Content Include="FaqeKryesore.css" />
     <Content Include="GjenerimAutomatik.aspx" />
-    <Content Include="GoogleHarte.aspx" />
     <Content Include="GrupimeLocaleGlobale.aspx" />
     <Content Include="images\add_point_off.png" />
     <Content Include="images\add_point_on.png" />
     <Content Include="images\blurred-background-2.jpg" />
-    <Content Include="images\CRM\1422991992_arrow-left-01-24.png" />
-    <Content Include="images\CRM\1422992681_arrow-right-01-32.png" />
-    <Content Include="images\CRM\fa-tasks.png" />
-    <Content Include="images\CRM\fa-user.png" />
-    <Content Include="images\CRM\faviconCRM.ico" />
-    <Content Include="images\CRM\AlphaWebMenu.png" />
-    <Content Include="images\CRM\AlphaWeb.png" />
-    <Content Include="images\CRM\Dokumentemagazine.png" />
-    <Content Include="images\CRM\fa-building-o.png" />
-    <Content Include="images\CRM\fa-calendar.png" />
-    <Content Include="images\CRM\fa-history.png" />
-    <Content Include="images\CRM\fa-check-square-o.png" />
-    <Content Include="images\CRM\fa-cogs.png" />
-    <Content Include="images\CRM\fa-newspaper-o.png" />
-    <Content Include="images\CRM\fa-shopping-cart.png" />
-    <Content Include="images\CRM\fa-users.png" />
-    <Content Include="images\CRM\RaportetMagazines.png" />
-    <Content Include="images\CRM\RaportetShitjes.png" />
-    <Content Include="images\CRM\RegjistrimetMagazines.png" />
-    <Content Include="images\CRM\fa-list-alt.png" />
-    <Content Include="images\CRM\ShtoArtikuj.png" />
-    <Content Include="images\CRM\ShtoAsete.png" />
-    <Content Include="images\CRM\Shtoblerje.png" />
-    <Content Include="images\CRM\Shtoshitje.png" />
     <Content Include="images\CustomToolbar\BtnSaveTatimore.png" />
     <Content Include="images\FaqjaPare\anonym.png" />
     <Content Include="images\FaqjaPare\IMB Logo.png" />
@@ -1968,8 +1269,6 @@
     <Content Include="GjeneroKodbar.aspx" />
     <Content Include="images\new\Ngarko te gjitha.png" />
     <Content Include="images\themesDevEx\moderno.jpg" />
-    <Content Include="js\aspx.js\CRMDetyra.aspx-IMB.5.1.js" />
-    <Content Include="js\aspx.js\CRMLupaDetyra.aspx-IMB.5.1.js" />
     <Content Include="js\aspx.js\GrupimeLocaleGlobale.aspx-IMB.5.1.js" />
     <Content Include="js\aspx.js\LupaGrupimeLocaleGlobale.aspx-IMB.5.1.js" />
     <Content Include="js\aspx.js\LupaProfesioneTitujPune.aspx-IMB.5.1.js" />
@@ -2506,16 +1805,8 @@
     <Content Include="RaportetAllNew.aspx" />
     <Content Include="RegjistrimInventarizimi.aspx" />
     <Content Include="js\aspx.js\AktivizoAlphaWeb.aspx.js" />
-    <Content Include="js\aspx.js\CRMFushaAnkete.aspx-IMB.4.7.js" />
-    <Content Include="js\aspx.js\CRMHistoriku.aspx-IMB.4.7.js" />
-    <Content Include="js\aspx.js\CRMLidhAnkete.aspx-IMB.4.7.js" />
-    <Content Include="js\aspx.js\CRMListaAnketa.aspx-IMB.4.8.js" />
-    <Content Include="js\aspx.js\CRMLupaAnketa.aspx-IMB.4.8.js" />
-    <Content Include="js\aspx.js\CRMLupaHistoriku.aspx-IMB.4.8.js" />
-    <Content Include="js\aspx.js\CRMRouteAgjenti.aspx-IMB.4.7.js" />
     <Content Include="js\aspx.js\GjenerimAutomatik.aspx-IMB.4.6.js" />
     <Content Include="js\aspx.js\GjeneroKodbar.aspx-IMB.2.3.js" />
-    <Content Include="js\aspx.js\GoogleHarte.js" />
     <Content Include="js\aspx.js\KalendarFestash.aspx-IMB.4.5.js" />
     <Content Include="js\aspx.js\KonfigurimListOrari.aspx-IMB.4.5.js" />
     <Content Include="js\aspx.js\LegjendaListOrareve.aspx-IMB.4.5.js" />
@@ -2542,64 +1833,6 @@
     <Content Include="js\OpenLayers-2.13.1\theme\default\style.mobile.tidy.min.css" />
     <Content Include="js\OpenLayers-2.13.1\theme\default\style.tidy.min.css" />
     <Content Include="js\proj4js-combined.js" />
-    <Content Include="js\srcCRM\css\addons\jquery.mmenu.buttonbars.css" />
-    <Content Include="js\srcCRM\css\addons\jquery.mmenu.counters.css" />
-    <Content Include="js\srcCRM\css\addons\jquery.mmenu.dragopen.css" />
-    <Content Include="js\srcCRM\css\addons\jquery.mmenu.footer.css" />
-    <Content Include="js\srcCRM\css\addons\jquery.mmenu.header.css" />
-    <Content Include="js\srcCRM\css\addons\jquery.mmenu.labels.css" />
-    <Content Include="js\srcCRM\css\addons\jquery.mmenu.offcanvas.css" />
-    <Content Include="js\srcCRM\css\addons\jquery.mmenu.searchfield.css" />
-    <Content Include="js\srcCRM\css\addons\jquery.mmenu.toggles.css" />
-    <Content Include="js\srcCRM\css\extensions\jquery.mmenu.effects.css" />
-    <Content Include="js\srcCRM\css\extensions\jquery.mmenu.fullscreen.css" />
-    <Content Include="js\srcCRM\css\extensions\jquery.mmenu.iconbar.css" />
-    <Content Include="js\srcCRM\css\extensions\jquery.mmenu.positioning.css" />
-    <Content Include="js\srcCRM\css\extensions\jquery.mmenu.themes.css" />
-    <Content Include="js\srcCRM\css\extensions\jquery.mmenu.widescreen.css" />
-    <Content Include="js\srcCRM\css\jquery.mmenu.all.css" />
-    <Content Include="js\srcCRM\css\jquery.mmenu.css" />
-    <Content Include="js\srcCRM\css\jquery.mmenu.oncanvas.css" />
-    <Content Include="js\srcCRM\js\addons\addon-template.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.buttonbars.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.buttonbars.min.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.counters.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.counters.min.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.dragopen.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.dragopen.min.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.fixedelements.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.fixedelements.min.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.footer.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.footer.min.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.header.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.header.min.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.labels.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.labels.min.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.offcanvas.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.offcanvas.min.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.searchfield.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.searchfield.min.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.toggles.js" />
-    <Content Include="js\srcCRM\js\addons\jquery.mmenu.toggles.min.js" />
-    <Content Include="js\srcCRM\js\jquery.mmenu.min.all.js" />
-    <Content Include="js\srcCRM\js\jquery.mmenu.min.js" />
-    <Content Include="js\srcCRM\js\jquery.mmenu.oncanvas.js" />
-    <Content Include="js\srcCRM\js\jquery.mmenu.oncanvas.min.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.buttonbars.umd.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.counters.umd.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.dragopen.umd.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.fixedelements.umd.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.footer.umd.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.header.umd.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.labels.umd.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.offcanvas.umd.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.searchfield.umd.js" />
-    <Content Include="js\srcCRM\js\umd\addons\jquery.mmenu.toggles.umd.js" />
-    <Content Include="js\srcCRM\js\umd\inc\umd_affix.js" />
-    <Content Include="js\srcCRM\js\umd\inc\umd_prefix.js" />
-    <Content Include="js\srcCRM\js\umd\jquery.mmenu.oncanvas.umd.js" />
-    <Content Include="js\srcCRM\js\umd\jquery.mmenu.umd.all.js" />
-    <Content Include="js\srcCRM\js\umd\jquery.mmenu.umd.js" />
     <Content Include="KalendarFestash.aspx" />
     <Content Include="KonfigurimListOrari.aspx" />
     <Content Include="LegjendaListOrareve.aspx" />
@@ -2809,7 +2042,6 @@
     <Content Include="images\xlsx24.png" />
     <Content Include="ImbReportToolbar.ascx" />
     <Content Include="js\aspx.js\GjeneroFaturePermbledhese.aspx-IMB.4.2.js" />
-    <Content Include="js\aspx.js\KonfigurimeEmail.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaArkiva.aspx-IMB.3.3.js" />
     <Content Include="js\aspx.js\LupaAutomjeti.aspx-IMB.4.0.js" />
     <Content Include="js\aspx.js\LupaAutomjetShpejte.aspx-IMB.4.1.js" />
@@ -3303,7 +2535,6 @@
     <Content Include="js\themes\vader\jquery-ui.min.css" />
     <Content Include="js\themes\vader\jquery.ui.theme.css" />
     <Content Include="js\ui.multiselect.js" />
-    <Content Include="KonfigurimeEmail.aspx" />
     <Content Include="LlojDifekti.aspx" />
     <Content Include="LupaArkiva.aspx" />
     <Content Include="LupaAutomjeti.aspx" />
@@ -3315,7 +2546,6 @@
     <Content Include="EkzekutimProdhimi.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="FleteDoganore.aspx" />
-    <Content Include="FooterPanelInfo.aspx" />
     <Content Include="GjeneroProjektProdhimi.aspx" />
     <Content Include="GrupimDokumentash.aspx" />
     <Content Include="GrupimeKlientFurnitor.aspx" />
@@ -3738,7 +2968,6 @@
     <Content Include="js\aspx.js\FaqeKryesore.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\FleteDoganore.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\FleteKontabel.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\FooterPanelInfo.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\FormatNumrash.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\GjeneroProjektProdhimi.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\GrupimDokumentash.aspx-IMB.2.3.js" />
@@ -4016,45 +3245,9 @@
     <Content Include="RillogaritjeAmortizimi.aspx" />
     <Content Include="RivleresimeAmortizimi.aspx" />
     <Content Include="RivleresimMagazine.aspx" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\box\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\button\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\dd\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\editor\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\form\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\grid\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\layout\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\menu\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\panel\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\progress\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\qtip\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\shared\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\sizer\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\slider\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tabs\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\toolbar\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\tree\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\default\window\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\button\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\form\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\grid\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\menu\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\panel\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\progress\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\qtip\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\shared\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\sizer\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\slider\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tabs\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\toolbar\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\tree\Thumbs.db" />
-    <Content Include="js\srcGIS\ext-3.4.0\resources\images\gray\window\Thumbs.db" />
     <Content Include="js\OpenLayers-2.13.1\img\Thumbs.db" />
-    <Content Include="GISProxyGEO.ashx" />
     <Content Include="js\jquery-1.11.3.min.map" />
     <Content Include="E-PaySlip\js\openSans.woff" />
-    <Content Include="js\aspx.js\GISLupaKerkimHapsionr.aspx-IMB.5.3.3.js" />
     <Content Include="js\aspx.js\ABKonfiguroFusha.aspx-IMB.5.4.js" />
     <Content Include="js\aspx.js\ABRaporti.aspx-IMB.5.4.js" />
     <Content Include="js\aspx.js\ABPasqyraOrganike.aspx-IMB.5.4.js" />
@@ -4383,13 +3576,6 @@
     <Compile Include="B_Shto_RegjistrimBuxheti.aspx.designer.cs">
       <DependentUpon>B_Shto_RegjistrimBuxheti.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx.cs">
       <DependentUpon>AppointmentDragToolTip.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4509,23 +3695,6 @@
     <Compile Include="FormatePrintimi.aspx.designer.cs">
       <DependentUpon>FormatePrintimi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GISLupaElemente.aspx.cs">
-      <DependentUpon>GISLupaElemente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GISLupaElemente.aspx.designer.cs">
-      <DependentUpon>GISLupaElemente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GISPublicProxy.ashx.cs">
-      <DependentUpon>GISPublicProxy.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="GISWorkspace.aspx.cs">
-      <DependentUpon>GISWorkspace.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GISWorkspace.aspx.designer.cs">
-      <DependentUpon>GISWorkspace.aspx</DependentUpon>
-    </Compile>
     <Compile Include="GjendjeArkeDitore.aspx.cs">
       <DependentUpon>GjendjeArkeDitore.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4538,27 +3707,6 @@
     <Compile Include="Helpers\CombineScripts.cs" />
     <Compile Include="Helpers\EksportRapid.cs" />
     <Compile Include="Helpers\ScriptDeferFilter.cs" />
-    <Compile Include="HistorikuEmail.aspx.cs">
-      <DependentUpon>HistorikuEmail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HistorikuEmail.aspx.designer.cs">
-      <DependentUpon>HistorikuEmail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMAnketa.aspx.cs">
-      <DependentUpon>CRMAnketa.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMAnketa.aspx.designer.cs">
-      <DependentUpon>CRMAnketa.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMHarte.aspx.cs">
-      <DependentUpon>CRMHarte.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMHarte.aspx.designer.cs">
-      <DependentUpon>CRMHarte.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DynamicDataNew\VerticalAppointmentTemplateCustom.ascx.cs">
       <DependentUpon>VerticalAppointmentTemplateCustom.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4638,20 +3786,6 @@
     <Compile Include="E-PaySlip\RaportiEPaySlip.aspx.designer.cs">
       <DependentUpon>RaportiEPaySlip.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GISLupaKerkimHapsinor.aspx.cs">
-      <DependentUpon>GISLupaKerkimHapsinor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GISLupaKerkimHapsinor.aspx.designer.cs">
-      <DependentUpon>GISLupaKerkimHapsinor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GISLupaKerko.aspx.cs">
-      <DependentUpon>GISLupaKerko.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GISLupaKerko.aspx.designer.cs">
-      <DependentUpon>GISLupaKerko.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Infrastructure\DependencyRegistrar.cs" />
     <Compile Include="KategoriArkive.aspx.cs">
       <DependentUpon>KategoriArkive.aspx</DependentUpon>
@@ -4695,13 +3829,6 @@
     <Compile Include="LogeSistemi.aspx.designer.cs">
       <DependentUpon>LogeSistemi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LupaAseteJoNeHarte.aspx.cs">
-      <DependentUpon>LupaAseteJoNeHarte.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LupaAseteJoNeHarte.aspx.designer.cs">
-      <DependentUpon>LupaAseteJoNeHarte.aspx</DependentUpon>
-    </Compile>
     <Compile Include="LupaKategoriSeriali.aspx.cs">
       <DependentUpon>LupaKategoriSeriali.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4722,13 +3849,6 @@
     </Compile>
     <Compile Include="LupaKonfigurimEmailImport.aspx.designer.cs">
       <DependentUpon>LupaKonfigurimEmailImport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LupaLayerElementi.aspx.cs">
-      <DependentUpon>LupaLayerElementi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LupaLayerElementi.aspx.designer.cs">
-      <DependentUpon>LupaLayerElementi.aspx</DependentUpon>
     </Compile>
     <Compile Include="LupaElementePerIntegrim.aspx.cs">
       <DependentUpon>LupaElementePerIntegrim.aspx</DependentUpon>
@@ -4757,13 +3877,6 @@
     </Compile>
     <Compile Include="LupaPersonalizoPerdorues.aspx.designer.cs">
       <DependentUpon>LupaPersonalizoPerdorues.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GISLupaObjekte.aspx.cs">
-      <DependentUpon>GISLupaObjekte.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GISLupaObjekte.aspx.designer.cs">
-      <DependentUpon>GISLupaObjekte.aspx</DependentUpon>
     </Compile>
     <Compile Include="LupaQendraKostoPrind.aspx.cs">
       <DependentUpon>LupaQendraKostoPrind.aspx</DependentUpon>
@@ -4907,16 +4020,6 @@
       <DependentUpon>Shto_Vit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\OWIN\Startup.cs" />
-    <Compile Include="App_GlobalResources\StringsGIS.en-US.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StringsGIS.en-US.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\StringsGIS.sq-AL.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StringsGIS.sq-AL.resx</DependentUpon>
-    </Compile>
     <Compile Include="E-PaySlip\ListaRaporte.aspx.cs">
       <DependentUpon>ListaRaporte.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4938,23 +4041,6 @@
     <Compile Include="E-PaySlip\OneTimePinForm.aspx.designer.cs">
       <DependentUpon>OneTimePinForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GISDefault.aspx.cs">
-      <DependentUpon>GISDefault.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GISDefault.aspx.designer.cs">
-      <DependentUpon>GISDefault.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GISProxyGEO.ashx.cs">
-      <DependentUpon>GISProxyGEO.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="GISUpload.aspx.cs">
-      <DependentUpon>GISUpload.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GISUpload.aspx.designer.cs">
-      <DependentUpon>GISUpload.aspx</DependentUpon>
-    </Compile>
     <Compile Include="KodeProfesione.aspx.cs">
       <DependentUpon>KodeProfesione.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4968,20 +4054,6 @@
     </Compile>
     <Compile Include="LupaGrupimDokumenti.aspx.designer.cs">
       <DependentUpon>LupaGrupimDokumenti.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMDetyra.aspx.cs">
-      <DependentUpon>CRMDetyra.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMDetyra.aspx.designer.cs">
-      <DependentUpon>CRMDetyra.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMLupaDetyra.aspx.cs">
-      <DependentUpon>CRMLupaDetyra.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMLupaDetyra.aspx.designer.cs">
-      <DependentUpon>CRMLupaDetyra.aspx</DependentUpon>
     </Compile>
     <Compile Include="LupaGrupKomponente.aspx.cs">
       <DependentUpon>LupaGrupKomponente.aspx</DependentUpon>
@@ -5075,75 +4147,12 @@
     <Compile Include="AzhornimKlientFurnitor.aspx.designer.cs">
       <DependentUpon>AzhornimKlientFurnitor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CRMDefault.aspx.cs">
-      <DependentUpon>CRMDefault.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMDefault.aspx.designer.cs">
-      <DependentUpon>CRMDefault.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMFushaAnkete.aspx.cs">
-      <DependentUpon>CRMFushaAnkete.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMFushaAnkete.aspx.designer.cs">
-      <DependentUpon>CRMFushaAnkete.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMHistoriku.aspx.cs">
-      <DependentUpon>CRMHistoriku.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMHistoriku.aspx.designer.cs">
-      <DependentUpon>CRMHistoriku.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMLidhAnkete.aspx.cs">
-      <DependentUpon>CRMLidhAnkete.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMLidhAnkete.aspx.designer.cs">
-      <DependentUpon>CRMLidhAnkete.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMListaAnketa.aspx.cs">
-      <DependentUpon>CRMListaAnketa.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMListaAnketa.aspx.designer.cs">
-      <DependentUpon>CRMListaAnketa.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMLupaAnketa.aspx.cs">
-      <DependentUpon>CRMLupaAnketa.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMLupaAnketa.aspx.designer.cs">
-      <DependentUpon>CRMLupaAnketa.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMLupaHistoriku.aspx.cs">
-      <DependentUpon>CRMLupaHistoriku.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMLupaHistoriku.aspx.designer.cs">
-      <DependentUpon>CRMLupaHistoriku.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CRMRouteAgjenti.aspx.cs">
-      <DependentUpon>CRMRouteAgjenti.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CRMRouteAgjenti.aspx.designer.cs">
-      <DependentUpon>CRMRouteAgjenti.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Designer.aspx.cs">
       <DependentUpon>Designer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Designer.aspx.designer.cs">
       <DependentUpon>Designer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DynamicDataNew\FieldTemplates\AppointmentCustomForm.ascx.cs">
-      <DependentUpon>AppointmentCustomForm.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DynamicDataNew\FieldTemplates\AppointmentCustomForm.ascx.designer.cs">
-      <DependentUpon>AppointmentCustomForm.ascx</DependentUpon>
     </Compile>
     <Compile Include="GjenerimAutomatik.aspx.cs">
       <DependentUpon>GjenerimAutomatik.aspx</DependentUpon>
@@ -5158,13 +4167,6 @@
     </Compile>
     <Compile Include="GjeneroKodbar.aspx.designer.cs">
       <DependentUpon>GjeneroKodbar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GoogleHarte.aspx.cs">
-      <DependentUpon>GoogleHarte.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GoogleHarte.aspx.designer.cs">
-      <DependentUpon>GoogleHarte.aspx</DependentUpon>
     </Compile>
     <Compile Include="KalendarFestash.aspx.cs">
       <DependentUpon>KalendarFestash.aspx</DependentUpon>
@@ -5236,13 +4238,6 @@
     <Compile Include="ImbReportToolbar.ascx.designer.cs">
       <DependentUpon>ImbReportToolbar.ascx</DependentUpon>
     </Compile>
-    <Compile Include="KonfigurimeEmail.aspx.cs">
-      <DependentUpon>KonfigurimeEmail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="KonfigurimeEmail.aspx.designer.cs">
-      <DependentUpon>KonfigurimeEmail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="LlojDifekti.aspx.cs">
       <DependentUpon>LlojDifekti.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5298,13 +4293,6 @@
     </Compile>
     <Compile Include="EkzekutimProdhimi.aspx.designer.cs">
       <DependentUpon>EkzekutimProdhimi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FooterPanelInfo.aspx.cs">
-      <DependentUpon>FooterPanelInfo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FooterPanelInfo.aspx.designer.cs">
-      <DependentUpon>FooterPanelInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="GjeneroProjektProdhimi.aspx.cs">
       <DependentUpon>GjeneroProjektProdhimi.aspx</DependentUpon>
@@ -6947,16 +5935,6 @@
       <LastGenOutput>Strings.en-US.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_GlobalResources\StringsGIS.sq-AL.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>StringsGIS.sq-AL.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_GlobalResources\StringsGIS.en-US.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>StringsGIS.en-US.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="eo_web.ashx" />
@@ -6977,9 +5955,7 @@
     <Folder Include="E-PaySlip\images\ASPxRoundPanel\2003414654\" />
     <Folder Include="E-PaySlip\images\ASPxRoundPanel\344747089\" />
     <Folder Include="E-PaySlip\images\backgrounds\" />
-    <Folder Include="E-PaySlip\images\CRM\" />
     <Folder Include="E-PaySlip\images\CustomToolbar\" />
-    <Folder Include="E-PaySlip\images\GIS\UIRed\" />
     <Folder Include="E-PaySlip\images\new\find\" />
     <Folder Include="E-PaySlip\images\themesDevEx\" />
     <Folder Include="E-PaySlip\images\theme\Aqua\menu\" />
@@ -7005,28 +5981,6 @@
     <None Include="Build\AjaxMinTask.targets" />
     <Content Include="js\aspx.js\LlojDifekti.aspx-IMB.4.0.js" />
     <Content Include="js\aspx.js\Shto_RivleresimeAmortizimi.aspx-IMB.4.1.js" />
-    <Content Include="js\srcCRM\scss\addons\jquery.mmenu.buttonbars.scss" />
-    <Content Include="js\srcCRM\scss\addons\jquery.mmenu.counters.scss" />
-    <Content Include="js\srcCRM\scss\addons\jquery.mmenu.dragopen.scss" />
-    <Content Include="js\srcCRM\scss\addons\jquery.mmenu.footer.scss" />
-    <Content Include="js\srcCRM\scss\addons\jquery.mmenu.header.scss" />
-    <Content Include="js\srcCRM\scss\addons\jquery.mmenu.labels.scss" />
-    <Content Include="js\srcCRM\scss\addons\jquery.mmenu.offcanvas.scss" />
-    <Content Include="js\srcCRM\scss\addons\jquery.mmenu.searchfield.scss" />
-    <Content Include="js\srcCRM\scss\addons\jquery.mmenu.toggles.scss" />
-    <Content Include="js\srcCRM\scss\extensions\jquery.mmenu.effects.scss" />
-    <Content Include="js\srcCRM\scss\extensions\jquery.mmenu.fullscreen.scss" />
-    <Content Include="js\srcCRM\scss\extensions\jquery.mmenu.iconbar.scss" />
-    <Content Include="js\srcCRM\scss\extensions\jquery.mmenu.positioning.scss" />
-    <Content Include="js\srcCRM\scss\extensions\jquery.mmenu.themes.scss" />
-    <Content Include="js\srcCRM\scss\extensions\jquery.mmenu.widescreen.scss" />
-    <Content Include="js\srcCRM\scss\inc\_colors.scss" />
-    <Content Include="js\srcCRM\scss\inc\_mixins.scss" />
-    <Content Include="js\srcCRM\scss\inc\_sizing.scss" />
-    <Content Include="js\srcCRM\scss\inc\_variables.scss" />
-    <Content Include="js\srcCRM\scss\jquery.mmenu.all.scss" />
-    <Content Include="js\srcCRM\scss\jquery.mmenu.oncanvas.scss" />
-    <Content Include="js\srcCRM\scss\jquery.mmenu.scss" />
     <Content Include="css\font-awesome-4.3.0\fonts\fontawesome-webfont.eot" />
     <Content Include="css\font-awesome-4.3.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="css\font-awesome-4.3.0\fonts\fontawesome-webfont.woff" />

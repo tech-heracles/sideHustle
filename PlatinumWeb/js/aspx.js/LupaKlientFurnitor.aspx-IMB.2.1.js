@@ -108,12 +108,6 @@ function OnGridSelectionComplete(value) {
             window.parent.editorEmertimiF.SetText(emri);
             window.parent.editorNrLlogariFurnitor.SetFocus(true);
             break;
-        case "CRM":
-            var combo = window.parent.ddKlienti;
-            Utils.SelectComboItem(combo, id, kodi, emri);
-            combo.SetFocus(true);
-            window.parent.popupUniversal.Hide();
-            break;
         case "raportklientfurnitor":
             window.parent.editorGlobal.SetText(kodi);
             window.parent.editorGlobal.SetFocus(true);

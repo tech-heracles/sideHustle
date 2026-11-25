@@ -42,10 +42,7 @@
     <Reference Include="Autofac.Integration.WebApi, Version=4.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.WebApi2.4.2.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Dashboard.v18.2.Web.WebForms, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Dashboard.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Dashboard.v18.2.Web, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -118,12 +115,8 @@
     <Compile Include="clsLogin.cs" />
     <Compile Include="clsMenuInfo.cs" />
     <Compile Include="clsToolbarConfig.cs" />
-    <Compile Include="colOpsineAnketa.cs" />
     <Compile Include="comboList.cs" />
     <Compile Include="CustomStoragesCleanerSettings.cs" />
-    <Compile Include="Dashboard\CustomDataSourceWizardConnectionStringsProvider.cs" />
-    <Compile Include="Dashboard\DashboardCustomDBSchemaProvider.cs" />
-    <Compile Include="Dashboard\DataBaseEditaleDashboardStorage.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HttpApplicationUtil.cs" />
     <Compile Include="Infrastructure\RequestLifetimeScopeManager.cs" />

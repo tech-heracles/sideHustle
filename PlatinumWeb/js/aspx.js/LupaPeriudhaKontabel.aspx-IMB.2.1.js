@@ -12,9 +12,6 @@ function Init() {
 
 document.onkeydown = ProcessKeyPress;
 
-function refreshFooterPanel() {
-}
-
 function ProcessKeyPress() {
     var currentIndex = gvLupaPerKont.GetFocusedRowIndex();
     if (event.keyCode == 40) {
@@ -49,12 +46,6 @@ function OnGridSelectionComplete(values) {
     window.parent.callWebServiceVendosPeriudhen(id);
 }
 
-
-function unLoadPeriudha() {
-    //kam zgjedhur ndermarrjen dhe eshte caktuar periudha aktuale, jane ne sesion
-    //duhet t'i bej refresh footerit te spliterit ne faqen kryesore qe te ngarkohen keto te dhena
-    Utils.SetOrRefreshSplitterPaneContentUrl("Footer", "FooterPanelInfo.aspx");
-}
 
 
 //    //nuk i ben refresh faqes brenda pane te spliterit nqs i kalon te njejten URL te faqes 

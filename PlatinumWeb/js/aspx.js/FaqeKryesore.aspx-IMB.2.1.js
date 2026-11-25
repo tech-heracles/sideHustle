@@ -67,13 +67,25 @@ function SuccededVendosPeriudha(result) {
     pageKryesoreState.periudha = result;
     hfState.Set("periudha", JSON.stringify(result));
     popupUniversal.Hide();
-    var btnPeriudha = splitter.GetPaneByName('Footer').GetContentIFrame().contentWindow.btnPeriudha;
-    if (btnPeriudha != undefined)
-        btnPeriudha.SetText(result.EmerPeriudha + " (" + new Date(result.FillimiPeriudha).getFullYear() + ")");
-    if (result.Ekycur)
-        btnPeriudha.inputElement.style.color = "Gray";
-    else
-        btnPeriudha.inputElement.style.color = "Black";
+    vendosPeriudhenLart(result);
+}
+
+// ndermarrja dhe periudha shfaqen lart ne koke (me pare ne footer)
+function vendosPeriudhenLart(periudha) {
+    var tekst = periudha.EmerPeriudha + " (" + new Date(periudha.FillimiPeriudha).getFullYear() + ")";
+    $("#kontekstiPunes .ktxPeriudha").text(tekst).toggleClass("e-kycur", !!periudha.Ekycur);
+    var hf = document.getElementById("hfPeriudha");
+    if (hf)
+        hf.value = tekst;
+}
+
+function ShfaqPeriudhen() {
+    document.getElementById('Container').src = 'LupaPeriudhaKontabel.aspx';
+    popupUniversal.Show();
+}
+
+function NdryshoNdermarrje() {
+    window.location.href = "Login_Ndermarrje.aspx?redirect=false";
 }
 
 function lexoHfPeriudhe() {
@@ -180,7 +192,6 @@ function pageRefresh(s, e) {//
 
     }
     $("[name='frameKryesor']").attr('width', '100%');
-    $("[name='frameFooter']").attr('width', '100%');
 }
 
 function callWebServiceKtheInfoLart(emerKomponente, id) {

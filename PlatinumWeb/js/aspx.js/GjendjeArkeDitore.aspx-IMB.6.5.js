@@ -216,5 +216,5 @@ function hapRaport() {
     if (ngaCRM != "undefined")
         myParams.push("vjenNga=" + ngaCRM);
 
-    window.open((173 == 292 ? "CRMHarte.aspx?" : "Raporti.aspx?") + myParams.join('&'), "_blank");
+    window.open("Raporti.aspx?" + myParams.join('&'), "_blank");
 }

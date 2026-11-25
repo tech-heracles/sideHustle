@@ -2698,21 +2698,6 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
-        public HttpResponseMessage kaVeprimeOpsion(JObject param)
-        {
-            try
-            {
-
-                int idopsioni = param["idopsioni"].Value<int>();
-                return Request.KthePergjigje(RregjistrimeRepository.kaVeprimeOpsion(idopsioni));
-
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-        [HttpPost, HttpGet]
         public HttpResponseMessage ktheArtikullPerProdhim(JObject param)
         {
             try
@@ -3483,21 +3468,6 @@ namespace RestApi.WebAPI.Controllers
             }
         }
 
-        [HttpPost, HttpGet]
-        public HttpResponseMessage ruajFushaAnketa(JObject param)
-        {
-            try
-            {
-                string vlera = param["vlera"].Value<string>();
-                string fusha = param["fusha"].Value<string>();
-                int index = param["index"].Value<int>();
-                return Request.KthePergjigje(RregjistrimeRepository.ruajFushaAnketa(vlera, fusha, index, Session));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
 
         [HttpPost, HttpGet]
         public HttpResponseMessage MerrKonfigurimExporti(JObject param)
@@ -4202,19 +4172,6 @@ namespace RestApi.WebAPI.Controllers
                 int idSkema = param["idSkema"].Value<int>();
                 string kodKontrolli = param["kodKontrolli"].Value<string>();
                 return Request.KthePergjigje(RregjistrimeRepository.merrInfoComboSkemaArtikulliByID(idSkema, kodKontrolli));
-            }
-            catch (Exception e)
-            {
-                return Request.KthePergjigjeGabim(param, e);
-            }
-        }
-        [HttpPost, HttpGet]
-        public HttpResponseMessage MerrIdKlientiByTakimi(JObject param)
-        {
-            try
-            {
-                int idTakimi = param["idTakimi"].Value<int>();
-                return Request.KthePergjigje(RregjistrimeRepository.MerrIdKlientiByTakimi(idTakimi));
             }
             catch (Exception e)
             {

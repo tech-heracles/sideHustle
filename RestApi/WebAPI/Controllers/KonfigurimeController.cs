@@ -648,22 +648,6 @@ namespace RestApi.WebAPI.Controllers
             }
         }
         [HttpPost, HttpGet]
-        public HttpResponseMessage ktheTeDrejtaAmbjenteshPerCRM(JObject param)
-        {
-            try
-            {
-                int idPerdoruesi = param["idPerdoruesi"].Value<int>();
-                int idNdermarrje = param["idNdermarrje"].Value<int>();
-                int idVitNdermarrje = param["idVitNdermarrje"].Value<int>();
-                return Request.CreateResponse(HttpStatusCode.OK, KonfigurimeRepository.ktheTeDrejtaAmbjenteshPerCRM( idPerdoruesi,  idNdermarrje, idVitNdermarrje));
-            }
-            
-            catch (Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
-            }
-        }
-        [HttpPost, HttpGet]
         public HttpResponseMessage ktheIdMagNgaKodi(JObject param)
         {
             try
@@ -955,21 +939,6 @@ namespace RestApi.WebAPI.Controllers
                 string emerKomponente = param["emerKomponente"].Value<string>();
                 
                 return Request.KthePergjigje(KonfigurimeRepository.GetMenuToolbarItems(Session, emerKomponente));
-            }
-            catch (Exception ex)
-            {
-                return Request.KthePergjigjeGabim(param, ex);
-            }
-        }
-
-        [HttpPost, HttpGet]
-        public HttpResponseMessage GetPageConfigurations(JObject param)
-        {
-            try
-            {
-                string emerKomponente = param["emerKomponente"].Value<string>();
-
-                return Request.KthePergjigje(KonfigurimeRepository.GetPageConfigurations(Session, emerKomponente));
             }
             catch (Exception ex)
             {
