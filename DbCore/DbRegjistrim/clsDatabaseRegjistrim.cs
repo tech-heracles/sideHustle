@@ -6261,8 +6261,8 @@ OPTION (LOOP JOIN);");
                 dbManager.AddParameters(19, "@IDTRUPIREZERVIMI", DBNull.Value, ParameterDirection.Input);
             else dbManager.AddParameters(19, "@IDTRUPIREZERVIMI", idtrupirez, ParameterDirection.Input);
             if (idtrupikonv == 0 || idtrupikonv == -1)
-                dbManager.AddParameters(20, "@IDTRUPIKONVERTIM", DBNull.Value, ParameterDirection.Input);
-            else dbManager.AddParameters(20, "@IDTRUPIKONVERTIM", idtrupikonv, ParameterDirection.Input);
+                dbManager.AddParameters(20, "@IDTRUPIKONVERTIMFSH", DBNull.Value, ParameterDirection.Input);
+            else dbManager.AddParameters(20, "@IDTRUPIKONVERTIMFSH", idtrupikonv, ParameterDirection.Input);
             if (idtrupikonvush == 0 || idtrupikonvush == -1)
                 dbManager.AddParameters(21, "@IDTRUPIKONVERTIMUSH", DBNull.Value, ParameterDirection.Input);
             else dbManager.AddParameters(21, "@IDTRUPIKONVERTIMUSH", idtrupikonvush, ParameterDirection.Input);
@@ -11265,8 +11265,8 @@ OPTION (LOOP JOIN);");
 
             dbManager.Open();
             dbManager.CreateParameters(8);
-            dbManager.AddParameters(0, "@IDFLETEDOGANOREDETAJIM", id, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDFLETEDOGANORETRUPI", idTrupi, ParameterDirection.Input);
+            dbManager.AddParameters(0, "@IDSUBGRIDE", id, ParameterDirection.Input);
+            dbManager.AddParameters(1, "@IDFLETEDOGANOREDETAJIM", idTrupi, ParameterDirection.Input);
             dbManager.AddParameters(2, "@VLTRANSPORT", vlTransp, ParameterDirection.Input);
             dbManager.AddParameters(3, "@VLSIGURACION", vlSig, ParameterDirection.Input);
             dbManager.AddParameters(4, "@VLTJERA", vlTj, ParameterDirection.Input);
@@ -16319,7 +16319,7 @@ OPTION (LOOP JOIN);");
             dbManager.AddInputParameters("@NRFAZA", nrFaza);
             dbManager.AddInputParameters("@IDARTIKULLISYRIMAJTE", idArtikulliSyriMajte);
             dbManager.AddInputParameters("@IDARTIKULLISYRIDJATHTE", idArtikulliSyriDjathte);
-            dbManager.AddInputParameters("@SHENIMESTYRIMAJTE", shenimeSyriMajte);
+            dbManager.AddInputParameters("@SHENIMESYRIMAJTE", shenimeSyriMajte);
             dbManager.AddInputParameters("@SHENIMESYRIDJATHTE", shenimeSyriDjathte);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIRECETAOPTIKEPUNIME_upd");
 

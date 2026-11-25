@@ -2101,7 +2101,7 @@ namespace DbCore.DbArkaBanka
 
             dbManager.Open();
             dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@IDNNIVEL", idNivel, ParameterDirection.Input);
+            dbManager.AddParameters(0, "@IDNIVEL", idNivel, ParameterDirection.Input);
             dbManager.AddParameters(1, "@NRDOK", nrdok, ParameterDirection.Input);
             dbManager.AddParameters(2, "@DTDOK", dtdok, ParameterDirection.Input);
 

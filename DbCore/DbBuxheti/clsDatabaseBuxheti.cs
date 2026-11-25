@@ -94,7 +94,7 @@ namespace DbCore.DbBuxheti
             ImbLogger.LogEnter(ImbLogger.LogTraceBuxhetimi, emerTabKoka, emerTabTrupi, ndermarrjeKeyFusha, ndermarjeKodi, primaryKey, merrTePaImportuara);
 
             dbManager.Open();
-            dbManager.CreateParameters(8);
+            dbManager.CreateParameters(7);
             dbManager.AddParameters(0, "@T_TEMP_KOKAARKA", emerTabKoka, ParameterDirection.Input);
             dbManager.AddParameters(1, "@T_TEMP_TRUPIARKA", emerTabTrupi, ParameterDirection.Input);
             dbManager.AddParameters(2, "@NDERMARRJEKEY", ndermarrjeKeyFusha, ParameterDirection.Input);
@@ -102,7 +102,7 @@ namespace DbCore.DbBuxheti
             dbManager.AddParameters(4, "@PRIMARYKEY", primaryKey, ParameterDirection.Input);
             dbManager.AddParameters(5, "@MERRTEPAIMPORTUARA", merrTePaImportuara, ParameterDirection.Input);
             dbManager.AddParameters(6, "@RIMERRTEIMPORTUARA", rimerrTeImportuara, ParameterDirection.Input);
-            dbManager.AddParameters(7, "@NRDOKUMENTASH", nrDokumentash, ParameterDirection.Input);
+            // procedura nuk ka @NRDOKUMENTASH
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TEMP_IMPORT_BUXHETI_merrTeDhenaPerNdermarrjeSipasLlojitDT");
 
             ImbLogger.LogExit(ImbLogger.LogTraceBuxhetimi, emerTabKoka, emerTabTrupi, ndermarrjeKeyFusha, ndermarjeKodi, primaryKey, merrTePaImportuara);

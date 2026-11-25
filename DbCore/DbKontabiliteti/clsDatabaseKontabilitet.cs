@@ -1208,7 +1208,7 @@ namespace DbCore.DbKontabiliteti
             //shtimi i parametrave
             dbManager.CreateParameters(3);
             dbManager.AddParameters(0, "@IDLLOJBUXHETI", idllojbuxheti, ParameterDirection.Output);
-            dbManager.AddParameters(1, "@KODBUXHETI", kodllojbuxheti, ParameterDirection.Input);
+            dbManager.AddParameters(1, "@KODLLOJBUXHETI", kodllojbuxheti, ParameterDirection.Input);
             dbManager.AddParameters(2, "@PERAUTORIZIM", perAutorizim, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_LLOJBUXHETI_ins");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);

@@ -152,7 +152,7 @@ namespace DbCore.DbQendraKosto
         {
             dbManager.Open();
             dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@ID", id, ParameterDirection.Input);
+            dbManager.AddParameters(0, "@IDLLOGSHPERNDARJE", id, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOGARISHPERNDARJEQK_sel");
             if (ds == null || ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
                 return null;

@@ -162,7 +162,7 @@ namespace DbCore.DbRegjistrim
             int idfletDog;
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
             clsMesazh u_ruajt = data.ruajFleteDoganoreDetajimSub(out idfletDog, this.idFleteDoganoreDetajim, this.VlTransport, this.VlSiguracion, this.VlTjera, this.VlDoganim, this.VlTaksa,this.rreshti);
-            this.IdFleteDoganoreDetajim = idfletDog;
+            this.IdSubGride = idfletDog;
             data.Dispose();
             return u_ruajt;
         }
@@ -175,7 +175,7 @@ namespace DbCore.DbRegjistrim
         public clsMesazh modifiko()
         {
             clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            clsMesazh u_modifikua = data.modifikoFleteDoganoreDetajimSub(this.IdFleteDoganoreDetajim, this.idFleteDoganoreDetajim, this.VlTransport, this.VlSiguracion, this.VlTjera, this.VlDoganim, this.VlTaksa,this.rreshti);
+            clsMesazh u_modifikua = data.modifikoFleteDoganoreDetajimSub(this.IdSubGride, this.idFleteDoganoreDetajim, this.VlTransport, this.VlSiguracion, this.VlTjera, this.VlDoganim, this.VlTaksa,this.rreshti);
             data.Dispose();
             return u_modifikua;
         }

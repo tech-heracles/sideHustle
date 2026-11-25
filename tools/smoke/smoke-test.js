@@ -109,8 +109,20 @@ async function collectMenu(page) {
         seen[it.name] = 1; out.push({ url: it.name, title: t.filter(Boolean).join(' > ') });
       }
     }
+    // since the dashboard redesign the old menu/navbar controls are gone; FaqeKryesore sends the same tree as avecMenuTeDhena
+    const d = window.avecMenuTeDhena;
+    if (d) {
+      const walkD = (nodes, texts) => (nodes || []).forEach(n => {
+        const t = texts.concat(n.t);
+        if (n.c && n.c.length) { walkD(n.c, t); return; }
+        if (!n.n || !n.t || seen[n.n]) return;
+        seen[n.n] = 1; out.push({ url: n.n, title: t.filter(Boolean).join(' > ') });
+      });
+      (d.navbar || []).forEach(g => walkD(g.c, [g.t]));
+      walkD(d.menu, []);
+    }
     if (window.menu) walk(menu.GetRootItem(), []);
-    if (window.navbar) for (let i = 0; i < navbar.GetGroupCount(); i++) {
+    if (window.navbar && window.navbar.GetGroupCount) for (let i = 0; i < navbar.GetGroupCount(); i++) {
       const g = navbar.GetGroup(i); if (!g.GetVisible()) continue;
       for (let j = 0; j < g.GetItemCount(); j++) {
         const it = g.GetItem(j);

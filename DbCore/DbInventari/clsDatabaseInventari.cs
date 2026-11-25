@@ -2792,9 +2792,9 @@ namespace DbCore.DbInventari
         internal DataTable ktheGrupimPerberesishSipasIdArtikullitKryesorLupa(string id, DateTime data)
         {
             dbManager.Open();
-            dbManager.CreateParameters(2);
+            // procedura merr vetem artikullin kryesor (@DATA nuk ekziston me)
+            dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDARTIKULLIKRYESOR", id, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@DATA", data, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPIMPERBERESISH_merrGrupimPerberesishSipasIdArtikullitKryesorLupa");
             return ds.Tables[0];
         }
@@ -3114,7 +3114,7 @@ namespace DbCore.DbInventari
             dbManager.AddParameters(0, "@IDTRUPI", trupi.IdTrupi, ParameterDirection.Output);
             dbManager.AddParameters(1, "@LLOJI", trupi.Lloji, ParameterDirection.Input);
             dbManager.AddParameters(2, "@IDKOKA", trupi.IdKoka, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDLIDHESE", trupi.IdLidheseArt, ParameterDirection.Input);
+            dbManager.AddParameters(3, "@IDLIDHESEART", trupi.IdLidheseArt, ParameterDirection.Input);
             dbManager.AddParameters(4, "@KOEFICIENTI", trupi.Koeficienti, ParameterDirection.Input);
             dbManager.AddParameters(5, "@VLERA", trupi.Vlera, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERESTEMPLATETRUPI_ins");
@@ -10501,7 +10501,7 @@ namespace DbCore.DbInventari
 
             dbManager.Open();
             dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
+            dbManager.AddParameters(0, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
             dbManager.AddParameters(1, "@KODMODELI", kodi, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MODELAUTOMJETI_merrSipasNdermDheKodModeli");
             if (ds == null)

@@ -3072,7 +3072,7 @@ namespace DbCore.DbListPagesat
             dbManager.AddParameters(0, "@Nrpersonal", nrpersonal, ParameterDirection.Input);
             dbManager.AddParameters(1, "@salt", salt, ParameterDirection.Input);
             dbManager.AddParameters(2, "@dtaktivizimi", dtaktivizimi, ParameterDirection.Input);
-            using (DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_t_qendrakostopunonjes_EkzistonSipasDtAktivizimiDhePunonjes."))
+            using (DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_t_qendrakostopunonjes_EkzistonSipasDtAktivizimiDhePunonjes"))
             {
 
                 if (ds.Tables[0].Rows.Count == 1)
@@ -5157,7 +5157,7 @@ namespace DbCore.DbListPagesat
         {
             dbManager.Open();
             dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@IDNNIVEL", idNivel, ParameterDirection.Input);
+            dbManager.AddParameters(0, "@IDNIVEL", idNivel, ParameterDirection.Input);
             dbManager.AddParameters(1, "@NRDOK", nrdok, ParameterDirection.Input);
             dbManager.AddParameters(2, "@DTDOK", dtdok, ParameterDirection.Input);
 

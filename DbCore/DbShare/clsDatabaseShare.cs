@@ -2468,7 +2468,7 @@ namespace DbCore.DbShare
         {
             dbManager.Open();
             dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDALTERNTIVAKUSHTI", idAlternativaKushti, ParameterDirection.Input);
+            dbManager.AddParameters(0, "@IDALTERNATIVAKUSHTI", idAlternativaKushti, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ALTERNATIVAKUSHTI_del");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
             return mesazh;

@@ -2110,7 +2110,7 @@ namespace DbCore.DbAdmin
 
             dbManager.Open();
             dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDPEDORUES", idPerdorues, ParameterDirection.Input);
+            dbManager.AddParameters(0, "@IDPERDORUES", idPerdorues, ParameterDirection.Input);
             object nr = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_USERTRACK_selNrOnlineSipasIdPerdorues");
             if (Convert.ToInt32(nr) > 0) return true;
             else return false;
@@ -2399,7 +2399,7 @@ namespace DbCore.DbAdmin
 
             dbManager.Open();
             dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@QYTETI_ID", idqyteti, ParameterDirection.Input);
+            dbManager.AddParameters(0, "@IDQYTETI", idqyteti, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_QYTETI_ktheQytet");
 
         }
@@ -3936,7 +3936,7 @@ namespace DbCore.DbAdmin
 
             dbManager.Open();
             dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@IDDREJTAVEPRIM", iddrejtaveprim, ParameterDirection.Input);
+            dbManager.AddParameters(0, "@IDDREJTATVEPRIM", iddrejtaveprim, ParameterDirection.Input);
             dbManager.AddParameters(1, "@DREJTAVEPRIMKODI", kodidrejtaveprim, ParameterDirection.Input);
             dbManager.AddParameters(2, "@DREJTAVEPRIMPERSH", pershkrimidrejtaveprim, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_DREJTAVEPRIM_upd");
@@ -7902,7 +7902,7 @@ namespace DbCore.DbAdmin
             dbManager.Open();
             dbManager.CreateParameters(2);
             dbManager.AddParameters(0, "@KODTABELE", kodtabele, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@NDERMARRJEVITI", idNdermarrjeViti, ParameterDirection.Input);
+            dbManager.AddParameters(1, "@IDNDERVITI", idNdermarrjeViti, ParameterDirection.Input);
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AUDITIMI_ktheKolonatPerAuditim");
             return ds.Tables[0];
 
