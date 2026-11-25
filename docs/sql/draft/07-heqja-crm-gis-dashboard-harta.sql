@@ -29,6 +29,11 @@ BEGIN
     RETURN;
 END
 
+-- teksti i procedurave/view-ve merret nje here, jashte transaksionit: kerkimi me LIKE mbi sys.sql_modules brenda
+-- transaksionit mbante te bllokuar hyrjen ne program (rreth 13 minuta ne DRAFT)
+SELECT m.object_id, CASE WHEN o.type = 'TR' THEN o.parent_object_id END AS parent_id, m.definition
+INTO #mod FROM sys.sql_modules m JOIN sys.objects o ON o.object_id = m.object_id;
+
 BEGIN TRAN;
 
 CREATE TABLE hequr.T_RENDI_07 (nr int IDENTITY PRIMARY KEY, tabela sysname NOT NULL, rreshta int NOT NULL);
@@ -183,6 +188,7 @@ BEGIN
     END
     SET @def = STUFF(@def, PATINDEX('%CREATE%PROC%', @def), LEN('CREATE'), 'ALTER');
     EXEC (@def);
+    UPDATE #mod SET definition = @def WHERE object_id = OBJECT_ID('dbo.SP_FshiVeprime_SipasLicences');
 END
 
 /* ---------- 4. objektet (tabela, procedura, view, funksione) ---------- */
@@ -234,9 +240,9 @@ BEGIN
     -- emri ne tekstin e nje procedure/view qe mbetet (p.sh. SQL dinamik)
     INSERT hequr.T_MBETEN_07 (emri, arsye)
     SELECT o.emri, N'emri ne tekstin e ' + MIN(OBJECT_NAME(m.object_id))
-    FROM #obj o JOIN sys.sql_modules m ON m.definition LIKE N'%' + REPLACE(o.emri, '_', '[_]') + N'%'
+    FROM #obj o JOIN #mod m ON m.definition LIKE N'%' + REPLACE(o.emri, '_', '[_]') + N'%'
     WHERE m.object_id NOT IN (SELECT id FROM #obj) AND o.emri NOT IN (SELECT emri FROM hequr.T_MBETEN_07)
-      AND NOT EXISTS (SELECT 1 FROM sys.triggers t WHERE t.object_id = m.object_id AND t.parent_id IN (SELECT id FROM #obj))
+      AND (m.parent_id IS NULL OR m.parent_id NOT IN (SELECT id FROM #obj))
     GROUP BY o.emri;
     SET @hequr += @@ROWCOUNT;
 
