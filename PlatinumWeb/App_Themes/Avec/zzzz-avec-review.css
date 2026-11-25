@@ -4,7 +4,7 @@
 
 /* grid tools that hold more than icons (period radios, labels, combos) take their own row above the
    search box instead of floating over it and over the column headers */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material:has(.dxgvSearchPanel_Material) .dxgvTitlePanel_Material:has(.dxeRadioButtonList_Material, .dxeButtonEdit_Material, .dxeTextBox_Material, span.dxeBase_Material) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material.avec-grid-search .dxgvTitlePanel_Material.avec-tp-editors {
     position: static !important;
     width: 100% !important;
     border: 0 !important;
@@ -13,7 +13,7 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Ma
     padding: 6px 10px !important;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material:has(.dxeRadioButtonList_Material, .dxeButtonEdit_Material, .dxeTextBox_Material, span.dxeBase_Material) > table {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material.avec-tp-editors > table {
     margin-left: auto;
 }
 
@@ -37,8 +37,7 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizo
 }
 
 /* list pages whose grid was laid out at half the page width */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) form > div[style*="width: 50%"]:has(table.dxgvControl_Material),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) form > div[style*="width:50%"]:has(table.dxgvControl_Material) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) form > div.avec-half-grid {
     width: 100% !important;
 }
 
@@ -71,26 +70,26 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .selectize-dropdown 
 
 /* list view of pages whose tab strip has more than one row (ul.dxtc-row, e.g. Celje arka/banka): the record
    tabs stay hidden until a record is opened, like on the other pages (avec.css, "list view" rule) */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) ul.dxtc-row:has(> li.dxtc-tab.dxtc-lead:is([style*="display:none"], [style*="display: none"])) > li.dxtc-tab:not(.dxtc-lead) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) ul.dxtc-row.avec-strip-nolead > li.dxtc-tab:not(.dxtc-lead) {
     display: none !important;
 }
 
 /* the page toolbar moves up onto the tab row only when the page itself has tabs at the top; tabs inside the
    document accordion (Shto ekzekutim: "Produktet") keep the toolbar in its own row above the form */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):not(:has(.dxtcLite_Material.dxtc-top:not(.ui-accordion .dxtcLite_Material))) div:has(> table div.dxm-main[id$="ASPxMenu1"]) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):not(.avec-has-toptabs-page) div.avec-menu-host {
     position: static !important;
     width: 100% !important;
 }
 
 /* ---- CRM (opens in its own tab): AVEC colours instead of the old green */
-html:has(link[href*="AlphaCRM.css"]) .header,
-html:has(link[href*="AlphaCRM.css"]) .footer {
+html.avec-crm .header,
+html.avec-crm .footer {
     background: var(--avec-surface, #1a1a1a) !important;
     border-bottom: 1px solid var(--avec-border, #383838) !important;
     color: var(--avec-text, #f2f2f0) !important;
 }
 
-html:has(link[href*="AlphaCRM.css"]) .fa {
+html.avec-crm .fa {
     color: var(--avec-orange, #e8683a);
 }
 
