@@ -33,7 +33,7 @@
     <link href="js/themes/black-tie/jquery-ui.css" runat="server" id="themeJQuery" rel="stylesheet" />
     <link href="js/css/ui.multiselect.css" rel="stylesheet" />
     <link href="DataTables-1.10.12/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/animate.min.css" rel="stylesheet" />
     <link href="css/bootstrap-notify.css" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
