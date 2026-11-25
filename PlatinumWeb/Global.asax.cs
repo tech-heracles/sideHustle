@@ -235,6 +235,26 @@ namespace PlatinumWeb
 			HttpContext.Current.Response.Cookies.Set(cookie);
 		}
 
+		// AVEC theme: js/avec-tags.js in the <head> of every page. It sets the marker classes that the theme CSS
+		// (App_Themes/Avec) uses instead of :has(); :has() made each DOM change re-style the whole page.
+		protected void Application_PreRequestHandlerExecute(object sender, EventArgs e)
+		{
+			if (!(Context.Handler is System.Web.UI.Page faqe)) return;
+			faqe.PreRenderComplete += (s, a) =>
+			{
+				var p = (System.Web.UI.Page)s;
+				if (p.Header == null || p.IsCallback) return;
+				var sm = System.Web.UI.ScriptManager.GetCurrent(p);
+				if (sm != null && sm.IsInAsyncPostBack) return;
+				try
+				{
+					p.Header.Controls.Add(new System.Web.UI.LiteralControl(
+						"<script src=\"" + VirtualPathUtility.ToAbsolute("~/js/avec-tags.js") + "?v=2\" defer></script>"));
+				}
+				catch (HttpException) { /* a <head> with <%= %> blocks cannot take controls; the page keeps the plain theme */ }
+			};
+		}
+
 		protected void Application_BeginRequest(object sender, EventArgs e)
 		{
 

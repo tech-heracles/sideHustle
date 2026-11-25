@@ -243,8 +243,8 @@ div.dxbButton_Material.dxb-outline {
 }
 
 /* ---- DevExpress icon-only buttons (grid title panels, toolbars): no fill, so the icon stays visible ---- */
-div.dxbButton_Material:has(img):not(:has(span.dx-vam)),
-div.dxbButton_Material:has(img):not(:has(span.dx-vam)).dxbButtonHover_Material {
+div.dxbButton_Material.avec-btn-icon,
+div.dxbButton_Material.avec-btn-icon.dxbButtonHover_Material {
     background: transparent !important;
     border-color: transparent !important;
     box-shadow: none !important;
@@ -253,11 +253,11 @@ div.dxbButton_Material:has(img):not(:has(span.dx-vam)).dxbButtonHover_Material {
     border-radius: 8px !important;
 }
 
-div.dxbButton_Material:has(img):not(:has(span.dx-vam)):hover {
+div.dxbButton_Material.avec-btn-icon:hover {
     background: var(--avec-surface-highest) !important;
 }
 
-div.dxbButton_Material:has(img):not(:has(span.dx-vam)) .dxb {
+div.dxbButton_Material.avec-btn-icon .dxb {
     padding: 6px 8px !important;
 }
 
@@ -1134,12 +1134,12 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Materi
     letter-spacing: 0 !important;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material:has(span.dx-vam):not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material.avec-btn-text:not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material) {
     background: var(--avec-orange) !important;
     border: 1px solid var(--avec-orange) !important;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material:has(span.dx-vam):not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material):hover {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) div.dxbButton_Material.avec-btn-text:not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material):hover {
     background: var(--avec-orange-hover) !important;
     border-color: var(--avec-orange-hover) !important;
 }
@@ -1462,7 +1462,7 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizo
 }
 
 /* the filter / template part of the toolbar sits on the right */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal > ul > li.dxm-item:not(.dxm-tmpl) + li.dxm-separator:has(+ li.dxm-tmpl) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal > ul > li.dxm-item:not(.dxm-tmpl) + li.dxm-separator.avec-sep-tmpl {
     margin-left: auto !important;
 }
 
@@ -1510,13 +1510,13 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizo
 
 /* buttons in a grid's title panel (choose / save columns, export...) are quiet, not primary */
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material,
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material:has(span.dx-vam):not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material.avec-btn-text:not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material) {
     background: transparent !important;
     border: 1px solid transparent !important;
 }
 
 body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material:hover,
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material:has(span.dx-vam):not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material):hover {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvTitlePanel_Material div.dxbButton_Material.avec-btn-text:not(.dxb-secondary):not(.dxb-outline):not(.dxbDisabled_Material):hover {
     background: var(--avec-surface-high) !important;
     border-color: var(--avec-border) !important;
 }
@@ -1694,9 +1694,7 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxgvFooter_Material
 }
 
 /* saved-filter picker (with its apply / clear buttons) and expand / collapse all are hidden from the page toolbar (user's request, 2026-11-21) */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-tmpl:has([id$="btnFiltra"]),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-tmpl:has([id$="btnCollapseAll"]),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-tmpl:has([id$="btnExpandAll"]) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-tmpl.avec-mi-hidden {
     display: none !important;
 }
 
@@ -1711,28 +1709,25 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizo
    A cell that also holds a grid is never hidden: in 66 lupat the picker sits directly in the round panel's
    content cell together with the grid, and hiding that cell left the lupa black (2026-11-23). There only the
    picker itself is hidden. */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="konfigurimi_Label"]):not(:has(.dxgv, .ui-jqgrid)),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="lblKonfigurimi"]):not(:has(.dxgv, .ui-jqgrid)),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> [id$="lblModeli"]):not(:has(.dxgv, .ui-jqgrid)),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(> table[id$="cmbKonfigurimi"]):not(:has(.dxgv, .ui-jqgrid)),
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(.dxgv, .ui-jqgrid) > table[id$="cmbKonfigurimi"],
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(.dxgv, .ui-jqgrid) > [id$="lblKonfigurimi"],
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(.dxgv, .ui-jqgrid) > [id$="konfigurimi_Label"],
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td:has(.dxgv, .ui-jqgrid) > [id$="lblModeli"] {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.avec-td-konfig:not(.avec-td-grid),
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.avec-td-grid > table[id$="cmbKonfigurimi"],
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.avec-td-grid > [id$="lblKonfigurimi"],
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.avec-td-grid > [id$="konfigurimi_Label"],
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) td.avec-td-grid > [id$="lblModeli"] {
     display: none !important;
 }
 
 /* a row that holds nothing but the Model picker (and its caption) goes away entirely */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) tr:has(> td > table[id$="cmbKonfigurimi"]):not(:has(input:not([id*="cmbKonfigurimi"]))) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) tr.avec-tr-konfig-only {
     display: none !important;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item:has(img[src*="/menu/Import."]) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item.avec-mi-import {
     display: none !important;
 }
 
 /* ---- page toolbar moves up onto the tab row (only on pages with tabs) */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):has(.dxtcLite_Material.dxtc-top) div:has(> table div.dxm-main[id$="ASPxMenu1"]) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell).avec-has-toptabs div.avec-menu-host {
     position: absolute !important;
     top: 6px;
     right: 14px;
@@ -1740,11 +1735,11 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):has(.dxtcLite_Materi
     width: auto !important;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):has(.dxtcLite_Material.dxtc-top) div:has(> table div.dxm-main[id$="ASPxMenu1"]) > table {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell).avec-has-toptabs div.avec-menu-host > table {
     width: auto !important;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):has(.dxtcLite_Material.dxtc-top) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell).avec-has-toptabs .dxm-main.dxm-horizontal[id$="ASPxMenu1"] {
     padding: 0 !important;
 }
 
@@ -1763,7 +1758,7 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.d
     border-radius: 0 !important;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):has(.dxm-main[id$="ASPxMenu1"]) .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) > ul.dxtc-strip {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell).avec-has-menu1 .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) > ul.dxtc-strip {
     padding-right: 500px !important;
     box-sizing: border-box;
 }
@@ -1801,11 +1796,11 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material >
 }
 
 /* ---- grid tools (title panel icons) sit in one group on the right of the search box */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material:has(.dxgvSearchPanel_Material) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material.avec-grid-search {
     position: relative;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material:has(.dxgvSearchPanel_Material) .dxgvTitlePanel_Material {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material.avec-grid-search .dxgvTitlePanel_Material {
     position: absolute;
     top: 8px;
     right: 10px;
@@ -1817,7 +1812,7 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Ma
     background: var(--avec-surface) !important;
 }
 
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material:has(.dxgvSearchPanel_Material) .dxgvTitlePanel_Material div.dxbButton_Material .dxb {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table.dxgvControl_Material.avec-grid-search .dxgvTitlePanel_Material div.dxbButton_Material .dxb {
     padding: 5px 8px !important;
 }
 
@@ -1842,12 +1837,12 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) table[id$="txtLlog"]
 
 /* list view (first tab active): the record tabs (Informacion, Kontabilitet...) belong to one record only,
    so they are hidden until a record is opened (Shto / Modifiko or a row) - user's request, 2026-11-21 */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) > ul.dxtc-strip:has(> li.dxtc-tab.dxtc-lead:is([style*="display:none"], [style*="display: none"])) > li.dxtc-tab:not(.dxtc-lead) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxtcLite_Material.dxtc-top:not(.dxtcLite_Material .dxtcLite_Material) > ul.dxtc-strip.avec-strip-nolead > li.dxtc-tab:not(.dxtc-lead) {
     display: none !important;
 }
 
 /* ---- grid filter row: hidden until the funnel button turns it on (js/avec-inner.js adds the button) */
-body.avec-filters-off table.dxgvControl_Material:has(.avec-filter-toggle) .dxgvFilterRow_Material {
+body.avec-filters-off table.dxgvControl_Material.avec-grid-filterable .dxgvFilterRow_Material {
     display: none !important;
 }
 
@@ -1878,6 +1873,6 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .avec-filter-toggle[
 }
 
 /* ---- Arkiva is hidden while it is disabled */
-body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item.dxm-disabled:has(img[src*="/menu/Arkiva"]) {
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell) .dxm-main.dxm-horizontal[id$="ASPxMenu1"] > ul > li.dxm-item.dxm-disabled.avec-mi-arkiva {
     display: none !important;
 }
