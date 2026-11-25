@@ -1188,13 +1188,6 @@ namespace DbCore.DbAdmin
             }
         }
 
-        public static bool kthePerdoruesKycurMobile(int idPerdoruesi)
-        {
-            using (clsDatabaseAdmin data = new clsDatabaseAdmin())
-            {
-                return data.merrPerdoruesKycurMobile(idPerdoruesi);
-            }
-        }
 
         public static bool kthePerdoruesShfaqMesazhePopup(int idPerdoruesi)
         {

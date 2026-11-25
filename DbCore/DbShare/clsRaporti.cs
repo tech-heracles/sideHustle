@@ -222,13 +222,6 @@ namespace DbCore.DbShare
                 return db.kaFormatJoBuxhetor(idRap, idNder);
         }
 
-        public static DataTable merrSipasKategorisePerMobile(int idkategori, int idNderm)
-        {
-            using (DbCore.DbShare.clsDatabaseShare db = new clsDatabaseShare())
-            {
-                return db.merrRaportDesignSipasKategorisePerMobile(idkategori, idNderm);
-            }
-        }
 
         #endregion
 

@@ -480,15 +480,6 @@ namespace DbCore.DbAdmin
             return ekziston;
         }
 
-        public static clsAgjentShitje MerrAgjentShitjeSipasIdPerdoruesModile(int idNdermarrje, int idPeroruesMobile)
-        {
-            clsDatabaseAdmin data = new clsDatabaseAdmin();
-            clsAgjentShitje agjent = new clsAgjentShitje();
-
-            agjent.mbushAgjentShitje(data.merrAgjentShitjeSipasIdPeroruesMobile(idNdermarrje, idPeroruesMobile));
-            data.Dispose();
-            return agjent;
-        }
         public DataRow ktheAgjentShitjeSipasID(int idAgjenti)
         {
             clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin();

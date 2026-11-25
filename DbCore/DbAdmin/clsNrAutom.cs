@@ -389,13 +389,6 @@ namespace DbCore.DbAdmin
             return dbAdmin.ekzistonNrAutomatik(kodi, idNdermarrje);
         }
 
-        public static bool eshteLidhurMeAtributeTrupiPerMobile(int idNrAuto)
-        {
-            using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin())
-            {
-                return dbAdmin.eshteILidhurMeAtributeTrupiPerMobile(idNrAuto);
-            }
-        }
 
         public static int ktheIntervalSipasId(int idNrAuto)
         {

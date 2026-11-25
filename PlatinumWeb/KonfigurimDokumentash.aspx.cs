@@ -562,7 +562,6 @@ namespace PlatinumWeb
                 , "caktimi i llogarise dytesore"
                 , "caktimi i metodes ftp"
                 , "caktimi i kases"
-                , "caktimi i formatit te printimit te mobile"
                 ) || (pershkrimKontrolli.ContainsAnyIgnoreCase("caktimi i llogarise") && !pershkrimKontrolli.EqualsIgnoreCase("caktimi i llogarise bankare"));
         }
 
@@ -619,14 +618,6 @@ namespace PlatinumWeb
                                     combo.DataSource = col;
                                     combo.TextField = "Pershkrim";
                                     combo.ValueField = "IdRaportDesign";
-                                    combo.DataBind();
-                                    break;
-
-                                case "caktimi i formatit te printimit te mobile":
-                                   int  idkatMob = MerrIdKategorie();
-                                    combo.DataSource = clsRaporti.merrSipasKategorisePerMobile(idkatMob, IdNdermarrja);
-                                    combo.TextField = "Kodi";
-                                    combo.ValueField = "IDAUTO";
                                     combo.DataBind();
                                     break;
 

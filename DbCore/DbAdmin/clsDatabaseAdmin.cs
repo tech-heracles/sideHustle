@@ -1016,13 +1016,6 @@ namespace DbCore.DbAdmin
             return infoHapur;
         }
 
-        internal bool merrPerdoruesKycurMobile(int perdoruesi)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDPERDORUES", perdoruesi, ParameterDirection.Input);
-            return Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PERDORUESI_kthePerdoruesKycurMobile"));
-        }
 
 
         internal bool merrPerdoruesShfaqMesazhePopup(int perdoruesi)
@@ -6212,19 +6205,6 @@ namespace DbCore.DbAdmin
 
         }
 
-        internal DataRow merrAgjentShitjeSipasIdPeroruesMobile(int idNdermarrje, int idPeroruesMobile)
-        {
-
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDPERDORUESMOBILE", idPeroruesMobile, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_AGJENTSHITJE_ktheAgjentSHitjeSipasIdPErdoruesMobile");
-            if (ds.Tables[0].Rows.Count > 1)
-                throw new MyException($"AGjenti me id perdoruesi {idPeroruesMobile} dhe id ndermarrje {idNdermarrje} u gjet me shume se njehere");
-            return ds.Tables[0].Rows[0];
-        }
 
         internal DataRow kthAgjentetNdermarrjesAndAutorizimeDR(int idnderm, int idperdorues, int idagj)
         {
@@ -7707,13 +7687,6 @@ namespace DbCore.DbAdmin
             else return true;
         }
 
-        public bool eshteILidhurMeAtributeTrupiPerMobile(int idNrAutomatik)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDNRAUTO", idNrAutomatik, ParameterDirection.Input);
-            return Convert.ToBoolean(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_NRAUTOM_EshteILidhurMeAtributeTrupiPerMobile"));
-        }
 
         public int ktheIntervalSipasId(int idNrAutomatik)
         {
@@ -9112,11 +9085,6 @@ namespace DbCore.DbAdmin
         #endregion
 
         #region RAPORTET
-        private string getAlphaMobileQuery(params SqlParameter[] param_array)
-        {
-            string query = $"SELECT NRDOK FROM T_KOKASHITJE";
-            return query;
-        }
         /// <summary>
         /// 
         /// </summary>

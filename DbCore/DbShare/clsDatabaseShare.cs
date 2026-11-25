@@ -290,14 +290,6 @@ namespace DbCore.DbShare
             dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
             return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_RAPXDESIGN_merrDesingSipasKategorise").Tables[0];
         }
-        internal DataTable merrRaportDesignSipasKategorisePerMobile(int idkategori, int idNdermarrje)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDKATEGORI", idkategori, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
-            return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FORMATEPRINTIMIMOBILE_merrDesingSipasKategorisePerMobile").Tables[0];
-        }
 
         internal DataTable merrDesignSipasRaportit(int idRaporti)
         {

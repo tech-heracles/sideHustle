@@ -32,31 +32,6 @@ namespace PlatinumWeb
                 var idModuli = int.Parse(Request.QueryString["idmod"]);
 
                 var dt = clsRaporti.KtheListRaportesh(IdNdermarrja, IdPerdoruesi, IdGjuha, IdViti, idModuli);
-                DataTable dtClone = dt.Copy();
-                try
-                {
-                    if (idModuli == 12)
-                    {
-                        for (int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            DataRow currentRow = dtClone.Rows[i];
-                            if ((string)currentRow["RAPEMRIREAL"] == "LibriShitjes2019")
-                            {
-                                currentRow["RAPEMRIREAL"] = "RaportAlphaMobile";
-                                currentRow["RAPEMRI"] = "Raport Alpha Mobile";
-                                DataRow desRow = dt.Rows.Add(currentRow.ItemArray.Clone() as object[]);
-                                break;
-                            }
-
-                        }
-                    }
-
-
-                }
-                catch (Exception err)
-                {
-
-                }
 
                 hfState.Add("listaRap", Newtonsoft.Json.JsonConvert.SerializeObject(dt));
                 var stringKonfig = clsRaporti.KtheListKonfigRaportesh(IdPerdoruesi, IdNdermarrja, idModuli);

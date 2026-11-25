@@ -549,11 +549,6 @@ namespace PlatinumWeb
                 clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ekziston nje nr automatik me kete kod. Ju lutem zgjidhni nje kod tjeter!", pnlMesazhi);
                 return false;
             }
-            if (hfShtimModifikim.Value == "modifikim" && Convert.ToInt32(txtIntervali.Text) == 0 && clsNrAutom.eshteLidhurMeAtributeTrupiPerMobile(Convert.ToInt32(hfId.Value)))
-            {
-                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, "Ky numer automatik perdoret ne AlphaWeb Mobile. Ju lutem, plotesoni fushen intervali!", pnlMesazhi);
-                return false;
-            }
 
             if (fillon_TextBox.Text != "" && mbaron_TextBox.Text != "")
             {
