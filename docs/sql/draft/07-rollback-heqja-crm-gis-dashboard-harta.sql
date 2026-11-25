@@ -1,5 +1,6 @@
 /*
-  Rollback of 07-heqja-crm-gis-dashboard-harta.sql: objects go back from schema [hequr] to [dbo] and every deleted row
+  Rollback of 07-heqja-crm-gis-dashboard-harta.sql: objects go back from schema [hequr] to [dbo], the licence cleanup
+  procedure gets its old text back and every deleted row
   is inserted again (parents before children). Works only before 07-pastrimi-perfundimtar.sql (or the 05/06 final
   cleanup, which empties the whole [hequr] schema) has been run.
   Run: sqlcmd -S localhost\HERACLES -d DRAFT -E -C -b -f 65001 -i 07-rollback-heqja-crm-gis-dashboard-harta.sql
@@ -27,6 +28,19 @@ BEGIN
 END
 CLOSE k; DEALLOCATE k;
 
+/* procedurat e ndryshuara marrin tekstin e vjeter */
+DECLARE @def nvarchar(max);
+DECLARE d CURSOR LOCAL FAST_FORWARD FOR SELECT emri, definicioni FROM hequr.T_DEFINICIONE_07;
+OPEN d; FETCH NEXT FROM d INTO @emri, @def;
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    SET @x = N'DROP PROCEDURE dbo.' + QUOTENAME(@emri);
+    EXEC (@x);
+    EXEC (@def);
+    FETCH NEXT FROM d INTO @emri, @def;
+END
+CLOSE d; DEALLOCATE d;
+
 /* rreshtat: ne rendin e kundert te fshirjes */
 DECLARE @tabela sysname, @kol nvarchar(max), @sql nvarchar(max), @ident bit;
 DECLARE r CURSOR LOCAL FAST_FORWARD FOR SELECT tabela FROM hequr.T_RENDI_07 ORDER BY nr DESC;
@@ -50,6 +64,7 @@ CLOSE r; DEALLOCATE r;
 DROP TABLE hequr.T_RENDI_07;
 DROP TABLE hequr.T_OBJEKTE_07;
 DROP TABLE hequr.T_MBETEN_07;
+DROP TABLE hequr.T_DEFINICIONE_07;
 IF NOT EXISTS (SELECT 1 FROM sys.objects WHERE schema_id = SCHEMA_ID('hequr'))
     EXEC ('DROP SCHEMA hequr');
 

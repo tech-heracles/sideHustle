@@ -34,6 +34,7 @@ BEGIN TRAN;
 CREATE TABLE hequr.T_RENDI_07 (nr int IDENTITY PRIMARY KEY, tabela sysname NOT NULL, rreshta int NOT NULL);
 CREATE TABLE hequr.T_OBJEKTE_07 (emri sysname PRIMARY KEY, lloji varchar(2) NOT NULL);
 CREATE TABLE hequr.T_MBETEN_07 (emri sysname PRIMARY KEY, arsye nvarchar(400) NOT NULL);   -- vetem per raport
+CREATE TABLE hequr.T_DEFINICIONE_07 (emri sysname PRIMARY KEY, definicioni nvarchar(max) NOT NULL);
 
 DECLARE @s nvarchar(max);
 
@@ -159,6 +160,31 @@ BEGIN
     INSERT hequr.T_RENDI_07 (tabela, rreshta) VALUES (@tabela, @n);
 END
 
+/* ---------- 3b. procedura e pastrimit sipas licences nuk i prek me tabelat T_CRM_* ----------
+   Cdo bllok fillon me nje rresht shenje "-----T_CRM_<TABELA>-----" dhe mbaron para rreshtit te shenjes tjeter ("-----");
+   blloqet e email-it mbeten (tabelat e email-it nuk hiqen). */
+DECLARE @def nvarchar(max) = OBJECT_DEFINITION(OBJECT_ID('dbo.SP_FshiVeprime_SipasLicences'));
+IF @def IS NOT NULL AND PATINDEX('%--T[_]CRM[_]%', @def) > 0
+BEGIN
+    INSERT hequr.T_DEFINICIONE_07 VALUES ('SP_FshiVeprime_SipasLicences', @def);
+    DECLARE @p int, @a int, @eol int, @m int, @b int, @rrotullime int = 0;
+    WHILE 1 = 1
+    BEGIN
+        SET @p = PATINDEX('%--T[_]CRM[_]%', @def);
+        IF @p = 0 BREAK;
+        SET @rrotullime += 1;
+        IF @rrotullime > 30 THROW 50007, 'SP_FshiVeprime_SipasLicences: shume blloqe T_CRM_, skripti ndalet.', 1;
+        SET @a = @p - CHARINDEX(CHAR(10), REVERSE(LEFT(@def, @p))) + 1;      -- fillimi i rreshtit te shenjes
+        SET @eol = CHARINDEX(CHAR(10), @def, @p);                               -- fundi i rreshtit te shenjes
+        SET @m = CHARINDEX('-----', @def, @eol);                                -- shenja e bllokut pasardhes
+        IF @eol = 0 OR @m = 0 THROW 50007, 'SP_FshiVeprime_SipasLicences: blloku T_CRM_ nuk ka shenje pas tij.', 1;
+        SET @b = @m - CHARINDEX(CHAR(10), REVERSE(LEFT(@def, @m))) + 1;      -- fillimi i rreshtit te shenjes pasardhese
+        SET @def = STUFF(@def, @a, @b - @a, N'-- (DRAFT 07) blloku i nje tabele CRM u hoq bashke me CRM-ne' + CHAR(13) + CHAR(10));
+    END
+    SET @def = STUFF(@def, PATINDEX('%CREATE%PROC%', @def), LEN('CREATE'), 'ALTER');
+    EXEC (@def);
+END
+
 /* ---------- 4. objektet (tabela, procedura, view, funksione) ---------- */
 CREATE TABLE #obj (id int PRIMARY KEY, emri sysname NOT NULL, lloji varchar(2) NOT NULL);
 INSERT #obj (id, emri, lloji)
@@ -189,12 +215,13 @@ DECLARE @hequr int = 1;
 WHILE @hequr > 0
 BEGIN
     INSERT hequr.T_MBETEN_07 (emri, arsye)
-    SELECT DISTINCT o.emri, N'e perdor ' + OBJECT_NAME(d.referencing_id)
+    SELECT o.emri, N'e perdor ' + MIN(OBJECT_NAME(d.referencing_id))
     FROM #obj o JOIN sys.sql_expression_dependencies d ON (d.referenced_id = o.id OR (d.referenced_id IS NULL AND d.referenced_entity_name = o.emri))
     JOIN sys.objects r ON r.object_id = d.referencing_id
     WHERE r.object_id NOT IN (SELECT id FROM #obj) AND r.type IN ('P', 'V', 'FN', 'IF', 'TF', 'TR')
       AND NOT (r.type = 'TR' AND r.parent_object_id IN (SELECT id FROM #obj))
-      AND o.emri NOT IN (SELECT emri FROM hequr.T_MBETEN_07);
+      AND o.emri NOT IN (SELECT emri FROM hequr.T_MBETEN_07)
+    GROUP BY o.emri;
     SET @hequr = @@ROWCOUNT;
 
     INSERT hequr.T_MBETEN_07 (emri, arsye)

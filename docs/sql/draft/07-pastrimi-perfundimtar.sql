@@ -41,6 +41,7 @@ EXEC (@sql);
 DROP TABLE hequr.T_RENDI_07;
 DROP TABLE hequr.T_OBJEKTE_07;
 DROP TABLE hequr.T_MBETEN_07;
+DROP TABLE hequr.T_DEFINICIONE_07;
 IF NOT EXISTS (SELECT 1 FROM sys.objects WHERE schema_id = SCHEMA_ID('hequr'))
     EXEC ('DROP SCHEMA hequr');
 
