@@ -30,6 +30,9 @@ namespace DbCore
         private colKonfigurimAmbjenti myColKa;
         private int konfigAmbientiFromCache;
         private colArtikujt myColArt;
+        // indekse mbi myColArt: gjate importit cache jeton per gjithe importin dhe lista kerkohej rresht pas rreshti
+        private Dictionary<(string, int), clsArtikulli> myArtSipasKodit;
+        private Dictionary<int, clsArtikulli> myArtSipasId;
         private int artFromCache;
         private colTaksa myColTaksa;
         private int taksaFromCache;
@@ -146,6 +149,8 @@ namespace DbCore
             myColKa = new colKonfigurimAmbjenti();
             konfigAmbientiFromCache = 0;
             myColArt = new colArtikujt();
+            myArtSipasKodit = new Dictionary<(string, int), clsArtikulli>();
+            myArtSipasId = new Dictionary<int, clsArtikulli>();
             artFromCache = 0;
             myColTaksa = new colTaksa();
             taksaFromCache = 0;
@@ -459,9 +464,42 @@ namespace DbCore
             return ka;
         }
 
+        // Kerkimi ne myColArt me indeks. Rezultati eshte ai i FirstOrDefault mbi listen: indeksi mban artikullin e pare te
+        // shtuar per cdo celes; nese ai nuk perputhet me (p.sh. eshte ndryshuar pas shtimit) ose celesi mungon, kerkohet lista.
+        private clsArtikulli gjejArtikull(string kodArtikulli, int idNdermarrje)
+        {
+            if (myArtSipasKodit.TryGetValue((kodArtikulli, idNdermarrje), out var artikull)
+                && artikull.KodArtikulli == kodArtikulli && artikull.IdNdermarje == idNdermarrje)
+                return artikull;
+            artikull = myColArt.FirstOrDefault(x => (x.KodArtikulli == kodArtikulli && x.IdNdermarje == idNdermarrje));
+            if (artikull != null)
+                myArtSipasKodit[(kodArtikulli, idNdermarrje)] = artikull;
+            return artikull;
+        }
+
+        private clsArtikulli gjejArtikull(int idArtikulli)
+        {
+            if (myArtSipasId.TryGetValue(idArtikulli, out var artikull) && artikull.IdArtikulli == idArtikulli)
+                return artikull;
+            artikull = myColArt.FirstOrDefault(x => (x.IdArtikulli == idArtikulli));
+            if (artikull != null)
+                myArtSipasId[idArtikulli] = artikull;
+            return artikull;
+        }
+
+        private void shtoArtikull(clsArtikulli artikull)
+        {
+            myColArt.Add(artikull);
+            var kodi = (artikull.KodArtikulli, artikull.IdNdermarje);
+            if (!myArtSipasKodit.ContainsKey(kodi))
+                myArtSipasKodit[kodi] = artikull;
+            if (!myArtSipasId.ContainsKey(artikull.IdArtikulli))
+                myArtSipasId[artikull.IdArtikulli] = artikull;
+        }
+
         public clsArtikulli getArtikull(string kodArtikulli, int idNdermarrje, clsDatabaseInventari db)
         {
-            clsArtikulli artikull = myColArt.FirstOrDefault(x => (x.KodArtikulli == kodArtikulli && x.IdNdermarje == idNdermarrje));
+            clsArtikulli artikull = gjejArtikull(kodArtikulli, idNdermarrje);
             if (artikull == null)
             {
                 System.Diagnostics.Debug.WriteLine($"DB - Mbush artikullin nga : {kodArtikulli}");
@@ -469,7 +507,7 @@ namespace DbCore
                 artikull.mbushArtikull(db.merrArtikull(kodArtikulli, idNdermarrje));
                 if (artikull.IdArtikulli == 0)
                     throw new MyException($"Artikulli me kod: {kodArtikulli} nuk ekziston");
-                myColArt.Add(artikull);
+                shtoArtikull(artikull);
             }
             else
             {
@@ -482,7 +520,7 @@ namespace DbCore
         public clsArtikulli getArtikull(int idArtikulli, clsDatabaseInventari db)
         {
             ImbLogger.LogTraceShitje($"Filloi metoda getArtikull sipas idArtikulli:{idArtikulli}");
-            clsArtikulli artikull = myColArt.FirstOrDefault(x => (x.IdArtikulli == idArtikulli));
+            clsArtikulli artikull = gjejArtikull(idArtikulli);
             if (artikull == null)
             {
                 ImbLogger.LogWarningShitje($"DB - Mbush artikullin nga : {idArtikulli}");
@@ -494,8 +532,8 @@ namespace DbCore
                     ImbLogger.LogErrorShitje($"Artikulli me kod: {idArtikulli} nuk ekziston");
                     throw new MyException($"Artikulli me kod: {idArtikulli} nuk ekziston");
                 }
-                   
-                myColArt.Add(artikull);
+
+                shtoArtikull(artikull);
             }
             else
             {
