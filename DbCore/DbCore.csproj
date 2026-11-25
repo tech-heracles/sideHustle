@@ -932,8 +932,6 @@
     <Compile Include="DbAdmin\clsFushaShtese.cs" />
     <Compile Include="DbAdmin\clsGridaKoka.cs" />
     <Compile Include="DbAdmin\clsGridaTrupi.cs" />
-    <Compile Include="DbAdmin\clsGrupAuditimi.cs" />
-    <Compile Include="DbAdmin\clsGrupAuditimiTrupi.cs" />
     <Compile Include="DbAdmin\clsGrupeKFPerWorkFlow.cs" />
     <Compile Include="DbAdmin\clsGrupetPerdoruesit.cs" />
     <Compile Include="DbAdmin\clsGrupiPerdorues.cs" />
@@ -1003,8 +1001,6 @@
     <Compile Include="DbAdmin\colFushatShtese.cs" />
     <Compile Include="DbAdmin\colGridaKoka.cs" />
     <Compile Include="DbAdmin\colGridaTrupi.cs" />
-    <Compile Include="DbAdmin\colGrupAuditimiTrupi.cs" />
-    <Compile Include="DbAdmin\colGrupeAuditimi.cs" />
     <Compile Include="DbAdmin\colGrupeKFPerWorkFlow.cs" />
     <Compile Include="DbAdmin\colGrupetPerdoruesit.cs" />
     <Compile Include="DbAdmin\colGrupetPerdoruesve.cs" />

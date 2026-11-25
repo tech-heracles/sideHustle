@@ -93,16 +93,6 @@ namespace DbCore.DbAdmin
             #region Metoda Publike
 
 
-             ///<summary>
-            /// Kthen/Vendos nje objekt lloj buxheti. Therret funksionin <see cref="DbCore.DbKontabiliteti.clsDatabaseKontabilitet.merrLlojBuxheti"/>
-            /// </summary>
-            public void merr(int id)
-            {
-                clsDatabaseAdmin data = new clsDatabaseAdmin();
-                data.merrAmbjente(id);
-                data.Dispose();
-            }
-
             #endregion
 
             #region Metoda Internal

@@ -69,20 +69,6 @@ namespace DbCore.DbKontabiliteti
             }
         }
 
-        /// <summary>
-        /// mbush collection te buxheteve
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="idNderViti"></param>
-        /// <param name="dtAktivizimi">data  e aktivizimit te buxhetit</param>
-        public colBuxhetet(int id, int idNderViti, DateTime dtAktivizimi)
-        {
-            using (clsDatabaseKontabilitet dbBuxhetet = new clsDatabaseKontabilitet())
-            {
-                mbushBuxhetet(dbBuxhetet.ktheBuxhetetSipasIdLidheseDheDateAktivizimi(id, idNderViti, dtAktivizimi));
-            }
-        }
-
         public colBuxhetet(int id, int idlloj, string idNderViti, DateTime dt)
             : this(id, idlloj, Convert.ToInt32(idNderViti), false, dt)
         {

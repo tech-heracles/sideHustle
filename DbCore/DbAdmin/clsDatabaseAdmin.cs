@@ -7883,16 +7883,6 @@ namespace DbCore.DbAdmin
         //    try
         //    finally
 
-        internal DataTable ktheGjitheGrupetAuditimit()
-        {
-
-
-            dbManager.Open();
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPAUDITIMI_sel");
-            return ds.Tables[0];
-
-        }
-        //[Obsolete("Perdor: DataTable ktheGjitheGrupetAuditimit()", true)]
 
         //    try
         //    finally
@@ -7975,18 +7965,6 @@ namespace DbCore.DbAdmin
         }
 
 
-        internal DataTable ktheTrupinGrupitAuditimit(int idgrupi)
-        {
-
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDGRUPAUDIT", idgrupi, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GRUPAUDITIMITRUPI_merrTrupinGrupitAuditimit");
-            return ds.Tables[0];
-
-        }
-        //[Obsolete("Perdor: DataTable ktheTrupinGrupitAuditimit(int idgrupi)", true)]
         //    try
 
         //    finally
@@ -7998,43 +7976,9 @@ namespace DbCore.DbAdmin
 
         //    finally
 
-        internal clsMesazh ruajGrupAuditimi(out int idgrupi, int nrgrupi, String pershkrimigrupi, int idperdoruesi)
-        {
-            idgrupi = -1;
-
-
-            dbManager.Open();
-            dbManager.CreateParameters(4);
-            dbManager.AddParameters(0, "@IDGRUPAUDIT", idgrupi, ParameterDirection.Output);
-            dbManager.AddParameters(1, "@NRGRUPAUDIT", nrgrupi, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@PERSHKGRUPAUDIT", pershkrimigrupi, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPAUDITIMI_ins");
-
-            idgrupi = int.Parse(dbManager.Parameters[0].Value.ToString());
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-            return mesazh;
-
-        }
-        //[Obsolete("Perdor: clsMesazh ruajGrupAuditimi(out int idgrupi, int nrgrupi, String pershkrimigrupi, int idperdoruesi)", true)]
         //    try
 
 
-        internal clsMesazh ruajTrupin(int idgrupi, int idtabele, int idkolone)
-        {
-
-
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@IDGRUPAUDIT", idgrupi, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDTABELE", idtabele, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDKOLONE", idkolone, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_GRUPAUDITIMITRUPI_ins");
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-            return mesazh;
-
-        }
-        //[Obsolete("Perdor: clsMesazh ruajTrupin(int idgrupi, int idtabele, int idkolone)", true)]
         //    try
 
         #endregion
@@ -13220,21 +13164,6 @@ namespace DbCore.DbAdmin
             if (nr == DBNull.Value)
                 return "";
             else return nr.ToString();
-        }
-
-        /// <summary>
-        /// Ekzekuton prc_T_AMBJENT_sel per te marre nje objekt
-        /// </summary>
-        internal void merrAmbjente(int id)
-        {
-
-
-            dbManager.Open();
-            //shtimi i parametrave
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@ID", id, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_AMBJENT_sel");
-
         }
 
         internal DataTable ktheGjitheAmbjente(int idllojlicence, int idgjuha, bool ambjentpermobile)

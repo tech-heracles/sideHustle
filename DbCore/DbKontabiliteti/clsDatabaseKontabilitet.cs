@@ -1626,19 +1626,6 @@ namespace DbCore.DbKontabiliteti
         }
 
        
-        internal DataTable ktheBuxhetetSipasIdLidheseDheDateAktivizimi(int id, int idNderViti, DateTime dtAktivizimi)
-        {//metoda per te marre te gjithe  buxhetet sipas id lidhese dhe llojit te buxhetit te kategorise se shpenzimit
-
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.Command.CommandTimeout = 0;
-            dbManager.AddParameters(0, "@IDLIDHESE", id, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDNDERVITI", idNderViti, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@dtaktivizimi", dtAktivizimi, ParameterDirection.Input);      
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_BUXHETI_merrBuxhetetSipasIdLidheseDheDateAktivizimi");
-            return ds.Tables[0];
-        }
-
         /// <summary>
         /// Ekzekuton prc_T_BUXHETI_merrBuxhetetSipasIdLidheseKodLlojBuxheti per te marre nje datatable ne DB duke filtruar sipas ID-se lidhese dhe kodit te llojit te buxhetit.
         /// <param name="id">Id lidhese</param>

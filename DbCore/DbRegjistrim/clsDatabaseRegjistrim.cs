@@ -5186,29 +5186,6 @@ namespace DbCore.DbRegjistrim
             return cm;
         }
 
-        /// <summary>
-        /// perdoret per te bere rivleresim te cmimit mesatar sipas metodes hyrje para dalje
-        /// </summary>
-        ///<param name="dataderi">data deri</param>
-        ///<param name="datanga">data nga</param>
-        ///<param name="idartikulli">id e artikullit</param>
-        ///<param name="idmagazina">id e magazines</param>
-        /// <returns> nje objekt clsMesazh qe tregon nese llogaritja e cmimit mesatar total te detajimit eshte kryer ne rregull apo jo</returns>
-        public clsMesazh rivleresimCmimiMesatarMeTotalHPD(int idartikulli, int idmagazina, DateTime datanga, DateTime dataderi, int metodekosto)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(5);
-            dbManager.AddParameters(0, "@IDARTIKULL", idartikulli, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDMAG", idmagazina, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@DATANGA", datanga, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@DATADERI", dataderi, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@metodekosto", metodekosto, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIMAGAZINA_riVleresimTotaleHPD");
-            clsMesazh mesazh = new clsMesazh(true, "OK!");
-            return mesazh;
-        }
-
         public DataTable ktheRreshtaMagazineArtikulli(int idArtikulli, int idMagazina, DateTime dataNga, DateTime dataDeri)
         {
             dbManager.Open();
