@@ -103,7 +103,6 @@ namespace PlatinumWeb
 				{
 					ImbLogger.Error(ex, "Licencat nuk u lexuan ne nisje te aplikacionit");
 				}
-				// Sinkronizimi i te dhenave baze (artikuj, kliente, magazina) drejt Firebase eshte i ndalur.
 				InitializeObjects();
 				RouteTable.Routes.MapOwinPath("/External", app => new Startup().Configuration(app));
 
@@ -337,7 +336,6 @@ namespace PlatinumWeb
 
 		protected void Application_End(object sender, EventArgs e)
 		{
-			MasterDataAvec.Ndalo();
 			ShkruajArsyenEMbylljes();
 		}
 

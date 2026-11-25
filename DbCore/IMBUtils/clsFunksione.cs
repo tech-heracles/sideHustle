@@ -2791,8 +2791,6 @@ namespace DbCore
 					mySessionObjects.ruajRuajLogNeSesion(sesioni, nderm.LogNdermarrje);
 					mySessionObjects.ruajNdermRaportuese(sesioni, nderm.Raportuesi);
 				}
-				// ndermarrja ku hyjne perdoruesit e kesaj kompanie (licence): te dhenat baze per POS-in dergohen per te
-				DbCore.IMBUtils.Licencimi.MasterDataAvec.RuajNdermarrjenEHyrjes(MyConnectionsManager.GetSelectedConNameServer(sesioni.SessionID), idNdermarrjes);
 				return new clsMesazh(true);
 			}
 			catch (Exception)
