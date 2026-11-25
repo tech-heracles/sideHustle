@@ -133,10 +133,10 @@ namespace PlatinumWeb
             }
             else
                 clsToolbarConfig.percaktoTemplateMenu(DbCore.mySessionObjects.ktheGjuhe(Session), idViti, idPerdorues, idNdermarrje, aSPxMenu1, "Shto_Ndermarrje.aspx", this, MenuInfo, Ruaj_ASPxButton_Click, FshiFilter_ASPxButton_Click, hfShtimModifikim.Value == "modifikim" ? false : true, false, false, DbCore.mySessionObjects.merrEshteMemeSesioni(Session));
-            aSPxMenu1.Items.FindByName("NdryshoLlojLicence").ClientVisible = false;
+            var ndryshoLlojLicence = aSPxMenu1.Items.FindByName("NdryshoLlojLicence");
+            if (ndryshoLlojLicence != null)
+                ndryshoLlojLicence.ClientVisible = false;
             aSPxMenu1.Items.FindByName("HiqLogo").ClientVisible = false;
-            if (ASPxPageControl1.ActiveTabIndex == 1 && superuser)
-                aSPxMenu1.Items.FindByName("NdryshoLlojLicence").ClientVisible = true;
         }
 
         public void btnJo_Click(object sender, EventArgs e)
@@ -215,25 +215,6 @@ namespace PlatinumWeb
                 hfStatusi.Value = "false";
             }
             ASPxPageControl1.ActiveTabIndex = 0;
-        }
-
-        protected void ButtonOk3_Click2(object sender, EventArgs e)
-        {
-            DbCore.clsMesazh mesazh = new DbCore.clsMesazh();
-            DbCore.DbAdmin.clsNdermarrje ndermarrje = new DbCore.DbAdmin.clsNdermarrje(int.Parse(hfId.Value));
-            DbCore.DbAdmin.clsRoli roli = new DbCore.DbAdmin.clsRoli();
-            mesazh.Status = roli.ndryshoLlojLicence(ndermarrje.IdLicenca, int.Parse(cmbLlojLicence.Value.ToString()));
-
-            if (mesazh.Status == true)
-            {
-                ResourceManager rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
-                CultureInfo ci = DbCore.mySessionObjects.ktheCultureInfo(Session);
-                clsMenuInfo.ShtoMesazhSuksesi(MenuInfo, rm.GetString("msgAdministrimiRuajtjaPerfundoiSukses", ci), pnlMesazhi);
-            }
-            else
-            {
-                clsMenuInfo.ShtoMesazhGabimi(MenuInfo, mesazh.PershkrimMesazhi, pnlMesazhi);
-            }
         }
 
         public void btnPo_Click(object sender, EventArgs e)
@@ -1270,7 +1251,6 @@ namespace PlatinumWeb
             popLlojLicence.Text = rm.GetString("labelAdministrimiKujdes", ci);
             lblLlojLicence.Text = rm.GetString("labelAdministrimiLlojiLicenses", ci);
             ButtonOk2.Text = rm.GetString("btnAdministrimiOk", ci);
-            ButtonOk3.Text = rm.GetString("btnAdministrimiOk", ci);
             ASPxPageControl1.TabPages[0].Text = rm.GetString("labelAdministrimiTePergjithshme", ci);
             ASPxPageControl1.TabPages[1].Text = rm.GetString("labelAdministrimiInformacion", ci);
             konfigurimi_Label.Text = rm.GetString("labelAdministrimiModeli", ci);

@@ -1755,21 +1755,6 @@ namespace DbCore.DbAdmin
                 return new clsMesazh(true, msg);
         }
 
-        /// <summary>
-        ///ruan rolet default
-        /// </summary>
-        /// <param name="idRoli">id-ja rolit per tu lexuar</param>
-        /// <returns>kthen nje DataRow roli</returns>
-        public bool ndryshoLlojLicence(int idlicenca, int idllojlicence)
-        {
-            this.dbManager.Open();
-            this.dbManager.CreateParameters(2);
-            this.dbManager.AddParameters(0, "@idlicence", idlicenca, ParameterDirection.Input);
-            this.dbManager.AddParameters(1, "@IDLLOJLICENCE", idllojlicence, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_ROLI_ndryshollojlicence");
-            return true;
-        }
-
         public DataTable merrGjitheRoletSipasIdPerdoruesi(int idperdorues)
         {
             this.dbManager.Open();

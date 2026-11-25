@@ -95,18 +95,10 @@ function menu_click(s, e) {
     if (e.item.name === 'Ruaj') {
         myMesazh.vendosClient();
     }
-    else if (e.item.name === "NdryshoLlojLicence") {
-        popLlojLicence.Show();
-        e.processOnServer = false;
-        cmbLicenca.SetVisible(false);
-        lblLicenca1.SetVisible(false);
-        ButtonOk2.SetVisible(false);
-    }
 }
 
 function PoClick(s, e) {//po
     popLlojLicence.Show();
-    ButtonOk3.SetVisible(false);
 }
 
 function JoClick(s, e) {    
@@ -502,9 +494,6 @@ function tabsActiveTabChanged(s, e) {
     }
     kaloTab = false;
     myMenu.PercaktoMenuSipasTabit(e.tab.index, hfTeDrejta, $('#hfShtimModifikim'));
-    if (e.tab.index !== 0 && $('#hfSuperUser').val() == 'True')
-        ASPxMenu1.GetItemByName('NdryshoLlojLicence').SetVisible(true);
-    else ASPxMenu1.GetItemByName('NdryshoLlojLicence').SetVisible(false);
 
     if (e.tab.index == 4)
         ASPxMenu1.GetItemByName('HiqLogo').SetVisible(true);

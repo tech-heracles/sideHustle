@@ -566,20 +566,6 @@ namespace DbCore.DbAdmin
             return mesazh;
         }
         
-        /// <summary>
-        /// Ndryshon llojin e licences
-        /// </summary>
-        /// <param name="idlicenca">idlincenca</param>
-        /// <param name="idllojlicence">lloji i licences per tu bere</param>
-        /// <returns></returns>
-        public bool ndryshoLlojLicence(int idlicenca, int idllojlicence)
-        {
-            clsDatabaseAdmin data = new clsDatabaseAdmin();
-            bool sukses = data.ndryshoLlojLicence(idlicenca, idllojlicence);
-            data.Dispose();
-            return sukses;
-        }
-
         public static clsMesazh ruajRolAdminNdermarjeDheRaportesh(int idndermarje, int idviti, int idperdoruesi, int idRoli)
         {
             clsDatabaseAdmin data = new clsDatabaseAdmin();

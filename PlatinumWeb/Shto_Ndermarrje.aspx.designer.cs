@@ -249,15 +249,6 @@ namespace PlatinumWeb
         protected global::DevExpress.Web.ASPxButton ButtonOk2;
 
         /// <summary>
-        /// ButtonOk3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ButtonOk3;
-
-        /// <summary>
         /// btnVazhdoRuajtje control.
         /// </summary>
         /// <remarks>
