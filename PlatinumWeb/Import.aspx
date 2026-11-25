@@ -19,7 +19,7 @@
     <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
 
     <!-- A DevExtreme library -->
-    <script src="DX.ashx?jsfileset=~/Scripts/jquery-3.4.1.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/JsGlobal.js;~/js/json2.js;~/js/myNrAuto-IMB.2.1.js;~/Scripts/dx.viz-web.js;~/js/localization/DevExtreme.Perkthime.js;~/js/myDxDataGrid.js;~/js/aspx.js/Import.aspx-IMB.2.3.js&v76"
+    <script src="DX.ashx?jsfileset=~/Scripts/jquery-3.4.1.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/myMesazh-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myCookies-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/JsGlobal.js;~/js/json2.js;~/js/myNrAuto-IMB.2.1.js;~/Scripts/dx.viz-web.js;~/js/localization/DevExtreme.Perkthime.js;~/js/myDxDataGrid.js;~/js/aspx.js/Import.aspx-IMB.2.3.js&v77"
         type="text/javascript"></script>
 </head>
 <body>
@@ -212,11 +212,6 @@
                                                             Text="Pastro tabelat">
                                                             <ClientSideEvents Click="PastroTabelatTemporare" />
                                                         </dx:ASPxButton>
-                                                    <dx:ASPxCheckBox ID="cbTransferoFatura" runat="server" Text="Transfero Fatura" ClientInstanceName="cbTransferoFatura"
-                                                        TextAlign="Left">
-                                                        <DisabledStyle BackColor="#EEEEEE" Font-Bold="False" ForeColor="Black">
-                                                        </DisabledStyle>
-                                                    </dx:ASPxCheckBox>
                                                      <dx:ASPxCheckBox ID="cbRimerrTeImportuara" runat="server" Text="Rimerr fatura te importuara me pare"
                                                         ClientInstanceName="cbRimerrTeImportuara"
                                                         TextAlign="Left">

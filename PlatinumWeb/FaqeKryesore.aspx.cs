@@ -619,7 +619,6 @@ namespace PlatinumWeb
 			Menu("konfigurime", "instrumenta", "Shto_NivelTvsh.aspx").Text = rm.GetString("MenuItemTaksat", ci);
 			Menu("konfigurime", "instrumenta", "Shto_Vit.aspx").Text = rm.GetString("MenuItemVitet", ci);
 			Menu("konfigurime", "instrumenta", "KategoriArkive.aspx").Text = rm.GetString("MenuItemKategoriArkive", ci);
-			Menu("konfigurime", "instrumenta", "PostoEPaySlip.aspx").Text = rm.GetString("MenuItemPostoNeEPaySlip", ci);
 
 			Menu("konfigurime", "Shto_KategoriShpenzimi.aspx").Text = rm.GetString("MenuItemKategoriShpenzimi", ci);
 			Menu("konfigurime", "konfig-dokumenti").Text = rm.GetString("MenuItemKonfigurimDokumenti", ci);

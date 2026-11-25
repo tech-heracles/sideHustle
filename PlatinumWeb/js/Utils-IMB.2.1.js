@@ -72,7 +72,6 @@ function CreateLoadingGifDiv() {
 
 var Paths = {
     defaultLoginPath: "Prezantohu.aspx",
-    epaySlipLoginPath: "E-PaySlip/Login.aspx",
     defaultLoginNdermarrje: "Login_Ndermarrje.aspx"
 };
 
@@ -1185,9 +1184,9 @@ Utils.RedirectedUrl = function (response) {
 
     if (response.status == 401) {
         if (response.statusText == "ScopeExpired")
-            return location.origin + "/" + (location.origin.indexOf("E-PaySlip") == -1 ? Paths.defaultLoginNdermarrje : Paths.epaySlipLoginPath);
+            return location.origin + "/" + Paths.defaultLoginNdermarrje;
         else
-            return location.origin + "/" + (location.origin.indexOf("E-PaySlip") == -1 ? Paths.defaultLoginPath : Paths.epaySlipLoginPath);
+            return location.origin + "/" + Paths.defaultLoginPath;
     }
     //rasti kur ka skaduar sesioni dhe kthen si pergjigje faqen e loginit
     if (response.responseText && response.responseText.indexOf("identifikuesLogin") != -1 && response.responseText.indexOf("LoginPage") != -1)

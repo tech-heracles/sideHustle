@@ -483,17 +483,8 @@ namespace RestApi.WebAPI.Models
 
             DataTable dataSource;
 
-            if (transferoFatura)
-            {
-                Tuple<DataTable, clsMesazh> transferimFaturash = TransferoFatura(idKategoria, kategoria, idNdermarrje, idPerdoruesi, formati, emerTabeleKoke, emerTabeleTrupi, emerTabeleRec, tePaImportuara, idGjuha, session, rimerrTeImportuara, nrDokumentash);
-                dataSource = transferimFaturash.Item1;
-                mesazh = transferimFaturash.Item2;
-            }
-            else
-            {
-                dataSource = MbushListeNgaDb(idKategoria, kategoria, idNdermarrje, idPerdoruesi, formati, emerTabeleKoke, emerTabeleTrupi, emerTabeleRec, tePaImportuara, rimerrTeImportuara, nrDokumentash);
-                mesazh = new MesazhSuksesi();
-            }
+            dataSource = MbushListeNgaDb(idKategoria, kategoria, idNdermarrje, idPerdoruesi, formati, emerTabeleKoke, emerTabeleTrupi, emerTabeleRec, tePaImportuara, rimerrTeImportuara, nrDokumentash);
+            mesazh = new MesazhSuksesi();
             Tuple<object, Tuple<List<string>, List<string>, List<string>>> konfigs = MerrColFormatTrupiImporti(formati, idKategoria);
             
             try
@@ -528,55 +519,6 @@ namespace RestApi.WebAPI.Models
                 dataSourceRec = dataSourceView.ToTable(true, konfigs.Item2.Item3.ToArray());
 
             return new Tuple<DataTable, DataTable, DataTable>(dataSourceKoka, dataSourceTrupi, dataSourceRec);
-        }
-
-        /// <summary>
-        /// Funksion qe ben transferimin e faturave ne import per te cilat eshte checkuar fusha Transfero Fatura
-        /// </summary>
-        /// <param name="idKategoria">Id e kategorise per te cilen po kryhet importi</param>
-        /// <param name="kategoria">Kodi i kategorise per te cilen po kryhet importi</param>
-        /// <param name="idNdermarrje">Id e ndermarrjes</param>
-        /// <param name="idPerdoruesi">Id e perdoruesit</param>
-        /// <param name="formati">Id e formatit i importit</param>
-        /// <param name="emerTabeleKoke">Emri i tabeles se kokes</param>
-        /// <param name="emerTabeleTrupi">Emri i tabeles se trupit</param>
-        /// <param name="emerTabeleRec">Emri i tabeles se recepturave</param>
-        /// <param name="tePaImportuara">Merr te paimportuara</param>
-        /// <param name="idGjuha">Id e gjuhes</param>
-        /// <param name="session">Session</param>
-        /// <returns>Tuple i perbere nga rreshtat per import dhe mesazhi</returns>
-        private static Tuple<DataTable, clsMesazh> TransferoFatura(int idKategoria, string kategoria, int idNdermarrje, int idPerdoruesi, int formati, string emerTabeleKoke, string emerTabeleTrupi, string emerTabeleRec, bool tePaImportuara, int idGjuha, HttpSessionState session, bool rimerrTeImportuara, int? nrDokumentash)
-        {
-            //Behet shnderrimi dhe transferimi i policave nga tabela temporale ku i shkruan programi tjeter (i edusoft), tek tabelat e importit. Eshte bere vetem per klientin Albsig.
-            if (!colImportSQL.ekzistonTabele("T_TEMP_IMPORTPOLICA"))
-                return new Tuple<DataTable, clsMesazh>(null, new MesazhGabimi("Nuk ekziston tabela temporale e policave!"));
-
-            int idErrori = 0;
-            var mesazhi = colImportSQL.transferoPolicaNeTabelaImporti(emerTabeleKoke, emerTabeleTrupi, idNdermarrje, idPerdoruesi, out idErrori);
-            if (!mesazhi.Status)
-                return new Tuple<DataTable, clsMesazh>(null, mesazhi);
-
-            DataTable dataSource = MbushListeNgaDb(idKategoria, kategoria, idNdermarrje, idPerdoruesi, formati, emerTabeleKoke, emerTabeleTrupi, emerTabeleRec, tePaImportuara, rimerrTeImportuara, nrDokumentash);
-
-            if (idErrori != 0)
-            {
-                var err = colTrupiErrorImporti.ktheErrorImportiSipasIdKoka(idErrori);
-                if (err.Rows.Count == 0)
-                    return new Tuple<DataTable, clsMesazh>(dataSource, null);
-
-                mySessionObjects.ruajTabeleGabimeshImporti(session, err);
-                if (err.Rows.Count > 0)
-                {
-                    var koka = new clsKokaErrorImporti(0, "Nga transferimi i policave", idKategoria, idNdermarrje, idPerdoruesi);
-                    koka.ColTrupi.mbushErrorImportiNgaProgrami(err);
-                    mesazhi = koka.ruajErrorImporti();
-                    return new Tuple<DataTable, clsMesazh>(dataSource, new MesazhGabimi("Nuk u transferuan te gjitha faturat! Hapni listen e gabimeve per me shume informacion!:Red"));
-                }
-                else
-                    return new Tuple<DataTable, clsMesazh>(dataSource, new MesazhGabimi("Transferimi i faturave perfundoi me sukses!:Green"));
-            }
-            else
-                return new Tuple<DataTable, clsMesazh>(dataSource, new MesazhGabimi("Transferimi i faturave perfundoi me sukses!:Green"));
         }
 
         /// <summary>

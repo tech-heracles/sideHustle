@@ -58,17 +58,6 @@ VALUES (@ID_DOKUMENTIMPORTUAR, @NRKOKAFLETEKONTABEL, @DATEDOKUMENTIKOKAFLETEKONT
             return mesazh;
         }
 
-        internal int transferoPolicaNeTabelaImporti(string emerTabeleKoka, string emerTabeleTrupi, int idNdermarrje, int idPerdoruesi)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(4);
-            dbManager.AddParameters(0, "@EMERTABKOKA", emerTabeleKoka, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@EMERTABTRUPI", emerTabeleTrupi, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_Integrim_lexoFSTNgaTabelaTempPolicash").ToString());
-        }
-
         /// <summary>
         /// IMPORTI FLETEVE KONTABEL:
         /// Modifikon nepermjet store procedures ne kode fletet kontabel qe sapo u importuan sakte si te importuara.

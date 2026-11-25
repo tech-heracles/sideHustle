@@ -512,32 +512,6 @@ namespace DbCore.DbAdmin
             }
             return mesazh;
         }
-        public static clsMesazh modifikoVitPeriudheEPaySlip( colPeriudhaKontabel periudhat)
-        {
-            clsMesazh mesazh;
-            using (clsDatabaseAdmin dbAdmin = new clsDatabaseAdmin())
-            {
-                dbAdmin.beginTransaksion();
-                try
-                {
-                    mesazh = modifikoPeriudhat(periudhat, dbAdmin);
-                    if (!mesazh.Status)
-                    {
-                        dbAdmin.rollbackTransaksion();
-                        return mesazh;
-                    }
-                    dbAdmin.commitTransaksion();
-                    mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-                    return mesazh;
-                }
-                catch (Exception ce)
-                {
-                    dbAdmin.rollbackTransaksion();
-                    return new clsMesazh(false, ce.Message);
-                }
-            }
-        }
-
         public static bool ekzistonVitPerNdermarrjen(string viti, int idNdermarrje)
         {
             using (clsDatabaseAdmin dbadmin = new clsDatabaseAdmin())

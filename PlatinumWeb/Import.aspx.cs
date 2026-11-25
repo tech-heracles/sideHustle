@@ -257,7 +257,7 @@ namespace PlatinumWeb
                 }
             }
 
-            return new clsKonfigImporti(cmbEmer.Text, rbTipi.Value.ToString(), idkategori, idformati, txtEmerSheet.Text, IdNdermarrja, IdPerdoruesi, 1, txtEmerTabKoka.Text, txtEmerTabTrupi.Text, cbPermbledhese.Checked, txtEmerTabRec.Text, cbTransferoFatura.Checked, cbTePaImportuara.Checked, cbDergoMeEmail.Checked, txtEmerTabKokaHistorik.Text, txtEmerTabTrupiHistorik.Text, txtEmerTabRecHistorik.Text, cbRimerrTeImportuara.Checked, (int?)Convert.ToInt32(txtNrDokumentash.Value));
+            return new clsKonfigImporti(cmbEmer.Text, rbTipi.Value.ToString(), idkategori, idformati, txtEmerSheet.Text, IdNdermarrja, IdPerdoruesi, 1, txtEmerTabKoka.Text, txtEmerTabTrupi.Text, cbPermbledhese.Checked, txtEmerTabRec.Text, false, cbTePaImportuara.Checked, cbDergoMeEmail.Checked, txtEmerTabKokaHistorik.Text, txtEmerTabTrupiHistorik.Text, txtEmerTabRecHistorik.Text, cbRimerrTeImportuara.Checked, (int?)Convert.ToInt32(txtNrDokumentash.Value));
         }
 
         protected void ucEmerSkedari_FileUploadComplete(object sender, FileUploadCompleteEventArgs e)

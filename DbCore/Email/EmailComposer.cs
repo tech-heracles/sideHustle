@@ -730,7 +730,7 @@ namespace DbCore
                 dbAdmin.beginTransaksion();
 
 
-                url = punonjes ? Paths.loginPathEpaySlip : Paths.defaultLoginPath;
+                url = Paths.defaultLoginPath;
                 DbCore.DbAdmin.clsPerdorues.modifikoPassword(idPerdorues, fjalekalimiHashuar, dbAdmin, PasswordIPerkohshem, idPerdorues, punonjes);
                 dbAdmin.shtoKerkeseResetPass(username, "expired");
                 dbAdmin.commitTransaksion();

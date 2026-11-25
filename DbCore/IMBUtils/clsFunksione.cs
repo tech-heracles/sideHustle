@@ -2254,26 +2254,6 @@ namespace DbCore
 		}
 
 
-		public static clsMesazh dergoPinEpaySlip(HttpSessionState Session, string username, int idPerdoruesi, int idNdermarrje)
-		{
-			clsGjenerimPIN piniRi = new clsGjenerimPIN(idPerdoruesi, idNdermarrje);
-			if (piniRi.ruaj())
-			{
-
-				string nrTel = clsPunonjes.merrNumerTelefoneSipasUsername(username);
-				var dergoPinMeSMS = clsServerConfiguration.LexoKonfigurimSipasKey<int>(ServerKonfigKey.DERGO_PIN_SMS);
-				if (dergoPinMeSMS == 1)
-					return new clsMesazh(false, "Dergimi i PIN-it me SMS nuk eshte i disponueshem.");
-				return new MesazhSuksesi();
-
-			}
-			else
-			{
-				ImbLogger.Error("Login1_Authenticate(object sender, AuthenticateEventArgs e) - Pati nje gabim gjate gjenerimit te PIN-it! Ju lutem provoni perseri");
-				return new clsMesazh(false, "Pati nje gabim gjate gjenerimit te PIN-it! Ju lutem provoni perseri");
-			}
-		}
-
 		public static int ruajTedhenatPasValidimitTeLoginUserit(HttpSessionState Session, string username, clsPerdorues user = null, bool punonjes = false, string ndermarrjaWS = "", string ipKasaWS = "", string emerPrinteriWS = "", string dyqaniWS = "")
 		{
 			mySessionObjects.ruajIsLoggedIn(Session, "Yes");

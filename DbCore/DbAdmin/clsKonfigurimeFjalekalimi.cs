@@ -580,10 +580,7 @@ namespace DbCore.DbAdmin
                 if (!(veprimiMbiPerdoruesin == "shtim" || veprimiMbiPerdoruesin == "klonim")) //rasti kur po modifikohet perdoruesi
                 {
                     
-                if (veprimiMbiPerdoruesin == "epayslip")
-                      mesazhHistoriku = this.ekzistonKyPassPunonjesi(idPerdoruesi, passwordHashuar,rm,ci);
-                else
-                     mesazhHistoriku = this.ekzistonKyPassPerdoruesi(idPerdoruesi, textPassword,rm,ci);
+                    mesazhHistoriku = this.ekzistonKyPassPerdoruesi(idPerdoruesi, textPassword,rm,ci);
                     if (!mesazhHistoriku.Status)
                         mesazh = mesazhHistoriku;
                 }

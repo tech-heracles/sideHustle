@@ -662,8 +662,6 @@
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Kategori Arkive" Name="KategoriArkive.aspx" Visible="false">
                                                                 </dx:MenuItem>
-                                                                <dx:MenuItem Text="Posto ne EPaySlip" Name="PostoEPaySlip.aspx" Visible="false">
-                                                                </dx:MenuItem>
                                                                 <dx:MenuItem Text="Pajisje" Name="Pajisje.aspx" Visible="false">
                                                                 </dx:MenuItem>
                                                             </Items>

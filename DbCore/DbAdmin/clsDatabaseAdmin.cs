@@ -7229,25 +7229,6 @@ namespace DbCore.DbAdmin
             return ds.Tables[0];
 
         }
-        internal DataTable kthePeriudhaSipasVitiEPaySlip(int idViti)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDVITI", idViti, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERIUDHAT_selSipasVitiPostoEpaySlip");
-            return ds.Tables[0];
-
-        }
-        internal DataTable kthePeriudhaSipasVitiEPaySlip(int idViti, int gjuha)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDVITI", idViti, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@GJUHA", gjuha, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERIUDHAT_selSipasVitiPostoEpaySlipSipasGjuhes");
-            return ds.Tables[0];
-
-        }
         internal DataRow kthePeriudhaSipasVititDheMuajit(int idViti, int nrPeriudhe, int gjuha)
         {
             dbManager.Open();
@@ -13511,88 +13492,6 @@ namespace DbCore.DbAdmin
             dbManager.CreateParameters(0);
             return Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_NDERMARJE_ktheIdNdermarrjenEPareNeListeSipasLicences"));
         }
-
-        #region Gjenerimi PIN
-
-        /// <summary>
-        /// Ruan objektin e PIN-it te gjeneruar
-        /// </summary>
-        /// <param name="idPIN">(int) Id e pinit</param>
-        /// <param name="kodiPIN">(string) Kodi i pinit te gjeneruar</param>
-        /// <param name="dataAktivizuar">(DateTime) Data e aktivizimit</param>
-        /// <param name="dataPerfunduar">(DateTime) Data kur skadon PIN-i gjeneruaur</param>
-        /// <param name="idPerdoruesi">(int) Id e perdorur</param>
-        /// <param name="idNdermarrja">(int) Id e ndermarrjes</param>
-        /// <param name="perdorur">(bool) Eshte perdorur apo jo PIN-i</param>
-        /// <param name="dataPerdorur">(DateTime) Nese eshte perdorur PIN-i data e perdorimit te tij</param>
-        /// <returns>(clsMesazh) Kthen objektin e mesazhit ne varesi te ruajtjes</returns>
-        internal clsMesazh ruajPINGjeneruar(out int idPIN, string kodiPIN, DateTime dataAktivizuar, DateTime dataPerfunduar, int idPerdoruesi, int idNdermarrja, bool perdorur, DateTime dataPerdorur)
-        {
-            idPIN = -1;
-
-
-            dbManager.Open();
-
-            dbManager.CreateParameters(7);
-            dbManager.AddParameters(0, "@IDPIN", idPIN, ParameterDirection.Output);
-            dbManager.AddParameters(1, "@KODIPIN", kodiPIN, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@DATA_AKTIVIZIMIT", dataAktivizuar, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@DATA_PERFUNDIMIT", dataPerfunduar, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            dbManager.AddParameters(5, "@IDNDERMARRJE", idNdermarrja, ParameterDirection.Input);
-            dbManager.AddParameters(6, "@PERDORUR", perdorur, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_PIN_GJENERUAR_ins");
-            idPIN = int.Parse(dbManager.Parameters[0].Value.ToString());
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-            return mesazh;
-
-        }
-
-        /// <summary>
-        /// Modifikimi i perdorimit te PIN-it
-        /// </summary>
-        /// <param name="idPIN">(int) Id e pinit</param>
-        /// <param name="perdorur">(bool) Eshte perdorur apo jo PIN-i</param>
-        /// <param name="dataPerdorur">(DateTime) Nese eshte perdorur PIN-i data e perdorimit te tij</param>
-        /// <returns>(clsMesazh) Kthen objektin e mesazhit ne varesi te modifikimit</returns>
-        internal clsMesazh modifikoPINGjeneruar(int idPIN, bool perdorur, DateTime dataPerdorur)
-        {
-
-
-            dbManager.Open();
-
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@IDPIN", idPIN, ParameterDirection.Output);
-            dbManager.AddParameters(1, "@PERDORUR", perdorur, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@DATA_PERDORIMIT", dataPerdorur, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_PIN_GJENERUAR_upd");
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
-            return mesazh;
-        }
-
-        /// <summary>
-        /// Kontrollon ne databaze vlefshemerin e nje PIN-i
-        /// </summary>
-        /// <param name="kodiPIN">(string) Kodi i pinit te gjeneruar</param>
-        /// <param name="idPerdoruesi">(int) Id e perdorur</param>
-        /// <param name="idNdermarrja">(int) Id e ndermarrjes</param>
-        /// <param name="dataPerdorur">(DateTime) Nese eshte perdorur PIN-i data e perdorimit te tij</param>
-        /// <returns>(bool) Kontrollon nese PIN-i eshte i vlefshem apo jo. Kthen true nese eshte i vlefshem dhe anasjelltas</returns>
-        internal bool kontrolloVlefshmeriPin(string kodiPIN, int idPerdoruesi, int idNdermarrja, DateTime dataPerdorur)
-        {
-
-
-            dbManager.Open();
-            dbManager.CreateParameters(4);
-            dbManager.AddParameters(0, "@KODIPIN", kodiPIN, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrja, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@DATA_PERDORIMIT", dataPerdorur, ParameterDirection.Input);
-            int pergjigje = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_PIN_GJENERUAR_IVLEFSHEM"));
-            return Convert.ToBoolean(pergjigje);
-        }
-
-        #endregion
 
         #region Logu i People Finder
         public bool fshiTabelaTemporareImporti(string tabelaKoka, string tabelaTrupi, string emerTabeleKokaHistorik, string emerTabeleTrupiHistorik)

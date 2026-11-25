@@ -17,8 +17,6 @@
     }
 
     function expandAll(s, e) {
-        if (Utils.getUrlVar("vjenNga") == 'epayslip')
-            return;
         var p = panelet();
         if (p) p.lart.Collapse(p.faqja);
     }

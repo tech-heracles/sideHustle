@@ -58,26 +58,6 @@ namespace DbCore.DbImporte
             }
         }
 
-        public static clsMesazh transferoPolicaNeTabelaImporti(string emerTabeleKoka, string emerTabeleTrupi, int idNdermarrje, int idPerdoruesi, out int idKokaError)
-        {
-            idKokaError = 0;
-
-            clsDatabazeImporte dbImport = new clsDatabazeImporte();
-            try
-            {
-                dbImport.beginTransaksion(0);
-                idKokaError = dbImport.transferoPolicaNeTabelaImporti(emerTabeleKoka, emerTabeleTrupi, idNdermarrje, idPerdoruesi);
-                dbImport.commitTransaksion();
-                return new clsMesazh(true, "Transferimi perfundoi me sukses!");
-            }
-            catch (Exception ex)
-            {
-                dbImport.rollbackTransaksion();
-                ImbLogger.Error(ex.Message);
-                return new clsMesazh(false, "Ndodhi nje gabim gjate transferimit!");
-            }
-        }
-
         public static void FshiDokumentatTeDuplikuar(string emerTabele, string primarykey)
         {
             using (var db = new clsDatabazeImporte())

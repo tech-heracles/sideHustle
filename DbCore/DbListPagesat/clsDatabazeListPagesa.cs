@@ -8777,19 +8777,6 @@ namespace DbCore.DbListPagesat
             return ds.Tables[0];
         }
 
-        internal DataRow merrNrTelSipasUsername(string username)
-        {
-            string salt = WebConfigurationManager.AppSettings["salt"];
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@USERNAME", username, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@SALT", salt, ParameterDirection.Input);
-            using (DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PUNONJES_merrNrTelSipasUsername"))
-            {
-                return ds.Tables[0].Rows[0];
-            }
-        }
-
         internal bool eshteLidhurPunMeVepArkeBanke( int idpunonjes)
         {
            

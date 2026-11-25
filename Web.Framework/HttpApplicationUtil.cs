@@ -17,7 +17,7 @@ namespace PlatinumWeb
 		/// <returns></returns>
 		public static bool EshteUrlPaScopeID(string absoluteUrl, string queryUrl)
 		{
-			return ($"~{absoluteUrl}".ContainsAnyIgnoreCase("E-Payslip") || !(absoluteUrl.EndsWith(".aspx")));
+			return !absoluteUrl.EndsWith(".aspx");
 		}
 		/// <summary>
 		/// kontrollon nese po tentohet te aksesohet nje faqe login apo reset pass te cilat jane pa auth
@@ -26,7 +26,7 @@ namespace PlatinumWeb
 		/// <returns></returns>
 		public static bool EshteUrlLogini(string url)
 		{
-			return $"~{url}".ContainsAnyIgnoreCase(Paths.defaultLoginPath, Paths.loginPathEpaySlip, Paths.ndryshimFjalekalimi, Paths.ndryshimFjalekalimiEpaysLip);
+			return $"~{url}".ContainsAnyIgnoreCase(Paths.defaultLoginPath, Paths.ndryshimFjalekalimi);
 		}
 
 		/// <summary>
@@ -36,7 +36,7 @@ namespace PlatinumWeb
 		/// <returns></returns>
 		public static bool EshteFaqeRaporti(HttpRequest request)
 		{
-			return request.Url.LocalPath.ContainsAnyIgnoreCase("Raporti.aspx", "RaportiShpejte.aspx", "RaportiEPaySlip.aspx");
+			return request.Url.LocalPath.ContainsAnyIgnoreCase("Raporti.aspx", "RaportiShpejte.aspx");
 		}
 		/// <summary>
 		/// kontrollon nese kerkesa eshte rest api apo jo

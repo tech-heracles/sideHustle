@@ -776,7 +776,6 @@
     <Compile Include="DbAdmin\clsAmbjent.cs" />
     <Compile Include="DbAdmin\clsDrejtaTabi.cs" />
     <Compile Include="DbAdmin\clsFiltraGIS.cs" />
-    <Compile Include="DbAdmin\clsGjenerimPIN.cs" />
     <Compile Include="DbAdmin\clsKokaErrorImporti.cs" />
     <Compile Include="DbAdmin\colFiltraGIS.cs" />
     <Compile Include="DbAdmin\clsLogRivleresimInventari.cs" />

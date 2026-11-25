@@ -103,10 +103,8 @@ function SucceededCallbackImport(result) {
             txtNrDokumentash.SetValue(result[0].NrDokumentash);
             if (cmbKategoria.GetValue() == "1" || cmbKategoria.GetValue() == "2") {
                 cbRimerrTeImportuara.SetChecked(result[0].RimerrTeImportuara);
-                if (cmbKategoria.GetValue() != "2") {
+                if (cmbKategoria.GetValue() != "2")
                     cbPermbledhese.SetChecked(result[0].GjeneroFaturePermbledhese);
-                    cbTransferoFatura.SetChecked(result[0].TransferoFatura);
-                }
             }
             if (result[0].Kategoria == 45) {
                 txtEmerTabRec.SetText(result[0].EmerTabRec);
@@ -128,7 +126,6 @@ function SucceededCallbackImport(result) {
             txtEmerTabTrupi.SetText('');
             txtEmerTabTrupiHistorik.SetText('');
             cbPermbledhese.SetChecked(false);
-            cbTransferoFatura.SetChecked(false);
             cbTePaImportuara.SetVisible(false);
             cbTePaImportuara.SetChecked(false);
             txtNrDokumentash.SetVisible(false);
@@ -366,7 +363,7 @@ function menu_click(s, e) {
     }
     else if (e.item.name === "ListaGabimeve") {
         e.processOnServer = false;
-        if (raportgab == false && !cbTransferoFatura.GetChecked())
+        if (raportgab == false)
             myMesazh.ShtoMesazhGabimi(hfState.Get("msgKontrolloGabimet"));
 
         else
@@ -481,21 +478,11 @@ function TextChangedKategoria(idKategoria) {
     if (cmbKategoria.GetValue() === "1") {
         cbPermbledhese.SetVisible(true);
         cbPermbledhese.SetEnabled(true);
-        if (rbTipi.GetValue() == "SQL") {
-            cbTransferoFatura.SetVisible(true);
-            cbTransferoFatura.SetEnabled(true);
-        }
-        else {
-            cbTransferoFatura.SetVisible(false);
-            cbTransferoFatura.SetEnabled(false);
-        }
     }
     else
         if (cmbKategoria.GetValue() !== "1" && cmbKategoria.GetValue() !== "2") {
             cbPermbledhese.SetVisible(false);
             cbPermbledhese.SetEnabled(false);
-            cbTransferoFatura.SetVisible(false);
-            cbTransferoFatura.SetEnabled(false);
         }
     try {
         $.ajax({
@@ -550,21 +537,11 @@ function enabled() {
     if (cmbKategoria.GetValue() === "1") {
         cbPermbledhese.SetVisible(true);
         cbPermbledhese.SetEnabled(true);
-        if (rbTipi.GetValue() == "SQL") {
-            cbTransferoFatura.SetVisible(true);
-            cbTransferoFatura.SetEnabled(true);
-        }
-        else {
-            cbTransferoFatura.SetVisible(false);
-            cbTransferoFatura.SetEnabled(false);
-        }
     }
     else
         if (cmbKategoria.GetValue() !== "1") {
             cbPermbledhese.SetVisible(false);
             cbPermbledhese.SetEnabled(false);
-            cbTransferoFatura.SetVisible(false);
-            cbTransferoFatura.SetEnabled(false);
         }
     if (rbTipi.GetValue() == "XLS" || rbTipi.GetValue() == "XLSX") {
         txtEmerSheet.SetEnabled(true);
@@ -765,7 +742,7 @@ function callWebServiceKtheDataSourceDheFormatImporti() {
             emerTabeleKoke: txtEmerTabKoka.GetText(),
             emerTabeleTrupi: txtEmerTabTrupi.GetText(),
             emerTabeleRec: txtEmerTabRec.GetText(),
-            transferoFatura: cbTransferoFatura.GetChecked(),
+            transferoFatura: false,
             tePaImportuara: cbTePaImportuara.GetChecked(),
             emerSheet: txtEmerSheet.GetText(),
             rimerrTeImportuara: cbRimerrTeImportuara.GetChecked(),
@@ -1214,7 +1191,7 @@ function kontrolloImportoTeDhenaGridImporti(importo) {
             kategoria: cmbKategoria.GetText(),
             formati: cmbFormati.GetValue(),
             lloji: rbTipi.GetValue(),
-            transferoFatura: cbTransferoFatura.GetChecked(),
+            transferoFatura: false,
             tePaImportuara: cbTePaImportuara.GetChecked(),
             emerTabeleKoke: txtEmerTabKoka.GetText(),
             emerTabeleTrupi: txtEmerTabTrupi.GetText(),

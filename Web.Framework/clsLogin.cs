@@ -208,10 +208,6 @@ namespace PlatinumWeb
                         clsFunksione.logout(Session, true, true, true);
                         labelInfo.Text = rm.GetString("msgKohaKaMbaruar", ci);
                         break;
-                    case "failSendigPinEpayslip":
-                        clsFunksione.logout(Session, true, true, true);
-                        labelInfo.Text = rm.GetString("msgGabimGjenerimPin",ci);
-                        return;
                     case "LinkIPavlefshem":
                         labelInfo.Text = rm.GetString("linkJoIVlefshem", ci);
                         return;

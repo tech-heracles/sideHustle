@@ -765,12 +765,6 @@ namespace DbCore.DbListPagesat
         #endregion
 
         #region Metoda Publike
-        public static string merrNumerTelefoneSipasUsername(string username)
-        {
-            using (var db = new clsDatabazeListPagesa())
-                return Convert.ToString(db.merrNrTelSipasUsername(username)["TELEFON"]);
-        }
-
 
         public static bool eshteLidhurPunMeVepArkeBanke(int idpunonjes)
         {

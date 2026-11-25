@@ -99,26 +99,6 @@ namespace DbCore.DbAdmin
             }
         }
         /// <summary>
-        /// Kthen true nese mbushet periudha kontabel me periudhat sipas vitit, pendryshe false <see cref="clsPeriudhaKontabel"/>.
-        /// Theret funksionin
-        /// :  <see cref="DbCore.DbAdmin.clsDatabaseAdmin.kthePeriudhaSipasViti"/> 
-        /// </summary>
-        public bool merrSipasVitiEpaySlip(int idViti)
-        {
-            using (clsDatabaseAdmin data = new clsDatabaseAdmin())
-            {
-                return mbushPeriudhKontabel(data.kthePeriudhaSipasVitiEPaySlip(idViti));
-            }
-        }
-
-        public bool merrSipasVitiEpaySlip(int idViti, CultureInfo ci)
-        {
-            using (clsDatabaseAdmin data = new clsDatabaseAdmin())
-            {
-                return mbushPeriudhKontabel(data.kthePeriudhaSipasVitiEPaySlip(idViti, ((ci.Name == "sq-AL") ? 0 : 1)));
-            }
-        }
-        /// <summary>
         /// Kthen true nese mbushet periudha kontabel me te gjitha periudhat, pendryshe false <see cref="clsPeriudhaKontabel"/>.
         /// Theret funksionin
         /// :  <see cref="DbCore.DbAdmin.clsDatabaseAdmin.kthePeriudhaAll"/> 
