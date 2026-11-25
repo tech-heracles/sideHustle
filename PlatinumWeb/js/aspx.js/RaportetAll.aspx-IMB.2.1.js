@@ -14,7 +14,7 @@ window.RaportetAll = (function () {
     };    
 
     var filtroButtonClick = function (idRaporti) {
-        window.location = "Raporti.aspx?idraporti=" + idRaporti + "&windowWidth=" + width + "&radButon=&dateNga=&dateDeri=&Filtro=true&vjenNga=" + ngaCRM + "&previousPage=RaportetAllNew";
+        window.location = "Raporti.aspx?idraporti=" + idRaporti + "&windowWidth=" + width + "&radButon=&dateNga=&dateDeri=&Filtro=true&vjenNga=" + ngaCRM + "&previousPage=RaportetAll";
     };
 
     var klickselectedvaluedok = function (theRadio, e) {

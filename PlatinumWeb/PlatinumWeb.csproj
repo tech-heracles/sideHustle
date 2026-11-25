@@ -1802,7 +1802,6 @@
     <Content Include="LupaKomponenteMuaj.aspx" />
     <Content Include="LupaProfesioneTitujPune.aspx" />
     <Content Include="ProfesioneTitujPune.aspx" />
-    <Content Include="RaportetAllNew.aspx" />
     <Content Include="RegjistrimInventarizimi.aspx" />
     <Content Include="js\aspx.js\AktivizoAlphaWeb.aspx.js" />
     <Content Include="js\aspx.js\GjenerimAutomatik.aspx-IMB.4.6.js" />
@@ -3941,13 +3940,6 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="RaportetAllNew.aspx.cs">
-      <DependentUpon>RaportetAllNew.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RaportetAllNew.aspx.designer.cs">
-      <DependentUpon>RaportetAllNew.aspx</DependentUpon>
     </Compile>
     <Compile Include="RecetaOptike.aspx.cs">
       <DependentUpon>RecetaOptike.aspx</DependentUpon>

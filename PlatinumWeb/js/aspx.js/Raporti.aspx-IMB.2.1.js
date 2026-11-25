@@ -2376,8 +2376,6 @@ function kthehuNeFaqenEMeparshme() {
     var previousPage = Utils.getUrlVar("previousPage");
     if (vjenNga == "Aprovim")
         window.location = "ListeAprovimi.aspx?status=aprovim";
-    else if (previousPage == "RaportetAllNew")
-        window.location = "RaportetAllNew.aspx";
     else if (previousPage == "RaportetAll")
         window.location = "RaportetAll.aspx";
     else if (idmod != "undefined")
