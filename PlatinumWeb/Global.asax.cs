@@ -249,7 +249,7 @@ namespace PlatinumWeb
 				try
 				{
 					p.Header.Controls.Add(new System.Web.UI.LiteralControl(
-						"<script src=\"" + VirtualPathUtility.ToAbsolute("~/js/avec-tags.js") + "?v=2\" defer></script>"));
+						"<script src=\"" + VirtualPathUtility.ToAbsolute("~/js/avec-tags.js") + "?v=3\" defer></script>"));
 				}
 				catch (HttpException) { /* a <head> with <%= %> blocks cannot take controls; the page keeps the plain theme */ }
 			};

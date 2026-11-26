@@ -30,7 +30,7 @@ const DEFAULTS = {
   base: 'http://localhost:8080/', company: 'DRAFT', user: 'konfig', password: '',
   runs: 'cold,warm', lupa: 'on', search: 'a', only: '', skip: '', limit: 0, headed: false,
   'sql-server': 'localhost\\HERACLES', 'sql-db': 'DRAFT', 'sql-user': 'AVEC', 'sql-password': '',
-  'page-timeout': 60000, 'lupa-timeout': 30000, from: 0,
+  'page-timeout': 60000, 'lupa-timeout': 30000, from: 0, shots: '', width: 1600, height: 1000,
 };
 function readOptions() {
   const o = Object.assign({}, DEFAULTS);
@@ -165,7 +165,7 @@ function withScope(page, url) {
 
 // ---------- one pass over all pages ----------
 async function runPass(browser, runName, pagesFilter) {
-  const context = await browser.newContext({ viewport: { width: 1600, height: 1000 } });
+  const context = await browser.newContext({ viewport: { width: Number(opt.width), height: Number(opt.height) } });
   const page = await context.newPage();
   const net = new Net(page);
   let sink = null;   // the record that console errors / dialogs are attributed to
@@ -231,6 +231,7 @@ async function runPass(browser, runName, pagesFilter) {
       if (/Prezantohu|Error|Gabim/i.test(new URL(frame.url()).pathname) && !/Error/i.test(item.url)) errs.push('redirected to ' + new URL(frame.url()).pathname);
       if (!settledOk) rec.dialogs.push('network not idle after 30s');
       rec.error = errs.join(' | ');
+      if (opt.shots) await shot(page, `${String(rec.seq + Math.max(0, Number(opt.from) - 1)).padStart(3, '0')}-page-${item.url}`);
       // lupat
       sink = null;
       if (opt.lupa === 'on' && !errs.length) await testLupat(page, net, frame, rec, rows, note, (s) => { sink = s; }, docStatus);
@@ -315,6 +316,7 @@ async function testLupat(page, net, frame, pageRec, rows, note, setSink, docStat
       Object.assign(rec, { final_url: lf.url(), ttfb_ms: f.ttfb, response_ms: f.responseEnd, dom_ms: f.dom, load_ms: f.load,
         transfer_bytes: f.transfer, html_bytes: f.html, viewstate_bytes: f.viewstate });
       rec.rows = await gridRows(lf);
+      if (opt.shots) { await sleep(300); await shot(page, `${String(pageRec.seq + Math.max(0, Number(opt.from) - 1)).padStart(3, '0')}-lupa-${name}-${u.pathname.replace(/^\//, '')}`); }
       const errs = [];
       if (rec.http_status >= 400) errs.push('HTTP ' + rec.http_status);
       if (f.err) errs.push(f.err);
@@ -352,6 +354,14 @@ async function testLupat(page, net, frame, pageRec, rows, note, setSink, docStat
     console.log(`        lupa ${rec.status.padEnd(7)} ${String(rec.settled_ms ?? '').padStart(6)}ms search ${String(rec.search_ms ?? '-').padStart(5)}ms ${rec.lupa_button} -> ${rec.lupa_url}${rec.error ? '  ' + rec.error.slice(0, 100) : ''}`);
     await closePopups(frame, page);
   }
+}
+
+// --shots <dir>: a screenshot of the whole window after each page and each opened lupa (for a visual review)
+async function shot(page, name) {
+  try {
+    fs.mkdirSync(opt.shots, { recursive: true });
+    await page.screenshot({ path: path.join(opt.shots, name.replace(/[^\w.-]+/g, '_').slice(0, 120) + '.png') });
+  } catch (e) { }
 }
 
 async function gridRows(f) {

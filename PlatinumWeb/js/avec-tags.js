@@ -127,4 +127,48 @@
     }
 
     window.avecTags = tag;
+
+    // Lupat: each page opens its lupa popup with its own fixed width (500-900 px, hard-coded in ~130 scripts), often
+    // narrower than the lupa's grid, so the last columns and the toolbar were cut off. A popup that loads a page
+    // (ContentUrl, i.e. a lupa) is never made narrower than min(1000 px, window - 40 px). Dialogs without a page keep
+    // their size.
+    function lupaMinWidth() { return Math.max(320, Math.min(1000, (window.innerWidth || 1000) - 40)); }
+    function patchPopups() {
+        var P = window.ASPxClientPopupControl;
+        if (!P || !P.prototype || P.prototype.__avecMinWidth) return !!P;
+        var proto = P.prototype;
+        proto.__avecMinWidth = true;
+        function isLupa(popup, index) {
+            try {
+                var url = popup.GetContentUrl ? (index === undefined ? popup.GetContentUrl() : popup.GetWindowContentUrl(popup.GetWindow(index))) : '';
+                return !!url && url !== 'about:blank';
+            } catch (e) { return false; }
+        }
+        function widen(popup, width) {
+            var w = parseInt(width, 10);
+            return isNaN(w) ? width : Math.max(w, lupaMinWidth());
+        }
+        ['SetWidth', 'SetSize'].forEach(function (name) {
+            var orig = proto[name];
+            if (typeof orig !== 'function') return;
+            proto[name] = function (width) {
+                var args = Array.prototype.slice.call(arguments);
+                if (this.__avecLupa || isLupa(this)) args[0] = widen(this, width);
+                return orig.apply(this, args);
+            };
+        });
+        var setUrl = proto.SetContentUrl;
+        if (typeof setUrl === 'function') {
+            proto.SetContentUrl = function (url) {
+                var r = setUrl.apply(this, arguments);
+                this.__avecLupa = !!url && url !== 'about:blank';
+                try {
+                    if (this.__avecLupa && this.GetWidth && this.GetWidth() < lupaMinWidth()) this.SetWidth(lupaMinWidth());
+                } catch (e) { }
+                return r;
+            };
+        }
+        return true;
+    }
+    if (!patchPopups()) window.addEventListener('load', patchPopups);
 })();

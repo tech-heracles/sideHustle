@@ -229,7 +229,7 @@ namespace PlatinumWeb
             {
                 ndermarrje = new DbCore.DbAdmin.clsNdermarrje(ndermarrje.IdNdermarrje);
                 DbCore.DbAdmin.clsRoli roli = new DbCore.DbAdmin.clsRoli();
-                mesazh = roli.ruajRoleDefaultMeTeDrejtaRaportesh(ndermarrje.IdNdermarrje, ndermarrje.IdViti, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), int.Parse(cmbLlojLicence.Value.ToString()), ndermarrje.IdNdermarrje);
+                mesazh = roli.ruajRoleDefaultMeTeDrejtaRaportesh(ndermarrje.IdNdermarrje, ndermarrje.IdViti, DbCore.mySessionObjects.ktheIdPerdoruesi(Session), int.Parse(cmbLlojLicence.Value.ToString()), ndermarrje.IdLicenca);
             }
             if (mesazh.Status == true)
             {
