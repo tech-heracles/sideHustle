@@ -41,7 +41,12 @@ namespace PlatinumWeb
             GridUtil.percaktoVisibleColumns(DbCore.mySessionObjects.ktheGjuhe(Session), DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session), gvLupaPerKont, "gvLupaPerKont", "LupaPeriudhaKontabel.aspx");
             var endlessScroll = clsAlternativaKushti.getAlternativa(clsKonfigurimAmbjenti.ktheIdKonfigurimiMeKod("LP/PerKont", DbCore.mySessionObjects.merrIdNdermarrjeSesioni(Session)), "ES") == "Po";
             GridUtil.KonfiguroGrideListeMadhePopupiPaTheme(gvLupaPerKont, "IdPeriudha", true, endlessScroll);
-            gvLupaPerKont.SettingsPager.PageSize = 12;
+            // nje vit ka deri 14 periudha (celje, 12 muaj, mbyllje): te gjitha ne nje faqe, pa faqosje
+            gvLupaPerKont.SettingsPager.PageSize = 20;
+            // 14 rreshta nuk kane nevoje per kerkim/filter: pa to lista hyn e gjitha ne dritare
+            gvLupaPerKont.Settings.ShowFilterRow = false;
+            gvLupaPerKont.SettingsSearchPanel.Visible = false;
+            gvLupaPerKont.Settings.ShowFilterBar = GridViewStatusBarMode.Hidden;
         }
 
         private void mbushListeVite()
@@ -53,13 +58,16 @@ namespace PlatinumWeb
             cmbVitiAktual.TextField = "NdermarrjeViti";
             cmbVitiAktual.ValueField = "IdViti";
             cmbVitiAktual.DataBind();
-            cmbVitiAktual.SelectedIndex = idVitiAktual;
+            // idVitiAktual eshte IdViti, jo indeks: zgjidhet sipas vleres
+            foreach (ListEditItem item in cmbVitiAktual.Items)
+                if (Convert.ToString(item.Value) == idVitiAktual.ToString()) { cmbVitiAktual.SelectedItem = item; break; }
 
         }
 
         protected void gvLupaPerKont_DataBound(object sender, EventArgs e)
         {
-            gvLupaPerKont.Settings.ShowFilterRow = true;
+            // vetem 12-14 periudha: rreshti i filtrit zinte vend dhe e shtynte listen jashte dritares
+            gvLupaPerKont.Settings.ShowFilterRow = false;
             gvLupaPerKont.KeyFieldName = "IdPeriudha";
             gvLupaPerKont.SettingsBehavior.AllowSelectByRowClick = true;
         }

@@ -23,10 +23,10 @@
     </style>
  <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/LupaPeriudhaKontabel.aspx-IMB.2.1.js&v76""
+     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/LupaPeriudhaKontabel.aspx-IMB.2.1.js&v78""
         type="text/javascript"></script>
 </head>
-<body onload="Init()" style="background-color: #EDF3F4">
+<body onload="Init()">
     <form id="form1" runat="server">
            
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -35,7 +35,7 @@
     <div>
         <dx:ASPxGlobalEvents ID="ASPxGlobalEvents1" runat="server">
         </dx:ASPxGlobalEvents>
-        <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ASPxRoundPanel1" runat="server" HeaderText="Zgjidh Llogarine"
+        <dx:ASPxRoundPanel EnableHierarchyRecreation="false" ID="ASPxRoundPanel1" runat="server" Width="100%" HeaderText="Zgjidh periudhen kontabel"
             ShowHeader="False">
             <PanelCollection>
                 <dx:PanelContent>

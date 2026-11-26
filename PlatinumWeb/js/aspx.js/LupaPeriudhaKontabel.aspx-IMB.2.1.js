@@ -2,8 +2,18 @@
 function Init() {
     try {
         myFaqeCelje.shtoHandlerSession();
-        gvLupaPerKont.SetFocusedRowIndex(0);
-        btnOk.Focus();
+        // fokus te periudha aktuale; btnOk.Focus() e rrotullonte dritaren poshte dhe fshihte vitin dhe kolonat
+        var index = 0;
+        var aktuale = window.parent && window.parent.lexoHfPeriudhe ? window.parent.lexoHfPeriudhe() : null;
+        if (aktuale) {
+            for (var i = 0; i < gvLupaPerKont.GetVisibleRowsOnPage(); i++) {
+                if (String(gvLupaPerKont.GetRowKey(i)) === String(aktuale.IdPeriudha)) { index = i; break; }
+            }
+        }
+        gvLupaPerKont.SetFocusedRowIndex(index);
+        window.scrollTo(0, 0);
+        var rreshti = gvLupaPerKont.GetRow(index);
+        if (rreshti && rreshti.getBoundingClientRect().bottom > window.innerHeight) rreshti.scrollIntoView({ block: 'center' });
     }
     catch (err) {
         ///alert('gabim');    

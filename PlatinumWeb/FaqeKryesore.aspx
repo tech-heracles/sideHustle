@@ -413,14 +413,14 @@
             <dx:ASPxPopupControl EnableHierarchyRecreation="false" ID="popupUniversal" runat="server" AllowDragging="True" ClientInstanceName="popupUniversal"
                 CloseAction="CloseButton" EnableAnimation="False" EnableViewState="False" HeaderText="Zgjidh periudhen kontabel"
                 Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"
-                Width="600px" Height="600px" ClientIDMode="AutoID" CssPostfix="Glass" Style="background-color: #EDF3F4">
+                Width="600px" Height="600px" ClientIDMode="AutoID" CssPostfix="Glass">
                 <HeaderStyle>
                     <Paddings PaddingLeft="10px" PaddingRight="6px" PaddingTop="1px" />
                 </HeaderStyle>
                 <ContentCollection>
                     <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
-                        <iframe id="Container" clientidmode="Static" scrolling="no" frameborder="0" runat="server"
-                            width="600" height="600" style="background-color: #EDF3F4"></iframe>
+                        <iframe id="Container" clientidmode="Static" scrolling="auto" frameborder="0" runat="server"
+                            width="600" height="600"></iframe>
                     </dx:PopupControlContentControl>
                 </ContentCollection>
             </dx:ASPxPopupControl>
