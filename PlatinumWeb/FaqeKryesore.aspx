@@ -46,7 +46,7 @@
     </script>
 
     <link href="FaqeKryesore.css" rel="stylesheet" />
-    <link href="css/avec-shell.css?v=4" rel="stylesheet" />
+    <link href="css/avec-shell.css?v=5" rel="stylesheet" />
     <style>
         html {
             min-height: 100%; /* make sure it is at least as tall as the viewport */
@@ -348,9 +348,16 @@
                                             <span id="lblPeriudhaLart" runat="server" class="avec-ktx-vlere ktxPeriudha"></span>
                                             <i class="fa fa-angle-down avec-ktx-shigjete"></i>
                                         </button>
+                                        <%-- perdoruesi vetem si tekst (pa foto dhe pa menu); Dalje eshte butoni ngjitur --%>
+                                        <span class="avec-ktx avec-perdoruesi" title="Perdoruesi i kycur">
+                                            <i class="fa fa-user"></i>
+                                            <span class="avec-ktx-etk">Përdoruesi:</span>
+                                            <span id="lblPerdoruesiLart" runat="server" class="avec-ktx-vlere"></span>
+                                        </span>
                                     </div>
 
-                                    <div id="menu" class="menu">
+                                    <%-- menuja e vjeter e perdoruesit (foto + dropdown) fshihet; mbetet ne faqe sepse kodi e perdor --%>
+                                    <div id="menu" class="menu" style="display:none !important">
                                         <dx:ASPxMenu ID="ASPxMenuPerdoruesi" Width="100%" Height="100%" runat="server" EnableClientSideAPI="true" ClientInstanceName="menu">
                                             <%-- menuja e perdoruesit (lart djathtas); faqet e programit hapen nga kartat e Kryefaqes (Default.aspx) --%>
                                             <ClientSideEvents ItemClick="function(s, e) {kontrolloTeDrejta(s,e,e.item.name);}" />

@@ -252,6 +252,7 @@ namespace PlatinumWeb
 			var ikona = ASPxMenuPerdoruesi.Items.FindByName("ikonaImazhPerdorues");
 			if (ikona != null)
 				ikona.Text = String.IsNullOrEmpty(emri) ? user.PerdoruesUsername : emri;
+			lblPerdoruesiLart.InnerText = user.PerdoruesUsername;
 		}
 
 

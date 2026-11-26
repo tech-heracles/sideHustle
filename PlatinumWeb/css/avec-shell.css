@@ -121,6 +121,21 @@ html, body, #form1, #backDiv {
     text-overflow: ellipsis;
 }
 
+/* the logged-in user: plain text, not a button */
+.avec-ktx.avec-perdoruesi {
+    cursor: default;
+}
+
+.avec-ktx.avec-perdoruesi:hover {
+    border-color: #2e2e2e;
+}
+
+@media (max-width: 1150px) {
+    .avec-ktx.avec-perdoruesi .avec-ktx-etk {
+        display: none;
+    }
+}
+
 .avec-ktx-vlere.e-kycur {
     color: #8a8a87;
 }
