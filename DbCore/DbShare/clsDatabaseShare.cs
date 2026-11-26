@@ -52,6 +52,28 @@ namespace DbCore.DbShare
 
             return dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_Moduli_RaportetSipasTeDrejtave").Tables[0];
         }
+
+        // favoritet (ylli) e Kryefaqes per perdoruesin (DRAFT 18: T_PERDORUES_FAVORITE)
+        internal List<string> merrFavoritet(int idPerdoruesi)
+        {
+            dbManager.Open();
+            dbManager.CreateParameters(1);
+            dbManager.AddParameters(0, "@IDPERDORUES", idPerdoruesi, ParameterDirection.Input);
+            var lista = new List<string>();
+            foreach (DataRow r in dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PERDORUES_FAVORITE_sel").Tables[0].Rows)
+                lista.Add(Convert.ToString(r["CELESI"]));
+            return lista;
+        }
+
+        internal void ndryshoFavorit(int idPerdoruesi, string celesi, bool shto)
+        {
+            dbManager.Open();
+            dbManager.CreateParameters(3);
+            dbManager.AddParameters(0, "@IDPERDORUES", idPerdoruesi, ParameterDirection.Input);
+            dbManager.AddParameters(1, "@CELESI", celesi, ParameterDirection.Input);
+            dbManager.AddParameters(2, "@SHTO", shto, ParameterDirection.Input);
+            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_PERDORUES_FAVORITE_ndrysho");
+        }
         internal string ktheKonfigMenuMajtas(int idPerdoruesi, int idNdermarrje)
         {
             dbManager.Open();

@@ -177,6 +177,23 @@ namespace DbCore.DbShare
             }
         }
 
+        /// <summary>Faqet dhe raportet me yll ne Kryefaqe (adresa e faqes ose "rap:idmoduli:idraporti").</summary>
+        public static List<string> MerrFavoritet(int idPerdoruesi)
+        {
+            using (var dbshare = new clsDatabaseShare())
+            {
+                return dbshare.merrFavoritet(idPerdoruesi);
+            }
+        }
+
+        public static void NdryshoFavorit(int idPerdoruesi, string celesi, bool shto)
+        {
+            using (var dbshare = new clsDatabaseShare())
+            {
+                dbshare.ndryshoFavorit(idPerdoruesi, celesi, shto);
+            }
+        }
+
         public static string KtheListKonfigRaportesh(int idNdermarrje, int idPerdoruesi, int idModuli)
         {
             using (var dbshare = new clsDatabaseShare())

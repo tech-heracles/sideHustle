@@ -23,7 +23,7 @@ Namespace="DevExpress.Web" TagPrefix="dx" %>
           id="themeJQuery"/>
     <link href="js/jqGrid445/plugins/ui.multiselect.css" rel="stylesheet" type="text/css" />
     <link href="js/jqGrid445/css/ui.jqgrid.css" media="screen" rel="stylesheet" type="text/css"/>
-     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/async.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/jqGrid445/plugins/ui.multiselect.js;~/js/jqGrid445/grid.locale-en.js;~/js/jqGrid445/jquery.jqGrid.js;~/js/myMesazh-IMB.2.1.js;~/js/customCombobox.js;~/js/myJQGrid-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myNrAuto-IMB.2.1.js;~/JsGlobal.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/ListPagesaUtils.js;~/js/myCookies-IMB.2.1.js;~/js/json2.js;~/js/aspx.js/Shto_ListPagesa.aspx-IMB.2.1.js&v78"""
+     <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/async.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/jquery-ui-1.10.2.custom.min.js;~/js/jqGrid445/plugins/ui.multiselect.js;~/js/jqGrid445/grid.locale-en.js;~/js/jqGrid445/jquery.jqGrid.js;~/js/myMesazh-IMB.2.1.js;~/js/customCombobox.js;~/js/myJQGrid-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/myNrAuto-IMB.2.1.js;~/JsGlobal.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/ListPagesaUtils.js;~/js/myCookies-IMB.2.1.js;~/js/json2.js;~/js/aspx.js/Shto_ListPagesa.aspx-IMB.2.1.js&v79"""
             ></script>
 </head>
 <body>

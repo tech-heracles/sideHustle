@@ -2374,8 +2374,9 @@ function kthehuNeFaqenEMeparshme() {
     var idmod = Utils.getUrlVar("idmod");
     var vjenNga = Utils.getUrlVar("vjenNga");
     var previousPage = Utils.getUrlVar("previousPage");
-    if (vjenNga == "Aprovim")
-        window.location = "ListeAprovimi.aspx?status=aprovim";
+    // raporti u hap nga Kryefaqja (Default.aspx): kthehet aty, ne te njejtin modul
+    if (previousPage == "Kryefaqja")
+        window.location = "Default.aspx" + (idmod != "undefined" ? "#raporte-" + idmod : "");
     else if (previousPage == "RaportetAll")
         window.location = "RaportetAll.aspx";
     else if (idmod != "undefined")

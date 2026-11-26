@@ -542,7 +542,6 @@ namespace PlatinumWeb
             DbCore.DbShare.clsKonfigurimAmbjenti konf = new DbCore.DbShare.clsKonfigurimAmbjenti();
             konf.mbushKonfigAmbjSipasId(int.Parse(cmbKonfigurimi.SelectedItem.Value.ToString()),  idgjuha);
             hfKonffillestar.Value = konf.KodKonfigAmbjente + ";" + konf.PershkrimKonfigAmbjente;
-            ConfigureAspxComboBox.percaktoTemplateComboMeLupe(txtGrupi);
             ConfigureAspxComboBox.mbushComboGrupeNdermarrjesh(new DbCore.DbAdmin.clsNdermarrje(idNdermarrje).IdLicenca, txtGrupi);
             ConfigureAspxComboBox.percaktoTemplateComboMeEnableCallbackPaButon(cmbMeme);
             int idLicenca = DbCore.DbAdmin.clsNdermarrje.ktheLicenceNdermarrje(idNdermarrje);

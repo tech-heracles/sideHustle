@@ -8581,11 +8581,7 @@ function menuClick(s, e, doPostback) {//po
         click = false;
     }
     if (e.item.name == 'Anullo') {
-        if (Utils.getUrlVar('vjenNga') == 'aprovim')
-            myFaqeCelje.kontrolloTeDrejta('ListeAprovimi.aspx?status=aprovim');
-        else if (Utils.getUrlVar('vjenNga') == 'kerkese')
-            myFaqeCelje.kontrolloTeDrejta('ListeAprovimi.aspx?status=kerkese');
-        else myFaqeCelje.kontrolloTeDrejta('RegjistrimDokumentash.aspx?shitje_blerje=' + pageState.veprimi); e.processOnServer = false;
+        myFaqeCelje.kontrolloTeDrejta('RegjistrimDokumentash.aspx?shitje_blerje=' + pageState.veprimi); e.processOnServer = false;
         click = false;
         return;
     }

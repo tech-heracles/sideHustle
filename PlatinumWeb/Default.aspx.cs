@@ -18,6 +18,8 @@ using DbCore;
 using DbCore.IMBUtils.Extensions;
 using DbCore.IMBUtils.Logging;
 using PlatinumWeb.ApplicationUtils.Pages;
+using System.Web.Services;
+using Newtonsoft.Json;
 
 namespace PlatinumWeb
 {
@@ -88,6 +90,76 @@ namespace PlatinumWeb
                     }
                 }
             }
+        }
+
+        // ---- Kryefaqja (2026-11-27): favoritet me yll dhe raportet e moduleve brenda panelit te djathte ----
+
+        private static bool EshteLoguar()
+        {
+            return HttpContext.Current != null && HttpContext.Current.Session != null && mySessionObjects.isLogedIn(HttpContext.Current.Session);
+        }
+
+        /// <summary>Faqet dhe raportet me yll te perdoruesit te loguar.</summary>
+        [WebMethod(EnableSession = true)]
+        public static string MerrFavoritet()
+        {
+            if (!EshteLoguar()) return "[]";
+            try
+            {
+                return JsonConvert.SerializeObject(DbCore.DbShare.clsRaporti.MerrFavoritet(mySessionObjects.ktheIdPerdoruesi(HttpContext.Current.Session)));
+            }
+            catch (Exception err)
+            {
+                ImbLogger.Error(err);
+                return "[]";
+            }
+        }
+
+        /// <summary>Shton (shto = true) ose heq yllin e nje faqeje / raporti.</summary>
+        [WebMethod(EnableSession = true)]
+        public static bool NdryshoFavorit(string celesi, bool shto)
+        {
+            if (!EshteLoguar() || String.IsNullOrWhiteSpace(celesi) || celesi.Length > 300) return false;
+            try
+            {
+                DbCore.DbShare.clsRaporti.NdryshoFavorit(mySessionObjects.ktheIdPerdoruesi(HttpContext.Current.Session), celesi.Trim(), shto);
+                return true;
+            }
+            catch (Exception err)
+            {
+                ImbLogger.Error(err);
+                return false;
+            }
+        }
+
+        /// <summary>Raportet qe perdoruesi mund te hape, per secilin modul: { "2": [{ id, emri }], ... }.</summary>
+        [WebMethod(EnableSession = true)]
+        public static string MerrRaportet(int[] module)
+        {
+            var rezultati = new Dictionary<string, object>();
+            if (!EshteLoguar() || module == null) return "{}";
+            var session = HttpContext.Current.Session;
+            int idNdermarrje = mySessionObjects.merrIdNdermarrjeSesioni(session);
+            int idPerdoruesi = mySessionObjects.ktheIdPerdoruesi(session);
+            int idGjuha = mySessionObjects.ktheGjuhe(session);
+            int idViti = mySessionObjects.ktheIdVitNdermarrje(session);
+            foreach (var idModuli in module.Distinct().Take(40))
+            {
+                try
+                {
+                    var dt = DbCore.DbShare.clsRaporti.KtheListRaportesh(idNdermarrje, idPerdoruesi, idGjuha, idViti, idModuli);
+                    rezultati[idModuli.ToString()] = dt.Rows.Cast<DataRow>().Select(r => new
+                    {
+                        id = Convert.ToInt32(r["IDRAPORTI"]),
+                        emri = Convert.ToString(r["RAPEMRI"])
+                    }).ToList();
+                }
+                catch (Exception err)
+                {
+                    ImbLogger.Error(err);
+                }
+            }
+            return JsonConvert.SerializeObject(rezultati);
         }
     }
 }

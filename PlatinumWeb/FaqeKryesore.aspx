@@ -545,8 +545,6 @@
                                                         
                                                         <dx:MenuItem Text="Fjalekalimi" Name="fjalekalimi" Visible="false">
                                                             <Items>
-                                                                <dx:MenuItem Text="Politika Fjalekalimi" Name="PolitikaFjalekalimi.aspx" Visible="false">
-                                                                </dx:MenuItem>
                                                                 <dx:MenuItem Text="Ndryshim Fjalëkalimi" Name="NdryshimFjalekalimi.aspx" Visible="false">
                                                                 </dx:MenuItem>
                                                             </Items>
@@ -559,12 +557,8 @@
                                                         </dx:MenuItem>
                                                         <dx:MenuItem Text="Mbyllje Periudhe" Name="MbylljePeriudhe.html" Visible="false">
                                                         </dx:MenuItem>
-                                                        <dx:MenuItem Text="Skema Pune" Name="Shto_SkemaWorkFlow.aspx" Visible="false">
-                                                        </dx:MenuItem>
                                                         <dx:MenuItem Text="Struktura e organizimit" Name="struktura-organizimit" Visible="false">
                                                             <Items>
-                                                                <dx:MenuItem Text="Grupim ndërmarrjesh" Name="LupaGrupNdermarrje.aspx" Visible="false">
-                                                                </dx:MenuItem>
                                                                 <dx:MenuItem Text="Ndërmarrjet" Name="Shto_Ndermarrje.aspx" Visible="false">
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Text="Degët Administrative" Name="Shto_DegeAdministrative.aspx">
@@ -975,15 +969,6 @@
                                                                     </Items>
                                                                 </dx:MenuItem>
                                                                 <dx:MenuItem Name="RillogaritjeAmortizimi.aspx" Text="Rillogaritje Amortizimi" Visible="false">
-                                                                </dx:MenuItem>
-                                                            </Items>
-                                                        </dx:MenuItem>
-                                                        <dx:MenuItem Text="Aprovime" Name="aprovime" Visible="false">
-                                                            <Items>
-                                                                <dx:MenuItem Name="ListeAprovimi.aspx?status=aprovim" Text="Aprovimet" Visible="false">
-                                                                </dx:MenuItem>
-                                                                <dx:MenuItem Name="ListeAprovimi.aspx?status=kerkese" Text="Kerkese per aprovim"
-                                                                    Visible="false">
                                                                 </dx:MenuItem>
                                                             </Items>
                                                         </dx:MenuItem>
@@ -1558,15 +1543,6 @@
                                                     </Items>
                                                 </dxnb:NavBarGroup>
 
-                                                <dxnb:NavBarGroup Text="Aprovime dokumentash" Name="aprovime-dokumentash" Expanded="False">
-                                                    <Items>
-                                                        <dxnb:NavBarItem Text="Aprovimet" Name="ListeAprovimi.aspx?status=aprovim" Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                        <dxnb:NavBarItem Text="Kerkese per aprovim" Name="ListeAprovimi.aspx?status=kerkese"
-                                                            Visible="false">
-                                                        </dxnb:NavBarItem>
-                                                    </Items>
-                                                </dxnb:NavBarGroup>
 
 
                                                 <dxnb:NavBarGroup Text="Raportet" Name="rap" Expanded="False">

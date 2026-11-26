@@ -1391,12 +1391,7 @@ function menu_click(s, e) {
     }
     else if (e.item.name === 'Anullo') {
         if (!click) {
-            if (Utils.getUrlVar('vjenNga') == 'aprovim')
-                myFaqeCelje.kontrolloTeDrejta('ListeAprovimi.aspx?status=aprovim');
-            else if (Utils.getUrlVar('vjenNga') == 'kerkese')
-                myFaqeCelje.kontrolloTeDrejta('ListeAprovimi.aspx?status=kerkese');
-            else
-                myFaqeCelje.kontrolloTeDrejta('ListPagesa.aspx');
+            myFaqeCelje.kontrolloTeDrejta('ListPagesa.aspx');
         }
         click = false;
     }

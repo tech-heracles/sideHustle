@@ -34,7 +34,7 @@
     <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
     <link href="bootstrap-3.3.6-dist/css/bootstrap-iso.css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myMesazh-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/Shto_Ndermarrje.aspx-IMB.2.1.js&v77"
+    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myMesazh-IMB.2.1.js;~/js/myButtonClickLupa-IMB.2.1.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/aspx.js/Shto_Ndermarrje.aspx-IMB.2.1.js&v78"
         type="text/javascript"></script>
     <style type="text/css">
         #mainContainer td.qelizeButoni {
@@ -590,7 +590,6 @@
                                         </ValidationSettings>
                                         <DisabledStyle Font-Bold="False">
                                         </DisabledStyle>
-                                        <ClientSideEvents ButtonClick="function(s, e) {Grupi_Click();}" />
                                     </dx:ASPxComboBox>
                                     <dx:ASPxLabel Wrap="False" AssociatedControlID="cbLogu" ID="lblLogu" runat="server"
                                         Text="Ruaj Loge:" ClientInstanceName="lblLogu">

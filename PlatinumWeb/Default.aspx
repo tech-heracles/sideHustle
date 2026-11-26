@@ -6,22 +6,49 @@
     <title>AVEC Accounting</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/avec-dashboard.css?v=4" rel="stylesheet" />
+    <link href="css/avec-dashboard.css?v=5" rel="stylesheet" />
+    <link href="css/avec-home.css?v=1" rel="stylesheet" />
 </head>
-<body class="avec-dashboard">
+<body class="avec-dashboard avec-home">
     <form id="form1" runat="server">
-        <nav class="dash-crumbs" id="dashCrumbs" hidden>
-            <button type="button" class="dash-back" id="dashBack"><i class="fa fa-arrow-left"></i> Kryefaqja</button>
-            <span class="dash-crumb-title" id="dashCrumbTitle"></span>
-        </nav>
-
-        <main class="dash-grid" id="dashGrid" aria-live="polite"></main>
+        <%-- Kryefaqja (2026-11-27): majtas modulet, djathtas faqet dhe raportet e modulit te zgjedhur.
+             Ne hyrje djathtas shfaqen vetem faqet/raportet me yll (favoritet, per perdorues: T_PERDORUES_FAVORITE). --%>
+        <div class="home" id="home">
+            <aside class="home-nav" aria-label="Modulet">
+                <label class="home-search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="search" id="homeSearch" placeholder="Kërko faqe ose raport…" autocomplete="off" />
+                    <kbd class="home-kbd">/</kbd>
+                </label>
+                <button type="button" class="home-nav-item home-nav-fav" id="navFav" data-key="__fav">
+                    <span class="home-nav-icon"><i class="fa fa-star"></i></span>
+                    <span class="home-nav-text"><span class="home-nav-title">Të preferuarat</span><span class="home-nav-desc">Faqet dhe raportet me yll</span></span>
+                    <span class="home-nav-count" id="navFavCount"></span>
+                </button>
+                <div class="home-nav-label">Modulet</div>
+                <nav class="home-nav-list" id="navList"></nav>
+            </aside>
+            <section class="home-main" aria-live="polite">
+                <header class="home-head" id="homeHead">
+                    <span class="home-head-icon" id="headIcon"><i class="fa fa-star"></i></span>
+                    <div class="home-head-text">
+                        <h1 id="headTitle">Të preferuarat</h1>
+                        <p id="headDesc"></p>
+                    </div>
+                    <label class="home-filter" id="headFilterWrap" hidden>
+                        <i class="fa fa-filter" aria-hidden="true"></i>
+                        <input type="search" id="headFilter" placeholder="Filtro në këtë modul…" autocomplete="off" />
+                    </label>
+                </header>
+                <div class="home-body" id="homeBody"></div>
+            </section>
+        </div>
         <p class="dash-empty" id="dashEmpty" hidden>Nuk keni akses në asnjë modul. Kontaktoni administratorin.</p>
     </form>
 
     <script>
         (function () {
-            // The home screen is the only menu: its cards are built from the main frame's navbar and top menu
+            // The home screen is the only menu: its modules are built from the main frame's navbar and top menu
             // (FaqeKryesore), which the server has already filtered by the user's rights.
             var MODULES = {
                 'Administrimi': { icon: 'fa-shield', desc: 'Përdorues, role dhe ndërmarrje' },
@@ -34,7 +61,6 @@
                 'prodhimi': { icon: 'fa-cogs', desc: 'Planifikim dhe ekzekutim' },
                 'qk': { icon: 'fa-sitemap', desc: 'Qendrat e kostos' },
                 'amortizimi': { icon: 'fa-building', desc: 'Aktivet afatgjata' },
-                'aprovime-dokumentash': { icon: 'fa-check-square-o', desc: 'Aprovimi i dokumenteve' },
                 'rap': { icon: 'fa-file-text-o', desc: 'Të gjitha raportet' },
                 'analizeBuxheti': { icon: 'fa-line-chart', desc: 'Analiza e buxhetit' },
                 'buxheti': { icon: 'fa-pie-chart', desc: 'Planifikimi i buxhetit' },
@@ -87,7 +113,6 @@
                 'celje/Shto_Transportues.aspx': 'blerjeShitje',
                 'regjistrime': 'konfigurime',
                 'regjistrime/amortizimi': 'amortizimi',
-                'regjistrime/aprovime': 'aprovime-dokumentash',
                 'regjistrime/fatura-blerje': 'blerjeShitje',
                 'regjistrime/EkzekutimBuxheti': 'buxheti',
                 'regjistrime/flete-doganore': 'blerjeShitje',
@@ -109,11 +134,12 @@
                 'raportet': 'rap'
             };
 
+
             // leaf labels that only make sense next to their parent ("Lista", "E Re", ...)
             var GENERIC = /^(lista|e re|veprim i ri|azhornim i ri|mbyllje e re)$/i;
             var collator = window.Intl && Intl.Collator ? new Intl.Collator('sq', { sensitivity: 'base', numeric: true }) : null;
             function byText(a, b) {
-                return collator ? collator.compare(a, b) : (a < b ? -1 : a > b ? 1 : 0);
+                return collator ? collator.compare(a || '', b || '') : (a < b ? -1 : a > b ? 1 : 0);
             }
 
             var host = window.parent && window.parent !== window ? window.parent : null;
@@ -131,9 +157,16 @@
             var navbar = teDhena && { GetGroupCount: function () { return grupet.length; }, GetGroup: function (i) { return grupet[i]; } };
             var rrenja = teDhena && nyje({ n: '', t: '', c: teDhena.menu });
             var topMenu = teDhena && { GetRootItem: function () { return rrenja; } };
-            var grid = document.getElementById('dashGrid');
-            var crumbs = document.getElementById('dashCrumbs');
-            var crumbTitle = document.getElementById('dashCrumbTitle');
+            var navList = document.getElementById('navList');
+            var navFav = document.getElementById('navFav');
+            var navFavCount = document.getElementById('navFavCount');
+            var body = document.getElementById('homeBody');
+            var headIcon = document.getElementById('headIcon');
+            var headTitle = document.getElementById('headTitle');
+            var headDesc = document.getElementById('headDesc');
+            var headFilterWrap = document.getElementById('headFilterWrap');
+            var headFilter = document.getElementById('headFilter');
+            var search = document.getElementById('homeSearch');
             var empty = document.getElementById('dashEmpty');
 
             function el(tag, cls, text) {
@@ -147,43 +180,7 @@
                 return (name || '').replace(/[?&]+$/, '').toLowerCase();
             }
 
-            function card(icon, title, desc, onClick, small) {
-                var c = el('button', 'dash-card' + (small ? ' dash-card-small' : ''));
-                c.type = 'button';
-                var top = el('div', 'dash-card-top');
-                var ic = el('span', 'dash-icon');
-                ic.appendChild(el('i', 'fa ' + icon));
-                top.appendChild(ic);
-                var arrow = el('i', 'fa fa-arrow-right dash-arrow');
-                top.appendChild(arrow);
-                c.appendChild(top);
-                var body = el('div', 'dash-card-body');
-                body.appendChild(el('span', 'dash-card-title', title));
-                if (desc) body.appendChild(el('span', 'dash-card-desc', desc));
-                c.appendChild(body);
-                c.addEventListener('click', onClick);
-                return c;
-            }
-
-            // "+ Shto" on a list card: opens the form for a new document of that list
-            function addNewButton(c, onClick) {
-                var b = el('span', 'dash-card-new');
-                b.setAttribute('role', 'button');
-                b.setAttribute('tabindex', '0');
-                b.title = 'Shto dokument të ri';
-                b.innerHTML = '<i class="fa fa-plus"></i> Shto';
-                function go(ev) { ev.stopPropagation(); ev.preventDefault(); onClick(ev); }
-                b.addEventListener('click', go);
-                b.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') go(ev); });
-                c.classList.add('dash-card-has-new');
-                c.appendChild(b);
-            }
-
-            // the page header shows the name of the card that opened the page (FaqeKryesore: avecMenuTitleFor)
-            function open(source, item, ev, title) {
-                host.avecMenuTitle = title ? { url: item.name || '', title: title } : null;
-                host.kontrolloTeDrejta(source, { item: item, processOnServer: false, htmlEvent: ev || window.event }, item.name);
-            }
+            if (!host) return;
 
             // ---- collect the modules and their pages ----
             var modules = {};   // key -> { key, text, entries: [] }
@@ -321,26 +318,244 @@
                     b.vals.every(function (v) { return a.vals.indexOf(v) !== -1; });
             }
 
-            // ---- render ----
-            function showModule(m) {
-                var meta = MODULES[m.key] || { icon: 'fa-folder-o' };
-                grid.innerHTML = '';
-                grid.classList.add('dash-grid-items');
-                crumbs.hidden = false;
-                crumbTitle.textContent = m.text;
+            // ---- reports inside the right panel (no separate Raportet.aspx screen) ----
+            var REPORT_URL = /^raportet\.aspx\?idmod=(\d+)$/;
+            function reportModuleOf(e) {
+                var m = REPORT_URL.exec(key(e.item.name));
+                return m ? parseInt(m[1], 10) : 0;
+            }
+            // report categories the user may open (they have the "Raportet.aspx?idmod=N" page), with their names
+            var reportCats = {};
+            Object.keys(seen).forEach(function (k) {
+                var e = seen[k], id = reportModuleOf(e);
+                if (id) reportCats[id] = e.title;
+            });
+            var reports = {};      // idmod -> [{ id, emri }]
+            var pending = {};      // idmod -> true while loading
 
-                var entries = m.entries.slice();
+            function api(method, data) {
+                return fetch('Default.aspx/' + method, {
+                    method: 'POST', credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                    body: JSON.stringify(data || {})
+                }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+                  .then(function (r) { return r.d; });
+            }
+
+            function loadReports(ids) {
+                ids = ids.filter(function (id) { return reportCats[id] && !reports[id] && !pending[id]; });
+                if (!ids.length) return Promise.resolve();
+                ids.forEach(function (id) { pending[id] = true; });
+                return api('MerrRaportet', { module: ids }).then(function (txt) {
+                    var res = JSON.parse(txt || '{}');
+                    ids.forEach(function (id) { reports[id] = res[id] || []; delete pending[id]; });
+                }).catch(function () {
+                    ids.forEach(function (id) { reports[id] = reports[id] || null; delete pending[id]; });
+                });
+            }
+
+            function reportEntry(idmod, r) {
+                return { title: r.emri, desc: reportCats[idmod] || 'Raporte', report: true, idmod: idmod, idraporti: r.id, fav: 'rap:' + idmod + ':' + r.id };
+            }
+
+            // ---- favourites (stars), saved per user ----
+            var favs = [];
+            var favSet = {};
+            function setFavs(list) {
+                favs = list.slice();
+                favSet = {};
+                favs.forEach(function (k) { favSet[k] = true; });
+            }
+            function favKey(e) { return e.fav || key(e.item && e.item.name); }
+
+            function toggleFav(e, btn) {
+                var k = favKey(e), on = !favSet[k];
+                if (on) { favs.push(k); favSet[k] = true; } else { favs = favs.filter(function (x) { return x !== k; }); delete favSet[k]; }
+                if (btn) { btn.classList.toggle('on', on); btn.setAttribute('aria-pressed', on); btn.title = on ? 'Hiq nga të preferuarat' : 'Shto te të preferuarat'; }
+                updateFavCount();
+                api('NdryshoFavorit', { celesi: k, shto: on }).then(function (ok) {
+                    if (ok === false) throw new Error('nuk u ruajt');
+                }).catch(function () {
+                    // revert: the star was not saved
+                    if (on) { favs = favs.filter(function (x) { return x !== k; }); delete favSet[k]; } else { favs.push(k); favSet[k] = true; }
+                    if (btn) btn.classList.toggle('on', !on);
+                    updateFavCount();
+                    toast('Ylli nuk u ruajt. Provoni përsëri.');
+                });
+                // the tile moves to / from the starred group at the top
+                if (current !== '__search') setTimeout(function () { render(true); }, 260);
+            }
+
+            // ---- recently opened (per browser, only a convenience) ----
+            var RECENT_KEY = 'avec.home.recent.' + ((host.hfState && host.hfState.Get && host.hfState.Get('idPerdoruesi')) || '');
+            function recentList() {
+                try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '[]') || []; } catch (err) { return []; }
+            }
+            function rememberRecent(e) {
+                try {
+                    var k = favKey(e), list = recentList().filter(function (x) { return x !== k; });
+                    list.unshift(k);
+                    localStorage.setItem(RECENT_KEY, JSON.stringify(list.slice(0, 8)));
+                } catch (err) { /* private mode */ }
+            }
+
+            // every page entry by its key, with the module it belongs to
+            var byKey = {};
+            order.forEach(function (mk) {
+                modules[mk].entries.forEach(function (e) { e.module = mk; byKey[key(e.item.name)] = e; });
+            });
+            function moduleOfReport(idmod) {
+                for (var mk in MODULE_REPORTS) {
+                    if (MODULE_REPORTS[mk].indexOf('raportet.aspx?idmod=' + idmod) !== -1 && modules[mk]) return mk;
+                }
+                return 'rap';
+            }
+            // a favourite/recent key -> entry (null while its report list is not loaded or the user lost the right)
+            function resolve(k) {
+                var m = /^rap:(\d+):(\d+)$/.exec(k);
+                if (!m) return byKey[k] || null;
+                var idmod = parseInt(m[1], 10), id = parseInt(m[2], 10), list = reports[idmod];
+                if (!list) return null;
+                for (var i = 0; i < list.length; i++) if (list[i].id === id) { var e = reportEntry(idmod, list[i]); e.module = moduleOfReport(idmod); return e; }
+                return null;
+            }
+            function reportModulesIn(keys) {
+                var ids = [];
+                keys.forEach(function (k) { var m = /^rap:(\d+):/.exec(k); if (m && ids.indexOf(+m[1]) === -1) ids.push(+m[1]); });
+                return ids;
+            }
+
+            // ---- opening a page or a report ----
+            function openEntry(e, ev) {
+                rememberRecent(e);
+                if (e.report) {
+                    var title = e.title;
+                    host.avecMenuTitle = { url: 'Raporti.aspx?idraporti=' + e.idraporti, title: title };
+                    if (ev && (ev.ctrlKey || ev.metaKey)) {
+                        window.open('Raporti.aspx?idraporti=' + e.idraporti + '&idmod=' + e.idmod + '&Filtro=true', '_blank');
+                        return;
+                    }
+                    if (host.SucceededCallbackInfoLart) { try { host.SucceededCallbackInfoLart({ emerKomponente: title }); } catch (err) { } }
+                    var p = ['idraporti=' + e.idraporti, 'idmod=' + e.idmod, 'windowWidth=' + window.innerWidth, 'Filtro=true', 'previousPage=Kryefaqja'];
+                    var scope = /[?&]scopeID=([^&]+)/.exec(location.search);
+                    if (scope) p.push('scopeID=' + scope[1]);
+                    window.location.href = 'Raporti.aspx?' + p.join('&');
+                    return;
+                }
+                host.avecMenuTitle = { url: e.item.name || '', title: e.header || e.title };
+                host.kontrolloTeDrejta(e.source, { item: e.item, processOnServer: false, htmlEvent: ev || window.event }, e.item.name);
+            }
+            function openNew(e, f, ev) {
+                rememberRecent(e);
+                var title = f.header && f.header !== f.title ? f.header : 'Shto ' + e.title.toLowerCase();
+                host.avecMenuTitle = { url: f.item.name || '', title: title };
+                host.kontrolloTeDrejta(f.source, { item: f.item, processOnServer: false, htmlEvent: ev || window.event }, f.item.name);
+            }
+
+            // ---- tiles ----
+            function tile(e, opts) {
+                opts = opts || {};
+                var meta = MODULES[e.module] || {};
+                var t = el('div', 'home-tile' + (e.report ? ' is-report' : ''));
+                t.setAttribute('role', 'button');
+                t.tabIndex = 0;
+                var ic = el('span', 'home-tile-icon');
+                ic.appendChild(el('i', 'fa ' + (e.report ? 'fa-file-text-o' : (meta.icon || 'fa-file-o'))));
+                t.appendChild(ic);
+                var tx = el('span', 'home-tile-text');
+                tx.appendChild(el('span', 'home-tile-title', e.title));
+                var desc = opts.showModule ? (modules[e.module] ? modules[e.module].text : '') + (e.report && e.desc ? ' · ' + e.desc : '')
+                    : (e.newForm ? (e.desc || '').replace(/\s*·?\s*lista$/i, '') : (e.report ? '' : e.desc));
+                if (desc) tx.appendChild(el('span', 'home-tile-desc', desc));
+                t.appendChild(tx);
+                var acts = el('span', 'home-tile-actions');
+                if (e.newForm) {
+                    var nb = el('button', 'home-tile-new');
+                    nb.type = 'button';
+                    nb.title = 'Shto dokument të ri';
+                    nb.innerHTML = '<i class="fa fa-plus"></i><span>Shto</span>';
+                    nb.addEventListener('click', function (ev) { ev.stopPropagation(); openNew(e, e.newForm, ev); });
+                    acts.appendChild(nb);
+                }
+                var on = !!favSet[favKey(e)];
+                var star = el('button', 'home-star' + (on ? ' on' : ''));
+                star.type = 'button';
+                star.setAttribute('aria-pressed', on);
+                star.title = on ? 'Hiq nga të preferuarat' : 'Shto te të preferuarat';
+                star.innerHTML = '<i class="fa fa-star-o"></i><i class="fa fa-star"></i>';
+                star.addEventListener('click', function (ev) { ev.stopPropagation(); toggleFav(e, star); });
+                acts.appendChild(star);
+                t.appendChild(acts);
+                t.addEventListener('click', function (ev) { openEntry(e, ev); });
+                t.addEventListener('keydown', function (ev) {
+                    if (ev.target !== t) return;
+                    if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openEntry(e, ev); }
+                });
+                return t;
+            }
+
+            function section(title, items, opts) {
+                opts = opts || {};
+                var s = el('section', 'home-section' + (opts.cls ? ' ' + opts.cls : ''));
+                if (opts.id) s.id = opts.id;
+                if (title) {
+                    var h = el('h2', 'home-section-title');
+                    if (opts.icon) { h.appendChild(el('i', 'fa ' + opts.icon)); }
+                    h.appendChild(document.createTextNode(title));
+                    if (items && items.length) h.appendChild(el('span', 'home-section-count', String(items.length)));
+                    s.appendChild(h);
+                }
+                var g = el('div', 'home-grid');
+                (items || []).forEach(function (e) { g.appendChild(tile(e, opts)); });
+                s.appendChild(g);
+                return s;
+            }
+
+            function loadingSection(title) {
+                var s = el('section', 'home-section');
+                var h = el('h2', 'home-section-title'); h.appendChild(el('i', 'fa fa-file-text-o')); h.appendChild(document.createTextNode(title)); s.appendChild(h);
+                var g = el('div', 'home-grid');
+                for (var i = 0; i < 4; i++) g.appendChild(el('div', 'home-tile home-skeleton'));
+                s.appendChild(g);
+                return s;
+            }
+
+            function emptyState(icon, title, text) {
+                var d = el('div', 'home-empty');
+                var i = el('span', 'home-empty-icon'); i.appendChild(el('i', 'fa ' + icon)); d.appendChild(i);
+                d.appendChild(el('h3', '', title));
+                if (text) d.appendChild(el('p', '', text));
+                return d;
+            }
+
+            var toastTimer;
+            function toast(msg) {
+                var t = document.getElementById('homeToast');
+                if (!t) { t = el('div', 'home-toast'); t.id = 'homeToast'; document.body.appendChild(t); }
+                t.textContent = msg;
+                t.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(function () { t.classList.remove('show'); }, 3200);
+            }
+
+            // ---- the pages of one module, grouped (list + its "new" form = one tile with "+ Shto") ----
+            function moduleView(m) {
+                var entries = m.entries.filter(function (e) { return !reportModuleOf(e); });
+                var reportIds = [];
+                m.entries.forEach(function (e) { var id = reportModuleOf(e); if (id && reportIds.indexOf(id) === -1) reportIds.push(id); });
                 (MODULE_REPORTS[m.key] || []).forEach(function (u) {
+                    var mm = REPORT_URL.exec(u);
+                    if (mm) { if (reportCats[+mm[1]] && reportIds.indexOf(+mm[1]) === -1) reportIds.push(+mm[1]); return; }
                     var r = seen[u];
                     if (r && entries.indexOf(r) === -1)
-                        entries.push({ title: r.title, header: r.header || r.title, desc: '', section: 'Raporte', source: r.source, item: r.item, report: true });
+                        entries.push({ title: r.title, header: r.header || r.title, desc: '', section: 'Raporte', source: r.source, item: r.item, module: m.key, extraReport: true });
                 });
 
-                // list + new form of the same document = one card with an "E re" button
                 var forms = entries.filter(isNewForm), lists = entries.filter(function (e) { return !isNewForm(e); });
                 var used = [];
                 lists.forEach(function (l) {
-                    if (l.report) return;
+                    l.newForm = null;
+                    if (l.extraReport) return;
                     for (var i = 0; i < forms.length; i++) {
                         if (used.indexOf(forms[i]) === -1 && sameDocument(l, forms[i])) { l.newForm = forms[i]; used.push(forms[i]); break; }
                     }
@@ -358,41 +573,189 @@
                     if (ia === -1) ia = SECTION_ORDER.length; if (ib === -1) ib = SECTION_ORDER.length;
                     return ia - ib || byText(a, b);
                 });
-                var withHeaders = names.length > 1;
-                names.forEach(function (s) {
-                    if (withHeaders) grid.appendChild(el('h2', 'dash-section', s || 'Kryesore'));
-                    sections[s].sort(function (a, b) { return byText(a.title, b.title) || byText(a.desc, b.desc); });
-                    sections[s].forEach(function (e) {
-                        var desc = e.newForm ? (e.desc || '').replace(/\s*·?\s*lista$/i, '') : e.desc;
-                        var c = card(e.report ? 'fa-file-text-o' : meta.icon, e.title, desc, function (ev) { open(e.source, e.item, ev, e.header || e.title); }, true);
-                        if (e.newForm) {
-                            var f = e.newForm;
-                            addNewButton(c, function (ev) { open(f.source, f.item, ev, f.header && f.header !== f.title ? f.header : 'Shto ' + e.title.toLowerCase()); });
-                        }
-                        grid.appendChild(c);
+                names.forEach(function (s) { sections[s].sort(function (a, b) { return byText(a.title, b.title) || byText(a.desc, b.desc); }); });
+                reportIds.sort(function (a, b) { return byText(reportCats[a], reportCats[b]); });
+                return { names: names, sections: sections, reportIds: reportIds };
+            }
+
+            var SECTION_ICON = { 'Dokumente': 'fa-file-o', 'Të dhëna bazë': 'fa-database', 'Konfigurime': 'fa-sliders', 'Raporte': 'fa-bar-chart', 'Administrim': 'fa-shield' };
+
+            function matches(e, f) {
+                if (!f) return true;
+                return ((e.title || '') + ' ' + (e.desc || '')).toLowerCase().indexOf(f) !== -1;
+            }
+
+            // ---- views ----
+            var current = '__fav';
+
+            function setHead(icon, title, desc, filter) {
+                headIcon.innerHTML = '';
+                headIcon.appendChild(el('i', 'fa ' + icon));
+                headTitle.textContent = title;
+                headDesc.textContent = desc || '';
+                headFilterWrap.hidden = !filter;
+            }
+
+            function renderFavourites() {
+                setHead('fa-star', 'Të preferuarat', 'Faqet dhe raportet që keni shënuar me yll', false);
+                body.innerHTML = '';
+                var waiting = reportModulesIn(favs.concat(recentList())).filter(function (id) { return reportCats[id] && !reports[id]; });
+                var items = favs.map(resolve).filter(Boolean);
+                if (items.length) {
+                    // grouped by module, in the order of the modules on the left
+                    var groups = {}, gnames = [];
+                    items.forEach(function (e) { if (!groups[e.module]) { groups[e.module] = []; gnames.push(e.module); } groups[e.module].push(e); });
+                    gnames.sort(function (a, b) { return byText(modules[a] ? modules[a].text : a, modules[b] ? modules[b].text : b); });
+                    gnames.forEach(function (mk) {
+                        var meta = MODULES[mk] || {};
+                        groups[mk].sort(function (a, b) { return (a.report ? 1 : 0) - (b.report ? 1 : 0) || byText(a.title, b.title); });
+                        body.appendChild(section(modules[mk] ? modules[mk].text : 'Raporte', groups[mk], { icon: meta.icon || 'fa-folder-o' }));
+                    });
+                } else if (!waiting.length) {
+                    body.appendChild(emptyState('fa-star-o', 'Ende nuk keni faqe të preferuara',
+                        'Zgjidhni një modul majtas dhe shtypni yllin ☆ te faqet ose raportet që përdorni më shpesh. Ato do t’ju presin këtu sa herë hapni programin.'));
+                }
+                if (waiting.length) body.appendChild(loadingSection('Duke ngarkuar raportet…'));
+                var rec = recentList().filter(function (k) { return !favSet[k]; }).map(resolve).filter(Boolean).slice(0, 6);
+                if (rec.length) body.appendChild(section('Hapur së fundmi', rec, { icon: 'fa-history', showModule: true, cls: 'home-section-recent' }));
+                if (waiting.length) loadReports(waiting).then(function () { if (current === '__fav') render(); });
+            }
+
+            function renderModule(m) {
+                var meta = MODULES[m.key] || { icon: 'fa-folder-o' };
+                setHead(meta.icon || 'fa-folder-o', m.text, meta.desc || '', true);
+                body.innerHTML = '';
+                var f = (headFilter.value || '').trim().toLowerCase();
+                var v = moduleView(m);
+                var favHere = [], n = 0;
+                function notFav(e) { if (favSet[favKey(e)]) { favHere.push(e); return false; } return true; }
+                var blocks = [];
+                v.names.forEach(function (s) {
+                    var items = v.sections[s].filter(function (e) { return matches(e, f); }).filter(notFav);
+                    n += items.length;
+                    if (items.length) blocks.push(section(s || 'Kryesore', items, { icon: SECTION_ICON[s] || 'fa-th-large' }));
+                });
+                var missing = [];
+                v.reportIds.forEach(function (id) {
+                    var list = reports[id];
+                    if (list === undefined) { missing.push(id); blocks.push(loadingSection('Raporte · ' + reportCats[id])); return; }
+                    if (list === null) { blocks.push(emptyState('fa-exclamation-triangle', 'Raportet nuk u ngarkuan', 'Rifreskoni faqen për të provuar përsëri.')); return; }
+                    var items = list.map(function (r) { var e = reportEntry(id, r); e.module = m.key; return e; })
+                        .filter(function (e) { return matches(e, f); }).filter(notFav)
+                        .sort(function (a, b) { return byText(a.title, b.title); });
+                    n += items.length;
+                    var title = v.reportIds.length > 1 || m.key === 'rap' ? 'Raporte · ' + reportCats[id] : 'Raporte';
+                    if (items.length) blocks.push(section(title, items, { icon: 'fa-bar-chart', id: 'raporte-' + id }));
+                });
+                if (favHere.length) {
+                    favHere.sort(function (a, b) { return (a.report ? 1 : 0) - (b.report ? 1 : 0) || byText(a.title, b.title); });
+                    body.appendChild(section('Të preferuarat', favHere, { icon: 'fa-star', cls: 'home-section-fav' }));
+                }
+                blocks.forEach(function (b) { body.appendChild(b); });
+                if (!n && !favHere.length && !missing.length)
+                    body.appendChild(f ? emptyState('fa-search', 'Asgjë nuk përputhet me “' + headFilter.value + '”', '') : emptyState('fa-folder-open-o', 'Ky modul nuk ka faqe', ''));
+                if (missing.length) loadReports(missing).then(function () { if (current === m.key) render(true); });
+            }
+
+            function renderSearch(q) {
+                setHead('fa-search', 'Kërkimi', '“' + q + '” në të gjitha modulet', false);
+                body.innerHTML = '';
+                var f = q.toLowerCase(), pages = [], reps = [];
+                order.forEach(function (mk) {
+                    modules[mk].entries.forEach(function (e) { if (!reportModuleOf(e) && matches(e, f)) pages.push(e); });
+                });
+                var all = Object.keys(reportCats).map(Number), missing = all.filter(function (id) { return reports[id] === undefined; });
+                all.forEach(function (id) {
+                    (reports[id] || []).forEach(function (r) {
+                        var e = reportEntry(id, r); e.module = moduleOfReport(id);
+                        if (matches(e, f)) reps.push(e);
                     });
                 });
-                window.scrollTo(0, 0);
+                pages.sort(function (a, b) { return byText(a.title, b.title); });
+                reps.sort(function (a, b) { return byText(a.title, b.title); });
+                if (pages.length) body.appendChild(section('Faqe', pages.slice(0, 60), { icon: 'fa-file-o', showModule: true }));
+                if (reps.length) body.appendChild(section('Raporte', reps.slice(0, 60), { icon: 'fa-bar-chart', showModule: true }));
+                if (missing.length) {
+                    body.appendChild(loadingSection('Duke kërkuar edhe në raporte…'));
+                    loadReports(missing).then(function () { if (current === '__search' && search.value.trim()) render(); });
+                } else if (!pages.length && !reps.length) {
+                    body.appendChild(emptyState('fa-search', 'Asgjë nuk u gjet', 'Provoni një fjalë tjetër, p.sh. “fatura” ose “ditari”.'));
+                }
             }
 
-            function showModules() {
-                grid.innerHTML = '';
-                grid.classList.remove('dash-grid-items');
-                crumbs.hidden = true;
-                var list = order.map(function (k) { return modules[k]; }).filter(function (m) { return m.entries.length; });
-                list.sort(function (a, b) { return byText(a.text, b.text); });
-                list.forEach(function (m) {
-                    var meta = MODULES[m.key] || { icon: 'fa-folder-o', desc: '' };
-                    var desc = meta.desc || (m.entries.length + ' faqe');
-                    grid.appendChild(card(meta.icon, m.text, desc, function (ev) {
-                        if (m.entries.length === 1) open(m.entries[0].source, m.entries[0].item, ev, m.entries[0].header || m.entries[0].title); else showModule(m);
-                    }));
-                });
-                empty.hidden = list.length > 0;
+            function render(keepScroll) {
+                var top = body.parentNode.scrollTop;
+                var q = search.value.trim();
+                if (q) { current = '__search'; } else if (current === '__search') { current = lastModule; }
+                var navItems = document.querySelectorAll('.home-nav-item');
+                for (var i = 0; i < navItems.length; i++) navItems[i].classList.toggle('active', navItems[i].getAttribute('data-key') === current);
+                if (current === '__search') renderSearch(q);
+                else if (current === '__fav' || !modules[current]) { current = '__fav'; navFav.classList.add('active'); renderFavourites(); }
+                else renderModule(modules[current]);
+                body.parentNode.scrollTop = keepScroll ? top : 0;
             }
 
-            document.getElementById('dashBack').addEventListener('click', showModules);
-            showModules();
+            var lastModule = '__fav';
+            function select(k) {
+                current = k;
+                lastModule = k;
+                search.value = '';
+                headFilter.value = '';
+                try { history.replaceState(null, '', k === '__fav' ? location.pathname + location.search : '#' + k); } catch (err) { }
+                render();
+            }
+
+            function updateFavCount() {
+                navFavCount.textContent = favs.length ? String(favs.length) : '';
+            }
+
+            // ---- left: the modules ----
+            var list = order.map(function (k) { return modules[k]; }).filter(function (m) { return m.entries.length; });
+            list.sort(function (a, b) { return byText(a.text, b.text); });
+            list.forEach(function (m) {
+                var meta = MODULES[m.key] || { icon: 'fa-folder-o', desc: '' };
+                var b = el('button', 'home-nav-item');
+                b.type = 'button';
+                b.setAttribute('data-key', m.key);
+                var ic = el('span', 'home-nav-icon'); ic.appendChild(el('i', 'fa ' + (meta.icon || 'fa-folder-o'))); b.appendChild(ic);
+                var tx = el('span', 'home-nav-text');
+                tx.appendChild(el('span', 'home-nav-title', m.text));
+                tx.appendChild(el('span', 'home-nav-desc', meta.desc || (m.entries.length + ' faqe')));
+                b.appendChild(tx);
+                b.appendChild(el('i', 'fa fa-angle-right home-nav-arrow'));
+                b.addEventListener('click', function () { select(m.key); });
+                navList.appendChild(b);
+            });
+            navFav.addEventListener('click', function () { select('__fav'); });
+            empty.hidden = list.length > 0;
+            document.getElementById('home').hidden = list.length === 0;
+
+            var searchTimer;
+            search.addEventListener('input', function () { clearTimeout(searchTimer); searchTimer = setTimeout(function () { render(); }, 120); });
+            search.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { search.value = ''; render(); } });
+            headFilter.addEventListener('input', function () { render(true); });
+            headFilter.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { headFilter.value = ''; render(true); } });
+            document.addEventListener('keydown', function (ev) {
+                var t = ev.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA');
+                if (!typing && (ev.key === '/' || ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'k'))) { ev.preventDefault(); search.focus(); search.select(); }
+            });
+
+            // first view: the favourites (or the module/report section the user came back to, e.g. from a report)
+            var hash = decodeURIComponent((location.hash || '').slice(1));
+            var back = /^raporte-(\d+)$/.exec(hash);
+            if (back) {
+                var mk = moduleOfReport(+back[1]);
+                if (modules[mk]) { current = lastModule = mk; }
+            } else if (hash && modules[hash]) {
+                current = lastModule = hash;
+            }
+            render();
+            api('MerrFavoritet').then(function (txt) {
+                setFavs(JSON.parse(txt || '[]') || []);
+                updateFavCount();
+                render(true);
+                if (back) { var s = document.getElementById(hash); if (s) s.scrollIntoView(); }
+            }).catch(function () { toast('Të preferuarat nuk u ngarkuan.'); });
         })();
     </script>
 </body>

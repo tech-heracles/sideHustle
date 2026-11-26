@@ -3499,12 +3499,7 @@ function menuclick(s, e, doPostback) {
         return;
     }
     else if (e.item.name === 'Anullo') {
-        if (Utils.getUrlVar('vjenNga') === 'aprovim')
-            myFaqeCelje.kontrolloTeDrejta('ListeAprovimi.aspx?status=aprovim');
-        else if (Utils.getUrlVar('vjenNga') === 'kerkese')
-            myFaqeCelje.kontrolloTeDrejta('ListeAprovimi.aspx?status=kerkese');
-        else
-            myFaqeCelje.kontrolloTeDrejta('VeprimeBanka.aspx?lloji=' + pageState.llojDokumenti);
+        myFaqeCelje.kontrolloTeDrejta('VeprimeBanka.aspx?lloji=' + pageState.llojDokumenti);
 
         e.processOnServer = false;
         click = false;

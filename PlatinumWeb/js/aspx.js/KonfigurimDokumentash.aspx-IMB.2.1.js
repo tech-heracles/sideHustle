@@ -689,13 +689,6 @@ function ButtonClickedPlan(editor, key) {
     myButtonClickLupa.LupaUniversal_Click('Zgjidh konfigurimin e magazines', 'LupaKonfigurime.aspx?veprimi=44', 700, 560);
 }
 
-function ButtonClickedSkemaWF(editor, key) {
-    editorMag = editor;
-    editorGlobal = editor;
-    indentifikuesPerPopupKonfigurimet = 'Mag';
-    myButtonClickLupa.LupaUniversal_Click('Zgjidh skemen', 'LupaSkemaWorkFlow.aspx', 700, 560);
-}
-
 function ButtonClickedDL(editor, key) {
     editorDL = editor;
     editorGlobal = editor;

@@ -591,6 +591,7 @@
     <Content Include="App_Themes\Avec\sprites\XtraReports.sprite.svg" />
     <Content Include="App_Themes\Avec\zz-avec-dark-devexpress.css" />
     <Content Include="css\avec-dashboard.css" />
+    <Content Include="css\avec-home.css" />
     <Content Include="css\avec-shell.css" />
     <Content Include="images\brand\avec-favicon.png" />
     <Content Include="App_Themes\Avec\avec.css" />
@@ -1985,7 +1986,6 @@
     <Content Include="js\aspx.js\LupaDetajimShpejte-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaFormatNumrash.aspx-IMB.4.0.js" />
     <Content Include="js\aspx.js\LupaFormula.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\LupaGrupNdermarrje.aspx-IMB.4.0.js" />
     <Content Include="js\aspx.js\LupaKategoriShpenzimi.aspx-IMB.3.3.js" />
     <Content Include="js\aspx.js\LupaLlogariShpejte.aspx-IMB.4.0.js" />
     <Content Include="js\aspx.js\LupaModelAutomjeti.aspx-IMB.4.0.js" />
@@ -1997,7 +1997,6 @@
     <Content Include="js\aspx.js\LupaShopsHierarkiUniform.aspx-IMB.7.2 .js" />
     <Content Include="js\aspx.js\LupaTransportues.aspx-IMB.4.0.10.js" />
     <Content Include="js\aspx.js\LupaTransportuesShpejte.aspx-IMB.4.0.10.js" />
-    <Content Include="js\aspx.js\PolitikaFjalekalimi.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\RegjistrimAmortizimi.aspx-IMB.4.1.js" />
     <Content Include="js\aspx.js\RegjistrimQendraKosto.aspx-IMB.3.3.js" />
     <Content Include="js\aspx.js\RegjistrimRezervimi.aspx-IMB.3.3.js" />
@@ -2924,7 +2923,6 @@
     <Content Include="js\aspx.js\KushtePagese.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LidhjaDokumentave.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\ListaLidhjaDokumentave.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\ListeAprovimi.aspx-IMB.3.1.js" />
     <Content Include="js\aspx.js\ListPagesa.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LlogariShperndarjeQK.aspx-IMB.3.1.js" />
     <Content Include="js\aspx.js\Login_Ndermarrje.aspx-IMB.2.1.js" />
@@ -2982,7 +2980,6 @@
     <Content Include="js\aspx.js\LupaSkemaFk.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaSkemaKontabelArtikulli.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaSkemaKontabelRegjistrime.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\LupaSkemaWorkFlow.aspx-IMB.3.1.js" />
     <Content Include="js\aspx.js\LupaStrukturaAdministrative.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaTipKontrate.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\LupaViti.aspx-IMB.2.1.js" />
@@ -3046,7 +3043,6 @@
     <Content Include="js\aspx.js\Shto_RegjistrimMagazine.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_ShperndarjeShpenzimesh.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_Sigurimet.aspx-IMB.2.1.js" />
-    <Content Include="js\aspx.js\Shto_SkemaWorkFlow.aspx-IMB.3.1.js" />
     <Content Include="js\aspx.js\Shto_Tatime.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_UrdherPagesa.aspx-IMB.2.1.js" />
     <Content Include="js\aspx.js\Shto_VeprimeKF.aspx-IMB.2.1.js" />
@@ -3084,7 +3080,6 @@
     <Content Include="KonfigurimFormatImporti.aspx" />
     <Content Include="KonfigurimKasash.aspx" />
     <Content Include="ListaLidhjaDokumentave.aspx" />
-    <Content Include="ListeAprovimi.aspx" />
     <Content Include="ListPagesa.aspx" />
     <Content Include="LlogariShperndarjeQK.aspx" />
     <Content Include="LupaAfateMaturimi.aspx" />
@@ -3106,7 +3101,6 @@
     <Content Include="LupaGrupimeKlientFurnitor.aspx" />
     <Content Include="LupaGrupKontabilizim.aspx" />
     <Content Include="LupaGrupLlogari.aspx" />
-    <Content Include="LupaGrupNdermarrje.aspx" />
     <Content Include="LupaGrupPunonjesish.aspx" />
     <Content Include="LupaKategoriShpenzimi.aspx" />
     <Content Include="LupaKategoriZbritje.aspx" />
@@ -3155,7 +3149,6 @@
     <Content Include="LupaSkemaKontabelArtikulli.aspx" />
     <Content Include="LupaSkemaKontabelRegjistrime.aspx" />
     <Content Include="LupaSkemaKosto.aspx" />
-    <Content Include="LupaSkemaWorkFlow.aspx" />
     <Content Include="LupaStrukturaAdministrative.aspx" />
     <Content Include="LupaTipKontrate.aspx" />
     <Content Include="LupaTransportuesShpejte.aspx" />
@@ -3169,7 +3162,6 @@
     <Content Include="MenuLeviz.ascx" />
     <Content Include="NdryshimFjalekalimi.aspx" />
     <Content Include="Planifikimi.aspx" />
-    <Content Include="PolitikaFjalekalimi.aspx" />
     <Content Include="RaporteGrida.aspx" />
     <Content Include="Raportet.aspx" />
     <Content Include="RaportetAll.aspx" />
@@ -3226,7 +3218,6 @@
     <Content Include="Shto_Sigurimet.aspx" />
     <Content Include="Shto_SkedulimProdhimi.aspx" />
     <Content Include="Shto_SkemaQendraKosto.aspx" />
-    <Content Include="Shto_SkemaWorkFlow.aspx" />
     <Content Include="Shto_Tatime.aspx" />
     <Content Include="Shto_Transportues.aspx" />
     <Content Include="Shto_UrdherPagesa.aspx" />
@@ -4184,13 +4175,6 @@
     <Compile Include="ListaLidhjaDokumentave.aspx.designer.cs">
       <DependentUpon>ListaLidhjaDokumentave.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ListeAprovimi.aspx.cs">
-      <DependentUpon>ListeAprovimi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ListeAprovimi.aspx.designer.cs">
-      <DependentUpon>ListeAprovimi.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ListPagesa.aspx.cs">
       <DependentUpon>ListPagesa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4337,13 +4321,6 @@
     </Compile>
     <Compile Include="LupaGrupLlogari.aspx.designer.cs">
       <DependentUpon>LupaGrupLlogari.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LupaGrupNdermarrje.aspx.cs">
-      <DependentUpon>LupaGrupNdermarrje.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LupaGrupNdermarrje.aspx.designer.cs">
-      <DependentUpon>LupaGrupNdermarrje.aspx</DependentUpon>
     </Compile>
     <Compile Include="LupaGrupPunonjesish.aspx.cs">
       <DependentUpon>LupaGrupPunonjesish.aspx</DependentUpon>
@@ -4681,13 +4658,6 @@
     <Compile Include="LupaSkemaKosto.aspx.designer.cs">
       <DependentUpon>LupaSkemaKosto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LupaSkemaWorkFlow.aspx.cs">
-      <DependentUpon>LupaSkemaWorkFlow.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LupaSkemaWorkFlow.aspx.designer.cs">
-      <DependentUpon>LupaSkemaWorkFlow.aspx</DependentUpon>
-    </Compile>
     <Compile Include="LupaStrukturaAdministrative.aspx.cs">
       <DependentUpon>LupaStrukturaAdministrative.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4778,13 +4748,6 @@
     </Compile>
     <Compile Include="Planifikimi.aspx.designer.cs">
       <DependentUpon>Planifikimi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PolitikaFjalekalimi.aspx.cs">
-      <DependentUpon>PolitikaFjalekalimi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PolitikaFjalekalimi.aspx.designer.cs">
-      <DependentUpon>PolitikaFjalekalimi.aspx</DependentUpon>
     </Compile>
     <Compile Include="RaporteGrida.aspx.cs">
       <DependentUpon>RaporteGrida.aspx</DependentUpon>
@@ -5494,13 +5457,6 @@
     </Compile>
     <Compile Include="Shto_SkemaQendraKosto.aspx.designer.cs">
       <DependentUpon>Shto_SkemaQendraKosto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Shto_SkemaWorkFlow.aspx.cs">
-      <DependentUpon>Shto_SkemaWorkFlow.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Shto_SkemaWorkFlow.aspx.designer.cs">
-      <DependentUpon>Shto_SkemaWorkFlow.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shto_Tatime.aspx.cs">
       <DependentUpon>Shto_Tatime.aspx</DependentUpon>

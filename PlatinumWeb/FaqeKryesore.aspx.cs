@@ -568,16 +568,13 @@ namespace PlatinumWeb
 			Menu("administrimi").Text = rm.GetString("MenuItemAdminstrimi", ci);
 			Menu("administrimi", "Asistenti.aspx").Text = rm.GetString("MenuItemAsistenti", ci);
 			Menu("administrimi", "fjalekalimi").Text = rm.GetString("MenuItemFjalekalimi", ci);
-			Menu("administrimi", "fjalekalimi", "PolitikaFjalekalimi.aspx").Text = rm.GetString("MenuItemPolitikaFjalekalimi", ci);
 			Menu("administrimi", "fjalekalimi", "NdryshimFjalekalimi.aspx").Text = rm.GetString("MenuItemNdryshimFjalekalimi", ci);
 			Menu("administrimi", "AuditimUser.aspx").Text = rm.GetString("MenuItemHyrjetDaljetNeProgram", ci);
 			Menu("administrimi", "KonfigurimeFtp.aspx").Text = rm.GetString("MenuItemKonfigurimFtp", ci);
 			Menu("administrimi", "LogeSistemi.aspx").Text = rm.GetString("MenuItemLogeSistemi", ci);
 
 			Menu("administrimi", "MbylljePeriudhe.html").Text = rm.GetString("MenuItemMbylljePeriudhe", ci);
-			Menu("administrimi", "Shto_SkemaWorkFlow.aspx").Text = rm.GetString("MenuItemSkemaWorkFlow", ci);
 			Menu("administrimi", "struktura-organizimit").Text = rm.GetString("MenuItemStrukturaOrganizimit", ci);
-			Menu("administrimi", "struktura-organizimit", "LupaGrupNdermarrje.aspx").Text = rm.GetString("MenuItemGrupimNdermarrjesh", ci);
 			Menu("administrimi", "struktura-organizimit", "Shto_Ndermarrje.aspx").Text = rm.GetString("MenuItemNdermarrjet", ci);
 			Menu("administrimi", "struktura-organizimit", "Shto_DegeAdministrative.aspx").Text = rm.GetString("MenuItemDegetAdministrative", ci);
 			Menu("administrimi", "struktura-organizimit", "StrukturaAdministrative.aspx").Text = rm.GetString("MenuItemDepartamentet", ci);
@@ -749,9 +746,6 @@ namespace PlatinumWeb
 			Menu("regjistrime", "amortizimi", "rivleresim-amortizimi", "rilveresim", "RivleresimeAmortizimi.aspx?lloj=rivleresim").Text = rm.GetString("MenuItemLista", ci);
 			Menu("regjistrime", "amortizimi", "rivleresim-amortizimi", "rilveresim", "Shto_RivleresimeAmortizimi.aspx?lloj=rivleresim&shtim_modifikim=shtim").Text = rm.GetString("MenuItemERe", ci);
 			Menu("regjistrime", "amortizimi", "RillogaritjeAmortizimi.aspx").Text = rm.GetString("MenuItemRillogaritjeAmortizimi", ci);
-			Menu("regjistrime", "aprovime").Text = rm.GetString("MenuItemAprovime", ci);
-			Menu("regjistrime", "aprovime", "ListeAprovimi.aspx?status=aprovim").Text = rm.GetString("MenuItemAprovimet", ci);
-			Menu("regjistrime", "aprovime", "ListeAprovimi.aspx?status=kerkese").Text = rm.GetString("MenuItemKerkesePerAprovim", ci);
 
 			Menu("regjistrime", "fatura-blerje").Text = rm.GetString("MenuItemFaturatBlerjeve", ci);
 			Menu("regjistrime", "fatura-blerje", "RegjistrimDokumentash.aspx?shitje_blerje=blerje").Text = rm.GetString("MenuItemLista", ci);
@@ -1003,9 +997,6 @@ namespace PlatinumWeb
 			NavElement("amortizimi", "Shto_RegjistrimAmortizimi.aspx").Text = rm.GetString("MenuItemRegjistrimAmortizimiRi", ci);
 
 
-			NavGrup("aprovime-dokumentash").Text = rm.GetString("MenuItemAprovimetDok", ci);
-			NavElement("aprovime-dokumentash", "ListeAprovimi.aspx?status=aprovim").Text = rm.GetString("MenuItemAprovimet", ci);
-			NavElement("aprovime-dokumentash", "ListeAprovimi.aspx?status=kerkese").Text = rm.GetString("MenuItemKerkesePerAprovim", ci);
 
 
 			NavGrup("rap").Text = rm.GetString("MenuItemRaportet", ci);

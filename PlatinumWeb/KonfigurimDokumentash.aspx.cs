@@ -2043,7 +2043,6 @@ namespace PlatinumWeb
                         checkVlera.ClientSideEvents.LostFocus = "function(s,e){ LostFocusPlan(Vlera" + e.VisibleIndex + "," + e.VisibleIndex + "); }";
                         break;
                     case "ZSP":
-                        ConfigureAspxComboBox.percaktoTemplateComboMeLupe(checkVlera);
                         var ds = colKokaSkemaWorkFlow.merrKokaSkemaWorkFlowNdermarrjesDT(IdNdermarrja);
                         var toInsert = ds.NewRow();
                         ds.Rows.InsertAt(toInsert, 0);
@@ -2051,7 +2050,6 @@ namespace PlatinumWeb
                         checkVlera.ValueField = "IdKoka";
                         checkVlera.TextField = "Kodi";
                         checkVlera.DataBind();
-                        checkVlera.ClientSideEvents.ButtonClick = "function(s,e){ ButtonClickedSkemaWF(Vlera" + e.VisibleIndex + "," + e.VisibleIndex + "); }";
                         checkVlera.ClientSideEvents.LostFocus = "function(s,e){ LostFocusSkemaWF(Vlera" + e.VisibleIndex + "," + e.VisibleIndex + "); }";
                         hfZSP.Value = e.VisibleIndex.ToString();
                         break;

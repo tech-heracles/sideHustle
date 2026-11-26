@@ -499,10 +499,6 @@ function tabsActiveTabChanged(s, e) {
         ASPxMenu1.GetItemByName('HiqLogo').SetVisible(true);
     else ASPxMenu1.GetItemByName('HiqLogo').SetVisible(false);
 }
-function Grupi_Click() {//thiret popup i grupe banke
-
-    myButtonClickLupa.LupaUniversal_Click('Zgjidh grupin e ndermarrjes', 'LupaGrupNdermarrje.aspx', 600, 600);
-}
 
 function Prind_SelectIndexChanged(s, e) {
 
