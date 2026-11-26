@@ -24,7 +24,7 @@
     <link href="AlphaWeb.css" type="text/css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!-- A DevExtreme library -->
-    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/Scripts/dx.viz-web.js;~/js/localization/DevExtreme.Perkthime.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/myDxDataGrid.js;~/js/aspx.js/LupaKlientFurnitor.aspx-IMB.2.1.js&v76""
+    <script src="DX.ashx?jsfileset=~/js/jquery-1.11.3.min.js;~/Scripts/dx.viz-web.js;~/js/localization/DevExtreme.Perkthime.js;~/bootstrap-3.3.6-dist/js/bootstrap.min.js;~/js/noty/jquery.noty.packaged.imb.js;~/js/noty/bootstrap.js;~/js/noty/relax.js;~/js/noty.defaults.js;~/js/myFaqeCelje-IMB.2.1.js;~/js/jquery.blockUI.js;~/js/Utils-IMB.2.1.js;~/js/myDxDataGrid.js;~/js/aspx.js/LupaKlientFurnitor.aspx-IMB.2.1.js&v77""
         type="text/javascript"></script>
 </head>
 <body >

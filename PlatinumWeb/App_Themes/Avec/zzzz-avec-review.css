@@ -109,3 +109,35 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):not(.avec-has-toptab
 .dxrd-preview .dx-button.dx-button-normal .dx-button-text {
     color: var(--avec-text, #f2f2f0) !important;
 }
+
+/* Harta (GIS) eshte hequr: fusha "Zgjidh ne harte" te Klientet/Furnitoret dhe Magazinat nuk ka me kuptim */
+[id$="lblCaktoNeHarte"],
+[id$="btneCaktoNeHarte"] {
+    display: none !important;
+}
+
+/* Faqet me shume tab-e (p.sh. Punonjes): kontrolli i tab-eve eshte display:table dhe zgjerohej sa tab-et + 500px
+   qe rezervohen per butonat, keshtu faqja dilte me e gjere se ekrani dhe tab-et e fundit hynin poshte "Ruaj".
+   Tani kontrolli zë vetem gjeresine e faqes dhe tab-et kalojne ne rresht te dyte. */
+.avec-has-toptabs-page .dxtcLite_Material.dxtc-top.dxtc-pc {
+    display: block !important;
+    max-width: 100% !important;
+}
+
+.avec-has-toptabs-page .dxtcLite_Material.dxtc-top > ul.dxtc-strip {
+    flex-wrap: wrap !important;
+    height: auto !important;
+}
+
+.avec-has-toptabs-page .dxtcLite_Material.dxtc-top > ul.dxtc-strip > li {
+    max-width: 100%;
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+.avec-has-toptabs-page .dxtcLite_Material.dxtc-top ul.dxtc-row {
+    display: flex;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+}

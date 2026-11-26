@@ -599,6 +599,7 @@
     <Content Include="images\brand\avec-icon-192.png" />
     <Content Include="images\brand\avec-icon-512.png" />
     <Content Include="images\brand\avec-logo.png" />
+    <Content Include="images\brand\avec-loading.svg" />
     <Content Include="images\theme\Avec\grida\add2.png" />
     <Content Include="images\theme\Avec\grida\add2_W.png" />
     <Content Include="images\theme\Avec\grida\aparateShitur.png" />

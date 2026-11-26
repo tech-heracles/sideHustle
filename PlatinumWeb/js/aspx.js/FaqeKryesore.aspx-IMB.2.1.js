@@ -245,7 +245,20 @@ function avecMenuTitleFor() {
     } catch (e) { return null; }
 }
 
+// a document opened for editing kept the "new" page name ("Hyrje e re"): show "Hyrje – modifikim".
+// Runs after the title is set and again when the page in the main frame has loaded (the title is often set
+// before the edit page's URL is in the frame).
+function avecTitullModifikim() {
+    try {
+        var kerko = splitter.GetPaneByName('paneKryesor').GetContentIFrame().contentWindow.location.search.toLowerCase();
+        var t = lblFaqja.GetText();
+        if (t && /shtim_modifikim=modifikim/.test(kerko) && /\s+(e re|i ri)\s*$/i.test(t))
+            lblFaqja.SetText(t.replace(/\s+(e re|i ri)\s*$/i, '') + ' – modifikim');
+    } catch (e) { }
+}
+
 function avecVendosTitull(emer) {
+    setTimeout(avecTitullModifikim, 0);
     var boolShfaqPerdoruesMenu = hfState.Get("ShfaqPerdoruesMenu");
     if (boolShfaqPerdoruesMenu)
         lblFaqja.SetText(hfState.Get("EmerMbiemerPerdorues") + ' : ' + emer);

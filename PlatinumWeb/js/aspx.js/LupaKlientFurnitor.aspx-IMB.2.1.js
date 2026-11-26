@@ -497,3 +497,17 @@ function Filtra_Click() {
     popFiltra.SetContentUrl('LupaFiltra.aspx?grida=gvLupaKlientFurnitor&page=LupaKlientFurnitor.aspx&idKonfigAmbjente=577');
     popFiltra.Show();
 }
+// Pas "Shto/Modifiko/Klono" klientin, forma e shpejte e kthen popup-in te kjo liste pa ia kthyer titullin
+// ("Shto Klient" mbetej mbi listen). Lista mban titullin me te cilin u hap dhe e rikthen.
+(function () {
+    try {
+        var p = window.parent;
+        if (!p || p === window || !p.popupUniversal || !p.popupUniversal.GetHeaderText) return;
+        var h = p.popupUniversal.GetHeaderText();
+        if (/^\s*(Shto|Modifiko|Klono)\b/i.test(h || '')) {
+            if (p.__avecTitullLupaKF) p.popupUniversal.SetHeaderText(p.__avecTitullLupaKF);
+        } else if (h) {
+            p.__avecTitullLupaKF = h;
+        }
+    } catch (e) { }
+})();

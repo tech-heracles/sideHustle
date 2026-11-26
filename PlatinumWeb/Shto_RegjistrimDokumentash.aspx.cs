@@ -4303,6 +4303,12 @@ namespace PlatinumWeb
             else
                 periudha = new clsPeriudhaKontabel(data_DateEdit.Date, idNdermarrje);
             var fazat = mySessionObjects.merrObjectNgaSesioni(Session, "fazat");
+            // ruajtja lexonte te njejtat te dhena reference qindra here (p.sh. ndermarrja 214 here per nje fature):
+            // brenda ruajtjes ato lexohen nje here. Si te importi i dokumenteve, artikujt, gjendja dhe klientet nuk ruhen
+            // ne cache sepse ruajtja mund t'i ndryshoje.
+            using (DbCore.IMBUtils.Cache.ImportCache.Fillo(false, DbCore.IMBUtils.Cache.ImportCache.Artikull,
+                DbCore.IMBUtils.Cache.ImportCache.ArtikullIRi, DbCore.IMBUtils.Cache.ImportCache.Gjendje,
+                DbCore.IMBUtils.Cache.ImportCache.KlientFurnitor))
             switch (hfRuajDraft.Value)
             {
                 case "Ruaj":
@@ -4530,6 +4536,12 @@ namespace PlatinumWeb
             else
                 periudha = new clsPeriudhaKontabel(data_DateEdit.Date, idNdermarrje);
             var fazat = mySessionObjects.merrObjectNgaSesioni(Session, "fazat");
+            // ruajtja lexonte te njejtat te dhena reference qindra here (p.sh. ndermarrja 214 here per nje fature):
+            // brenda ruajtjes ato lexohen nje here. Si te importi i dokumenteve, artikujt, gjendja dhe klientet nuk ruhen
+            // ne cache sepse ruajtja mund t'i ndryshoje.
+            using (DbCore.IMBUtils.Cache.ImportCache.Fillo(false, DbCore.IMBUtils.Cache.ImportCache.Artikull,
+                DbCore.IMBUtils.Cache.ImportCache.ArtikullIRi, DbCore.IMBUtils.Cache.ImportCache.Gjendje,
+                DbCore.IMBUtils.Cache.ImportCache.KlientFurnitor))
             switch (hfRuajDraft.Value)
             {
                 case "Ruaj":
