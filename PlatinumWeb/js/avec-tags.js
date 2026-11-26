@@ -110,6 +110,27 @@
 
         // tab strips
         each('ul.dxtc-strip, ul.dxtc-row', tagStrip);
+
+        shqip();
+    }
+
+    // DevExpress grid texts that stayed in English (in lupat too: avec-inner.js runs only in the main frame)
+    var TEKSTE = [
+        [/^\s*No data( to display)?\s*$/, 'Nuk ka të dhëna'],
+        [/^\s*Create Filter\s*$/, 'Krijo filtër'],
+        [/^\s*Clear\s*$/, 'Pastro'],
+        [/\(Continued on the next page\)/, '(vazhdon në faqen tjetër)'],
+        [/\(Continued from the previous page\)/, '(vazhdim nga faqja e mëparshme)']
+    ];
+    function shqip() {
+        each('.dxgvEmptyDataRow_Material td, .dx-datagrid-nodata, .dxgvFilterBar_Material a, .dxgvFilterBar_Material span, .dxgvGroupRow_Material td', function (cell) {
+            var walker = d.createTreeWalker(cell, NodeFilter.SHOW_TEXT, null, false), n;
+            while ((n = walker.nextNode())) {
+                for (var i = 0; i < TEKSTE.length; i++) {
+                    if (TEKSTE[i][0].test(n.nodeValue)) { n.nodeValue = n.nodeValue.replace(TEKSTE[i][0], TEKSTE[i][1]); break; }
+                }
+            }
+        });
     }
 
     tag();

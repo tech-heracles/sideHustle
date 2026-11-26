@@ -590,13 +590,17 @@ function CmimeApp() {
                 var dataGrid = new myDxDataGrid("PricesDataGrid", {
                     keyExpr: 'IdCmimArtikulli',
                     showRowLines: true,
-                    scrolling: { mode: "none" },
+                    // kolonat me gjeresi ne % (rreth 25 kolona) ngjesheshin ne pak shkronja: tani gjeresi sipas
+                    // permbajtjes, te pakten 100px, dhe rrotullim horizontal kur nuk zene
+                    scrolling: { mode: "standard", showScrollbar: "always" },
+                    columnAutoWidth: true,
+                    columnMinWidth: 100,
                     paging: { pageSize: 20 },
                     pager: {visible : true, showInfo: true },
-                    columnResizingMode: "nextColumn",
+                    columnResizingMode: "widget",
                     allowColumnReordering: true,
                     allowColumnResizing: true,
-                    setColumnWidth: true,
+                    setColumnWidth: false,
                     editorColumnOption: { step: 1, showSpinButtons: true },
                     editing: { mode: "batch", allowUpdating: true },
                     selection: { selectAllMode: "allPages", mode: "multiple", showCheckBoxesMode: "always" },
