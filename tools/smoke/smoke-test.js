@@ -30,7 +30,7 @@ const DEFAULTS = {
   base: 'http://localhost:8080/', company: 'DRAFT', user: 'konfig', password: '',
   runs: 'cold,warm', lupa: 'on', search: 'a', only: '', skip: '', limit: 0, headed: false,
   'sql-server': 'localhost\\HERACLES', 'sql-db': 'DRAFT', 'sql-user': 'AVEC', 'sql-password': '',
-  'page-timeout': 60000, 'lupa-timeout': 30000,
+  'page-timeout': 60000, 'lupa-timeout': 30000, from: 0,
 };
 function readOptions() {
   const o = Object.assign({}, DEFAULTS);
@@ -95,7 +95,7 @@ async function login(page) {
   await page.evaluate(() => loginButton.DoClick());
   await page.waitForURL(u => /FaqeKryesore/i.test(u.toString()), { timeout: 60000 });
   await page.waitForLoadState('load');
-  await page.waitForFunction(() => window.splitter && window.menu, null, { timeout: 30000 });
+  await page.waitForFunction(() => window.splitter && (window.menu || window.avecMenuTeDhena), null, { timeout: 30000 });
 }
 
 async function collectMenu(page) {
@@ -493,6 +493,7 @@ async function queryStore(sinceUtc) {
   const filter = items => {
     let l = items;
     if (opt.only) l = l.filter(i => new RegExp(opt.only, 'i').test(i.url));
+    if (Number(opt.from) > 1) l = l.slice(Number(opt.from) - 1);   // --from N: resume an interrupted crawl at page N
     if (opt.limit) l = l.slice(0, opt.limit);
     return l;
   };

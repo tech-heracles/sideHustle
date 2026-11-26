@@ -347,6 +347,7 @@ function selectFunc2(event, ui, emerfushe, idArt, kodArt) {
 }
 
 function changeFunc2(event, ui, emerKodi, index) {
+    var grida = $('#rowed5');
     var emerfushe = grida.getTekstQelize('txtLlogKunderparti', index);
     if (ui == null || ui.item == null) {
         if ($(emerfushe).val() != "") {
@@ -381,7 +382,8 @@ function KtheVleraLLogMeKod(kodi) {
     }
 }
 function SucceededCallbackLlogari(artikulli) {
-    var idRresht = $('#rowed5').getLastSel2();
+    var grida = $('#rowed5');
+    var idRresht = grida.getLastSel2();
     var kodi = grida.getTekstQelize('txtLlogKunderparti', idRresht);
     if (artikulli !== null && artikulli.IdLlogari !== -1) {
         $(kodi).val(artikulli.NrLlogari);
@@ -398,7 +400,8 @@ Function: ButtonClickLlogaria
 Hap lupen e dokumentave.
 */
 function ButtonClickLlog() {
-    var idRresht = $('#rowed5').getLastSel2();
+    var grida = $('#rowed5');
+    var idRresht = grida.getLastSel2();
     var hfLlog = document.getElementById("hfLlogaria");
     var queryStr = hfLlog.value;
     identikuesPerPopupLlogari = "VeprimeKFgrida";
