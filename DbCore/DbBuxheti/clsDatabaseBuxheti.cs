@@ -368,20 +368,6 @@ namespace DbCore.DbBuxheti
             return new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
         }
 
-        internal bool IPerketPershkrimiKategoriseMeKod(string kodi, string pershkrimi, int idNdermarrje)
-        {
-            ImbLogger.LogEnter(ImbLogger.LogTraceBuxhetimi, kodi, pershkrimi, idNdermarrje);
-
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters("@KODI", kodi, ParameterDirection.Input);
-            dbManager.AddParameters("@PERSHKRIMI", pershkrimi, ParameterDirection.Input);
-            dbManager.AddParameters("@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            int nr = Convert.ToInt32(dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_B_KATEGORIBUXHETIMI_PerputhetPershkrimiMeKodin"));
-
-            ImbLogger.LogExit(ImbLogger.LogTraceBuxhetimi, kodi, pershkrimi, idNdermarrje);
-            return  1 == nr;
-        }
 
         //sp kthen -1 nese nuk gjen kategori me kodin e dhene perndryshe kthen id e kategorise
         internal int MerrIdKategoriSipasKodit(string kodi, int idndermarrje)

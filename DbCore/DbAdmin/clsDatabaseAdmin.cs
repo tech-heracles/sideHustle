@@ -8876,17 +8876,6 @@ namespace DbCore.DbAdmin
 
         }
 
-        internal DataRow ktheLlojPeriudheSipasId(int idLlojPeriudhe)
-        {
-
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDLLOJPERIUDHE", idLlojPeriudhe, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_LLOJPERIUDHE_selSipasID");
-            return ds.Tables[0].Rows[0];
-
-        }
 
         internal DataTable ktheGjitheLlojPeriudhashPozitive()
         {
@@ -9429,15 +9418,6 @@ namespace DbCore.DbAdmin
         }
 
 
-        internal DataTable ktheGjitheVlerat()
-        {//metoda per te marre te gjithe  VLERAT    
-
-
-            dbManager.Open();
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_VLERAFUSHASHTESE_merrGjitheVlerat");
-            return ds.Tables[0];
-
-        }
 
 
         internal void ktheVleratSipasIdLidhese(int id, DateTime? dtAktivizimi, IDataBaseReader objekti)

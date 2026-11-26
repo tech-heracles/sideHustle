@@ -118,13 +118,6 @@ namespace DbCore.DbShare
             data.Dispose();
             return mbush;
         }
-        public bool mbushKonfigAmbjVarteseSipasIdKategoriKodNivel(int idKategori, string kodNivel, int idNdermarrje, int idperdorues, int idGjuha)
-        {
-            clsDatabaseShare data = new clsDatabaseShare();
-            bool mbush = mbushcolKonfigurimAmbjenti(data.ktheKonfigAmbjVarteseSipasKodKategoriIdNivel(idKategori, kodNivel, idNdermarrje, idperdorues, idGjuha));
-            data.Dispose();
-            return mbush;
-        }
 
         public bool mbushKonfigAmbjSipasIdKategoriIdNivel(int idKategori, int idNivel, int idperdorues, clsDatabaseShare data)
         {

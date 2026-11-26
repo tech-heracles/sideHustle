@@ -358,21 +358,6 @@ namespace DbCore.DbShare
 
         #region RAPORTE TRUPI
 
-        internal clsMesazh ruajRaportTrupi(int idRpT, int idRp, int idK, decimal gj, int rend, int drejt)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(6);
-            dbManager.AddParameters(0, "@IDRAPTRUPI", idRpT, ParameterDirection.Output);
-            dbManager.AddParameters(1, "@IDRAP", idRp, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDKOLONE", idK, ParameterDirection.Input);
-            dbManager.AddParameters(3, "RAPTRUPIGJERESI", gj, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@RAPTRUPIRENDIT", rend, ParameterDirection.Input);
-            dbManager.AddParameters(5, "@RAPTRUPIDREJTIM", drejt, ParameterDirection.Input);
-
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_RAPORTTRUPI_ins");
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["mesazhRuajtjeMeSukses"]);
-            return mesazh;
-        }
 
         internal clsMesazh FshiArkiva(int idPerdoruesi, string path)
         {
@@ -397,15 +382,6 @@ namespace DbCore.DbShare
             return mesazh;
         }
 
-        internal clsMesazh fshiRaportTrupi(int idRp)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDRAP", idRp, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_RAPORTTRUPI_del");
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-            return mesazh;
-        }
 
         internal DataTable ktheRaportTrupi(int idRap)
         {
@@ -500,12 +476,6 @@ namespace DbCore.DbShare
 
         #region SP TRUPI
 
-        internal DataTable mbushParamXSp()
-        {
-            dbManager.Open();
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_PARAMXSP_sel");
-            return ds.Tables[0];
-        }
 
         #endregion SP TRUPI
 
@@ -575,14 +545,6 @@ namespace DbCore.DbShare
         #region KOKA E FILTRAVE
 
     
-        internal DataTable merrTrupinFiltri(int idKokaFilter)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDKOKAFILTER", idKokaFilter, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FILTERTRUPI_merrTrupinMeIdKoka");
-            return ds.Tables[0];
-        }
 
         /// <summary>
         /// Merr Filtrat per idmoduli, idperdorues, idndermarrje
@@ -680,13 +642,18 @@ namespace DbCore.DbShare
             idKokaFilter = -1;
 
             dbManager.Open();
-            dbManager.CreateParameters(6);
+            // prc_T_FILTERKOKA_ins kerkon edhe raportin dhe flamujt "local": pa to procedura deshtonte
+            dbManager.CreateParameters(10);
             dbManager.AddParameters(0, "@IDKOKAFILTER", idKokaFilter, ParameterDirection.Output);
             dbManager.AddParameters(1, "@KOKAFILTERKODI", kodi, ParameterDirection.Input);
             dbManager.AddParameters(2, "@KOKAFILTERPERSHKRIMI", pershkrimi, ParameterDirection.Input);
             dbManager.AddParameters(3, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
             dbManager.AddParameters(4, "@IDNDERMARRJE", idndermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(5, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
+            dbManager.AddParameters(5, "@IDRAP", DBNull.Value, ParameterDirection.Input);
+            dbManager.AddParameters(6, "@LOCALRAPORT", false, ParameterDirection.Input);
+            dbManager.AddParameters(7, "@LOCALPERDORUES", false, ParameterDirection.Input);
+            dbManager.AddParameters(8, "@LOCALNDERMARRJE", false, ParameterDirection.Input);
+            dbManager.AddParameters(9, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_FILTERKOKA_ins");
 
             idKokaFilter = int.Parse(dbManager.Parameters[0].Value.ToString());
@@ -719,8 +686,8 @@ namespace DbCore.DbShare
             dbManager.AddParameters(1, "@KOKAFILTERKODI", kodi, ParameterDirection.Input);
             dbManager.AddParameters(2, "@KOKAFILTERPERSHKRIMI", pershkrimi, ParameterDirection.Input);
             dbManager.AddParameters(3, "@IDPERDORUESI", idperdoruesi, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@IDNDERMARRJE", idndermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(5, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
+            // prc_T_FILTERKOKA_upd nuk ka @IDNDERMARRJE
+            dbManager.AddParameters(4, "@IDSTATUSDOK", idstatusdok, ParameterDirection.Input);
             dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_FILTERKOKA_upd");
             clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgModifikimiMeSukses"]);
             return mesazh;
@@ -1827,18 +1794,6 @@ namespace DbCore.DbShare
             return ds.Tables[0];
         }
 
-        internal DataTable ktheKonfigAmbjVarteseSipasKodKategoriIdNivel(int idKategori, string kodNivel, int idNdermarrje, int idperdorues, int idGjuha)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(5);
-            dbManager.AddParameters(0, "@IDKATDOK", idKategori, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@KODNIVEL", kodNivel, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDPERDORUES", idperdorues, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDGJUHA", idGjuha, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KONFIGAMBJENTE_ktheKonfigVartesePerIdKatKodNivelSipasGjuhes");
-            return ds.Tables[0];
-        }
 
         internal DataTable ktheKonfigAmbjSipasIdKategori(int idKategori, int idnderm, int idperdorues, int idGjuha, bool merrSipasAutorizimit, bool meLloj)
         {
@@ -2357,18 +2312,6 @@ namespace DbCore.DbShare
             return mesazh;
         }
 
-        internal DataRow ktheKushtTemplateSipasID(int idKushtTemplate)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDKUSHTEMPLATE", idKushtTemplate, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KUSHTEMPLATE_ktheSipasID");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-        }
 
         internal DataRow ktheKushtTemplateSipasIDkonfigurimdheKodKushti(int idkonfigurim, string kodkusht)
         {
@@ -2769,20 +2712,6 @@ namespace DbCore.DbShare
             return null;
         }
 
-        internal DataTable merrMenuItemSipasKomponentesDheRaporte(String emerKomponente, int idPerdoruesi, int idNdermarrje, int idViti, bool shtimmodifikim)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(5);
-            dbManager.AddParameters(0, "@KOMPONENTE", emerKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDVITI", idViti, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@SHTIMMODIFIKIM", shtimmodifikim, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENUITEM_SipasKomponentesDheTeDrejtaDheRaporte");
-            if (ds.Tables.Count != 0)
-                return ds.Tables[0];
-            return null;
-        }
 
         internal DataTable merrMenuItemPerRaporte(String emerKomponente, int idPerdoruesi, int idNdermarrje, int idViti, bool shtimmodifikim)
         {

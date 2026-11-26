@@ -494,26 +494,6 @@ namespace DbCore.DbInventari
         //    try
         //    finally
 
-        /// <summary>
-        /// perdoret per te kontrolluar nqs ekziston ky furnitor  per kete artikull
-        /// behet kontrolli per qellime konsistence te informacionit ne DB, nuk lejon te celen furnitore te njejte per te njejtin artikull dy here
-        /// </summary>
-        ///<param name="idartikulli"> id e artikullit</param>
-        ///<param name="idfurnitori"> id e furnitorit</param>
-        /// <returns>nje objeckt boolean qe tregon nese ekziston apo jo ky furnitor per kete artikull</returns>
-        public bool ekzistonFurnitoreArtikulli(int idartikulli, int idfurnitori)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDARTIKULLI", idartikulli, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDFURNITORI", idfurnitori, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_FURNITOREARTIKULLI_ekzistonFurnitoreArtikulli");
-            if (ds.Tables[0].Rows.Count == 1)
-                return true;
-            else if (ds.Tables[0].Rows.Count == 0)
-                return false;
-            else return true;
-        }
 
 
         #endregion
@@ -1514,20 +1494,6 @@ namespace DbCore.DbInventari
             var pergjigje = dbManager.ExecuteScalar(CommandType.StoredProcedure, "prc_T_Artikulli_ktheTeDhenaPerArtikullin");
             return pergjigje.ToString();
 
-        }
-        internal DataTable kontrolloEkzistencNeMgaOwn(string kodart, int idtvsh, int idkl)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(3);
-            dbManager.AddParameters(0, "@KODARTIKULLI", kodart, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDTVSH", idtvsh, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDKLIENT", idkl, ParameterDirection.Input);
-            var ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_kontrolloEkzistencNeMgaOwn");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0];
         }
         internal clsMesazh fshiArtStatus(int idArtikulli, int idperdoruesi)
         {
@@ -2800,22 +2766,6 @@ namespace DbCore.DbInventari
         }
 
 
-        /// <summary>
-        /// kthen datatable artikuj perberes sipas id artikullit kryesor
-        /// </summary>
-        ///<param name="id">id e artikullit kryesor</param>
-        ///<returns>nje datatable qe permban nje koleksion me te gjitha artikujt perberes te ketij artikulli  </returns>
-        internal DataTable ktheArtikujPerberesSipasIdArtikulliLidhes(int id)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDARTIKULLIKRYESOR", id, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_ARTIKULLIPERBERES_merrArtikujPerberesSipasIdLidhese");
-
-            return ds.Tables[0];
-
-        }
         internal DataTable ktheArtikujPerberesSipasIdArtikujve(string ids, DateTime data)
         {
 
@@ -5621,26 +5571,6 @@ namespace DbCore.DbInventari
 
         //    finally
 
-        /// <summary>
-        /// kthen datarow trupi kategori zbritje sipas idse
-        /// </summary>
-        ///<param name="idkatzbritje"> id e trupit te kategori zbritjes</param>
-        ///<returns> nje datarow qe permban trupin kategori zbritje me kete id</returns>
-        internal DataRow merrTrupiKategoriZbritje(int idkatzbritje)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDTRUPIKATEGORIZBRITJE", idkatzbritje, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_TRUPIKATEGORIZBRITJE_ktheKategoriZbrijteSipasId");
-
-
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
-        }
         //[Obsolete("Perdor: DataRow merrTrupiKategoriZbritje(int idkatzbritje)", true)]
         //{//metoda per te marre TRUPI KategoriZbritje SIPAS ID
         //    try
@@ -7165,19 +7095,6 @@ namespace DbCore.DbInventari
         //    try
         //    finally
 
-        internal DataTable MerrMakroFature(int idDok)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@idDok", idDok, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKAMAKRO_ktheKokaMakroSipasIdDok");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0)
-                return null;
-            return ds.Tables[0];
-        }
 
         #endregion
 
@@ -9145,21 +9062,6 @@ namespace DbCore.DbInventari
 
         }
 
-        internal DataRow merrGaranciSipasId(int idGarncia)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDLLOJGARANCI", idGarncia, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_GARANCIA_ktheGaranciipasId");
-
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
-        }
 
         internal DataRow merrGaranciSipasKod(string kodGarncia)
         {

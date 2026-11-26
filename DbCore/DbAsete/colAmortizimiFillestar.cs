@@ -26,19 +26,6 @@ namespace DbCore.DbAsete
         #region Metoda Publike
 
 
-        /// <summary>
-        /// MODULI ASETE:
-        /// Merr te gjithe serialet e aqt-ve sipas id se ndermarrjes qe kerkojme dhe mbush nje koleksion me keto objekte.
-        /// </summary>
-        /// <param name="idSeriali">(int) Id e ndermarrjes ne perdorim per te cilen do te merren serialet e aqt-ve.</param>
-        /// <returns>Kthen True nese nuk ndodh asnje gabim gjate marrjes se serialeve te aqt-ve ose False ne te kundert.</returns>
-        public bool ktheAmortizimFillestarSipasSerialit(int idSeriali)
-        {
-            clsDatabazeAsete moduliAsete = new clsDatabazeAsete();
-            bool pergjigja = mbushAmortizimFillestar(moduliAsete.ktheAmortizimFillestarSipasIdSerial(idSeriali));
-            moduliAsete.Dispose();
-            return pergjigja;
-        }
         public bool ktheAmortizimFillestarSipasStandartit(int idStandart)
         {
             clsDatabazeAsete moduliAsete = new clsDatabazeAsete();

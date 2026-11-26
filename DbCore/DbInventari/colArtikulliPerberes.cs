@@ -125,16 +125,6 @@ namespace DbCore.DbInventari
             using (clsDatabaseInventari db = new clsDatabaseInventari())
                 return db.ktheKoeficentArtikullPerberesSipasIdArtikullitKryesor(id);
         }
-        /// <summary>
-        /// merr perberesit sipas id se artikullit kryesore
-        /// </summary>
-        /// <param name="id">id e artikullit kryesore</param>
-        /// <returns>kthen true nese mbushja kryhet me sukses, ne te kundert false</returns>
-        /// <param name="db"></param>
-        public bool merrSipasIdArtikullLidhes(int id, clsDatabaseInventari db)
-        {
-            return mbushArtikujPerberes(db.ktheArtikujPerberesSipasIdArtikulliLidhes(id));
-        }
 
         /// <summary>
         /// merr perberesit sipas id se artikullit kryesore
@@ -163,19 +153,6 @@ namespace DbCore.DbInventari
             return sukses;
         }
 
-        /// <summary>
-        /// merr perberesit sipas id se artikullit kryesore
-        /// </summary>
-        /// <param name="id">id e artikullit kryesore</param>
-        /// <returns>kthen true nese mbushja kryhet me sukses, ne te kundert false</returns>
-        /// <param name="db"></param>
-        public bool merrSipasIdArtikullLidhes(int id)
-        {
-            clsDatabaseInventari db = new clsDatabaseInventari();
-            bool sukses = merrSipasIdArtikullLidhes(id, db);
-            db.Dispose();
-            return sukses;
-        }
 
         /// <summary>
         /// merr perberesit sipas id se artikullit kryesore dhe dates

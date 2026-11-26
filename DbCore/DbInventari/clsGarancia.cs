@@ -51,18 +51,6 @@ namespace DbCore.DbInventari
         {
         }
 
-        /// <summary>
-        /// konstruktor i klases me id
-        /// </summary>
-        /// <param name="idja">id-ja garancise qe do lexohet nga db-ja</param>
-        /// <param name="dbInventari"></param>
-        public clsGarancia(int idja)
-        {
-            clsDatabaseInventari dbInventari = new clsDatabaseInventari();
-            if (!mbushGaranci(dbInventari.merrGaranciSipasId(idja)))
-                idLlojGarancia = -1;
-            dbInventari.Dispose();
-        }
       /// <summary>
       /// konstruktor me 2 parametra
       /// </summary>
@@ -115,13 +103,6 @@ namespace DbCore.DbInventari
         /// </summary>
         /// <param name="kod">kodi i garancise</param>
         // <returns>kthen true nese mbushja kryhet me sukses, ne te kundert kthen false</returns>
-        public bool mbushGarancineSipasId(int idGarancia)
-        {
-            clsDatabaseInventari dbInventari = new clsDatabaseInventari();
-            bool sukses = mbushGaranci(dbInventari.merrGaranciSipasId(idGarancia));
-            dbInventari.Dispose();
-            return sukses;
-        }
 
         #endregion
 

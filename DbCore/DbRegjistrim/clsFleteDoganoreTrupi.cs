@@ -250,18 +250,6 @@ namespace DbCore.DbRegjistrim
             return u_modifikua;
         }
 
-        /// <summary>
-        /// Fshin objektin e  kokes se fletes doganore ne tabelen perkatese ne databaze sipas idse se trupit.Therret funksionin
-        /// :  <see cref="DbCore.DbRegjistrim.clsDatabaseRegjistrim.fshiFleteDoganoreTrupiSipasId"/> 
-        /// </summary>
-        /// <returns > nje objekt clsMesazh qe tregon nese fshirja eshte kryer ne rregull apo jo</returns>
-        public clsMesazh fshiSipasId()
-        {
-            clsDatabaseRegjistrim data = new clsDatabaseRegjistrim();
-            clsMesazh u_fshi = data.fshiFleteDoganoreTrupiSipasId(this.IdFleteDoganoreTrupi);
-            data.Dispose();
-            return u_fshi;
-        }
 
         /// <summary>
         /// Fshin objektet e  kokes se fletes doganore ne tabelen perkatese ne databaze sipas idse se kokes.Therret funksionin

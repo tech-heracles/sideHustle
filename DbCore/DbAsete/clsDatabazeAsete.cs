@@ -3511,14 +3511,6 @@ namespace DbCore.DbAsete
 			return ds.Tables[0].Rows[0];
 
 		}
-		internal DataTable ktheAmortizimFillestarSipasIdSerial(int idSerial)
-		{
-			dbManager.Open();
-			dbManager.CreateParameters(1);
-			dbManager.AddParameters(0, "@IDSERIAL", idSerial, ParameterDirection.Input);
-			DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "PRC_T_ASETE_AQTSERIALE_selSipasIdSeriali");
-			return ds.Tables[0];
-		}
 		internal DataTable ktheAmortizimFillestarSipasIdStandarti(int idStandart)
 		{
 			dbManager.Open();

@@ -76,14 +76,6 @@ namespace DbCore.DbAdmin
 
         #endregion
 
-        public static clsLlojPeriudhe merrPeriudhenSipasId(int id)
-        {
-            clsLlojPeriudhe periudha = new clsLlojPeriudhe();
-            clsDatabaseAdmin data = new clsDatabaseAdmin();
-            periudha.mbushLlojPeriudhe(data.ktheLlojPeriudheSipasId(id));
-            data.Dispose();
-            return periudha;
-        }
 
         #region Metoda Internal
 

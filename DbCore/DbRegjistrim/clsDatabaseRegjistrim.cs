@@ -2457,23 +2457,6 @@ namespace DbCore.DbRegjistrim
 
         }
 
-        internal DataTable merrKokaShitjePaFatureTatimoreDTNewSipasFushave(int idperdorues, int idndermarje, bool merrTegjitha, int idndermarjevit, string dataNga, string dataDeri, string top, string filter, string fushat)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(9);
-            dbManager.AddInputParameters("@IDPERDORUES", idperdorues);
-            dbManager.AddInputParameters("@IDNDERMARJE", idndermarje);
-            dbManager.AddInputParameters("@merrTegjitha", merrTegjitha);
-            dbManager.AddInputParameters("@IDNDERMARJEvit", idndermarjevit);
-            dbManager.AddInputParameters("@DATANGA", dataNga);
-            dbManager.AddInputParameters("@DATADERI", dataDeri);
-            dbManager.AddInputParameters("@TOP", top);
-            dbManager.AddInputParameters("@Filter", filter);
-            dbManager.AddInputParameters("@FUSHAT", fushat);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKASHITJE_merrKokaShitjeDTPaFatureTatimoreMeFilterSipasFushave");
-            return ds.Tables[0];
-
-        }
 
         internal DataTable merrKokaShitjePaFatureTatimoreDTNew(int idperdorues, int idndermarje, bool merrTegjitha, int idndermarjevit, string dataNga, string dataDeri, string top, string filter)
         {
@@ -11462,22 +11445,6 @@ OPTION (LOOP JOIN);");
             return mesazh;
         }
 
-        /// <summary>
-        /// ekzekutohet sp-ja prc_T_FLETEDOGANORETRUPI_delSipasId duke i kaluar id e trupit te fletes doganore qe e marrim nga objekti clsFleteDoganoreTrupi qe i kalohet si parameter 
-        /// </summary>
-        /// <param name="id">id ritese e trupit te fletes kontabel</param>
-        /// <returns>nje objekt clsMesazh qe tregon nese fshirja eshte kryer ne rregull apo jo</returns>
-        internal clsMesazh fshiFleteDoganoreTrupiSipasId(int id)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDFLETEDOGANORETRUPI", id, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_FLETEDOGANORETRUPI_delSipasId");
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-            return mesazh;
-
-        }
 
         #endregion
 
@@ -16063,39 +16030,6 @@ OPTION (LOOP JOIN);");
             DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKARECETAOPTIKE_selAllNdermSipasPeriudhes");
             return ds.Tables[0];
         }
-        public bool ekzistonRegjistrimRecetaSipasIdentifikuese(int idkoka, string nrDok, DateTime dtDok, DateTime dtRegj, string shenime, int idKlienti, string nrSerial, string adresa, string referimi, string diAfer, string diLarg, string lartesia, int idStatusDok, int idNdermarrje, int idNderViti, int idPerdoruesi, int idKonfig, int idNivel, int idDokNga, int idGjenerues, int idKonfigGjenerues, int idNivelGjenerues, int idRaportDesign)
-        {
-            dbManager.AddInputParameters("@NRDOK", nrDok);
-            dbManager.AddInputParameters("@DTDOK", dtDok);
-            dbManager.AddInputParameters("@DTREGJ", dtRegj);
-            dbManager.AddInputParameters("@SHENIME", shenime);
-            dbManager.AddInputParameters("@IDKLIENTI", idKlienti);
-            dbManager.AddInputParameters("@NRSERIAL", nrSerial);
-            dbManager.AddInputParameters("@ADRESA", adresa);
-            dbManager.AddInputParameters("@REFERIMI", referimi);
-            dbManager.AddInputParameters("@DIAFER", diAfer);
-            dbManager.AddInputParameters("@DILARG", diLarg);
-            dbManager.AddInputParameters("@LARTESIA", lartesia);
-            dbManager.AddInputParameters("@IDSTATUSDOK", idStatusDok);
-            dbManager.AddInputParameters("@IDNDERMARRJE", idNdermarrje);
-            dbManager.AddInputParameters("@IDNDERVITI", idNderViti);
-            dbManager.AddInputParameters("@IDPERDORUESI", idPerdoruesi);
-            dbManager.AddInputParameters("@IDKONFIGAMBJENTE", idKonfig);
-            dbManager.AddInputParameters("@IDNIVEL", idNivel);
-            dbManager.AddInputParameters("@IDDOKNGA", idDokNga);
-            dbManager.AddInputParameters("@IDGJENERUES", idGjenerues);
-            dbManager.AddInputParameters("@IDKONFIGGJENERUES", idKonfigGjenerues);
-            dbManager.AddInputParameters("@IDNIVELGJENERUES", idNivelGjenerues);
-            dbManager.AddInputParameters("@IDRAPORTDESIGN", idRaportDesign);
-
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KOKARECETAOPTIKE_ekzistonRegjistrimRecetaSipasIdentifikuese");
-            if (ds.Tables[0].Rows.Count > 0)
-                return true;
-            else if (ds.Tables[0].Rows.Count == 0)
-                return false;
-            else return true;
-
-        }
         internal clsMesazh hidhNeHistorikRecetaOptike(int idKoka)
         {
             dbManager.Open();
@@ -16179,38 +16113,6 @@ OPTION (LOOP JOIN);");
 
         }
 
-        /// <summary>
-        /// fshin trupin e dokumentit te recetave nga db sipas id koka
-        /// </summary>
-        /// <param name="idkoka"></param>
-        /// <returns></returns>
-        internal clsMesazh fshiTrupiReceteSyriSipasKoka(int idkoka)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDKOKA", idkoka, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIRECETAOPTIKESYRI_delSipasIdKoka");
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-            return mesazh;
-
-        }
-        /// <summary>
-        /// fshin trupin e dokumentit te recetave sipas id trupi
-        /// </summary>
-        /// <param name="idtrupi"></param>
-        /// <returns></returns>
-        internal clsMesazh fshiTrupiRecetaSyriSipasID(int idtrupi)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDTRUPI", idtrupi, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIRECETAOPTIKESYRI_delSipasIdTrupi");
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-            return mesazh;
-
-        }
 
         /// <summary>
         /// kthen trupin e dokumentit te riparimit sipas idkoka
@@ -16342,15 +16244,6 @@ OPTION (LOOP JOIN);");
             dbManager.CreateParameters(1);
             dbManager.AddParameters(0, "@IDKOKA", idKoka, ParameterDirection.Input);
             dbManager.FillObject("prc_T_TRUPIRECETAOPTIKEPUNIME_selSipasIdKoka", obj);
-        }
-        internal clsMesazh fshiTrupiRecetaPunimeSipasID(int idtrupi)
-        {
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDTRUPI", idtrupi, ParameterDirection.Input);
-            dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "prc_T_TRUPIRECETAOPTIKEPUNIME_delSipasIdTrupi");
-            clsMesazh mesazh = new clsMesazh(true, MessagesResource.Messages["msgFshirjeMeSukses"]);
-            return mesazh;
         }
 
         internal void ktheTrupiRecetaPunimeSipasNdermarrjes(int idNdermarrje, int idNdermViti)
@@ -17139,44 +17032,6 @@ OPTION (LOOP JOIN);");
         }
 
 
-        /// <summary>
-        /// kthen datarow karta sipas emertimit dhe ndermarrjes
-        /// </summary>
-        ///<param name="emertimi"> emertimi</param>
-        ///<param name="idNdermarrje"> id e idNdermarrjes</param>
-        ///<returns> nje datarow qe kthen karten sipas emertimit dhe ndermarrjes</returns>
-        internal DataRow merrFazeSipasEmertimit(string kodi, int idNdermarrje)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(2);
-            dbManager.AddParameters(0, "@IDNDERMARJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@KODI", kodi, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KONTRATAFAZA_merrSipasNdermarrjesDheEmertimit");
-            if (ds == null)
-                return null;
-            if (ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows.Count > 1)
-                return null;
-            return ds.Tables[0].Rows[0];
-
-        }
-        /// <summary>
-        /// kthen datarow karta sipas idse
-        /// </summary>
-        ///<param name="idKarta"> id e kartes</param>
-        ///<returns> nje datarow qe permban karten sipas id se kartes</returns>
-        internal DataTable merrFazeSipasIdDt(int idFaza)
-        {
-
-            dbManager.Open();
-            dbManager.CreateParameters(1);
-            dbManager.AddParameters(0, "@IDFAZA", idFaza, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_KONTRATAFAZA_merrSipasIdDt");
-            if (ds == null)
-                return null;
-            return ds.Tables[0];
-
-        }
 
         internal DataTable merrFazeSipasKontrate(int idNdermarrje, int idkontrata)
         {

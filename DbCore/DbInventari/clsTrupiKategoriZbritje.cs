@@ -201,16 +201,6 @@ namespace DbCore.DbInventari
             this.prioriteti = prioriteti;
         }
         /// <summary>
-        /// konstruktor me 1 parameter
-        /// </summary>
-        /// <param name="idkatzbritje">id e trupit te katerise se zbritjes</param>
-        public clsTrupiKategoriZbritje(int idkatzbritje)
-        {
-            clsDatabaseInventari dbTrupiKategoriZbritje = new clsDatabaseInventari();
-            mbushTrupiKategoriZbritje(dbTrupiKategoriZbritje.merrTrupiKategoriZbritje(idkatzbritje));
-            dbTrupiKategoriZbritje.Dispose();
-        }
-        /// <summary>
         /// konstruktori pa parametra
         /// </summary>
         public clsTrupiKategoriZbritje()
