@@ -181,6 +181,7 @@
     <Compile Include="WebUtils\ASPxControlUtils\ConfigureAspxCheckBoxList.cs" />
     <Compile Include="WebUtils\ASPxControlUtils\ConfigureAspxComboBox.cs" />
     <Compile Include="WebUtils\ASPxControlUtils\GridUtil.cs" />
+    <Compile Include="WebUtils\ASPxControlUtils\RenditjeKolonash.cs" />
     <Compile Include="WebUtils\ASPxControlUtils\KonfigurimComboGride.cs" />
     <Compile Include="WebUtils\ASPxControlUtils\TreeListUtil.cs" />
     <Compile Include="WebUtils\Filters\LlojePeriudhe.cs" />

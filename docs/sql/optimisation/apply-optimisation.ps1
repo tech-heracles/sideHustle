@@ -1,4 +1,4 @@
-﻿# Apliko skriptet e optimizimit (00, 01, 02, 04-26) ne nje databaze, me rradhe; ndalon te gabimi i pare.
+﻿# Apliko skriptet e optimizimit (00, 01, 02, 04-27) ne nje databaze, me rradhe; ndalon te gabimi i pare.
 # 00 ruan gjendjen para cdo ndryshimi, keshtu qe rollback-optimisation.ps1 e rikthen databazen pikerisht si ishte.
 # Gjithe dalja (p.sh. cilat indekse u hoqen ose u lane nga 01) ruhet ne apply-optimisation-<databaza>-<data>.log.
 # Perdorimi (PowerShell, nga kjo dosje ose me rrugen e plote):
@@ -35,7 +35,8 @@ $scripts = @(
     '23-lupa-artikull-pa-gjendje-kur-bosh.sql',
     '24-ruajtje-magazine-progresivi.sql',
     '25-cmim-mesatar-shuma-direkte.sql',
-    '26-cmim-mesatar-konfigurime.sql'
+    '26-cmim-mesatar-konfigurime.sql',
+    '27-konfigurim-grida-indekse.sql'
 )
 $log = Join-Path $PSScriptRoot ("apply-optimisation-{0}-{1:yyyyMMdd-HHmmss}.log" -f ($Database -replace '[^\w]', '_'), (Get-Date))
 foreach ($s in $scripts) {

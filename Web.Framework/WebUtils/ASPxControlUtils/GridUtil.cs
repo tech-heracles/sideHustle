@@ -676,39 +676,43 @@ namespace PlatinumWeb
                 idKonfigurim = clsKonf == null || clsKonf.IdKonfigAmbjente == 0 ? 1 : clsKonf.IdKonfigAmbjente;
             }
             var colGrida = new colGridaTrupi(emergride, Int32.Parse(paramIdKomponente), idKonfigurim, idGjuha);
-            foreach (var o in colGrida)
+            // VisibleIndex/Visible vendosen pa koston O(n^3) te DevExpress-it, me te njejtin rezultat (shih RenditjeKolonash)
+            using (var rk = new RenditjeKolonash(grid))
             {
-                var col = grid.Columns[o.KodiTrupi] as GridViewDataColumn;
-
-                if (col == null)
+                foreach (var o in colGrida)
                 {
-                    continue;
+                    var col = grid.Columns[o.KodiTrupi] as GridViewDataColumn;
+
+                    if (col == null)
+                    {
+                        continue;
+                    }
+
+                    col.HeaderStyle.Wrap = DefaultBoolean.True;
+                    col.Caption = o.PershkrimiTrupi;
+                    col.Name = o.KodiTrupi;
+                    rk.VendosIndeksin(col, o.IndexTrupi);
+                    rk.VendosDukshmerine(col, o.VisibleTrupi);
+                    col.Width = Unit.Percentage(o.WidthTrupi);
+                    col.ShowInCustomizationForm = o.VisibleCostumize;
+                    col.PropertiesEdit.ClientInstanceName = o.KodiTrupi;
+                    col.Settings.ShowInFilterControl = DefaultBoolean.True;
+                    col.Settings.AutoFilterCondition = (TipKoloneBatchEdit)o.Tipi == TipKoloneBatchEdit.SpinEdit ? AutoFilterCondition.Equals : AutoFilterCondition.Contains;
+                    col.ReadOnly = o.ReadonlyTrupi;
+
+                    if (col is GridViewDataComboBoxColumn)
+                    {
+                        var c = (col as GridViewDataComboBoxColumn).PropertiesComboBox;
+                        c.AllowMouseWheel = true;
+                        c.CallbackPageSize = 20;
+                        c.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                        c.DropDownStyle = DropDownStyle.DropDownList;
+                        c.FilterMinLength = 0;
+                    }
+
+                    if (meFormatNumri)
+                        col.PropertiesEdit.DisplayFormatString = clsFormatKonfigTrup.KtheFormatStringSipasKonfigurimFormatNumri(idNdermarrje, idKonfigurim, (LlojFusheFormatNumri)o.LlojFormatFushe);
                 }
-
-                col.HeaderStyle.Wrap = DefaultBoolean.True;
-                col.Caption = o.PershkrimiTrupi;
-                col.Name = o.KodiTrupi;
-                col.VisibleIndex = o.IndexTrupi;
-                col.Visible = o.VisibleTrupi;
-                col.Width = Unit.Percentage(o.WidthTrupi);
-                col.ShowInCustomizationForm = o.VisibleCostumize;
-                col.PropertiesEdit.ClientInstanceName = o.KodiTrupi;
-                col.Settings.ShowInFilterControl = DefaultBoolean.True;
-                col.Settings.AutoFilterCondition = (TipKoloneBatchEdit)o.Tipi == TipKoloneBatchEdit.SpinEdit ? AutoFilterCondition.Equals : AutoFilterCondition.Contains;
-                col.ReadOnly = o.ReadonlyTrupi;
-
-                if (col is GridViewDataComboBoxColumn)
-                {
-                    var c = (col as GridViewDataComboBoxColumn).PropertiesComboBox;
-                    c.AllowMouseWheel = true;
-                    c.CallbackPageSize = 20;
-                    c.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                    c.DropDownStyle = DropDownStyle.DropDownList;
-                    c.FilterMinLength = 0;
-                }
-
-                if (meFormatNumri)
-                    col.PropertiesEdit.DisplayFormatString = clsFormatKonfigTrup.KtheFormatStringSipasKonfigurimFormatNumri(idNdermarrje, idKonfigurim, (LlojFusheFormatNumri)o.LlojFormatFushe);
             }
             if (grid.Columns["#"] != null)
             {
@@ -1174,22 +1178,26 @@ namespace PlatinumWeb
                 return;
             }
             koka.OColGridaTrupi.mbushTrupin(idGjuha, koka.IdGridaKoka);
-            foreach (clsGridaTrupi gridaKolone in koka.OColGridaTrupi)
+            // VisibleIndex/Visible vendosen pa koston O(n^3) te DevExpress-it, me te njejtin rezultat (shih RenditjeKolonash)
+            using (var rk = new RenditjeKolonash(grid))
             {
-                var gridViewColumn = grid.Columns[gridaKolone.KodiTrupi];
-                if (gridViewColumn == null)
+                foreach (clsGridaTrupi gridaKolone in koka.OColGridaTrupi)
                 {
-                    LogManager.GetCurrentClassLogger().Error(String.Format("percaktoVisibleColumnsShto({0}, {1}, {2}, {3}, {4}) - gridViewColumn == null", idGjuha, idNdermarrje, grid, emriGrides, emriKomponentes));
-                    return;
+                    var gridViewColumn = grid.Columns[gridaKolone.KodiTrupi];
+                    if (gridViewColumn == null)
+                    {
+                        LogManager.GetCurrentClassLogger().Error(String.Format("percaktoVisibleColumnsShto({0}, {1}, {2}, {3}, {4}) - gridViewColumn == null", idGjuha, idNdermarrje, grid, emriGrides, emriKomponentes));
+                        return;
+                    }
+                    gridViewColumn.Caption = gridaKolone.PershkrimiTrupi;
+                    rk.VendosIndeksin(gridViewColumn, gridaKolone.IndexTrupi);
+                    rk.VendosDukshmerine(gridViewColumn, gridaKolone.VisibleTrupi);
+                    GridViewDataColumn col = gridViewColumn as GridViewDataColumn;
+                    col.ReadOnly = gridaKolone.ReadonlyTrupi;
+                    col.PropertiesEdit.ClientInstanceName = gridaKolone.KodiTrupi;
+                    col.Settings.ShowInFilterControl = DefaultBoolean.True;
+                    col.Width = Unit.Percentage(gridaKolone.WidthTrupi);
                 }
-                gridViewColumn.Caption = gridaKolone.PershkrimiTrupi;
-                gridViewColumn.VisibleIndex = gridaKolone.IndexTrupi;
-                gridViewColumn.Visible = gridaKolone.VisibleTrupi;
-                GridViewDataColumn col = gridViewColumn as GridViewDataColumn;
-                col.ReadOnly = gridaKolone.ReadonlyTrupi;
-                col.PropertiesEdit.ClientInstanceName = gridaKolone.KodiTrupi;
-                col.Settings.ShowInFilterControl = DefaultBoolean.True;
-                col.Width = Unit.Percentage(gridaKolone.WidthTrupi);
             }
             grid.AddNewRow();
         }
@@ -1211,24 +1219,28 @@ namespace PlatinumWeb
                 return;
             }
             koka.OColGridaTrupi.mbushTrupin(idGjuha, koka.IdGridaKoka);
-            foreach (clsGridaTrupi gridaKolone in koka.OColGridaTrupi)
+            // VisibleIndex/Visible vendosen pa koston O(n^3) te DevExpress-it, me te njejtin rezultat (shih RenditjeKolonash)
+            using (var rk = new RenditjeKolonash(grid))
             {
-                var gridViewColumn = grid.Columns[gridaKolone.KodiTrupi];
-                if (gridViewColumn == null)
+                foreach (clsGridaTrupi gridaKolone in koka.OColGridaTrupi)
                 {
-                    LogManager.GetCurrentClassLogger().Error(String.Format("percaktoVisibleColumns({0}, {1}, {2}, {3}, {4}, {5} ) - gridViewColumn == null", idGjuha, idNdermarrje, grid, emriGrides, emriKomponentes, gridaKolone.KodiTrupi));
-                    return;
+                    var gridViewColumn = grid.Columns[gridaKolone.KodiTrupi];
+                    if (gridViewColumn == null)
+                    {
+                        LogManager.GetCurrentClassLogger().Error(String.Format("percaktoVisibleColumns({0}, {1}, {2}, {3}, {4}, {5} ) - gridViewColumn == null", idGjuha, idNdermarrje, grid, emriGrides, emriKomponentes, gridaKolone.KodiTrupi));
+                        return;
+                    }
+                    gridViewColumn.Caption = gridaKolone.PershkrimiTrupi;
+                    rk.VendosIndeksin(gridViewColumn, gridaKolone.IndexTrupi);
+                    rk.VendosDukshmerine(gridViewColumn, gridaKolone.VisibleTrupi);
+                    GridViewDataColumn col = gridViewColumn as GridViewDataColumn;
+                    col.ReadOnly = gridaKolone.ReadonlyTrupi;
+                    col.PropertiesEdit.ClientInstanceName = gridaKolone.KodiTrupi;
+                    col.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+                    col.Settings.ShowInFilterControl = DefaultBoolean.True;
+                    col.CellStyle.Wrap = DefaultBoolean.False;
+                    col.ShowInCustomizationForm = gridaKolone.VisibleCostumize;
                 }
-                gridViewColumn.Caption = gridaKolone.PershkrimiTrupi;
-                gridViewColumn.VisibleIndex = gridaKolone.IndexTrupi;
-                gridViewColumn.Visible = gridaKolone.VisibleTrupi;
-                GridViewDataColumn col = gridViewColumn as GridViewDataColumn;
-                col.ReadOnly = gridaKolone.ReadonlyTrupi;
-                col.PropertiesEdit.ClientInstanceName = gridaKolone.KodiTrupi;
-                col.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
-                col.Settings.ShowInFilterControl = DefaultBoolean.True;
-                col.CellStyle.Wrap = DefaultBoolean.False;
-                col.ShowInCustomizationForm = gridaKolone.VisibleCostumize;
             }
         }
 
@@ -1248,27 +1260,31 @@ namespace PlatinumWeb
                 throw new MyException(String.Format("percaktoVisibleColumnsMeWidth({0}, {1}, {2}, {3}, {4}) - koka.IdGridaKoka == 0", idGjuha, idNdermarrje, grid, emriGrides, emriKomponentes));
             }
             koka.OColGridaTrupi.mbushTrupin(idGjuha, koka.IdGridaKoka);
-            foreach (clsGridaTrupi gridaKolone in koka.OColGridaTrupi)
+            // VisibleIndex/Visible vendosen pa koston O(n^3) te DevExpress-it, me te njejtin rezultat (shih RenditjeKolonash)
+            using (var rk = new RenditjeKolonash(grid))
             {
-                var gridViewColumn = grid.Columns[gridaKolone.KodiTrupi];
-                if (gridViewColumn == null)
+                foreach (clsGridaTrupi gridaKolone in koka.OColGridaTrupi)
                 {
-                    LogManager.GetCurrentClassLogger().Error(String.Format("percaktoVisibleColumnsMeWidth({0}, {1}, {2}, {3}, {4}, {5}) - gridViewColumn == null", idGjuha, idNdermarrje, grid, emriGrides, emriKomponentes, gridaKolone.KodiTrupi));
-                    continue;
+                    var gridViewColumn = grid.Columns[gridaKolone.KodiTrupi];
+                    if (gridViewColumn == null)
+                    {
+                        LogManager.GetCurrentClassLogger().Error(String.Format("percaktoVisibleColumnsMeWidth({0}, {1}, {2}, {3}, {4}, {5}) - gridViewColumn == null", idGjuha, idNdermarrje, grid, emriGrides, emriKomponentes, gridaKolone.KodiTrupi));
+                        continue;
+                    }
+                    gridViewColumn.Caption = gridaKolone.PershkrimiTrupi;
+                    rk.VendosIndeksin(gridViewColumn, gridaKolone.IndexTrupi);
+                    rk.VendosDukshmerine(gridViewColumn, gridaKolone.VisibleTrupi);
+
+                    GridViewDataColumn col = gridViewColumn as GridViewDataColumn;
+
+                    col.ReadOnly = gridaKolone.ReadonlyTrupi;
+                    col.ShowInCustomizationForm = gridaKolone.VisibleCostumize;
+                    col.PropertiesEdit.ClientInstanceName = gridaKolone.KodiTrupi;
+                    col.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+                    col.Settings.ShowInFilterControl = DefaultBoolean.True;
+                    col.CellStyle.Wrap = DefaultBoolean.True;
+                    col.Width = Unit.Percentage(gridaKolone.WidthTrupi);
                 }
-                gridViewColumn.Caption = gridaKolone.PershkrimiTrupi;
-                gridViewColumn.VisibleIndex = gridaKolone.IndexTrupi;
-                gridViewColumn.Visible = gridaKolone.VisibleTrupi;
-
-                GridViewDataColumn col = gridViewColumn as GridViewDataColumn;
-
-                col.ReadOnly = gridaKolone.ReadonlyTrupi;
-                col.ShowInCustomizationForm = gridaKolone.VisibleCostumize;
-                col.PropertiesEdit.ClientInstanceName = gridaKolone.KodiTrupi;
-                col.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
-                col.Settings.ShowInFilterControl = DefaultBoolean.True;
-                col.CellStyle.Wrap = DefaultBoolean.True;
-                col.Width = Unit.Percentage(gridaKolone.WidthTrupi);
             }
         }
 
@@ -1424,39 +1440,43 @@ namespace PlatinumWeb
         {
             colGridaTrupi trupiGrides = new colGridaTrupi();
             trupiGrides.mbushGrideTrupinSipasEmerGrideDheKomponente(idKonfigurim, emriGrides, idGjuha, emriKomponentes);
-            foreach (clsGridaTrupi gridaKolone in trupiGrides)
+            // VisibleIndex/Visible vendosen pa koston O(n^3) te DevExpress-it, me te njejtin rezultat (shih RenditjeKolonash)
+            using (var rk = new RenditjeKolonash(grid))
             {
-                var col = grid.Columns[gridaKolone.KodiTrupi] as GridViewDataColumn;
-                if (col == null)
+                foreach (clsGridaTrupi gridaKolone in trupiGrides)
                 {
-                    //Komentuar pasi mbushte file-in e logeve me shkrime te shumeta dhe ngadalsonte projektin
-                    continue;
-                }
+                    var col = grid.Columns[gridaKolone.KodiTrupi] as GridViewDataColumn;
+                    if (col == null)
+                    {
+                        //Komentuar pasi mbushte file-in e logeve me shkrime te shumeta dhe ngadalsonte projektin
+                        continue;
+                    }
                 
-                switch (idGjuha)
-                {
-                    case 0:
-                        col.Caption = gridaKolone.PershkrimiTrupi;
-                        break;
-                    case 1:
-                        col.Caption = gridaKolone.PershkrimiTrupi_en;
-                        break;
-                    case 2:
-                        col.Caption = gridaKolone.PershkrimiTrupi_fr;
-                        break;
-                }
-                if (percaktoIndex)
-                    col.VisibleIndex = gridaKolone.IndexTrupi;
+                    switch (idGjuha)
+                    {
+                        case 0:
+                            col.Caption = gridaKolone.PershkrimiTrupi;
+                            break;
+                        case 1:
+                            col.Caption = gridaKolone.PershkrimiTrupi_en;
+                            break;
+                        case 2:
+                            col.Caption = gridaKolone.PershkrimiTrupi_fr;
+                            break;
+                    }
+                    if (percaktoIndex)
+                        rk.VendosIndeksin(col, gridaKolone.IndexTrupi);
 
-                col.ReadOnly = gridaKolone.ReadonlyTrupi;
-                col.PropertiesEdit.ClientInstanceName = gridaKolone.KodiTrupi;
-                col.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
-                col.Settings.ShowInFilterControl = DefaultBoolean.True;
-                col.CellStyle.Wrap = DefaultBoolean.True;
-                if (perdorWidthZero && !gridaKolone.VisibleTrupi)
-                    col.Width = Unit.Percentage(0);
-                if (!perdorWidthZero)
-                    col.Visible = gridaKolone.VisibleTrupi;
+                    col.ReadOnly = gridaKolone.ReadonlyTrupi;
+                    col.PropertiesEdit.ClientInstanceName = gridaKolone.KodiTrupi;
+                    col.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+                    col.Settings.ShowInFilterControl = DefaultBoolean.True;
+                    col.CellStyle.Wrap = DefaultBoolean.True;
+                    if (perdorWidthZero && !gridaKolone.VisibleTrupi)
+                        col.Width = Unit.Percentage(0);
+                    if (!perdorWidthZero)
+                        rk.VendosDukshmerine(col, gridaKolone.VisibleTrupi);
+                }
             }
 
         }
@@ -1678,68 +1698,54 @@ namespace PlatinumWeb
         /// <param name="rm"> marrim resource manager per lidhjen me resource strings</param>
         public static void ToolTipButonaveMbiGride(ASPxGridView grid, CultureInfo cultinf, ResourceManager rm)
         {
-            if ((grid.FindTitleTemplateControl("ASPxButton2") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("ASPxButton2") as ASPxButton).ToolTip = rm.GetString("btnAdministrimiZgjidhKolonat", cultinf);
-            }
+            var ASPxButton2_ = grid.FindTitleTemplateControl("ASPxButton2") as ASPxButton;
+            if (ASPxButton2_ != null)
+                ASPxButton2_.ToolTip = rm.GetString("btnAdministrimiZgjidhKolonat", cultinf);
 
-            if ((grid.FindTitleTemplateControl("ASPxButton3") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("ASPxButton3") as ASPxButton).ToolTip = rm.GetString("btnBlerjeShitjeRuajKolonat", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("gridaSelectFaqe") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("gridaSelectFaqe") as ASPxButton).ToolTip = rm.GetString("btnZgjidhTeGjitheFaqen", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("gridaSelectTeGjitha") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("gridaSelectTeGjitha") as ASPxButton).ToolTip = rm.GetString("btnZgjidhTeGjithe", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("gridaUnSelectTeGjitha") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("gridaUnSelectTeGjitha") as ASPxButton).ToolTip = rm.GetString("btnFshiZgjedhjen", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("btnXlsxExport") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("btnXlsxExport") as ASPxButton).ToolTip = rm.GetString("btnExportToXlsx", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("btnPdfExport") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("btnPdfExport") as ASPxButton).ToolTip = rm.GetString("btnExportToPdf", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("konvertimetBtn") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("konvertimetBtn") as ASPxButton).ToolTip = rm.GetString("regjisDokToolTipProcedimProdhimi", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("filterDefault") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("filterDefault") as ASPxButton).ToolTip = rm.GetString("regjisDokBtnToolTipAplikoFilterDefault", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("lblPeriudha") as ASPxLabel) != null)
-            {
-                (grid.FindTitleTemplateControl("lblPeriudha") as ASPxLabel).Text = rm.GetString("RadioButtonListEditItemPeriudha", cultinf);
-            }
+            var ASPxButton3_ = grid.FindTitleTemplateControl("ASPxButton3") as ASPxButton;
+            if (ASPxButton3_ != null)
+                ASPxButton3_.ToolTip = rm.GetString("btnBlerjeShitjeRuajKolonat", cultinf);
+            var gridaSelectFaqe_ = grid.FindTitleTemplateControl("gridaSelectFaqe") as ASPxButton;
+            if (gridaSelectFaqe_ != null)
+                gridaSelectFaqe_.ToolTip = rm.GetString("btnZgjidhTeGjitheFaqen", cultinf);
+            var gridaSelectTeGjitha_ = grid.FindTitleTemplateControl("gridaSelectTeGjitha") as ASPxButton;
+            if (gridaSelectTeGjitha_ != null)
+                gridaSelectTeGjitha_.ToolTip = rm.GetString("btnZgjidhTeGjithe", cultinf);
+            var gridaUnSelectTeGjitha_ = grid.FindTitleTemplateControl("gridaUnSelectTeGjitha") as ASPxButton;
+            if (gridaUnSelectTeGjitha_ != null)
+                gridaUnSelectTeGjitha_.ToolTip = rm.GetString("btnFshiZgjedhjen", cultinf);
+            var btnXlsxExport_ = grid.FindTitleTemplateControl("btnXlsxExport") as ASPxButton;
+            if (btnXlsxExport_ != null)
+                btnXlsxExport_.ToolTip = rm.GetString("btnExportToXlsx", cultinf);
+            var btnPdfExport_ = grid.FindTitleTemplateControl("btnPdfExport") as ASPxButton;
+            if (btnPdfExport_ != null)
+                btnPdfExport_.ToolTip = rm.GetString("btnExportToPdf", cultinf);
+            var konvertimetBtn_ = grid.FindTitleTemplateControl("konvertimetBtn") as ASPxButton;
+            if (konvertimetBtn_ != null)
+                konvertimetBtn_.ToolTip = rm.GetString("regjisDokToolTipProcedimProdhimi", cultinf);
+            var filterDefault_ = grid.FindTitleTemplateControl("filterDefault") as ASPxButton;
+            if (filterDefault_ != null)
+                filterDefault_.ToolTip = rm.GetString("regjisDokBtnToolTipAplikoFilterDefault", cultinf);
+            var lblPeriudha_ = grid.FindTitleTemplateControl("lblPeriudha") as ASPxLabel;
+            if (lblPeriudha_ != null)
+                lblPeriudha_.Text = rm.GetString("RadioButtonListEditItemPeriudha", cultinf);
 
-            if ((grid.FindTitleTemplateControl("ASPxButton1") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("ASPxButton1") as ASPxButton).Text = rm.GetString("btnZgjidhTeGjithe", cultinf);          ///ASPxButton1
-            }
+            var ASPxButton1_ = grid.FindTitleTemplateControl("ASPxButton1") as ASPxButton;
+            if (ASPxButton1_ != null)
+                ASPxButton1_.Text = rm.GetString("btnZgjidhTeGjithe", cultinf);
 
-            if ((grid.FindTitleTemplateControl("gidaSelectMbrapa") as ASPxButton) != null)
+            var gidaSelectMbrapa_ = grid.FindTitleTemplateControl("gidaSelectMbrapa") as ASPxButton;
+            if (gidaSelectMbrapa_ != null)
+                gidaSelectMbrapa_.Text = rm.GetString("GridaZgjidhMbrapa", cultinf);
+            var btnHiqZgjedhjen_ = grid.FindTitleTemplateControl("btnHiqZgjedhjen") as ASPxButton;
+            if (btnHiqZgjedhjen_ != null)
+                btnHiqZgjedhjen_.Text = rm.GetString("hiqZgjedhjenBtn", cultinf);
+            var btnRefresh_ = grid.FindTitleTemplateControl("btnRefresh") as ASPxButton;
+            if (btnRefresh_ != null)
+                btnRefresh_.Text = rm.GetString("btnRefresh", cultinf);
+            ASPxRadioButtonList radDtDok = grid.FindTitleTemplateControl("radDtDok") as ASPxRadioButtonList;
+            if (radDtDok != null)
             {
-                (grid.FindTitleTemplateControl("gidaSelectMbrapa") as ASPxButton).Text = rm.GetString("GridaZgjidhMbrapa", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("btnHiqZgjedhjen") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("btnHiqZgjedhjen") as ASPxButton).Text = rm.GetString("hiqZgjedhjenBtn", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("btnRefresh") as ASPxButton) != null)
-            {
-                (grid.FindTitleTemplateControl("btnRefresh") as ASPxButton).Text = rm.GetString("btnRefresh", cultinf);
-            }
-            if ((grid.FindTitleTemplateControl("radDtDok") as ASPxRadioButtonList) != null)
-            {
-                ASPxRadioButtonList radDtDok = grid.FindTitleTemplateControl("radDtDok") as ASPxRadioButtonList;
                 radDtDok.Items[0].Text = rm.GetString("RadioButtonListEditItemDitore", cultinf);
                 radDtDok.Items[1].Text = rm.GetString("RadioButtonListEditItemJavore", cultinf);
                 radDtDok.Items[2].Text = rm.GetString("RadioButtonListEditItemAktuale", cultinf);

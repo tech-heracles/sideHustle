@@ -2674,16 +2674,18 @@ namespace DbCore.DbShare
         internal DataTable merrMenuItemSipasKomponentes(String emerKomponente, int idPerdoruesi, int idNdermarrje, int idViti, bool shtimmodifikim)
         {
             dbManager.Open();
-            dbManager.CreateParameters(5);
-            dbManager.AddParameters(0, "@KOMPONENTE", emerKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDVITI", idViti, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@SHTIMMODIFIKIM", shtimmodifikim, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENUITEM_SipasKomponentesDheTeDrejta");
-            if (ds.Tables.Count != 0)
-                return ds.Tables[0];
-            return null;
+            // butonat e menuse sipas te drejtave: ruhen derisa te ndryshojne te drejtat/menute (MenuTeDrejtaCache)
+            return MenuTeDrejtaCache.Merr(dbManager, "prc_T_MENUITEM_SipasKomponentesDheTeDrejta|" + emerKomponente + "|" + idPerdoruesi + "|" + idNdermarrje + "|" + idViti + "|" + shtimmodifikim, () =>
+            {
+                dbManager.CreateParameters(5);
+                dbManager.AddParameters(0, "@KOMPONENTE", emerKomponente, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
+                dbManager.AddParameters(3, "@IDVITI", idViti, ParameterDirection.Input);
+                dbManager.AddParameters(4, "@SHTIMMODIFIKIM", shtimmodifikim, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENUITEM_SipasKomponentesDheTeDrejta");
+                return ds.Tables.Count != 0 ? ds.Tables[0] : null;
+            });
         }
 
         /// <summary>
@@ -2697,16 +2699,18 @@ namespace DbCore.DbShare
         internal DataTable merrMenuItemSipasKomponentesRegjistrime(String emerKomponente, int idPerdoruesi, int idNdermarrje, int idViti, bool shtimmodifikim)
         {
             dbManager.Open();
-            dbManager.CreateParameters(5);
-            dbManager.AddParameters(0, "@KOMPONENTE", emerKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDVITI", idViti, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@SHTIMMODIFIKIM", shtimmodifikim, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENUITEM_SipasKomponentesDheTeDrejtaRegjistrime");
-            if (ds.Tables.Count != 0)
-                return ds.Tables[0];
-            return null;
+            // butonat e menuse sipas te drejtave: ruhen derisa te ndryshojne te drejtat/menute (MenuTeDrejtaCache)
+            return MenuTeDrejtaCache.Merr(dbManager, "prc_T_MENUITEM_SipasKomponentesDheTeDrejtaRegjistrime|" + emerKomponente + "|" + idPerdoruesi + "|" + idNdermarrje + "|" + idViti + "|" + shtimmodifikim, () =>
+            {
+                dbManager.CreateParameters(5);
+                dbManager.AddParameters(0, "@KOMPONENTE", emerKomponente, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
+                dbManager.AddParameters(3, "@IDVITI", idViti, ParameterDirection.Input);
+                dbManager.AddParameters(4, "@SHTIMMODIFIKIM", shtimmodifikim, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENUITEM_SipasKomponentesDheTeDrejtaRegjistrime");
+                return ds.Tables.Count != 0 ? ds.Tables[0] : null;
+            });
         }
 
         /// <summary>
@@ -2721,33 +2725,37 @@ namespace DbCore.DbShare
         internal DataTable merrMenuItemSipasKomponentesRegjistrimeDheNivelRegjistrimi(String emerKomponente, int idPerdoruesi, int idNdermarrje, int idViti, int idNivelRegjistrimi, bool shtimmodifikim)
         {
             dbManager.Open();
-            dbManager.CreateParameters(6);
-            dbManager.AddParameters(0, "@KOMPONENTE", emerKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDVITI", idViti, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@IDNIVELREGJISTRIMI", idNivelRegjistrimi, ParameterDirection.Input);
-            dbManager.AddParameters(5, "@SHTIMMODIFIKIM", shtimmodifikim, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENUITEM_SipasKomponentesDheTeDrejtaRegjistrimeDheNivelRegjistrimi");
-            if (ds.Tables.Count != 0)
-                return ds.Tables[0];
-            return null;
+            // butonat e menuse sipas te drejtave: ruhen derisa te ndryshojne te drejtat/menute (MenuTeDrejtaCache)
+            return MenuTeDrejtaCache.Merr(dbManager, "prc_T_MENUITEM_SipasKomponentesDheTeDrejtaRegjistrimeDheNivelRegjistrimi|" + emerKomponente + "|" + idPerdoruesi + "|" + idNdermarrje + "|" + idViti + "|" + idNivelRegjistrimi + "|" + shtimmodifikim, () =>
+            {
+                dbManager.CreateParameters(6);
+                dbManager.AddParameters(0, "@KOMPONENTE", emerKomponente, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
+                dbManager.AddParameters(3, "@IDVITI", idViti, ParameterDirection.Input);
+                dbManager.AddParameters(4, "@IDNIVELREGJISTRIMI", idNivelRegjistrimi, ParameterDirection.Input);
+                dbManager.AddParameters(5, "@SHTIMMODIFIKIM", shtimmodifikim, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENUITEM_SipasKomponentesDheTeDrejtaRegjistrimeDheNivelRegjistrimi");
+                return ds.Tables.Count != 0 ? ds.Tables[0] : null;
+            });
         }
 
 
         internal DataTable merrMenuItemPerRaporte(String emerKomponente, int idPerdoruesi, int idNdermarrje, int idViti, bool shtimmodifikim)
         {
             dbManager.Open();
-            dbManager.CreateParameters(5);
-            dbManager.AddParameters(0, "@KOMPONENTE", emerKomponente, ParameterDirection.Input);
-            dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
-            dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
-            dbManager.AddParameters(3, "@IDVITI", idViti, ParameterDirection.Input);
-            dbManager.AddParameters(4, "@SHTIMMODIFIKIM", shtimmodifikim, ParameterDirection.Input);
-            DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENUITEM_SipasRaportit");
-            if (ds.Tables.Count != 0)
-                return ds.Tables[0];
-            return null;
+            // butonat e menuse sipas te drejtave: ruhen derisa te ndryshojne te drejtat/menute (MenuTeDrejtaCache)
+            return MenuTeDrejtaCache.Merr(dbManager, "prc_T_MENUITEM_SipasRaportit|" + emerKomponente + "|" + idPerdoruesi + "|" + idNdermarrje + "|" + idViti + "|" + shtimmodifikim, () =>
+            {
+                dbManager.CreateParameters(5);
+                dbManager.AddParameters(0, "@KOMPONENTE", emerKomponente, ParameterDirection.Input);
+                dbManager.AddParameters(1, "@IDPERDORUESI", idPerdoruesi, ParameterDirection.Input);
+                dbManager.AddParameters(2, "@IDNDERMARRJE", idNdermarrje, ParameterDirection.Input);
+                dbManager.AddParameters(3, "@IDVITI", idViti, ParameterDirection.Input);
+                dbManager.AddParameters(4, "@SHTIMMODIFIKIM", shtimmodifikim, ParameterDirection.Input);
+                DataSet ds = dbManager.ExecuteDataSet(CommandType.StoredProcedure, "prc_T_MENUITEM_SipasRaportit");
+                return ds.Tables.Count != 0 ? ds.Tables[0] : null;
+            });
         }
 
         /// <summary>

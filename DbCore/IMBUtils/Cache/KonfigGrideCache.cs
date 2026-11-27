@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using AlphaWeb.Core.Interfaces.Data;
 
@@ -35,6 +35,24 @@ namespace DbCore.IMBUtils.Cache
     {
         private static readonly TabelaCache cache = new TabelaCache("TeDrejtaCache",
             "T_ROLDREJTAKOKA", "T_ROLDREJTATRUPI", "T_ROLPERDORUES", "T_KOMPONENTE", "T_MODULI", "T_RAPORTI");
+
+        public static DataTable Merr(IDbManager dbManager, string celesi, Func<DataTable> lexo)
+        {
+            return cache.Merr(dbManager, celesi, lexo);
+        }
+    }
+
+    /// <summary>
+    /// Cache per butonat e menuse se faqes sipas te drejtave (prc_T_MENUITEM_SipasKomponentes...DheTeDrejta*,
+    /// prc_T_MENUITEM_SipasRaportit). Lexohen disa here per cdo hapje faqeje; njera prej tyre ndertohet si SQL dinamik qe
+    /// kompilohet nga e para ne cdo thirrje (~15 ms). Celesi permban perdoruesin, ndermarrjen, vitin, komponenten dhe
+    /// parametrat e tjere; invalidohet si <see cref="TeDrejtaCache"/>, edhe kur ndryshojne menute ose ndermarrja.
+    /// </summary>
+    public static class MenuTeDrejtaCache
+    {
+        private static readonly TabelaCache cache = new TabelaCache("MenuTeDrejtaCache",
+            "T_ROLDREJTAKOKA", "T_ROLDREJTATRUPI", "T_ROLPERDORUES", "T_KOMPONENTE", "T_MENUPERKOMPONENTE", "T_MENUITEM",
+            "T_NDERMARJE", "T_RAPORTI");
 
         public static DataTable Merr(IDbManager dbManager, string celesi, Func<DataTable> lexo)
         {
