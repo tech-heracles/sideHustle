@@ -166,24 +166,220 @@
                     if (i !== aktiv) vendosDisplay(c, 'none');
                 }
 
-                // strip: one tab for the whole group (the active one while open, else the first)
-                var mbaj = bashkuar ? i === aktiv : i === pare;
+                // strip: while open the group's tabs give way to the record header (title + section pills);
+                // in the list view the group's first tab stays
+                var mbaj = bashkuar ? false : i === pare;
                 klase(el('_T' + i), 'avec-merge-hide', !mbaj);
                 klase(el('_AT' + i), 'avec-merge-hide', !mbaj);
             }
 
+            klase(body, 'avec-rec-open', bashkuar);
+            if (bashkuar) koka.rifresko();
             if (bashkuar && !uBashkua) {
                 // grids that were laid out while hidden get their real width
                 try { if (C.AdjustControls) C.AdjustControls(main); } catch (e) { }
             }
+            if (bashkuar) paneli.kerko(uBashkua ? 60 : 0);
             if (bashkuar && aktiv !== aktivMeParë && aktiv !== pare) {
                 // a script moved to one of the record tabs (e.g. a field to correct): bring that section into view
+                // (scroll-margin-top keeps it below the sticky header)
                 var s = permbajtja(aktiv);
                 if (s && s.scrollIntoView) s.scrollIntoView({ block: 'start' });
             }
             uBashkua = bashkuar;
             aktivMeParë = aktiv;
         }
+
+        function seksionet() {
+            var out = [];
+            for (var j = 0; j < grupi.length; j++) {
+                var c = permbajtja(grupi[j]);
+                if (c && c.classList.contains('avec-merge-section')) out.push({ i: grupi[j], el: c });
+            }
+            return out;
+        }
+
+        // ---- 2B "kartela kompakte" (Alkid, 2026-11-27): sticky record header (the tab row, with the record's
+        // title next to "Te pergjithshme" and the page toolbar on the right) and a row of section pills under it;
+        // the sections are panels, two per row on wide screens.
+        var strip = main.querySelector('ul.dxtc-strip');
+        var permbajtjaEl = main.querySelector('.dxtc-content');
+
+        var koka = (function () {
+            var pills = document.createElement('nav');
+            pills.className = 'avec-rec-pills';
+            pills.setAttribute('aria-label', 'Shko te seksioni');
+            if (permbajtjaEl) permbajtjaEl.insertBefore(pills, permbajtjaEl.firstChild);
+            var listaPills = null, aktivPill = -1;
+
+            // record title: the first two filled text fields of the first section (code · description)
+            function titulli() {
+                var secs = seksionet();
+                if (!secs.length) return '';
+                var fushat = secs[0].el.querySelectorAll('input[type=text], textarea'), vlerat = [];
+                for (var f = 0; f < fushat.length && vlerat.length < 2; f++) {
+                    var e = fushat[f];
+                    if (!e.offsetParent || e.closest('table.dxeButtonEdit_Material, .dxgvControl_Material')) continue;
+                    var v = (e.value || '').replace(/\s+/g, ' ').trim();
+                    if (v) vlerat.push(v.length > 70 ? v.slice(0, 70) + '…' : v);
+                }
+                return vlerat.length ? vlerat.join(' · ') : 'Regjistrim i ri';
+            }
+
+            function lartesia() {
+                return (strip ? strip.offsetHeight : 0) + pills.offsetHeight;
+            }
+
+            function rifresko() {
+                var secs = seksionet(), ids = secs.map(function (x) { return x.i; }).join(',');
+                if (ids !== listaPills) {
+                    listaPills = ids;
+                    pills.innerHTML = '';
+                    secs.forEach(function (x) {
+                        var a = document.createElement('a');
+                        a.href = '#';
+                        a.className = 'avec-rec-pill';
+                        a.textContent = pc.GetTab(x.i).GetText();
+                        a.setAttribute('data-avec-sec', x.i);
+                        a.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            zgjedhur = x.i;
+                            aktivPill = -1;
+                            var c = permbajtja(x.i);
+                            if (c) window.scrollTo({ top: c.getBoundingClientRect().top + window.pageYOffset - lartesia() - 8, behavior: 'smooth' });
+                        });
+                        pills.appendChild(a);
+                    });
+                    aktivPill = -1;
+                }
+                if (strip) {
+                    var t = titulli();
+                    if (strip.getAttribute('data-avec-title') !== t) strip.setAttribute('data-avec-title', t);
+                    if (pills.style.top !== strip.offsetHeight + 'px') pills.style.top = strip.offsetHeight + 'px';
+                }
+                var h = lartesia() + 'px';
+                if (body.style.getPropertyValue('--avec-rec-head') !== h) body.style.setProperty('--avec-rec-head', h);
+                ndiqScroll();
+            }
+
+            // the pill of the section under the header is marked
+            function ndiqScroll() {
+                if (!body.classList.contains('avec-rec-open')) return;
+                var secs = seksionet(), kufi = lartesia() + 24, kjo = secs.length ? secs[0].i : -1;
+                for (var k = 0; k < secs.length; k++) if (secs[k].el.getBoundingClientRect().top <= kufi) kjo = secs[k].i;
+                if (zgjedhur >= 0) kjo = zgjedhur;   // the pill just clicked, until the user scrolls
+                else if (secs.length && window.pageYOffset > 0 &&
+                    window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2) kjo = secs[secs.length - 1].i;
+                if (kjo === aktivPill) return;
+                aktivPill = kjo;
+                var as = pills.querySelectorAll('.avec-rec-pill');
+                for (var a = 0; a < as.length; a++) as[a].classList.toggle('avec-on', +as[a].getAttribute('data-avec-sec') === kjo);
+            }
+
+            var zgjedhur = -1;
+            ['wheel', 'touchmove', 'keydown', 'mousedown'].forEach(function (ev) {
+                window.addEventListener(ev, function (e) {
+                    if (zgjedhur < 0 || (e.target && e.target.closest && e.target.closest('.avec-rec-pill'))) return;
+                    zgjedhur = -1;
+                    ndiqScroll();
+                }, { passive: true });
+            });
+            window.addEventListener('scroll', ndiqScroll, { passive: true });
+            // the title follows the record (its fields are filled by callbacks after it opens)
+            setInterval(function () { if (body.classList.contains('avec-rec-open')) rifresko(); }, 1000);
+            return { rifresko: rifresko };
+        })();
+
+        // panels: two per row; a section whose content does not fit in half the width takes the whole row
+        // (measured, never clipped)
+        var paneli = (function () {
+            var afat = null, neMatje = false;
+
+            function igjere(sec) {
+                if (sec.scrollWidth > sec.clientWidth + 1) return true;
+                var gridat = sec.querySelectorAll('table.dxgvControl_Material');
+                for (var g = 0; g < gridat.length; g++) {
+                    var gr = gridat[g];
+                    if (!gr.offsetParent) continue;
+                    if (gr.scrollWidth > gr.clientWidth + 1) return true;
+                    // grid columns squeezed below a readable width
+                    var kr = gr.querySelector('tr[id*="DXHeadersRow"]');
+                    if (kr && kr.children.length * 80 > gr.clientWidth) return true;
+                    var sc = gr.querySelector('.dxgvCSD');
+                    if (sc && sc.scrollWidth > sc.clientWidth + 1) return true;
+                }
+                // editors squeezed too much (labels sit beside the fields and do not wrap)
+                var ed = sec.querySelectorAll('table.dxeTextBox_Material, table.dxeButtonEdit_Material');
+                for (var e = 0; e < ed.length; e++) {
+                    if (!ed[e].offsetParent || ed[e].closest('.dxgvControl_Material')) continue;
+                    if (ed[e].getBoundingClientRect().width < 90) return true;
+                }
+                return false;
+            }
+
+            function mat() {
+                afat = null;
+                if (!body.classList.contains('avec-rec-open') || !permbajtjaEl) return;
+                neMatje = true;
+                var secs = seksionet().map(function (x) { return x.el; });
+                // empty lines (<br>) left at the end of a section's markup
+                secs.forEach(function (sec) {
+                    var p = sec.lastElementChild;
+                    for (var e = p && p.lastElementChild; e; e = e.previousElementSibling) {
+                        if (e.tagName === 'BR') e.classList.add('avec-br-fund');
+                        else if (e.tagName !== 'SCRIPT' && getComputedStyle(e).display !== 'none') break;
+                    }
+                });
+                var para =secs.map(function (sec) { return sec.classList.contains('avec-sec-full'); });
+                secs.forEach(function (sec) { sec.classList.remove('avec-sec-full'); });
+                var kolonat = (getComputedStyle(permbajtjaEl).gridTemplateColumns || '').split(' ').filter(Boolean).length;
+                var gjere = secs.map(function () { return false; });
+                if (kolonat >= 2) {
+                    gjere = secs.map(igjere);
+                    // a half-width panel left alone in its row (the next one takes the whole row) takes it too
+                    var radhe = 0;
+                    for (var k = 0; k <= secs.length; k++) {
+                        if (k === secs.length || gjere[k]) {
+                            if (radhe % 2 === 1) gjere[k - 1] = true;
+                            radhe = 0;
+                        } else radhe++;
+                    }
+                }
+                secs.forEach(function (sec, k) { if (gjere[k]) sec.classList.add('avec-sec-full'); });
+                if (gjere.join() !== para.join()) {
+                    try { if (C.AdjustControls) C.AdjustControls(main); } catch (e) { }
+                }
+                // jqGrid tables (e.g. Inventari's stock per warehouse) keep the pixel width they got at load
+                var jq = window.jQuery;
+                if (jq && jq.fn && jq.fn.jqGrid) secs.forEach(function (sec) {
+                    var boxes = sec.querySelectorAll('.ui-jqgrid[id^="gbox_"]');
+                    for (var b = 0; b < boxes.length; b++) {
+                        var box = boxes[b], prind = box.parentElement;
+                        if (!box.offsetParent || !prind) continue;
+                        var cs = getComputedStyle(prind);
+                        var w = Math.floor(prind.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight));
+                        if (w > 200 && Math.abs(box.offsetWidth - w) > 2) {
+                            try { jq('#' + box.id.slice(5)).jqGrid('setGridWidth', w); } catch (e) { }
+                        }
+                    }
+                });
+                koka.rifresko();
+                setTimeout(function () { neMatje = false; }, 300);
+            }
+
+            function kerko(vonese) {
+                if (afat) clearTimeout(afat);
+                afat = setTimeout(mat, vonese || 0);
+            }
+
+            window.addEventListener('resize', function () { kerko(150); });
+            // fields arrive by callback after the record opens: measure again when a section changes size
+            if (window.ResizeObserver) {
+                var ro = new ResizeObserver(function () { if (!neMatje) kerko(250); });
+                for (var j = 0; j < grupi.length; j++) { var c = permbajtja(grupi[j]); if (c) ro.observe(c); }
+            }
+            return { kerko: kerko };
+        })();
 
         var radhe = false;
         function rizbato() {

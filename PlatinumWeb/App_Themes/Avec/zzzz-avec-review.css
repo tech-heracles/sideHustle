@@ -188,3 +188,194 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):not(.avec-has-toptab
     height: 1px;
     background: var(--avec-border, #383838);
 }
+
+/* ---- 2B "kartela kompakte" (Alkid 2026-11-27): kur hapet nje regjistrim i formave BASHKO (js/avec-inner.js)
+   - rreshti i tab-eve rri lart (sticky) me titullin e regjistrimit dhe butonat e faqes ne te djathte
+   - nen te, pills per secilin seksion (klik = shko te seksioni)
+   - seksionet jane panele, 2 per rresht ne ekran te gjere; seksioni qe nuk nxe ne gjysem merr gjithe rreshtin
+   - fushat kompakte (28px), etiketat ne krah te fushes */
+body.avec-rec-open .dxtcLite_Material.avec-merged > ul.dxtc-strip {
+    position: sticky !important;
+    top: 0;
+    z-index: 40;
+    overflow: visible !important;
+    margin-bottom: 0 !important;
+    background: #151515 !important;
+    box-shadow: -8px 0 0 #151515, 8px 0 0 #151515, -8px -8px 0 #151515, 8px -8px 0 #151515;
+    align-items: center;
+}
+
+/* titulli i regjistrimit (kodi · pershkrimi) ne krah te "Te pergjithshme" */
+body.avec-rec-open .dxtcLite_Material.avec-merged > ul.dxtc-strip::after {
+    content: attr(data-avec-title);
+    order: 50;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--avec-text, #f2f2f0);
+    padding-left: 18px;
+    border-left: 1px solid #2c2c2c;
+    line-height: 26px;
+}
+
+/* "Te pergjithshme" kthen te lista */
+body.avec-rec-open .dxtcLite_Material.avec-merged > ul.dxtc-strip > li.dxtc-lead .dxtc-link::before {
+    content: "\2039";
+    margin-right: 6px;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--avec-orange, #e8683a);
+}
+
+/* butonat e faqes (Ruaj, Shto, Klono, Fshi...) mbeten ne krye kur rrotullohet faqja */
+body:not(.avec-login):not(.avec-dashboard):not(.avec-shell).avec-rec-open.avec-has-toptabs div.avec-menu-host {
+    position: fixed !important;
+}
+
+body.avec-rec-open .dxtcLite_Material.avec-merged > .dxtc-content {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(560px, 100%), 1fr));
+    gap: 12px;
+    align-items: start;
+    padding-top: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+}
+
+.avec-rec-pills {
+    display: none;
+}
+
+body.avec-rec-open .avec-rec-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    grid-column: 1 / -1;
+    position: sticky;
+    z-index: 39;
+    padding: 10px 0;
+    background: #151515;
+    border-bottom: 1px solid #262626;
+    box-shadow: -24px 0 0 #151515, 24px 0 0 #151515;
+}
+
+.avec-rec-pill {
+    display: inline-flex;
+    align-items: center;
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid #2f2f2f;
+    font-size: 12px;
+    color: #cfcfca !important;
+    text-decoration: none !important;
+    white-space: nowrap;
+}
+
+.avec-rec-pill:hover {
+    border-color: var(--avec-orange, #e8683a);
+    color: #fff !important;
+}
+
+.avec-rec-pill.avec-on {
+    border-color: var(--avec-orange, #e8683a);
+    color: #ffb08c !important;
+}
+
+/* panelet */
+body.avec-rec-open .dxtcLite_Material.avec-merged > .dxtc-content > .avec-merge-section {
+    min-width: 0;
+    padding: 0 0 10px !important;
+    background: #181818 !important;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    scroll-margin-top: calc(var(--avec-rec-head, 100px) + 8px);
+}
+
+body.avec-rec-open .dxtcLite_Material.avec-merged > .dxtc-content > .avec-merge-section.avec-sec-full {
+    grid-column: 1 / -1;
+}
+
+body.avec-rec-open .dxtcLite_Material.avec-merged > .dxtc-content > .avec-merge-section > .avec-merge-title {
+    margin: 0 0 6px;
+    padding: 9px 14px;
+    width: auto !important;
+    box-sizing: border-box;
+    border-bottom: 1px solid #262626;
+    letter-spacing: .05em;
+}
+
+body.avec-rec-open .dxtcLite_Material.avec-merged > .dxtc-content > .avec-merge-section > .avec-merge-title::after {
+    display: none;
+}
+
+body.avec-rec-open .dxtcLite_Material.avec-merged > .dxtc-content > .avec-merge-section > :not(.avec-merge-title) {
+    padding-left: 8px;
+    padding-right: 8px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* permbajtja e tab-it (display:table-cell nga DevExpress) zgjerohej sa gridi brenda; si block ze gjeresine e panelit */
+body.avec-rec-open .dxtcLite_Material.avec-merged > .dxtc-content > .avec-merge-section > div:not(.avec-merge-title) {
+    display: block !important;
+}
+
+/* fushat kompakte */
+body.avec-rec-open .avec-merge-section table[class*="renditKontrolle"],
+body.avec-rec-open .avec-merge-section table[class*="RenditKontrolle"] {
+    min-width: 0 !important;
+    padding: 0 !important;
+}
+
+body.avec-rec-open .avec-merge-section td.renditKontrolleCell {
+    padding: 3px 14px 3px 2px !important;
+}
+
+body.avec-rec-open .avec-merge-section td.renditKontrolleCaption {
+    padding: 3px 8px 3px 6px !important;
+}
+
+body.avec-rec-open .avec-merge-section td.renditKontrolleCaption,
+body.avec-rec-open .avec-merge-section td.renditKontrolleCaption label,
+body.avec-rec-open .avec-merge-section td.renditKontrolleCaption .dxeBase_Material {
+    font-size: 12px !important;
+    color: #a9a9a4 !important;
+    font-weight: 400 !important;
+}
+
+body.avec-rec-open .avec-merge-section table.dxeTextBox_Material,
+body.avec-rec-open .avec-merge-section table.dxeButtonEdit_Material,
+body.avec-rec-open .avec-merge-section div.dxeTextBox_Material,
+body.avec-rec-open .avec-merge-section div.dxeButtonEdit_Material {
+    height: 28px !important;
+    border-radius: 6px !important;
+}
+
+body.avec-rec-open .avec-merge-section table.dxeTextBox_Material td,
+body.avec-rec-open .avec-merge-section table.dxeButtonEdit_Material td {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+body.avec-rec-open .avec-merge-section table.dxeTextBox_Material input.dxeEditArea_Material,
+body.avec-rec-open .avec-merge-section table.dxeButtonEdit_Material input.dxeEditArea_Material {
+    height: 26px !important;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 13px !important;
+}
+
+body.avec-rec-open .avec-merge-section table.dxeMemo_Material {
+    border-radius: 6px !important;
+}
+
+/* rreshta bosh (<br>) ne fund te seksioneve */
+body.avec-rec-open .avec-merge-section br.avec-br-fund {
+    display: none;
+}
