@@ -3,10 +3,11 @@
     1. Aprovime dokumentash: faqja ListeAprovimi.aspx (Aprovimet / Kerkese per aprovim),
     2. Administrim: Grupim ndermarrjesh (LupaGrupNdermarrje.aspx), Politika (PolitikaFjalekalimi.aspx),
        Skema Pune (Shto_SkemaWorkFlow.aspx dhe LupaSkemaWorkFlow.aspx),
-    3. Raportet e Arkes: Arketimet (lista e arketimeve, 220), Arketimet Ditore (511), Arketimet Orare (727),
+    3. Raportet e Arkes: Arketimet Ditore (511), Arketimet Orare (727),
        Ditari Klasik Sipas Autorizimeve (134), Lista e arketimeve dhe anullimeve (503),
     4. Raportet e Bankes: Ditari Klasik Sipas Autorizimeve (135), Ditari Total ne nivel raportues (582),
        Gjendja e permbledhur e bankes ne nivel raportues (311).
+  (2026-11-27: raporti "Arketimet" (220) mbetet, Alkid: "Arketimet ktheje". Ne DRAFT u kthye me rollback + rerun.)
 
   Komponentet dhe raportet fshihen bashke me te gjitha rreshtat qe varen prej tyre (te drejtat, menute, gridat, dizajnet,
   filtrat ...), te gjetura nga celesat e huaj deri ne 4 nivele, plus tabelat pa celes te huaj me kolone IDKOMPONENTE/IDRAPORTI.
@@ -41,7 +42,7 @@ WHERE KOMPONEMRI IN ('ListeAprovimi.aspx?status=aprovim', 'ListeAprovimi.aspx?st
 
 CREATE TABLE #rap (id numeric(18,0) PRIMARY KEY);
 INSERT #rap SELECT IDRAPORTI FROM T_RAPORTI
-WHERE (IDMODULI = 2 AND RAPEMRIREAL IN ('Arketimet', 'arketimeDitore', 'ArketimetOrare', 'ditariKlasikAutorizimeArka', 'listeArketimeAnullime'))
+WHERE (IDMODULI = 2 AND RAPEMRIREAL IN ('arketimeDitore', 'ArketimetOrare', 'ditariKlasikAutorizimeArka', 'listeArketimeAnullime'))
    OR (IDMODULI = 6 AND RAPEMRIREAL IN ('ditariKlasikAutorizimeBanka', 'ditariTotalBankaRaportues', 'gjendjaPermbledhurBankesNivelRaportues'));
 
 SELECT 'komponente' AS cfare, COUNT(*) AS n FROM #komp UNION ALL SELECT 'raporte', COUNT(*) FROM #rap;
