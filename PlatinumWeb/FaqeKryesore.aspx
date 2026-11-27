@@ -1706,7 +1706,7 @@
                 if (!d || !d.body || d.getElementById('avec-inner-js')) return;
                 var s = d.createElement('script');
                 s.id = 'avec-inner-js';
-                s.src = 'js/avec-inner.js?v=3';
+                s.src = 'js/avec-inner.js?v=4';
                 d.body.appendChild(s);
                 // pages that never set a header still show the name of the card that opened them
                 var titull = window.avecMenuTitleFor && avecMenuTitleFor();
