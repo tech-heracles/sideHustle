@@ -166,9 +166,9 @@
                     if (i !== aktiv) vendosDisplay(c, 'none');
                 }
 
-                // strip: while open the group's tabs give way to the record header (title + section pills);
-                // in the list view the group's first tab stays
-                var mbaj = bashkuar ? false : i === pare;
+                // strip: one tab for the whole group, active and on the left like on every page (the active one
+                // while open, else the first); the record title and the section pills come after it
+                var mbaj = bashkuar ? i === aktiv : i === pare;
                 klase(el('_T' + i), 'avec-merge-hide', !mbaj);
                 klase(el('_AT' + i), 'avec-merge-hide', !mbaj);
             }
