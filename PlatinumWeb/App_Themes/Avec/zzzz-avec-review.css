@@ -519,16 +519,28 @@ body.avec-3b #rowed5 tr.jqgrow[editable="1"] > td {
 }
 
 body.avec-3b #rowed5 tr.jqgrow[editable="1"] input[id^="txtKodi"] {
-    height: 38px !important;
     box-sizing: border-box;
+    height: 25px !important;
     width: 100% !important;
-    padding: 0 8px !important;
     border: 2px solid var(--avec-orange, #e8683a) !important;
-    border-radius: 8px !important;
-    background: #1a1a1a !important;
-    color: var(--avec-text, #f2f2f0) !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
+    border-radius: 6px !important;
+}
+
+/* vlerat numerike te rreshtave (Sasia, Cmimi, Zbritja, Vlefta) djathtas, nen kolonen e vet, si fushat e rreshtit qe plotesohet */
+body.avec-3b #rowed5 tr.jqgrow > td[aria-describedby$="_txtSasia"],
+body.avec-3b #rowed5 tr.jqgrow > td[aria-describedby$="_txtCmimi"],
+body.avec-3b #rowed5 tr.jqgrow > td[aria-describedby$="_txtZbritja"],
+body.avec-3b #rowed5 tr.jqgrow > td[aria-describedby$="_txtVleftaTVSH"],
+body.avec-3b #rowed5 tr.jqgrow > td[aria-describedby$="_txtVlefta"] {
+    text-align: right !important;
+}
+
+body.avec-3b #rowed5 tr.jqgrow[editable="1"] > td[aria-describedby$="_txtSasia"] input,
+body.avec-3b #rowed5 tr.jqgrow[editable="1"] > td[aria-describedby$="_txtCmimi"] input,
+body.avec-3b #rowed5 tr.jqgrow[editable="1"] > td[aria-describedby$="_txtZbritja"] input,
+body.avec-3b #rowed5 tr.jqgrow[editable="1"] > td[aria-describedby$="_txtVleftaTVSH"] input,
+body.avec-3b #rowed5 tr.jqgrow[editable="1"] > td[aria-describedby$="_txtVlefta"] input {
+    text-align: right !important;
 }
 
 body.avec-3b #gview_rowed5 .ui-jqgrid-htable th {
@@ -614,28 +626,9 @@ body.avec-3b #tblFund td.avec-total input.dxeEditArea_Material {
     color: #ffb08c !important;
 }
 
-/* butonat e faqes (Ruaj, Ruaj si draft...) ne rreshtin e titullit te shiritit te fundit, djathtas; mesazhet (MenuInfo)
-   mbeten lart. Kur shiriti nuk shihet (p.sh. paneli i mbyllur) butonat kthehen ne vendin e tyre lart. */
-body.avec-3b div.avec-3b-butonat:not(.avec-3b-jashte) {
-    position: fixed !important;
-    top: var(--avec-3b-top, 12px);
-    right: var(--avec-3b-right, 24px);
-    z-index: 60;
-    width: auto !important;
-    max-width: var(--avec-3b-maxw, 700px);
-}
-
-body.avec-3b div.avec-3b-butonat:not(.avec-3b-jashte) #ASPxMenu1 > ul {
-    flex-wrap: wrap !important;
-    justify-content: flex-end;
-    row-gap: 6px;
-}
-
-body.avec-3b #accordition > div.avec-3b-fund > h3.ui-accordion-header {
-    min-height: var(--avec-3b-bh, 0px);
-    box-sizing: border-box;
-    display: flex !important;
-    align-items: center !important;
+/* butonat e faqes (Ruaj, Ruaj si draft...) lart djathtas, ne te njejtin vend si ne faqet e tjera (Alkid 2026-11-27) */
+body.avec-3b div.avec-3b-butonat .dxm-main.dxm-horizontal > ul {
+    justify-content: flex-end !important;
 }
 
 /* 3B: seksionet mbushin panelin, shiriti i fundit rri gjithmone poshte (edhe me pak rreshta); gridi zgjatet */

@@ -566,31 +566,14 @@
             return s + koke.style.getPropertyValue('--avec-p') + fund.style.getPropertyValue('--avec-k');
         }
 
-        // the toolbar sits in the bottom bar's title row, on the right (the bar follows the pane's scrolling
-        // until it reaches the bottom, so this runs on scroll too)
-        var h3 = h3Fund;
-        function vendosButonat() {
+        // the page toolbar stays at the top, on the right like on the other pages (Alkid 2026-11-27)
+        function mbushPanelin() {
             // the sections fill the pane so the bottom bar sits at its bottom even with few lines
             var acc = document.getElementById('accordition'), sc = document.getElementById('ASPxSplitter1_0_CC');
             if (acc && sc && sc.clientHeight) {
                 var mh = Math.max(0, Math.floor(sc.clientHeight - (acc.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop) - 12)) + 'px';
                 if (acc.style.minHeight !== mh) acc.style.minHeight = mh;
             }
-            if (!butonat || !seksioniFund || !h3) return;
-            var fr = seksioniFund.getBoundingClientRect();
-            var vw = document.documentElement.clientWidth;
-            var titulli = h3.firstElementChild ? h3.firstElementChild.getBoundingClientRect().right - fr.left + 24 : 220;
-            var v = {
-                '--avec-3b-top': Math.round(fr.top + 4) + 'px',
-                '--avec-3b-right': Math.round(Math.max(0, vw - fr.right) + 10) + 'px',
-                '--avec-3b-maxw': Math.round(Math.max(200, fr.width - titulli - 10)) + 'px'
-            };
-            for (var k in v) if (butonat.style.getPropertyValue(k) !== v[k]) butonat.style.setProperty(k, v[k]);
-            // back in its own place at the top while the bar is out of the pane's view (e.g. the pane collapsed)
-            var shihet = fr.height > 0 && pane && fr.top < pane.getBoundingClientRect().bottom - 10 && fr.top > (pane.getBoundingClientRect().top - 2);
-            butonat.classList.toggle('avec-3b-jashte', !shihet);
-            var hb = butonat.offsetHeight + 8 + 'px';
-            if (seksioniFund.style.getPropertyValue('--avec-3b-bh') !== hb) seksioniFund.style.setProperty('--avec-3b-bh', hb);
         }
 
         // the line being edited: the code field is the entry ("Kodi / barkodi")
@@ -600,7 +583,7 @@
         }
 
         // the splitter (Height=100%) sat under the toolbar row and ran past the bottom of the frame, so the bottom
-        // bar would be cut: with the toolbar in the bar it is fitted to the frame
+        // bar would be cut: it is fitted to the frame
         function pershtatSplitter() {
             var sp = window.splitter;
             if (!sp || !sp.GetMainElement || !sp.SetHeight) return;
@@ -616,8 +599,8 @@
             // on any error the table keeps its own layout (.avec-mat turns the 3B rules off), so no field is lost
             try { rregulloKoke(); } catch (e) { koke.classList.add('avec-mat'); }
             try { rregulloFund(); } catch (e) { fund.classList.add('avec-mat'); }
-            try { if (butonat && !butonat.classList.contains('avec-3b-jashte')) pershtatSplitter(); } catch (e) { }
-            try { vendosButonat(); } catch (e) { }
+            try { pershtatSplitter(); } catch (e) { }
+            try { mbushPanelin(); } catch (e) { }
             try { rreshtiHyrjes(); } catch (e) { }
             var n = nenshkrim();
             if (n !== iFundit) {
@@ -646,15 +629,15 @@
         [koke, fund].forEach(function (t) { obs.observe(t, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] }); });
         var rr = document.getElementById('rowed5');
         if (rr) new MutationObserver(function () { rreshtiHyrjes(); }).observe(rr, { attributes: true, subtree: true, attributeFilter: ['editable'] });
-        window.addEventListener('resize', function () { kerko(150); vendosButonat(); });
+        window.addEventListener('resize', function () { kerko(150); mbushPanelin(); });
         var scroller = document.getElementById('ASPxSplitter1_0_CC');
-        if (scroller) scroller.addEventListener('scroll', vendosButonat, { passive: true });
+        if (scroller) scroller.addEventListener('scroll', mbushPanelin, { passive: true });
         if (window.ResizeObserver) {
-            var ro = new ResizeObserver(function () { vendosButonat(); if (!neZbatim) kerko(150); });
+            var ro = new ResizeObserver(function () { mbushPanelin(); if (!neZbatim) kerko(150); });
             [pane, butonat, seksioniFund].forEach(function (e) { if (e) ro.observe(e); });
         }
-        setTimeout(vendosButonat, 600);
-        setTimeout(vendosButonat, 2000);
+        setTimeout(mbushPanelin, 600);
+        setTimeout(mbushPanelin, 2000);
     }
 
     body.classList.toggle('avec-filters-off', !filtersOn());
