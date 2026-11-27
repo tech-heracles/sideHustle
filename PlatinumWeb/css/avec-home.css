@@ -380,3 +380,22 @@ html, body.avec-home { height: 100%; overflow: hidden; }
     .home-main { overflow: visible; }
     .home-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- menuja anesore (2026-11-27): FaqeKryesore mban Default.aspx?nav=1 ne panelin majtas ---------- */
+/* vetem lista e moduleve, njesoj si majtas ne Kryefaqe (paneli eshte i ngushte: rregullat per ekran te vogel nuk vlejne) */
+.home-navonly .home { grid-template-columns: minmax(0, 1fr); height: 100%; }
+.home-navonly .home-main { display: none !important; }
+.home-navonly .home-nav {
+    border-right: 2px solid var(--h-accent);
+    border-bottom: 0;
+    padding: 16px 12px 24px;
+    overflow-y: auto;
+}
+.home-navonly .home-nav-list { flex-direction: column; flex-wrap: nowrap; overflow-x: visible; gap: 2px; padding-bottom: 0; }
+.home-navonly .home-nav-list .home-nav-item { width: 100%; flex: initial; }
+.home-navonly .home-nav-list .home-nav-text { flex: 1 1 auto; }
+.home-navonly .home-nav-desc { display: block; }
+
+/* Kryefaqja ne panelin kryesor kur menuja anesore ekziston: modulet nuk perseriten */
+.home-nonav .home { grid-template-columns: minmax(0, 1fr); }
+.home-nonav .home-nav { display: none !important; }

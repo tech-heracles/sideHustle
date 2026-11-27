@@ -464,7 +464,7 @@
             var tds = tbl.querySelectorAll('td');
             for (var i = 0; i < tds.length; i++) {
                 var td = tds[i];
-                td.classList.remove('avec-on', 'avec-s2', 'avec-lbl', 'avec-total', 'avec-total-lbl', 'avec-val2');
+                td.classList.remove('avec-on', 'avec-s2', 'avec-lbl', 'avec-total', 'avec-total-lbl', 'avec-val2', 'avec-lbl-djathtas');
                 td.style.gridRow = '';
                 td.style.gridColumn = '';
             }
@@ -488,7 +488,7 @@
                 if (g.cap && !g.fields.length) g.cap.classList.add('avec-s2');
             });
             var w = koke.parentElement ? koke.parentElement.clientWidth : 0;
-            var p = Math.max(1, Math.min(5, Math.floor((w + 14) / 300)));
+            var p = Math.max(1, Math.min(5, Math.floor((w + 14) / 255)));
             koke.style.setProperty('--avec-p', p);
         }
 
@@ -506,16 +506,34 @@
             var koka = shuma.length ? gr.filter(function (g) { return g.cap && !g.n; }).slice(0, 2) : [];
             var tjera = gr.filter(function (g) { return shuma.indexOf(g) < 0 && koka.indexOf(g) < 0; });
             var vend = fund.parentElement ? fund.parentElement.clientWidth - 24 : 800;
-            var kol = Math.max(3, Math.floor((vend + 14) / 134));
+            var kol = Math.max(3, Math.floor((vend + 14) / 122));
             fund.style.setProperty('--avec-k', kol);
 
             function vendos(td, rr, cc, extra) {
                 td.classList.add('avec-on');
-                if (extra) td.classList.add(extra);
+                if (extra) extra.split(' ').forEach(function (x) { td.classList.add(x); });
                 td.style.gridRow = String(rr);
                 td.style.gridColumn = String(cc);
             }
             var rresht = 1;
+            // everything fits in one row: the payment fields on the left, the totals on the right (Total last)
+            var majtas = tjera.length, djathtas = shuma.length + (koka.length ? 1 : 0);
+            var maxF1 = tjera.length ? Math.max.apply(null, tjera.map(function (g) { return g.fields.length; })) : 0;
+            if (shuma.length && majtas + djathtas + (majtas ? 1 : 0) <= kol && maxF1 <= 1) {
+                tjera.forEach(function (g, i) {
+                    if (g.cap) vendos(g.cap, 1, i + 1, 'avec-lbl');
+                    g.fields.forEach(function (f) { vendos(f, 2, i + 1); });
+                });
+                var c0 = kol - djathtas + 1;
+                koka.forEach(function (h, k) { vendos(h.cap, 2 + k, c0, 'avec-lbl avec-lbl-djathtas'); });
+                shuma.forEach(function (s, j) {
+                    var cc = c0 + (koka.length ? 1 : 0) + j;
+                    var eshteTotal = s.cap && /^\s*total\s*:?\s*$/i.test(s.cap.textContent);
+                    if (s.cap) vendos(s.cap, 1, cc, eshteTotal ? 'avec-total-lbl' : 'avec-lbl');
+                    s.fields.forEach(function (f, k) { vendos(f, 2 + k, cc, k === 0 ? (eshteTotal ? 'avec-total' : null) : 'avec-val2'); });
+                });
+                return;
+            }
             if (tjera.length) {
                 var maxF = Math.max(1, Math.max.apply(null, tjera.map(function (g) { return g.fields.length; })));
                 for (var i = 0; i < tjera.length; i++) {
@@ -529,7 +547,10 @@
                 var maxS = Math.max(1, Math.max.apply(null, shuma.map(function (g) { return g.fields.length; })));
                 maxS = Math.max(maxS, koka.length);   // a currency label stays even when its values are hidden
                 var nis = koka.length ? 2 : 1, ne = Math.max(1, kol - nis + 1);
-                koka.forEach(function (h, k) { vendos(h.cap, rresht + 1 + k, 1, 'avec-lbl'); });
+                // the totals on the right (under the toolbar, Total last) when they fit in one row
+                var zhvendos = shuma.length <= ne ? ne - shuma.length : 0;
+                koka.forEach(function (h, k) { vendos(h.cap, rresht + 1 + k, 1 + zhvendos, 'avec-lbl avec-lbl-djathtas'); });
+                nis += zhvendos;
                 for (var j = 0; j < shuma.length; j++) {
                     var bb = Math.floor(j / ne), cc = j % ne + nis, r0 = rresht + (1 + maxS) * bb, s = shuma[j];
                     var eshteTotal = s.cap && /^\s*total\s*:?\s*$/i.test(s.cap.textContent);
@@ -549,6 +570,12 @@
         // until it reaches the bottom, so this runs on scroll too)
         var h3 = h3Fund;
         function vendosButonat() {
+            // the sections fill the pane so the bottom bar sits at its bottom even with few lines
+            var acc = document.getElementById('accordition'), sc = document.getElementById('ASPxSplitter1_0_CC');
+            if (acc && sc && sc.clientHeight) {
+                var mh = Math.max(0, Math.floor(sc.clientHeight - (acc.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop) - 12)) + 'px';
+                if (acc.style.minHeight !== mh) acc.style.minHeight = mh;
+            }
             if (!butonat || !seksioniFund || !h3) return;
             var fr = seksioniFund.getBoundingClientRect();
             var vw = document.documentElement.clientWidth;
@@ -569,7 +596,7 @@
         // the line being edited: the code field is the entry ("Kodi / barkodi")
         function rreshtiHyrjes() {
             var k = document.querySelectorAll('#rowed5 tr.jqgrow[editable="1"] input[id^="txtKodi"]');
-            for (var i = 0; i < k.length; i++) if (!k[i].placeholder) k[i].placeholder = 'Kodi / barkodi…';
+            for (var i = 0; i < k.length; i++) if (!k[i].placeholder) k[i].placeholder = 'Kodi…';
         }
 
         // the splitter (Height=100%) sat under the toolbar row and ran past the bottom of the frame, so the bottom

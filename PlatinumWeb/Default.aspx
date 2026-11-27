@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/avec-dashboard.css?v=5" rel="stylesheet" />
-    <link href="css/avec-home.css?v=1" rel="stylesheet" />
+    <link href="css/avec-home.css?v=2" rel="stylesheet" />
 </head>
 <body class="avec-dashboard avec-home">
     <form id="form1" runat="server">
@@ -143,6 +143,12 @@
             }
 
             var host = window.parent && window.parent !== window ? window.parent : null;
+            // menuja anesore (2026-11-27): FaqeKryesore mban kete faqe me ?nav=1 ne panelin majtas (vetem modulet);
+            // kur ajo ekziston, Kryefaqja ne panelin kryesor nuk e perserit listen e moduleve
+            var navOnly = /[?&]nav=1(&|$)/.test(location.search);
+            var meMenuAnesore = !navOnly && !!(host && host.avecMenuAnesore);
+            document.body.classList.toggle('home-navonly', navOnly);
+            document.body.classList.toggle('home-nonav', meMenuAnesore);
             // faqet qe perdoruesi mund te hape (sipas te drejtave), nga menuja e vjeter lart dhe navbar-i qe nuk shfaqen me:
             // FaqeKryesore.aspx.cs i dergon si window.avecMenuTeDhena; ketu marrin te njejten forme si kontrollet e dikurshme
             var teDhena = host && host.avecMenuTeDhena;
@@ -383,6 +389,7 @@
                 if (on) { favs.push(k); favSet[k] = true; } else { favs = favs.filter(function (x) { return x !== k; }); delete favSet[k]; }
                 if (btn) { btn.classList.toggle('on', on); btn.setAttribute('aria-pressed', on); btn.title = on ? 'Hiq nga të preferuarat' : 'Shto te të preferuarat'; }
                 updateFavCount();
+                if (meMenuAnesore && host.avecFavNumri) host.avecFavNumri(favs.length);
                 api('NdryshoFavorit', { celesi: k, shto: on }).then(function (ok) {
                     if (ok === false) throw new Error('nuk u ruajt');
                 }).catch(function () {
@@ -694,6 +701,12 @@
             }
 
             function render(keepScroll) {
+                if (navOnly) {
+                    // side menu: only the module list, the pages open in the main frame
+                    var ni = document.querySelectorAll('.home-nav-item');
+                    for (var x = 0; x < ni.length; x++) ni[x].classList.toggle('active', ni[x].getAttribute('data-key') === current);
+                    return;
+                }
                 var top = body.parentNode.scrollTop;
                 var q = search.value.trim();
                 if (q) { current = '__search'; } else if (current === '__search') { current = lastModule; }
@@ -711,8 +724,10 @@
                 lastModule = k;
                 search.value = '';
                 headFilter.value = '';
+                if (navOnly) { render(); if (host && host.avecHapModul) host.avecHapModul(k); return; }
                 try { history.replaceState(null, '', k === '__fav' ? location.pathname + location.search : '#' + k); } catch (err) { }
                 render();
+                if (meMenuAnesore && host.avecModuliAktiv) host.avecModuliAktiv(k);
             }
 
             function updateFavCount() {
@@ -741,13 +756,23 @@
             document.getElementById('home').hidden = list.length === 0;
 
             var searchTimer;
-            search.addEventListener('input', function () { clearTimeout(searchTimer); searchTimer = setTimeout(function () { render(); }, 120); });
+            search.addEventListener('input', function () {
+                clearTimeout(searchTimer);
+                searchTimer = setTimeout(function () {
+                    if (navOnly) { if (host && host.avecKerko) host.avecKerko(search.value.trim()); return; }
+                    render();
+                }, navOnly ? 250 : 120);
+            });
             search.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { search.value = ''; render(); } });
             headFilter.addEventListener('input', function () { render(true); });
             headFilter.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { headFilter.value = ''; render(true); } });
             document.addEventListener('keydown', function (ev) {
                 var t = ev.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA');
-                if (!typing && (ev.key === '/' || ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'k'))) { ev.preventDefault(); search.focus(); search.select(); }
+                if (!typing && (ev.key === '/' || ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'k'))) { ev.preventDefault();
+                    var ku = search;
+                    try { if (meMenuAnesore) ku = host.frames['frameMenu'].document.getElementById('homeSearch') || search; } catch (err) { }
+                    ku.focus(); ku.select();
+                }
             });
 
             // first view: the favourites (or the module/report section the user came back to, e.g. from a report)
@@ -759,10 +784,21 @@
             } else if (hash && modules[hash]) {
                 current = lastModule = hash;
             }
+            // side menu: the home screen asks it to show its module / favourites count; a search typed there
+            // before this page loaded is shown here
+            window.avecHome = {
+                select: select,
+                kerko: function (q) { search.value = q || ''; render(); },
+                aktiv: function (k) { current = lastModule = k || '__fav'; render(); },
+                favNumri: function (c) { navFavCount.textContent = c ? String(c) : ''; }
+            };
+            if (meMenuAnesore && host.avecKerkimPritje) { search.value = host.avecKerkimPritje; host.avecKerkimPritje = ''; }
             render();
+            if (meMenuAnesore && host.avecModuliAktiv) host.avecModuliAktiv(current);
             api('MerrFavoritet').then(function (txt) {
                 setFavs(JSON.parse(txt || '[]') || []);
                 updateFavCount();
+                if (meMenuAnesore && host.avecFavNumri) host.avecFavNumri(favs.length);
                 render(true);
                 if (back) { var s = document.getElementById(hash); if (s) s.scrollIntoView(); }
             }).catch(function () { toast('Të preferuarat nuk u ngarkuan.'); });

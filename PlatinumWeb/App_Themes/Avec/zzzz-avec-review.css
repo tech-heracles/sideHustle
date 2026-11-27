@@ -637,3 +637,31 @@ body.avec-3b #accordition > div.avec-3b-fund > h3.ui-accordion-header {
     display: flex !important;
     align-items: center !important;
 }
+
+/* 3B: seksionet mbushin panelin, shiriti i fundit rri gjithmone poshte (edhe me pak rreshta); gridi zgjatet */
+body.avec-3b #accordition {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+body.avec-3b #accordition > div.ui-accordion.trup:not([style*="display: none"]) {
+    flex: 1 0 auto;
+}
+
+body.avec-3b #accordition > div.avec-3b-fund {
+    margin-top: auto;
+}
+
+body.avec-3b #tblFund td.avec-lbl-djathtas {
+    justify-content: flex-end;
+    padding-right: 4px !important;
+}
+
+/* 3B: etiketat e gjata kalojne ne rresht te dyte ne vend qe te priten */
+body.avec-3b #tblFillim td.avec-lbl,
+body.avec-3b #tblFillim td.avec-lbl label,
+body.avec-3b #tblFillim td.avec-lbl .dxeBase_Material {
+    white-space: normal !important;
+    line-height: 1.2;
+}

@@ -393,6 +393,13 @@
                         <Separators Size="0px" Visible="False">
                         </Separators>
                         <Panes>
+                            <%-- Menuja anesore (Alkid 2026-11-27): modulet e Kryefaqes mbeten gjithmone majtas, ne cdo faqe.
+                                 Default.aspx?nav=1 vizaton vetem listen e moduleve; klikimi hap modulin ne Kryefaqe (avecHapModul). --%>
+                            <dx:SplitterPane Name="paneMenu" Size="300px" MinSize="200px" MaxSize="460px" ContentUrl="Default.aspx?nav=1"
+                                ContentUrlIFrameName="frameMenu" ScrollBars="None" ShowCollapseBackwardButton="True" PaneStyle-BackColor="#171717">
+                                <PaneStyle BackColor="#171717"></PaneStyle>
+                                <Separators Size="6px"></Separators>
+                            </dx:SplitterPane>
                             <%-- Main pane (iOS problem pane) --%>
                             <dx:SplitterPane Name="paneKryesor" ContentUrl="javascript:false" ContentUrlIFrameName="frameKryesor"
                                 ScrollBars="Auto" PaneStyle-BackColor="#121212" AutoWidth="true">
@@ -1654,6 +1661,38 @@
         //tr_menu.style.paddingRight = "3%";
         //tr_menu.style.backgroundColor = "#e8683a";
         function dashboard() { splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx'); }
+
+        // ---- menuja anesore (paneMenu, Default.aspx?nav=1): modulet e Kryefaqes ne cdo faqe
+        window.avecMenuAnesore = true;
+        function avecKryefaqja() {
+            // the home screen when it is the page open in the main frame
+            try {
+                var f = window.frames['frameKryesor'];
+                if (f && /\/default\.aspx$/i.test(f.location.pathname) && f.avecHome) return f.avecHome;
+            } catch (err) { }
+            return null;
+        }
+        function avecMenuNav() {
+            try { var f = window.frames['frameMenu']; return f && f.avecHome ? f.avecHome : null; } catch (err) { return null; }
+        }
+        // a module (or "__fav") chosen in the side menu: shown in the home screen, opened if another page is open
+        window.avecHapModul = function (k) {
+            var h = avecKryefaqja();
+            if (h) { h.select(k); return; }
+            splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx' + (k && k !== '__fav' ? '#' + encodeURIComponent(k) : ''));
+            if (window.lblFaqja) try { lblFaqja.SetText(''); } catch (err) { }
+        };
+        // search typed in the side menu: the home screen lists the pages and reports that match
+        window.avecKerko = function (q) {
+            var h = avecKryefaqja();
+            if (h) { h.kerko(q); return; }
+            if (!q) return;
+            window.avecKerkimPritje = q;
+            splitter.GetPaneByName('paneKryesor').SetContentUrl('Default.aspx');
+        };
+        // the home screen tells which module it shows and how many favourites there are
+        window.avecModuliAktiv = function (k) { var n = avecMenuNav(); if (n) n.aktiv(k); };
+        window.avecFavNumri = function (c) { var n = avecMenuNav(); if (n) n.favNumri(c); };
         
     </script>
     <style>
@@ -1706,7 +1745,7 @@
                 if (!d || !d.body || d.getElementById('avec-inner-js')) return;
                 var s = d.createElement('script');
                 s.id = 'avec-inner-js';
-                s.src = 'js/avec-inner.js?v=7';
+                s.src = 'js/avec-inner.js?v=8';
                 d.body.appendChild(s);
                 // pages that never set a header still show the name of the card that opened them
                 var titull = window.avecMenuTitleFor && avecMenuTitleFor();
