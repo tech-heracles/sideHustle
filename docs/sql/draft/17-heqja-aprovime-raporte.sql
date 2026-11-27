@@ -7,6 +7,7 @@
        Ditari Klasik Sipas Autorizimeve (134), Lista e arketimeve dhe anullimeve (503),
     4. Raportet e Bankes: Ditari Klasik Sipas Autorizimeve (135), Ditari Total ne nivel raportues (582),
        Gjendja e permbledhur e bankes ne nivel raportues (311).
+    5. Raportet e Shitjes: Shitje dhe arketime ditore sipas autorizimeve (187).
   (2026-11-27: raporti "Arketimet" (220) mbetet, Alkid: "Arketimet ktheje". Ne DRAFT u kthye me rollback + rerun.)
 
   Komponentet dhe raportet fshihen bashke me te gjitha rreshtat qe varen prej tyre (te drejtat, menute, gridat, dizajnet,
@@ -43,7 +44,8 @@ WHERE KOMPONEMRI IN ('ListeAprovimi.aspx?status=aprovim', 'ListeAprovimi.aspx?st
 CREATE TABLE #rap (id numeric(18,0) PRIMARY KEY);
 INSERT #rap SELECT IDRAPORTI FROM T_RAPORTI
 WHERE (IDMODULI = 2 AND RAPEMRIREAL IN ('arketimeDitore', 'ArketimetOrare', 'ditariKlasikAutorizimeArka', 'listeArketimeAnullime'))
-   OR (IDMODULI = 6 AND RAPEMRIREAL IN ('ditariKlasikAutorizimeBanka', 'ditariTotalBankaRaportues', 'gjendjaPermbledhurBankesNivelRaportues'));
+   OR (IDMODULI = 6 AND RAPEMRIREAL IN ('ditariKlasikAutorizimeBanka', 'ditariTotalBankaRaportues', 'gjendjaPermbledhurBankesNivelRaportues'))
+   OR (IDMODULI = 12 AND RAPEMRI_sq = 'Shitje dhe arketime ditore sipas autorizimeve');
 
 SELECT 'komponente' AS cfare, COUNT(*) AS n FROM #komp UNION ALL SELECT 'raporte', COUNT(*) FROM #rap;
 
