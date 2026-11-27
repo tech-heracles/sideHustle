@@ -331,7 +331,7 @@
                 if (id) reportCats[id] = e.title;
             });
             var reports = {};      // idmod -> [{ id, emri }]
-            var pending = {};      // idmod -> true while loading
+            var pending = {};      // idmod -> promise while loading
 
             function api(method, data) {
                 return fetch('Default.aspx/' + method, {
@@ -342,16 +342,26 @@
                   .then(function (r) { return r.d; });
             }
 
+            // resolves once every report list in ids is known (null = failed); a list is asked for only once
             function loadReports(ids) {
-                ids = ids.filter(function (id) { return reportCats[id] && !reports[id] && !pending[id]; });
-                if (!ids.length) return Promise.resolve();
-                ids.forEach(function (id) { pending[id] = true; });
-                return api('MerrRaportet', { module: ids }).then(function (txt) {
-                    var res = JSON.parse(txt || '{}');
-                    ids.forEach(function (id) { reports[id] = res[id] || []; delete pending[id]; });
-                }).catch(function () {
-                    ids.forEach(function (id) { reports[id] = reports[id] || null; delete pending[id]; });
-                });
+                var need = ids.filter(function (id) { return reportCats[id] && reports[id] === undefined && !pending[id]; });
+                if (need.length) {
+                    var p = api('MerrRaportet', { module: need }).then(function (txt) {
+                        var res = JSON.parse(txt || '{}');
+                        need.forEach(function (id) { reports[id] = res[id] || []; });
+                    }).catch(function () {
+                        need.forEach(function (id) { if (reports[id] === undefined) reports[id] = null; });
+                    }).then(function () {
+                        need.forEach(function (id) { delete pending[id]; });
+                    });
+                    need.forEach(function (id) { pending[id] = p; });
+                }
+                var waits = ids.map(function (id) { return pending[id]; }).filter(Boolean);
+                return waits.length ? Promise.all(waits) : null;
+            }
+            function whenLoaded(ids, fn) {
+                var p = loadReports(ids);
+                if (p) p.then(fn);   // nothing to wait for: the caller has already drawn the lists
             }
 
             function reportEntry(idmod, r) {
@@ -599,7 +609,7 @@
             function renderFavourites() {
                 setHead('fa-star', 'Të preferuarat', 'Faqet dhe raportet që keni shënuar me yll', false);
                 body.innerHTML = '';
-                var waiting = reportModulesIn(favs.concat(recentList())).filter(function (id) { return reportCats[id] && !reports[id]; });
+                var waiting = reportModulesIn(favs.concat(recentList())).filter(function (id) { return reportCats[id] && reports[id] === undefined; });
                 var items = favs.map(resolve).filter(Boolean);
                 if (items.length) {
                     // grouped by module, in the order of the modules on the left
@@ -618,7 +628,7 @@
                 if (waiting.length) body.appendChild(loadingSection('Duke ngarkuar raportet…'));
                 var rec = recentList().filter(function (k) { return !favSet[k]; }).map(resolve).filter(Boolean).slice(0, 6);
                 if (rec.length) body.appendChild(section('Hapur së fundmi', rec, { icon: 'fa-history', showModule: true, cls: 'home-section-recent' }));
-                if (waiting.length) loadReports(waiting).then(function () { if (current === '__fav') render(); });
+                if (waiting.length) whenLoaded(waiting, function () { if (current === '__fav') render(true); });
             }
 
             function renderModule(m) {
@@ -654,7 +664,7 @@
                 blocks.forEach(function (b) { body.appendChild(b); });
                 if (!n && !favHere.length && !missing.length)
                     body.appendChild(f ? emptyState('fa-search', 'Asgjë nuk përputhet me “' + headFilter.value + '”', '') : emptyState('fa-folder-open-o', 'Ky modul nuk ka faqe', ''));
-                if (missing.length) loadReports(missing).then(function () { if (current === m.key) render(true); });
+                if (missing.length) whenLoaded(missing, function () { if (current === m.key) render(true); });
             }
 
             function renderSearch(q) {
@@ -677,7 +687,7 @@
                 if (reps.length) body.appendChild(section('Raporte', reps.slice(0, 60), { icon: 'fa-bar-chart', showModule: true }));
                 if (missing.length) {
                     body.appendChild(loadingSection('Duke kërkuar edhe në raporte…'));
-                    loadReports(missing).then(function () { if (current === '__search' && search.value.trim()) render(); });
+                    whenLoaded(missing, function () { if (current === '__search' && search.value.trim()) render(true); });
                 } else if (!pages.length && !reps.length) {
                     body.appendChild(emptyState('fa-search', 'Asgjë nuk u gjet', 'Provoni një fjalë tjetër, p.sh. “fatura” ose “ditari”.'));
                 }
