@@ -402,10 +402,239 @@
         }
     }
 
+    // ---- 3B "shiriti i shpejte" for the sales document (Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje;
+    // Alkid, 2026-11-27). Only the display changes, no node is moved (the page's scripts address the cells as
+    // #tbl>tbody>tr:eq(r)>td:eq(k)):
+    // - header fields (tblFillim): every field that shows today, as compact label + field pairs in a wrapping grid
+    // - the line being edited in the article grid is the prominent entry line (orange, 52px)
+    // - Fund Dokumenti (tblFund: totals and the payment fields) is a bar that stays at the bottom of the pane,
+    //   the totals as columns (Total large in orange), and the page toolbar (Ruaj...) on its right
+    function shitje3B() {
+        if (faqja() !== 'shto_regjistrimdokumentash.aspx' || !/shitje_blerje=shitje/i.test(location.search)) return;
+        var koke = document.getElementById('tblFillim'), fund = document.getElementById('tblFund');
+        var h3Fund = document.getElementById('fundKonfigurimi');
+        var butonat = document.getElementById('dvMenuButona');
+        var pane = document.getElementById('ASPxSplitter1_0');
+        if (!koke || !fund) return;
+        body.classList.add('avec-3b');
+        var seksioniFund = h3Fund ? h3Fund.parentElement : null;
+        if (seksioniFund) seksioniFund.classList.add('avec-3b-fund');
+        if (butonat) butonat.classList.add('avec-3b-butonat');
+
+        function ka(td) {
+            // something of the cell shows (measured while the table has its own layout)
+            if (getComputedStyle(td).display === 'none') return false;
+            var r = td.getBoundingClientRect();
+            if (r.width === 0 && r.height === 0) return false;
+            var tw = document.createTreeWalker(td, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null, false), n;
+            while ((n = tw.nextNode())) {
+                if (n.nodeType === 3) {
+                    if (!n.nodeValue.trim()) continue;
+                    var p = n.parentElement;
+                    if (!p || p.tagName === 'SCRIPT' || p.tagName === 'STYLE') continue;
+                    var pr = p.getBoundingClientRect();
+                    if (pr.width > 0 && pr.height > 0 && getComputedStyle(p).visibility !== 'hidden') return true;
+                    continue;
+                }
+                if (/^(INPUT|TEXTAREA|SELECT|IMG|BUTTON|CANVAS)$/.test(n.tagName) || /CheckBox|dxich|dxeIRadio/.test(n.className || '')) {
+                    if (n.type === 'hidden') continue;
+                    var er = n.getBoundingClientRect();
+                    if (er.width > 0 && er.height > 0 && getComputedStyle(n).visibility !== 'hidden') return true;
+                }
+            }
+            return false;
+        }
+
+        // label + fields groups of a renditKontrolle table, in reading order
+        function grupet(tbl) {
+            var out = [], rows = tbl.tBodies[0] ? tbl.tBodies[0].rows : [];
+            for (var r = 0; r < rows.length; r++) {
+                var g = null;
+                for (var c = 0; c < rows[r].cells.length; c++) {
+                    var td = rows[r].cells[c];
+                    if (td.classList.contains('renditKontrolleCaption') || !g) { g = { cap: null, fields: [] }; out.push(g); }
+                    if (td.classList.contains('renditKontrolleCaption') && !g.cap && !g.fields.length) g.cap = td;
+                    else g.fields.push(td);
+                }
+            }
+            return out;
+        }
+
+        function pastro(tbl) {
+            var tds = tbl.querySelectorAll('td');
+            for (var i = 0; i < tds.length; i++) {
+                var td = tds[i];
+                td.classList.remove('avec-on', 'avec-s2', 'avec-lbl', 'avec-total', 'avec-total-lbl', 'avec-val2');
+                td.style.gridRow = '';
+                td.style.gridColumn = '';
+            }
+        }
+
+        // header: pairs (label | field); a field without its label, or a label alone, takes both tracks
+        function rregulloKoke() {
+            koke.classList.add('avec-mat');
+            var gr = grupet(koke).map(function (g) {
+                return { cap: g.cap && ka(g.cap) ? g.cap : null, fields: g.fields.filter(ka) };
+            });
+            pastro(koke);
+            koke.classList.remove('avec-mat');
+            gr.forEach(function (g) {
+                if (!g.cap && !g.fields.length) return;
+                if (g.cap) g.cap.classList.add('avec-on', 'avec-lbl');
+                g.fields.forEach(function (f, k) {
+                    f.classList.add('avec-on');
+                    if (!g.cap || k > 0) f.classList.add('avec-s2');
+                });
+                if (g.cap && !g.fields.length) g.cap.classList.add('avec-s2');
+            });
+            var w = koke.parentElement ? koke.parentElement.clientWidth : 0;
+            var p = Math.max(1, Math.min(5, Math.floor((w + 14) / 300)));
+            koke.style.setProperty('--avec-p', p);
+        }
+
+        // footer: each group is a column, label above its value(s); groups with two values (totals in the
+        // document's and the base currency) come last, after a column with the currency labels
+        function rregulloFund() {
+            fund.classList.add('avec-mat');
+            var gr = grupet(fund).map(function (g) {
+                return { cap: g.cap && ka(g.cap) ? g.cap : null, fields: g.fields.filter(ka), n: g.fields.filter(function (f) { return f.classList.contains('renditKontrolleCell'); }).length };
+            }).filter(function (g) { return g.cap || g.fields.length; });
+            pastro(fund);
+            fund.classList.remove('avec-mat');
+            // totals: the groups laid out with a value per currency (even when the base currency one is hidden)
+            var shuma = gr.filter(function (g) { return g.n >= 2; });
+            var koka = shuma.length ? gr.filter(function (g) { return g.cap && !g.n; }).slice(0, 2) : [];
+            var tjera = gr.filter(function (g) { return shuma.indexOf(g) < 0 && koka.indexOf(g) < 0; });
+            var vend = fund.parentElement ? fund.parentElement.clientWidth - 24 : 800;
+            var kol = Math.max(3, Math.floor((vend + 14) / 134));
+            fund.style.setProperty('--avec-k', kol);
+
+            function vendos(td, rr, cc, extra) {
+                td.classList.add('avec-on');
+                if (extra) td.classList.add(extra);
+                td.style.gridRow = String(rr);
+                td.style.gridColumn = String(cc);
+            }
+            var rresht = 1;
+            if (tjera.length) {
+                var maxF = Math.max(1, Math.max.apply(null, tjera.map(function (g) { return g.fields.length; })));
+                for (var i = 0; i < tjera.length; i++) {
+                    var b = Math.floor(i / kol), c = i % kol + 1, g = tjera[i], r1 = rresht + b * (1 + maxF);
+                    if (g.cap) vendos(g.cap, r1, c, 'avec-lbl');
+                    g.fields.forEach(function (f, k) { vendos(f, r1 + 1 + k, c); });
+                }
+                rresht += Math.ceil(tjera.length / kol) * (1 + maxF);
+            }
+            if (shuma.length) {
+                var maxS = Math.max(1, Math.max.apply(null, shuma.map(function (g) { return g.fields.length; })));
+                maxS = Math.max(maxS, koka.length);   // a currency label stays even when its values are hidden
+                var nis = koka.length ? 2 : 1, ne = Math.max(1, kol - nis + 1);
+                koka.forEach(function (h, k) { vendos(h.cap, rresht + 1 + k, 1, 'avec-lbl'); });
+                for (var j = 0; j < shuma.length; j++) {
+                    var bb = Math.floor(j / ne), cc = j % ne + nis, r0 = rresht + (1 + maxS) * bb, s = shuma[j];
+                    var eshteTotal = s.cap && /^\s*total\s*:?\s*$/i.test(s.cap.textContent);
+                    if (s.cap) vendos(s.cap, r0, cc, eshteTotal ? 'avec-total-lbl' : 'avec-lbl');
+                    s.fields.forEach(function (f, k) { vendos(f, r0 + 1 + k, cc, k === 0 ? (eshteTotal ? 'avec-total' : null) : 'avec-val2'); });
+                }
+            }
+        }
+
+        function nenshkrim() {
+            var s = '', tds = document.querySelectorAll('#tblFillim td, #tblFund td');
+            for (var i = 0; i < tds.length; i++) s += tds[i].className + tds[i].style.gridRow + '/' + tds[i].style.gridColumn + ';';
+            return s + koke.style.getPropertyValue('--avec-p') + fund.style.getPropertyValue('--avec-k');
+        }
+
+        // the toolbar sits in the bottom bar's title row, on the right (the bar follows the pane's scrolling
+        // until it reaches the bottom, so this runs on scroll too)
+        var h3 = h3Fund;
+        function vendosButonat() {
+            if (!butonat || !seksioniFund || !h3) return;
+            var fr = seksioniFund.getBoundingClientRect();
+            var vw = document.documentElement.clientWidth;
+            var titulli = h3.firstElementChild ? h3.firstElementChild.getBoundingClientRect().right - fr.left + 24 : 220;
+            var v = {
+                '--avec-3b-top': Math.round(fr.top + 4) + 'px',
+                '--avec-3b-right': Math.round(Math.max(0, vw - fr.right) + 10) + 'px',
+                '--avec-3b-maxw': Math.round(Math.max(200, fr.width - titulli - 10)) + 'px'
+            };
+            for (var k in v) if (butonat.style.getPropertyValue(k) !== v[k]) butonat.style.setProperty(k, v[k]);
+            // back in its own place at the top while the bar is out of the pane's view (e.g. the pane collapsed)
+            var shihet = fr.height > 0 && pane && fr.top < pane.getBoundingClientRect().bottom - 10 && fr.top > (pane.getBoundingClientRect().top - 2);
+            butonat.classList.toggle('avec-3b-jashte', !shihet);
+            var hb = butonat.offsetHeight + 8 + 'px';
+            if (seksioniFund.style.getPropertyValue('--avec-3b-bh') !== hb) seksioniFund.style.setProperty('--avec-3b-bh', hb);
+        }
+
+        // the line being edited: the code field is the entry ("Kodi / barkodi")
+        function rreshtiHyrjes() {
+            var k = document.querySelectorAll('#rowed5 tr.jqgrow[editable="1"] input[id^="txtKodi"]');
+            for (var i = 0; i < k.length; i++) if (!k[i].placeholder) k[i].placeholder = 'Kodi / barkodi…';
+        }
+
+        // the splitter (Height=100%) sat under the toolbar row and ran past the bottom of the frame, so the bottom
+        // bar would be cut: with the toolbar in the bar it is fitted to the frame
+        function pershtatSplitter() {
+            var sp = window.splitter;
+            if (!sp || !sp.GetMainElement || !sp.SetHeight) return;
+            var el = sp.GetMainElement(), top = el.getBoundingClientRect().top + (window.pageYOffset || 0);
+            var h = Math.max(400, Math.floor(window.innerHeight - top - 4));
+            if (Math.abs(el.offsetHeight - h) > 1) sp.SetHeight(h);
+        }
+
+        var radha = null, neZbatim = false, iFundit = null;
+        function zbato() {
+            radha = null;
+            neZbatim = true;
+            // on any error the table keeps its own layout (.avec-mat turns the 3B rules off), so no field is lost
+            try { rregulloKoke(); } catch (e) { koke.classList.add('avec-mat'); }
+            try { rregulloFund(); } catch (e) { fund.classList.add('avec-mat'); }
+            try { if (butonat && !butonat.classList.contains('avec-3b-jashte')) pershtatSplitter(); } catch (e) { }
+            try { vendosButonat(); } catch (e) { }
+            try { rreshtiHyrjes(); } catch (e) { }
+            var n = nenshkrim();
+            if (n !== iFundit) {
+                // editors laid out for the old widths get their new size (only when the layout changed)
+                iFundit = n;
+                try { if (window.ASPxClientControl && ASPxClientControl.AdjustControls) ASPxClientControl.AdjustControls(document.body); } catch (e) { }
+            }
+            setTimeout(function () { neZbatim = false; }, 50);
+        }
+        function kerko(v) {
+            if (radha) clearTimeout(radha);
+            radha = setTimeout(zbato, v || 0);
+        }
+
+        zbato();
+        // the fields are placed by callbacks after the page loads, and scripts show / hide them later
+        var obs = new MutationObserver(function (list) {
+            if (neZbatim) return;
+            for (var i = 0; i < list.length; i++) {
+                var t = list[i].target;
+                if (list[i].type === 'attributes' && (t === koke || t === fund)) continue;   // our own column counts
+                kerko(120);
+                return;
+            }
+        });
+        [koke, fund].forEach(function (t) { obs.observe(t, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] }); });
+        var rr = document.getElementById('rowed5');
+        if (rr) new MutationObserver(function () { rreshtiHyrjes(); }).observe(rr, { attributes: true, subtree: true, attributeFilter: ['editable'] });
+        window.addEventListener('resize', function () { kerko(150); vendosButonat(); });
+        var scroller = document.getElementById('ASPxSplitter1_0_CC');
+        if (scroller) scroller.addEventListener('scroll', vendosButonat, { passive: true });
+        if (window.ResizeObserver) {
+            var ro = new ResizeObserver(function () { vendosButonat(); if (!neZbatim) kerko(150); });
+            [pane, butonat, seksioniFund].forEach(function (e) { if (e) ro.observe(e); });
+        }
+        setTimeout(vendosButonat, 600);
+        setTimeout(vendosButonat, 2000);
+    }
+
     body.classList.toggle('avec-filters-off', !filtersOn());
     ensureButtons();
     translateEmpty();
     try { bashkoForma(); } catch (e) { /* the page keeps its tabs */ }
+    try { shitje3B(); } catch (e) { /* the page keeps its layout */ }
 
     // grids re-render after callbacks and partial postbacks
     var pending = false;

@@ -379,3 +379,261 @@ body.avec-rec-open .avec-merge-section table.dxeMemo_Material {
 body.avec-rec-open .avec-merge-section br.avec-br-fund {
     display: none;
 }
+
+/* ---- 3B "shiriti i shpejte" per Shitje (Shto_RegjistrimDokumentash.aspx?shitje_blerje=shitje; Alkid 2026-11-27;
+   js/avec-inner.js, shitje3B). Asnje fushe nuk fshihet: qelizat bosh te tabeles se konfigurimit nuk zene vend,
+   fushat qe shfaqen dalin si cifte etikete + fushe. */
+
+/* seksionet si panele, titull i vogel portokalli */
+body.avec-3b #accordition > div.ui-accordion {
+    margin-bottom: 10px;
+    background: #181818;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+}
+
+body.avec-3b #accordition > div.ui-accordion > h3.ui-accordion-header {
+    margin: 0 !important;
+    padding: 7px 12px 7px 28px !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid #262626 !important;
+    border-radius: 10px 10px 0 0 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--avec-orange, #e8683a) !important;
+}
+
+body.avec-3b #accordition > div.ui-accordion > h3.ui-accordion-header span {
+    color: var(--avec-orange, #e8683a) !important;
+}
+
+body.avec-3b #accordition > div.ui-accordion > .ui-accordion-content {
+    border: 0 !important;
+    padding: 8px 12px !important;
+}
+
+/* koka: cifte etikete | fushe ne nje rrjete qe kthehet ne rresht te ri */
+body.avec-3b #tblFillim:not(.avec-mat) {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+}
+
+body.avec-3b #tblFillim:not(.avec-mat) > tbody {
+    display: grid;
+    grid-template-columns: repeat(var(--avec-p, 3), minmax(60px, max-content) minmax(140px, 1fr));
+    gap: 6px 12px;
+    align-items: center;
+}
+
+body.avec-3b #tblFillim:not(.avec-mat) > tbody > tr {
+    display: contents;
+}
+
+body.avec-3b #tblFillim:not(.avec-mat) > tbody > tr > td:not(.avec-on),
+body.avec-3b #tblFund:not(.avec-mat) > tbody > tr > td:not(.avec-on) {
+    display: none !important;
+}
+
+body.avec-3b #tblFillim:not(.avec-mat) > tbody > tr > td.avec-on,
+body.avec-3b #tblFund:not(.avec-mat) > tbody > tr > td.avec-on {
+    display: flex !important;
+    align-items: center;
+    min-width: 0;
+    padding: 0 !important;
+}
+
+body.avec-3b #tblFillim:not(.avec-mat) > tbody > tr > td.avec-s2 {
+    grid-column: span 2;
+}
+
+body.avec-3b #tblFillim:not(.avec-mat) td.avec-on > *,
+body.avec-3b #tblFund:not(.avec-mat) td.avec-on > * {
+    max-width: 100%;
+}
+
+body.avec-3b #tblFillim:not(.avec-mat) td.avec-on:not(.avec-lbl) > table.dxeTextBox_Material,
+body.avec-3b #tblFillim:not(.avec-mat) td.avec-on:not(.avec-lbl) > table.dxeButtonEdit_Material,
+body.avec-3b #tblFillim:not(.avec-mat) td.avec-on:not(.avec-lbl) > table.dxeMemo_Material,
+body.avec-3b #tblFillim:not(.avec-mat) td.avec-on:not(.avec-lbl) > table.dxeValidDynEditorTable,
+body.avec-3b #tblFund:not(.avec-mat) td.avec-on:not(.avec-lbl):not(.avec-total-lbl) > table.dxeTextBox_Material,
+body.avec-3b #tblFund:not(.avec-mat) td.avec-on:not(.avec-lbl):not(.avec-total-lbl) > table.dxeButtonEdit_Material,
+body.avec-3b #tblFund:not(.avec-mat) td.avec-on:not(.avec-lbl):not(.avec-total-lbl) > table.dxeValidDynEditorTable {
+    width: 100% !important;
+}
+
+body.avec-3b #tblFillim td.avec-lbl,
+body.avec-3b #tblFillim td.avec-lbl label,
+body.avec-3b #tblFillim td.avec-lbl .dxeBase_Material {
+    font-size: 12px !important;
+    color: #a9a9a4 !important;
+    font-weight: 400 !important;
+}
+
+/* fushat kompakte (koka dhe fundi) */
+body.avec-3b #tblFillim table.dxeTextBox_Material,
+body.avec-3b #tblFillim table.dxeButtonEdit_Material,
+body.avec-3b #tblFund table.dxeTextBox_Material,
+body.avec-3b #tblFund table.dxeButtonEdit_Material {
+    height: 28px !important;
+    border-radius: 6px !important;
+}
+
+body.avec-3b #tblFillim table.dxeTextBox_Material td,
+body.avec-3b #tblFillim table.dxeButtonEdit_Material td,
+body.avec-3b #tblFund table.dxeTextBox_Material td,
+body.avec-3b #tblFund table.dxeButtonEdit_Material td {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+body.avec-3b #tblFillim input.dxeEditArea_Material,
+body.avec-3b #tblFund input.dxeEditArea_Material {
+    height: 26px !important;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 13px !important;
+}
+
+/* pershkrimet (memo) me 2 rreshta ne koke, qe rreshti i fushave te mos zgjatet */
+body.avec-3b #tblFillim:not(.avec-mat) table.dxeMemo_Material {
+    height: auto !important;
+}
+
+body.avec-3b #tblFillim:not(.avec-mat) table.dxeMemo_Material textarea {
+    height: 50px !important;
+    min-height: 0 !important;
+}
+
+/* rreshti qe po plotesohet ne gride: hyrja e artikullit (kodi / barkodi) */
+body.avec-3b #rowed5 tr.jqgrow[editable="1"] > td {
+    height: 52px;
+    background: #1f1a17 !important;
+    border-top: 1px solid var(--avec-orange, #e8683a) !important;
+    border-bottom: 1px solid var(--avec-orange, #e8683a) !important;
+}
+
+body.avec-3b #rowed5 tr.jqgrow[editable="1"] input[id^="txtKodi"] {
+    height: 38px !important;
+    box-sizing: border-box;
+    width: 100% !important;
+    padding: 0 8px !important;
+    border: 2px solid var(--avec-orange, #e8683a) !important;
+    border-radius: 8px !important;
+    background: #1a1a1a !important;
+    color: var(--avec-text, #f2f2f0) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+
+body.avec-3b #gview_rowed5 .ui-jqgrid-htable th {
+    font-size: 11px !important;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #a3a39e !important;
+}
+
+body.avec-3b #rowed5 tr.jqgrow:not([editable="1"]) > td {
+    border-bottom: 1px solid #232323 !important;
+}
+
+/* fundi i dokumentit: shirit qe rri poshte, totalet si kolona, butonat ne te djathte */
+body.avec-3b #accordition > div.avec-3b-fund {
+    position: sticky;
+    bottom: 0;
+    z-index: 30;
+    margin-bottom: 0;
+    border-color: #2c2c2c;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -10px 18px rgba(0, 0, 0, .45);
+}
+
+body.avec-3b #accordition > div.avec-3b-fund > .ui-accordion-content {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 6px 12px 8px !important;
+}
+
+body.avec-3b #tblFund:not(.avec-mat) {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    float: none !important;
+    padding: 0 !important;
+}
+
+body.avec-3b #tblFund:not(.avec-mat) > tbody {
+    display: grid;
+    grid-template-columns: repeat(var(--avec-k, 6), minmax(0, 1fr));
+    gap: 2px 14px;
+    align-items: center;
+}
+
+body.avec-3b #tblFund:not(.avec-mat) > tbody > tr {
+    display: contents;
+}
+
+body.avec-3b #tblFund td.avec-lbl,
+body.avec-3b #tblFund td.avec-lbl label,
+body.avec-3b #tblFund td.avec-lbl .dxeBase_Material,
+body.avec-3b #tblFund td.avec-total-lbl,
+body.avec-3b #tblFund td.avec-total-lbl label,
+body.avec-3b #tblFund td.avec-total-lbl .dxeBase_Material {
+    font-size: 11px !important;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #a3a39e !important;
+    font-weight: 500 !important;
+}
+
+body.avec-3b #tblFund td.avec-lbl,
+body.avec-3b #tblFund td.avec-total-lbl {
+    padding-top: 6px !important;
+}
+
+body.avec-3b #tblFund td.avec-val2 input.dxeEditArea_Material {
+    font-size: 12px !important;
+    color: #a3a39e !important;
+}
+
+body.avec-3b #tblFund td.avec-total table.dxeTextBox_Material,
+body.avec-3b #tblFund td.avec-total table.dxeButtonEdit_Material {
+    height: 38px !important;
+    border-color: var(--avec-orange, #e8683a) !important;
+}
+
+body.avec-3b #tblFund td.avec-total input.dxeEditArea_Material {
+    height: 36px !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #ffb08c !important;
+}
+
+/* butonat e faqes (Ruaj, Ruaj si draft...) ne rreshtin e titullit te shiritit te fundit, djathtas; mesazhet (MenuInfo)
+   mbeten lart. Kur shiriti nuk shihet (p.sh. paneli i mbyllur) butonat kthehen ne vendin e tyre lart. */
+body.avec-3b div.avec-3b-butonat:not(.avec-3b-jashte) {
+    position: fixed !important;
+    top: var(--avec-3b-top, 12px);
+    right: var(--avec-3b-right, 24px);
+    z-index: 60;
+    width: auto !important;
+    max-width: var(--avec-3b-maxw, 700px);
+}
+
+body.avec-3b div.avec-3b-butonat:not(.avec-3b-jashte) #ASPxMenu1 > ul {
+    flex-wrap: wrap !important;
+    justify-content: flex-end;
+    row-gap: 6px;
+}
+
+body.avec-3b #accordition > div.avec-3b-fund > h3.ui-accordion-header {
+    min-height: var(--avec-3b-bh, 0px);
+    box-sizing: border-box;
+    display: flex !important;
+    align-items: center !important;
+}
