@@ -160,12 +160,18 @@ body:not(.avec-login):not(.avec-dashboard):not(.avec-shell):not(.avec-has-toptab
     overflow: visible !important;
 }
 
+/* the tab control shows its pages as display:table: the title would become a column next to the fields
+   and the section wider than the page, so the sections are plain blocks while merged */
 .dxtcLite_Material.avec-merged > .dxtc-content > .avec-merge-section {
+    display: block !important;
+    width: auto !important;
+    box-sizing: border-box;
     padding-bottom: 8px;
 }
 
 .dxtcLite_Material.avec-merged > .dxtc-content > .avec-merge-section > .avec-merge-title {
     display: flex;
+    height: auto !important;   /* the tab control sizes the first child of the active page (inline height) */
     align-items: center;
     gap: 12px;
     margin: 22px 0 12px;
